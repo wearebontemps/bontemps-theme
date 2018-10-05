@@ -1,14 +1,15 @@
+
 development:
   password: 2d14c5c798951a9445a89e3630a8cb98
   theme_id: "32377012318"
   store: https://bontempsdev.myshopify.com
   ignore_files:
-   - config/settings_data.json
-   - theme.lock
+  - config/settings_data.json
+  - theme.lock
 production:
   password: cc71fb917bf64053eb0b849955f0f99d
   theme_id: "37720785014"
   store: https://shopbontemps.myshopify.com
   ignore_files:
-   - config/settings_data.json
-   - theme.lock
+  - config/settings_data.json
+  - theme.lock
