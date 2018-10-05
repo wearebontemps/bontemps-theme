@@ -55,24 +55,6 @@
 </script>
 
 <!-- begin klaviyo scripts -->
-<script type="text/javascript">
-     var _learnq = _learnq || [];
-      {% if customer %}
-        _learnq.push(['identify', {
-        '$email' : "{{customer.email}}"
-        }]);
-      {% else %}
-      {% endif %}
-
-     _learnq.push(['account', 'pk_373f33d46b909dbdf9d5a4745c66416561']);
-     (function () {
-     var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
-     b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +     'a.klaviyo.com/media/js/analytics/analytics.js';
-     var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
-     })();
-</script>
-
-
 <script text="text/javascript">
  var _learnq = _learnq || [];
  var item = {
