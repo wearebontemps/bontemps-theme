@@ -1,0 +1,60 @@
+
+
+{% capture layout %}
+    <div class="col-6 d-flex align-items-center">
+        <h2>{{ section.settings.text_1 }}</h2>
+    </div>
+{% endcapture %}
+<div class="row contained">
+    {% if section.settings.layout == 'left' %}
+        {{ layout }}
+    {% endif %}
+    <div class="col-6 d-flex align-items-center">
+        <p>{{ section.settings.text_2 }}</p>
+    </div>
+    {% if section.settings.layout == 'right' %}
+        {{ layout }}
+    {% endif %}
+</div>
+
+{% schema %}
+{
+    "name": "Header-Alternate",
+    "settings": [
+    {
+    "type": "text",
+    "id": "text_1",
+    "label": "Large Text",
+    "default": "This is large text as a callout"
+    },
+    {
+    "type": "text",
+    "id": "text_2",
+    "label": "Small text",
+    "default": "Announce something here"
+    },
+    {
+    "type": "select",
+    "id": "layout",
+    "label": "Left-Right Layout",
+    "options": [
+        {
+            "value": "left",
+            "label": "left"
+        },
+        {
+            "value": "right",
+            "label": "right"
+        }
+    ]
+    "default": "left"
+    }
+    ],
+        "presets": [
+        {
+        "name": "header-alternate",
+        "category": "Headers"
+        }
+        ]
+    }
+{% endschema %}
