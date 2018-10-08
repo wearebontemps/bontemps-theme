@@ -1,14 +1,14 @@
 
 
 {% capture layout %}
-    <div class="col-6 d-flex fkex-column align-items-start justify-content-between">
+    <div class="col-6 d-flex flex-column align-items-start justify-content-between">
         <div>
             <h1>{{ section.settings.text_1 }}</h1>
             <p>{{ section.settings.text_2 }}</p>
         </div>
         <ul>
         {% for block in section.blocks %}
-        <li><img src="{{ block.settings.list_item_image | img_url: '20x20' }}"/>{{ block.settings.list_item }}</li>
+        <li><img src="{{ block.settings.list_item_image | img_url: '40x40' }}"/>{{ block.settings.list_item }}</li>
         {% endfor %}
         </ul>
     </div>
