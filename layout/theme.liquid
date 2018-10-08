@@ -94,6 +94,7 @@
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
   {{ 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.min.js' | script_tag }}
   {{ 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' | stylesheet_tag }}
+  {{ "vendor.js" | asset_url | script_tag }}
   {{ 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' | script_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
