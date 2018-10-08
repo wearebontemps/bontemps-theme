@@ -1,0 +1,93 @@
+
+
+{% capture layout %}
+    <div class="col-6 d-flex align-items-start justify-content-between">
+        <div>
+            <h1>{{ section.settings.text_1 }}</h1>
+            <p>{{ section.settings.text_2 }}</p>
+        </div>
+        <ul>
+        {% for block in section.blocks %}
+        <li><img src="{{ block.settings.list_item_image | img_url: '80x80' }}"/>{{ block.settings.list_item }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endcapture %}
+
+
+<div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x1200' }}'); background-position: center; background-size: cover; width: 100%; min-height: 600px;">
+<div class="row contained d-flex align-items-center">
+    {% if section.settings.layout == 'left' %}
+        {{ layout }}
+    {% endif %}
+    <div class="col-6"></div>
+    {% if section.settings.layout == 'right' %}
+        {{ layout }}
+    {% endif %}
+</div>
+</div>
+{% schema %}
+{
+    "name": "Header-Alternate",
+    "settings": [
+    {
+    "type": "text",
+    "id": "text_1",
+    "label": "Title Text",
+    "default": "It's 2018, your teas should be clean."
+    },
+    {
+    "type": "text",
+    "id": "text_2",
+    "label": "Title Subtext",
+    "default": "FYI, ours always will be"
+    },
+    {
+    "type": "image_picker",
+    "id": "bg_image",
+    "label": "Background Image"
+    },
+    {
+    "type": "select",
+    "id": "layout",
+    "label": "Left-Right Layout",
+    "options": [
+        {
+            "value": "left",
+            "label": "left"
+        },
+        {
+            "value": "right",
+            "label": "right"
+        }
+    ],
+    "default": "left"
+    }
+    ],
+    "blocks":[
+        {
+            "type": "Text",
+            "name": "Feature List",
+            "settings": [
+            {
+                "type": "text",
+                "id": "list_item",
+                "label": "List Item Text",
+                "default": "100% Organic"
+            },
+            {
+                "type": "image_picker",
+                "id": "list_item_image",
+                "label": "List Item Image"
+            }
+            ]
+        }
+    ],
+        "presets": [
+        {
+        "name": "Text Box",
+        "category": "Text Content"
+        }
+        ]
+    }
+{% endschema %}
