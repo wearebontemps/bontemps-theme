@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-clear contained ap-bg">
+  <a href="/" class="logo-image">
+    {% if section.settings.logo != blank %}
+    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+    <img src="{{ section.settings.logo | img_url: image_size }}"
+    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+    alt="{{ section.settings.logo.alt | default: shop.name }}">
+    {% else %}
+    {{ shop.name }}
+    {% endif %}
+  </a>
+  <button class="navbar-toggler justify-self-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex pangea" style="width: 100%;">
+      {% include "nav-locator-link" color: "dark" %}
+      {% for link in linklists[section.settings.menu].links %}
+      {% if link.links != blank %}
+      <li {% if forloop.first %}class="nav-item dropdown shop" {% else %} class="nav-item dropdown"{% endif %}>
+        <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
+          {{ link.title }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-shop">
+          {% for childlink in link.links %}
+            {% if forloop.index == 1 or forloop.index > 1 %}
+              <div class="dropdown-box">
+            {% endif %}
+              {% if link.links != blank %}
+                <a class="text-dark collection-category" href="{{ childlink.url }}"><h4>{{ childlink.title }}</h4></a>
+                {% if childlink.links != blank %}
+                <ul class="dropdown-category-list">
+                {% for grandchildlink in childlink.links %}
+                <li class="dropdown-link"><a class="text-dark" href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+              {% else %}
+                <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title }}</a>
+              {% endif %}
+
+            {% if forloop.index >= 1 %}
+            </div>
+            {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a href="{{ link.url }}">
+          {{ link.title }}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -88,10 +88,10 @@ Theme Store optional settings
 {% endif %}
 </div>
 <div class="top-nav-box">
-{% include "brand-nav" %}
-{% include "announcement-bar" %}
+{% comment %} {% include "brand-nav" %}
+{% include "announcement-bar" %} {% endcomment %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-  {% include "nav-pangea" %}
+  {% include "header-nav" %}
   </header>
 </div>
 
