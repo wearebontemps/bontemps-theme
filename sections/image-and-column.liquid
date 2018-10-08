@@ -15,7 +15,7 @@
 {% endcapture %}
 
 
-<div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x1200' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.sectipon_height | times: 10 }}px;">
+<div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x1200' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
 <div class="row contained d-flex align-items-center" style="height: {{ section.settings.section_height | times: 10 }}px">
     {% if section.settings.layout == 'left' %}
         {{ layout }}
