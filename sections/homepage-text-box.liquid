@@ -1,7 +1,7 @@
 
 
 {% capture layout %}
-    <div class="col-6 d-flex align-items-center">
+    <div class="col-6 d-flex align-items-center{% if section.settings.layout == 'right' %}text-left{% else %}text-right{% endif %}">
         <h2>{{ section.settings.text_1 }}</h2>
     </div>
 {% endcapture %}
@@ -9,7 +9,7 @@
     {% if section.settings.layout == 'left' %}
         {{ layout }}
     {% endif %}
-    <div class="col-6 d-flex align-items-center">
+    <div class="col-6 d-flex align-items-center {% if section.settings.layout == 'left' %}text-left{% else %}text-right{% endif %}">
         <p>{{ section.settings.text_2 }}</p>
     </div>
     {% if section.settings.layout == 'right' %}
@@ -52,8 +52,8 @@
     ],
         "presets": [
         {
-        "name": "header-alternate",
-        "category": "Headers"
+        "name": "Text Box",
+        "category": "Text Content"
         }
         ]
     }
