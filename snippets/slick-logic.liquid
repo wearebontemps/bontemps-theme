@@ -1,0 +1,12 @@
+{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' | stylesheet_tag }}
+{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' | script_tag }}
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.header-slideshow').slick({
+        autoplay: true,
+        // fade: true,
+        speed: 1000,
+        autoplaySpeed: 5000
+      });
+});
+</script>
