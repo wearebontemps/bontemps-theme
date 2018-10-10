@@ -195,6 +195,7 @@
       "checkout_accent_color": "#1990c6",
       "checkout_button_color": "#23314e",
       "checkout_error_color": "#ff6d6d",
+
       "sections": {
         "header": {
           "type": "header",

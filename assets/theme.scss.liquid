@@ -2420,7 +2420,7 @@ textarea {
     text-align: right;
   }
   &.left{
-    text-align: left; 
+    text-align: left;
   }
 }
 /*================ Site Nav Links ================*/
@@ -6697,4 +6697,62 @@ $toolbar-height-small: 46px;
 .product-card__title {
   border-bottom: 1px solid transparent;
   display: inline;
+}
+
+
+// Instagram feed ================================================/
+#evm-insta {
+  margin: 0 !important;
+}
+#evm-hover-li, .evm_img_div, #evm-instagram{
+  margin: 0 !important;
+}
+.sec_evmbox{
+  padding: 0 !important;
+}
+#evm-instagram-feed{
+  .evm-instagram-heading{
+    display: none !important;
+  }
+}
+.lSPager{
+  display: none !important;
+}
+.instagram-image{
+  padding: 0px !important;
+  position: relative;
+  align-self: center;
+}
+.founder-instagram-image{
+  padding: 1em !important;
+  position: relative;
+  small {
+    max-height: 100px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: normal;
+    text-overflow: ellipsis;
+  }
+}
+.instagram-overlay-icon{
+  margin: auto auto;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  right: 0;
+  background: rgba(1,1,1, .6);
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  img{
+    height: 24px;
+  }
+  &:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
 }

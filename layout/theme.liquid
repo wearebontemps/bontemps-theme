@@ -57,24 +57,23 @@
       },
       moneyFormat: {{ shop.money_format | json }}
     }
-
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   </script>
 
   <script>
-          window['friendbuy'] = window['friendbuy'] || [];
-          window['friendbuy'].push(['site', 'site-f917c2f6-www.shopbontemps.com']);
-          window['friendbuy'].push(['track', 'customer',
-              {
-                  id: '{{ customer.id }}',
-                  email: '{{ customer.email }}',
-                  first_name: '{{ customer.first_name }}',
-                  last_name: '{{ customer.last_name }}'
-              }
-          ]);
-          (function (f, r, n, d, b, y) {
-              b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
-          })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
+    window['friendbuy'] = window['friendbuy'] || [];
+    window['friendbuy'].push(['site', 'site-f917c2f6-www.shopbontemps.com']);
+    window['friendbuy'].push(['track', 'customer',
+        {
+            id: '{{ customer.id }}',
+            email: '{{ customer.email }}',
+            first_name: '{{ customer.first_name }}',
+            last_name: '{{ customer.last_name }}'
+        }
+    ]);
+    (function (f, r, n, d, b, y) {
+        b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+    })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
  </script>
 
   <!--[if (lte IE 9) ]>{{ 'match-media.min.js' | asset_url | script_tag }}<![endif]-->
@@ -96,7 +95,11 @@
   {{ 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' | stylesheet_tag }}
   {{ "vendor.js" | asset_url | script_tag }}
   {{ 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' | script_tag }}
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  {% include 'script-tags', layout: 'theme' %}
+  <!-- {% include 'css-variables' %} -->
+  {% include 'style-tags' %}
+
   {{ content_for_header }}
 </head>
 
@@ -131,7 +134,6 @@
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-
     {% section 'footer' %}
 
   </div>

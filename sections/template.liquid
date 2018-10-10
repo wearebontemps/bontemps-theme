@@ -1,0 +1,43 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="row contained">
+  <div class="col-6 d-flex align-items-center">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.description }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Template",
+    "de": "Template",
+    "fr": "Template",
+    "it": "Template",
+    "ja": "Template",
+    "es": "Template",
+    "pt-BR": "Template"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Set title"
+    },
+    {
+    "type": "richtext",
+    "id": "description",
+    "label": "description",
+    "default": "give section a description"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Template",
+    "category": "Template Content"
+    }
+  ]
+}
+{% endschema %}

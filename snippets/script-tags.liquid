@@ -1,0 +1,28 @@
+
+{%- if layout == 'theme' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'vendors@layout.theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'vendors@layout.theme.js' | asset_url }}"></script><![endif]-->
+  <script type="text/javascript" src="{{ 'instafeed.min.js' | asset_url }}"></script>
+
+{%- endif -%} {%- if layout == 'theme' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'layout.theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'layout.theme.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'gift_card' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'template.gift_card.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'template.gift_card.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'index' or template.name == 'product' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'vendors@template.index@template.product.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'vendors@template.index@template.product.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'index' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'template.index.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'template.index.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'product' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'template.product.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'template.product.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'addresses' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'template.addresses.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'template.addresses.js' | asset_url }}"></script><![endif]-->
+{%- endif -%} {%- if template.name == 'login' -%}
+<!--[if (gt IE 9)|!(IE)]><!--><script type="text/javascript" src="{{ 'template.login.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+<!--[if lte IE 9]><script type="text/javascript" src="{{ 'template.login.js' | asset_url }}"></script><![endif]-->
+{%- endif -%}
