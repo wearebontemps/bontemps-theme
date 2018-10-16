@@ -10,6 +10,10 @@
       <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
         {% for block in section.blocks %}
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-8">
             <blockquote class="quotes-slider__text text-center">
               <span class="quote-icon">{% include 'icon-quote' %}</span>
               {% if block.settings.quote != blank %}
@@ -19,7 +23,9 @@
                 <cite>{{ block.settings.author | escape }}</cite>
               {% endif %}
             </blockquote>
+            </div>
           </div>
+        </div>
         {% endfor %}
       </div>
     </div>
