@@ -12,6 +12,7 @@
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="row">
             <div class="col-4">
+            <img class="quotes-image" src="{{ block.settings.image }}"/>
             </div>
             <div class="col-8">
             <blockquote class="quotes-slider__text text-center">
@@ -129,6 +130,11 @@
               "es": "Nombre del autor",
               "pt-BR": "Nome do(a) autor(a)"
             }
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           }
         ]
       }
