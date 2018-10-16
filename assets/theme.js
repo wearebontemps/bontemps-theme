@@ -3191,12 +3191,15 @@ theme.Quotes = (function() {
   };
   var defaults = {
     accessibility: true,
-    arrows: false,
-    dots: true,
+    arrows: true,
+    dots: false,
     autoplay: false,
     touchThreshold: 20,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    centerMode: true,
+    variableHeight: true,
+    variableWidth: true
   };
 
   function Quotes(container) {
