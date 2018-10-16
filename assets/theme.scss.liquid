@@ -1268,11 +1268,6 @@ html {
 
 .main-content {
   display: block;
-  padding-top: $section-spacing-small;
-
-  @include media-query($medium-up) {
-    padding-top: $section-spacing;
-  }
 }
 
 .section-header {
@@ -2421,6 +2416,11 @@ textarea {
   }
   &.left{
     text-align: left;
+  }
+}
+.navbar-nav{
+  .nav-item{
+    padding: 1em 1.5em;
   }
 }
 /*================ Site Nav Links ================*/

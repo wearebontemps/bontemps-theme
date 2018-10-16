@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light bg-clear contained">
+<nav class="navbar navbar-expand-md navbar-light bg-clear contained row">
   <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto d-flex pangea" style="width: 100%;">
+  <div class="collapse navbar-collapse col-4" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
       {% if link.links != blank %}
       <li {% if forloop.first %}class="nav-item dropdown shop" {% else %} class="nav-item dropdown"{% endif %}>
@@ -46,6 +46,7 @@
       {% endfor %}
     </ul>
   </div>
+  <div class="col-md-4 col-6">
   <a href="/" class="logo-image">
     {% if section.settings.logo != blank %}
     {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -56,4 +57,5 @@
     {{ shop.name }}
     {% endif %}
   </a>
+  </div>
 </nav>
