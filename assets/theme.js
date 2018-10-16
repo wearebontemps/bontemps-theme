@@ -3199,7 +3199,7 @@ theme.Quotes = (function() {
     slidesToScroll: 1,
     centerMode: true,
     variableHeight: false,
-    variableWidth: true
+    variableWidth: false
   };
 
   function Quotes(container) {
