@@ -3195,8 +3195,8 @@ theme.Quotes = (function() {
     dots: true,
     autoplay: false,
     touchThreshold: 20,
-    slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
   function Quotes(container) {
