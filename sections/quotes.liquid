@@ -12,7 +12,9 @@
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="row">
             <div class="col-4">
+            {% assign featured_image = block.settings.image %}
             <img class="quotes-image" src="{{ block.settings.image | img_url }}"/>
+                {% include 'responsive-image' with image: featured_image, image_class: "css-class", wrapper_class: "wrapper-css-class", max_width: 700, max_height: 800 %}
             </div>
             <div class="col-8">
             <blockquote class="quotes-slider__text text-center">
