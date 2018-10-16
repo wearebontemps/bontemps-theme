@@ -13,7 +13,7 @@
             <div class="row quote-row">
             <div class="col-4">
             {% assign featured_image = block.settings.image %}
-                {% include 'responsive-image' with image: featured_image, image_class: "quote-image", wrapper_class: "wrapper-css-class", max_width: 1200 %}
+                <img src="{{featured_image | img_url: '800x' }}"/>
             </div>
             <div class="col-8">
             <blockquote class="quotes-slider__text text-center">
