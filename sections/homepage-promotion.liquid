@@ -2,7 +2,7 @@
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
 <div class="row contained">
-    <div class="col-sm-6 offset-sm-6 d-flex align-items-center justify-content-center text-center">
+    <div class="col-sm-6 offset-sm-3 d-flex flex-column align-items-center justify-content-center text-center">
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
         <a class="btn" href="{{ section.settings.cta_link }}">
@@ -32,7 +32,8 @@
     {
     "type": "text",
     "id": "cta_text",
-    "label": "Button Text"
+    "label": "Button Text",
+    "default": "Send Invite"
     },
     {
      "type": "url",
