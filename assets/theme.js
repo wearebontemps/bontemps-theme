@@ -3198,7 +3198,7 @@ theme.Quotes = (function() {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    variableHeight: true,
+    variableHeight: false,
     variableWidth: true
   };
 
