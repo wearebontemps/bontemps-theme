@@ -1,0 +1,39 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="row contained">
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <h2>{{ section.settings.title }}</h2>
+  </div>
+  <div class="col-6">
+    <p>{{ section.settings.description }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Homepage Announcement"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Time spent well."
+    },
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "description",
+    "default": "For us it means doing what you love - big or small. In our case, it's about helping people - especially women - find what it is they love, and go for it."
+    }
+  ],
+    "presets": [
+    {
+    "name": "Template",
+    "category": "Template Content"
+    }
+  ]
+}
+{% endschema %}
