@@ -1,0 +1,50 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="row contained">
+    <div class="col-sm-6 offset-sm-6 d-flex align-items-center justify-content-center text-center">
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.text }}
+        <a class="btn" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Homepage Promotion"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Give $20 Get $20"
+    },
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "text",
+    "default": "<p>Tea is better with friends! Send your friends a $20 coupon get $20 back once they make their first purchase.</p>"
+    },
+    {
+    "type": "text",
+    "id": "cta_text",
+    "label": "Button Text"
+    },
+    {
+     "type": "url",
+     "id": "cta_link",
+     "label": "Button Link"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Homepage Promotion",
+    "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}
