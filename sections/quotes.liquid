@@ -16,13 +16,15 @@
                 <img src="{{featured_image | img_url: '800x' }}"/>
             </div>
             <div class="col-8">
-            <blockquote class="quotes-slider__text text-center">
-              <span class="quote-icon">{% include 'icon-quote' %}</span>
-              {% if block.settings.quote != blank %}
-                <div class="rte-setting rte">{{ block.settings.quote }}</div>
+            <blockquote class="quotes-slider__text text-left">
+              {% if block.settings.title != blank %}
+                <div class="quote-title">{{ block.settings.title }}</div>
               {% endif %}
               {% if block.settings.author != blank %}
-                <cite>{{ block.settings.author | escape }}</cite>
+                <h2 class="quote-author">{{ block.settings.author | escape }}</h2>
+              {% endif %}
+              {% if block.settings.quote != blank %}
+                <div class="quote-content">{{ block.settings.quote }}</div>
               {% endif %}
             </blockquote>
             </div>
@@ -130,6 +132,16 @@
               "ja": "筆者の名前",
               "es": "Nombre del autor",
               "pt-BR": "Nome do(a) autor(a)"
+            }
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": {
+              "en": "Title"
+            },
+            "default": {
+              "en": "Interior Design"
             }
           },
           {
