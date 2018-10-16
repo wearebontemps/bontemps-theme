@@ -10,10 +10,10 @@
       <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
         {% for block in section.blocks %}
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
-            <div class="row">
+            <div class="row quote-row">
             <div class="col-4">
             {% assign featured_image = block.settings.image %}
-                {% include 'responsive-image' with image: featured_image, image_class: "css-class", wrapper_class: "wrapper-css-class", max_width: 1200 %}
+                {% include 'responsive-image' with image: featured_image, image_class: "quote-image", wrapper_class: "wrapper-css-class", max_width: 1200 %}
             </div>
             <div class="col-8">
             <blockquote class="quotes-slider__text text-center">
