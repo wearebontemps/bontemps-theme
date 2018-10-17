@@ -34,6 +34,41 @@
             $('#selected_product_3').text('');
         }
     };
+    function bundle() {
+    console.log('id 1: ', product_id_1);
+//Ajax request to add special item to cart
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_1
+        },
+        async: false
+    })
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_2
+        },
+        async: false
+    })
+    //Ajax Request to add current product page to cart
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_3
+        },
+        async: false,
+        success: function(){
+
+            }
+    })
+};
 </script>
 {% endcapture %}
 
@@ -72,46 +107,8 @@
     <p>{{product.id}}</p>
     <a  type="button" class="btn btn-small" onClick="addProduct('{{product.id}}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
-    {{ logic_script }}
     {% endfor %}
 </div>
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
-
-<script>
-function bundle() {
-    console.log('id 1: ', product_id_1);
-//Ajax request to add special item to cart
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_1
-        },
-        async: false
-    })
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_2
-        },
-        async: false
-    })
-    //Ajax Request to add current product page to cart
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_3
-        },
-        async: false,
-        success: function(){
-
-            }
-    })
-};
-</script>
+    {{ logic_script }}
