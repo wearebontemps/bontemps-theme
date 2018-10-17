@@ -1,6 +1,6 @@
 <!-- TODO config this page and schema -->
 {% layout 'theme' %}
-<div>Threesome header</div>
+{% section 'header' %}
 <div class="row">
     <div class="col-4">
     <h3 id="selected_product_1"></div>
@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="row">
-    {% for product in collection.all.products %}
+    {% for product in collections.all.products %}
     <div class="col-4">{{product.title}}-{{product.id}}</div>
     {% endfor %}
 </div>
