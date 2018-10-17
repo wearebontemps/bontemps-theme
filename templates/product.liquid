@@ -5,7 +5,9 @@
 {% section 'header-homepage' %}
 
 {% section 'product-template' %}
-
+{% if product.tags contains 'threesome' %}
+<p>This is a threesome.</p>
+{% endif %}
 {% section 'instagram-feed' %}
 <section>Product promotion - double dip </section> <!-- {% section 'product-promotion' %} -->
 <section>Review Count only</section>
