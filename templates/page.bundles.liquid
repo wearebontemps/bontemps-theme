@@ -45,7 +45,7 @@
     {% for product in collections.all.products %}
     <div class="col-4">
     <p>{{product.title}}-{{product.id}}</p>
-    <a  type="button" class="btn" onClick="addProduct({{product.title}});" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
+    <a  type="button" class="btn" onClick="addProduct('{{product.id}}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {{ logic_script }}
     {% endfor %}
