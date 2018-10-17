@@ -35,7 +35,6 @@
     };
     function bundle() {
     console.log('id 1: ', product_id_1, product_id_2, product_id_3);
-//Ajax request to add special item to cart
         jQuery.post('/cart/add.js', {
         quantity: 1,
         id: product_id_1
@@ -77,7 +76,7 @@
     <div class="col-4" style="margin-bottom: 2em; padding: 1em;">
     <h2>{{product.title}}</h2>
     <p>{{product.id}}</p>
-    <a  type="button" class="btn btn-small" onClick="addProduct('{{product.id}}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
+    <a  type="button" class="btn btn-small" onClick="addProduct('{{ product.id }}_{{ product.variants.first.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {% endfor %}
 </div>
