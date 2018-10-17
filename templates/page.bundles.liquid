@@ -38,8 +38,8 @@
 {% layout 'theme' %}
 {% section 'header-bundles' %}
 <div class="contained">
-<div class="row" style="margin: 2em 0;">
-<div class="col-12">
+<div class="row text-center" style="margin: 2em 0;">
+<div class="col-12 text-center">
 <h1>Make It A Threesome</h1>
 <p>Select Three Blends for Free Shipping</p>
 <h2>$29.95</h2>
@@ -63,7 +63,7 @@
 </div>
 <div class="row" style="margin: 2em 0;">
     {% for product in collections.all.products %}
-    <div class="col-4">
+    <div class="col-4" style="margin-bottom: 2em; padding: 1em;">
     <h2>{{product.title}}</h2>
     <p>{{product.id}}</p>
     <a  type="button" class="btn btn-small" onClick="addProduct('{{product.id}}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
