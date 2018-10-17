@@ -15,7 +15,7 @@
   {%- assign social_icons = true -%}
 {% endif %}
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer" role="contentinfo" style="backgound-color: {{ section.settings.bg_color }}">
   <div class="page-width">
     <div class="grid grid--no-gutters">
       <div class="grid__item{% if section.settings.footer_newsletter_enable and section.settings.footer_linklist_two != blank %} medium-up--one-quarter{% elsif section.settings.footer_linklist_two == blank and section.settings.footer_newsletter_enable %} medium-up--one-half{% else %} text-center{% endif %}">
@@ -324,6 +324,12 @@
           "pt-BR": "Exibir ícones de pagamento"
         },
         "default": false
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#fff"
       }
     ]
   }
