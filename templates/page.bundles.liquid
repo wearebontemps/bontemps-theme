@@ -36,31 +36,18 @@
     function bundle() {
     console.log('id 1: ', product_id_1, product_id_2, product_id_3);
 //Ajax request to add special item to cart
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_1
-        }
-    })
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_2
-        }
-    })
-    //Ajax Request to add current product page to cart
-    jQuery.ajax({
-        type: "POST",
-        url: '/cart/add.js',
-        data: {
-            quantity: 1,
-            id: product_id_3
-        }
-    })
+        jQuery.post('/cart/add.js', {
+        quantity: 1,
+        id: product_id_1
+        });
+        jQuery.post('/cart/add.js', {
+        quantity: 1,
+        id: product_id_2
+        });
+        jQuery.post('/cart/add.js', {
+        quantity: 1,
+        id: product_id_3
+        });
 };
 </script>
 {% endcapture %}
