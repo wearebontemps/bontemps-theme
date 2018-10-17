@@ -13,7 +13,7 @@
     function addProduct(id, title){
         console.log(id, title, product_text_1);
         var title = title;
-        product_text_1.text(title);
+       $('#selected_product_1').text(title);
         if (product_text_1 != null ){
             product_text_1.text(title);
         } else if (product_text_2 != null){
@@ -29,6 +29,7 @@
 <!-- TODO config this page and schema -->
 {% layout 'theme' %}
 {% section 'header-bundles' %}
+<div class="container">
 <div class="row">
     <div class="col-4">
     <h3 id="selected_product_1"></h3>
@@ -52,4 +53,4 @@
     {{ logic_script }}
     {% endfor %}
 </div>
-
+</div>
