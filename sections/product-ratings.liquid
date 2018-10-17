@@ -6,8 +6,8 @@
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
         yotpo rating star count
-        <a class="btn reviews-link" href="{{ section.settings.cta_link }}">
-        <span>XX(review count){{ section.settings.cta_text }}</span>
+        <a class="small btn btn-text reviews-link" href="{{ section.settings.cta_link }}">
+        <span>XX(count){{ section.settings.cta_text }}</span>
         </a>
     </div>
 </div>
@@ -28,7 +28,7 @@
     "type": "text",
     "id": "cta_text",
     "label": "Button Text",
-    "default": "Send Invite"
+    "default": "Reviews"
     },
     {
      "type": "url",
