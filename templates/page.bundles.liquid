@@ -34,7 +34,7 @@
         }
     };
     function bundle() {
-    console.log('id 1: ', product_id_1);
+    console.log('id 1: ', product_id_1, 'id 2: ', product_id_2, 'id 3: ', product_id_3;
 //Ajax request to add special item to cart
     jQuery.ajax({
         type: "POST",
@@ -59,10 +59,7 @@
         data: {
             quantity: 1,
             id: product_id_3
-        },
-        success: function(){
-
-            }
+        }
     })
 };
 </script>
