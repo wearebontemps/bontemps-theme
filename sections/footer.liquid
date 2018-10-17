@@ -114,6 +114,7 @@
         {% endif %}
       </div>
       <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+      <h4>PRODUCTS</h4>
         {% if linklists[section.settings.footer_linklist].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist].links %}
@@ -126,6 +127,7 @@
       </div>
 
       <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+        <h4>COMPANY</h4>
         {% if linklists[section.settings.footer_linklist_two].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist_two].links %}
