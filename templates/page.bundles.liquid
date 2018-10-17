@@ -37,8 +37,8 @@
 <!-- TODO config this page and schema -->
 {% layout 'theme' %}
 {% section 'header-bundles' %}
-<div class="container">
-<div class="row">
+<div class="contained">
+<div class="row" style="margin: 2em 0;">
     <div class="col-4">
     <h3 id="selected_product_1"></h3>
     <h4>Product 1</h4>
@@ -55,10 +55,11 @@
     <a type="button" id="remove_3" onClick="removeProduct('3')">Remove</a>
     </div>
 </div>
-<div class="row">
+<div class="row" style="margin: 2em 0;">
     {% for product in collections.all.products %}
     <div class="col-4">
-    <p>{{product.title}}-{{product.id}}</p>
+    <h2>{{product.title}}</h2>
+    <p>{{product.id}}</p>
     <a  type="button" class="btn btn-small" onClick="addProduct('{{product.id}}', '{{product.title}}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {{ logic_script }}
