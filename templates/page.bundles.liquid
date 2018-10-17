@@ -14,11 +14,15 @@
         console.log(id, title, product_text_1);
         var title = title;
         if ($('#selected_product_1').text() == '' ){
-       $('#selected_product_1').text(title);
+            $('#selected_product_1').text(title);
+            var product_id_1 = id;
         } else if ($('#selected_product_2').text() == ''){
-       $('#selected_product_2').text(title);
+            $('#selected_product_2').text(title);
+            var product_id_2 = id;
         } else {
        $('#selected_product_3').text(title);
+           var product_id_3 = id;
+
         }
     };
     function removeProduct(loc){
@@ -71,4 +75,42 @@
     {{ logic_script }}
     {% endfor %}
 </div>
+<a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
+
+<script>
+function bundle() {
+//Ajax request to add special item to cart
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_1
+        },
+        async: false
+    })
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_2
+        },
+        async: false
+    })
+    //Ajax Request to add current product page to cart
+    jQuery.ajax({
+        type: "POST",
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: product_id_3
+        },
+        async: false,
+        success: function(){
+
+            }
+    })
+};
+</script>
