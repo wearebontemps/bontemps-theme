@@ -38,12 +38,98 @@
       {%- assign enable_zoom = false -%}
   {% endcase %}
 
-  <div class="grid product-single">
-    <div class="grid__item {{ product_description_width }}">
+  <div class="row product-single">
+    <div class="col {{ product_description_width }}">
       <div class="product-single__meta">
-
+        collection - effect tag
         <h1 class="product-single__title">{{ product.title }}</h1>
+      </div>
 
+        {%- comment -%}
+          Live region for announcing updated price and availability to screen readers
+        {%- endcomment -%}
+        <p class="visually-hidden" data-product-status
+          aria-live="polite"
+          role="status"
+        ></p>
+
+        <div class="product-single__description rte">
+          {{ product.description }}
+        </div>
+    </div>
+
+    <div class="col product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+      <div class="floating-box">
+        {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+        {% for image in product.images %}
+          {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_class %}product-featured-img{% endcapture %}
+          {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
+          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
+
+          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js">
+            <div
+            id="{{ zoom_img_id }}"
+            style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
+            class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}"
+            data-image-id="{{ image.id }}"
+            {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+              <img id="{{ img_id }}"
+                   class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+                   src="{{ image | img_url: '300x300' }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ image.aspect_ratio }}"
+                   data-sizes="auto"
+                   tabindex="-1"
+                   alt="{{ image.alt | escape }}">
+            </div>
+          </div>
+        {% endfor %}
+
+        <noscript>
+          {% capture product_image_size %}{{ height }}x{% endcapture %}
+          <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
+        </noscript>
+
+        {% if product.images.size > 1 %}
+          {% if product.images.size > 3 %}
+            {%- assign enable_thumbnail_slides = true -%}
+          {% endif %}
+
+          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+            {% if enable_thumbnail_slides == true %}
+              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
+                {% include 'icon-chevron-left' %}
+                <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+              </button>
+            {% endif %}
+            <ul class="row grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+              {% for image in product.images %}
+                <li class="col {{ product_thumbnail_width }} product-single__thumbnails-item js">
+                  <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                     class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                     data-thumbnail-id="{{ image.id }}"
+                     {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+                       <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% if enable_thumbnail_slides == true %}
+              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
+                {% include 'icon-chevron-right' %}
+                <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+              </button>
+            {% endif %}
+          </div>
+        {% endif %} <!-- end img -->
+
+        <div class="product-meta">
+          caffeine level -- sachet count
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
@@ -119,89 +205,7 @@
             </div>
           {% endform %}
         </div>
-
-        {%- comment -%}
-          Live region for announcing updated price and availability to screen readers
-        {%- endcomment -%}
-        <p class="visually-hidden" data-product-status
-          aria-live="polite"
-          role="status"
-        ></p>
-
-        <div class="product-single__description rte">
-          {{ product.description }}
-        </div>
-    </div>
-
-    <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
-      <div class="floating-box">
-        {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
-        {% for image in product.images %}
-          {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
-          {% capture img_class %}product-featured-img{% endcapture %}
-          {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
-          {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
-          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-          {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
-
-          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js">
-            <div
-            id="{{ zoom_img_id }}"
-            style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
-            class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}"
-            data-image-id="{{ image.id }}"
-            {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-              <img id="{{ img_id }}"
-                   class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
-                   src="{{ image | img_url: '300x300' }}"
-                   data-src="{{ img_url }}"
-                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                   data-aspectratio="{{ image.aspect_ratio }}"
-                   data-sizes="auto"
-                   tabindex="-1"
-                   alt="{{ image.alt | escape }}">
-            </div>
-          </div>
-        {% endfor %}
-
-        <noscript>
-          {% capture product_image_size %}{{ height }}x{% endcapture %}
-          <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
-        </noscript>
-
-        {% if product.images.size > 1 %}
-          {% if product.images.size > 3 %}
-            {%- assign enable_thumbnail_slides = true -%}
-          {% endif %}
-
-          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
-            {% if enable_thumbnail_slides == true %}
-              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-                {% include 'icon-chevron-left' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
-              </button>
-            {% endif %}
-            <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
-              {% for image in product.images %}
-                <li class="grid__item {{ product_thumbnail_width }} product-single__thumbnails-item js">
-                  <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                     class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                     data-thumbnail-id="{{ image.id }}"
-                     {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                       <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-            {% if enable_thumbnail_slides == true %}
-              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-                {% include 'icon-chevron-right' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-              </button>
-            {% endif %}
-          </div>
-        {% endif %}
+        <span class=""><a href="#">Make it a 3 Pack</a></span>
       </div>
     </div>
   </div>
