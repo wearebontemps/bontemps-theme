@@ -11,6 +11,7 @@
     var product_id_2 = null;
     var product_id_3 = null;
     $('#bundle_adder_{{product.id}}').click(function(){
+        console.log('{{product.id}}');
         if (product_text_1 != null ){
             product_text_1.text('{{product.id}}');
         } else if (product_text_2 != null){
