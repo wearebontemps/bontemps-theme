@@ -2,7 +2,7 @@
     var product_text_1 = $('#selected_product_1');
     var product_text_2 = $('#selected_product_2');
     var product_text_3 = $('#selected_product_3');
-
+    console.log(product_text_1)
 </script>
 
 {% capture logic_script %}
@@ -40,8 +40,8 @@
 <div class="row">
     {% for product in collections.all.products %}
     <div class="col-4">
-    {{product.title}}-{{product.id}}
-    <button id="bundle_adder_{{ product.id }}">Add to Bundle</div>
+    <p>{{product.title}}-{{product.id}}</p>
+    <button id="bundle_adder_{{ product.id }}">Add to Bundle</button>
     </div>
     {{ logic_script }}
     {% endfor %}
