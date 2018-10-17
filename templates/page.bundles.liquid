@@ -10,14 +10,16 @@
     var product_id_1 = null;
     var product_id_2 = null;
     var product_id_3 = null;
-    function addProduct(id){
-        console.log(id);
+    function addProduct(id, title){
+        console.log(id, title, product_text_1);
+        var title = title;
+        product_text_1.text(title);
         if (product_text_1 != null ){
-            product_text_1.text(id);
+            product_text_1.text(title);
         } else if (product_text_2 != null){
-            product_text_2.text(id);
+            product_text_2.text(title);
         } else {
-            product_text_3.text(id);
+            product_text_3.text(title);
         }
     };
 </script>
@@ -30,22 +32,22 @@
 <div class="row">
     <div class="col-4">
     <h3 id="selected_product_1"></h3>
-    <h4>Porduct 1</h4>
+    <h4>Product 1</h4>
     </div>
     <div class="col-4">
     <h3 id="selected_product_2"></h3>
-    <h4>Porduct 2</h4>
+    <h4>Product 2</h4>
     </div>
     <div class="col-4">
     <h3 id="selected_product_3"></h3>
-    <h4>Porduct 3</h4>
+    <h4>Product 3</h4>
     </div>
 </div>
 <div class="row">
     {% for product in collections.all.products %}
     <div class="col-4">
     <p>{{product.title}}-{{product.id}}</p>
-    <a  type="button" class="btn" onClick="addProduct({{product.title}});" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
+    <a  type="button" class="btn" onClick="addProduct('{{product.id}}', '{{product.title}}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {{ logic_script }}
     {% endfor %}
