@@ -15,7 +15,7 @@
         var title = title;
         if ($('#selected_product_1').text() == '' ){
        $('#selected_product_1').text(title);
-        } else if ($('#selected_product_1').text() == ''){
+        } else if ($('#selected_product_2').text() == ''){
        $('#selected_product_2').text(title);
         } else {
        $('#selected_product_3').text(title);
@@ -29,7 +29,7 @@
         } else if (loc == '3'){
             $('#selected_product_3').text('');
         }
-    }
+    };
 </script>
 {% endcapture %}
 
