@@ -1,0 +1,46 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="row contained product-reviews">
+    <div class="col-sm-6 offset-sm-3 d-flex flex-column align-items-center justify-content-center text-center">
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.text }}
+        yotpo rating star count
+        <a class="btn reviews-link" href="{{ section.settings.cta_link }}">
+        <span>XX(review count){{ section.settings.cta_text }}</span>
+        </a>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Product Ratings Count"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Our Customers Love This Tea"
+    },
+    {
+    "type": "text",
+    "id": "cta_text",
+    "label": "Button Text",
+    "default": "Send Invite"
+    },
+    {
+     "type": "url",
+     "id": "cta_link",
+     "label": "Button Link"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Product Ratings Count",
+    "category": "Product"
+    }
+  ]
+}
+{% endschema %}
