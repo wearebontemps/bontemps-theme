@@ -663,6 +663,7 @@ $slick-opacity-not-active: 0.25;
   transform: translate(0, -50%);
   padding: 0;
   border: none;
+  z-index: 3;
   &:hover, &:focus {
     background: transparent;
     color: transparent;
@@ -3508,9 +3509,17 @@ p.tagline{
 #email-submit{
   background-color: #ffa400 !important;
 }
+#Contact_newsletter{
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+}
 .password__input-group {
-  margin: 0 auto $gutter-site;
-  max-width: 35rem;
+  align-self: center;
+  margin-top: 1em;
+  padding: 1em;
   .input-group__field{
     height: 20px;
     text-align: center;
@@ -5843,10 +5852,13 @@ $toolbar-height-small: 46px;
 }
 
 .site-footer {
-  margin: $section-spacing 0;
-
+  margin: $section-spacing 0 0;
+  padding: $section-spacing;
   @include media-query($small) {
     text-align: center;
+  }
+  p,a,h4,small{
+    color: white;
   }
 }
 
@@ -5867,17 +5879,12 @@ $toolbar-height-small: 46px;
 }
 
 .site-footer__linklist-item {
-  display: inline-block;
+  display: block;
   padding: 5px 10px;
 
   @include media-query($medium-up) {
     display: block;
     padding: 0 20px 6px 0;
-
-    .site-footer__linklist--center & {
-      display: inline-block;
-      padding: 3px 10px;
-    }
   }
 }
 
