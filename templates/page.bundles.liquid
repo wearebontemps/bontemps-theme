@@ -53,8 +53,10 @@ This module is dependant on the cart.js package being installed on the theme -
         }
     };
     function bundle() {
+        id_array = [];
         id_array.push(product_id_1, product_id_2, product_id_3);
         console.log(id_array);
+        if(id_array.length == 3 ){
         for (i = 0; i < id_array.length; i++){
             CartJS.addItem(id_array[i], 1, properties=null,options={
                 "complete": function() {
@@ -65,10 +67,13 @@ This module is dependant on the cart.js package being installed on the theme -
                 }
             })
         }
+        } else {
+            alert("Please add more items to your bundle");
+        }
     };
     $(document).on('cart.requestComplete', function(event, cart) {
         console.log("Request complete");
-});
+    });
 </script>
 
 {% endcapture %}
