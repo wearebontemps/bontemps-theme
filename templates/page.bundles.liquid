@@ -40,9 +40,12 @@
     function bundle() {
         id_array.push(product_id_1, product_id_2, product_id_3);
         for (i = 0; i < id_array.length; i++){
-            CartJS.addItem(id_array[i], 1, properties=null, options = {
+            CartJS.addItem(id_array[i], 1, properties=null,{
                 "complete": function() {
-                    console.log('Added!');
+                    console.log('complete!');
+                },
+                "success": function(){
+                    console.log('success')
                 }
             });
         }
