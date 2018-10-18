@@ -42,11 +42,8 @@
         for (i = 0; i < id_array.length; i++){
             console.log(id_array[i])
             CartJS.addItem(id_array[i], 1,{
-                "success": function(data, textStatus, jqXHR) {
-                    console.log('Added!');
-                },
-                "error": function(jqXHR, textStatus, errorThrown) {
-                    alert('Error: ' + errorThrown + '!');
+                "success": function(data) {
+                    console.log('Added!', id_array[i]);
                 }
             });
         }
