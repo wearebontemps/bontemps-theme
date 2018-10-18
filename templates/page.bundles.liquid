@@ -75,12 +75,12 @@ This module is dependant on the cart.js package being installed on the theme -
                 }
             })
         }
-        window.location = "/cart/";
         } else {
             alert("Please add more items to your bundle");
         }
     };
     $(document).on('cart.requestComplete', function(event, cart) {
+        window.location = "/cart/";
     });
 </script>
 
