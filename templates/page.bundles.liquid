@@ -27,7 +27,7 @@ This module is dependant on the cart.js package being installed on the theme -
     var product_id_3;
     var id_array = [];
     function addProduct(id, title){
-        console.log(id, title, product_text_1);
+        console.log(id, title);
         var title = title;
         if ($('#selected_product_1').text() == '' ){
             $('#selected_product_1').text(title);
@@ -79,9 +79,6 @@ This module is dependant on the cart.js package being installed on the theme -
             alert("Please add more items to your bundle");
         }
     };
-    $(document).on('cart.requestComplete', function(event, cart) {
-        window.location = "/cart/";
-    });
 </script>
 
 {% endcapture %}
@@ -126,3 +123,8 @@ This module is dependant on the cart.js package being installed on the theme -
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
     {{ logic_script }}
+<script type="text/javascript">
+$(document).on('cart.requestComplete', function(event, cart) {
+        window.location = "/cart/";
+    });
+</script>
