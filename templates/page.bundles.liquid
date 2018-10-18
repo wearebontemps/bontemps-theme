@@ -10,6 +10,7 @@
     var product_id_1;
     var product_id_2;
     var product_id_3;
+    var id_array = [];
     function addProduct(id, title){
         console.log(id, title, product_text_1);
         var title = title;
@@ -37,14 +38,14 @@
         }
     };
     function bundle() {
-        console.log('id 1: ', product_id_1);
-        jQuery.post('/cart/add.js', {
-        quantity: 1,
-        id: product_id_1,
-        success: function(){
-            bundle1()
-        }
+        id_array.push(product_id_1, product_id_2, product_id_3);
+        for (i = 0; i <= id_array.length; i++){
+            console.log(product_id_ + i)
+            jQuery.post('/cart/add.js', {
+            quantity: 1,
+            id: product_id_ + i
         });
+        }
     };
     function bundle1(){
         console.log('id 2: ', product_id_2);
