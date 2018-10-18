@@ -54,14 +54,13 @@ This module is dependant on the cart.js package being installed on the theme -
     };
     function bundle() {
         id_array = [];
-        id_array.push(product_id_1, product_id_2, product_id_3);
-        if (product_id_1 != undefined || product_id_1 != null){
+        if (product_id_1 != undefined && product_id_1 != null){
             id_array.push(product_id_1);
         }
-        if (product_id_2 != undefined || product_id_2 != null){
+        if (product_id_2 != undefined && product_id_2 != null){
             id_array.push(product_id_2);
         }
-        if (product_id_3 != undefined || product_id_3 != null){
+        if (product_id_3 != undefined && product_id_3 != null){
             id_array.push(product_id_3);
         }
         console.log(id_array);
