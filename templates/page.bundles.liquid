@@ -44,11 +44,11 @@
             CartJS.addItem(id_array[i], 1,{
                 "success": function(data, textStatus, jqXHR) {
                     console.log('Added!');
-                });
-            },
+                },
                 "error": function(jqXHR, textStatus, errorThrown) {
                     alert('Error: ' + errorThrown + '!');
-                });
+                }
+            });
         }
     };
     function bundle1(){
