@@ -27,18 +27,20 @@
     function removeProduct(loc){
         if (loc == '1'){
             $('#selected_product_1').text('');
+            product_id_1 = null;
         } else if (loc == '2'){
             $('#selected_product_2').text('');
+            product_id_2 = null;
         } else if (loc == '3'){
             $('#selected_product_3').text('');
+            product_id_3 = null;
         }
     };
     function bundle(qty) {
         console.log('id 1: ', product_id_1);
-        jQuery.post('/cart/update.js', {
+        jQuery.post('/cart/add.js', {
         quantity: 1,
         id: product_id_1,
-        async: true,
         success: function(){
             bundle1()
         }
@@ -46,10 +48,9 @@
     };
     function bundle1(){
         console.log('id 2: ', product_id_2);
-        jQuery.post('/cart/update.js', {
+        jQuery.post('/cart/add.js', {
         quantity: 1,
         id: product_id_2,
-        async: true,
         success: function(){
             bundle2()
         }
@@ -57,10 +58,9 @@
     };
     function bundle2(){
         console.log('id 3: ', product_id_3);
-        jQuery.post('/cart/update.js', {
+        jQuery.post('/cart/add.js', {
         quantity: 1,
-        id: product_id_2,
-        async: true
+        id: product_id_3,
         });
     };
 </script>
