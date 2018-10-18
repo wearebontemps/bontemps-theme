@@ -75,7 +75,6 @@ This module is dependant on the cart.js package being installed on the theme -
                 }
             })
         }
-        window.location = "/discount/THREESOME?redirect=/cart";
         } else {
             alert("Please add more items to your bundle");
         }
@@ -126,6 +125,6 @@ This module is dependant on the cart.js package being installed on the theme -
     {{ logic_script }}
 <script type="text/javascript">
 $(document).on('cart.requestComplete', function(event, cart) {
-        
+        window.location = "/discount/THREESOME?redirect=/cart";
     });
 </script>
