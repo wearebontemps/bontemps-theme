@@ -39,7 +39,7 @@
     };
     function bundle() {
         id_array.push(product_id_1, product_id_2, product_id_3);
-        for (i = 0; i <= id_array.length; i++){
+        for (i = 0; i < id_array.length; i++){
             console.log(id_array[i])
             jQuery.post('/cart/add.js', {
             quantity: 1,
