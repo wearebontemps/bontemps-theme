@@ -43,7 +43,7 @@
             console.log(id_array[i])
             jQuery.post('/cart/add.js', {
             quantity: 1,
-            asyinc: false,
+            async: false,
             id: id_array[i]
         });
         }
