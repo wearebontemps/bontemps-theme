@@ -1,3 +1,18 @@
+{% comment %} 
+This module will build a bundle of three items, displayed in a row. the submit button will make an ajax call to add the three items to the cart.
+
+This module is dependant on the cart.js package being installed on the theme -
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/cart.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/rivets-cart.min.js"></script>
+
+ and instantiated using this script:
+ <script type="text/javascript">
+    jQuery(function() {
+        CartJS.init({{ cart | json }});
+    });
+</script>
+{% endcomment %}
+
 <script>
     var product_text_1 = $('#selected_product_1');
     var product_text_2 = $('#selected_product_2');
@@ -40,37 +55,15 @@
     function bundle() {
         id_array.push(product_id_1, product_id_2, product_id_3);
         for (i = 0; i < id_array.length; i++){
-            CartJS.addItem(id_array[i], 1, properties=null,{
+            CartJS.addItem(id_array[i], 1, properties=null,options={
                 "complete": function() {
                     console.log('complete!');
                 },
-                "success": function(){
+                "success": function(data, textStatus, jqXHR){
                     console.log('success')
                 }
-            });
+            })
         }
-    };
-    function bundle1(){
-        jQuery.post('/cart/add.js', {
-            quantity: 1,
-            async: false,
-            id: id_array[i]
-        });
-        console.log('id 2: ', product_id_2);
-        jQuery.post('/cart/add.js', {
-        quantity: 1,
-        id: product_id_2,
-        success: function(){
-            bundle2()
-        }
-        });
-    };
-    function bundle2(){
-        console.log('id 3: ', product_id_3);
-        jQuery.post('/cart/add.js', {
-        quantity: 1,
-        id: product_id_3,
-        });
     };
 </script>
 {% endcapture %}
