@@ -33,27 +33,31 @@
             $('#selected_product_3').text('');
         }
     };
-    function bundle() {
+    function bundle(qty) {
         console.log('id 1: ', product_id_1);
-        jQuery.post('/cart/add.js', {
+        jQuery.post('/cart/update.js', {
         quantity: 1,
         id: product_id_1,
         async: true,
-        success: bundle1()
+        success: function(){
+            bundle1()
+        }
         });
     };
     function bundle1(){
         console.log('id 2: ', product_id_2);
-        jQuery.post('/cart/add.js', {
+        jQuery.post('/cart/update.js', {
         quantity: 1,
         id: product_id_2,
         async: true,
-        success: bundle2()
+        success: function(){
+            bundle2()
+        }
         });
     };
     function bundle2(){
         console.log('id 3: ', product_id_3);
-        jQuery.post('/cart/add.js', {
+        jQuery.post('/cart/update.js', {
         quantity: 1,
         id: product_id_2,
         async: true
@@ -99,6 +103,6 @@
     </div>
     {% endfor %}
 </div>
-<a type="button" onClick="bundle()">Add Bundle to Cart</a>
+<a type="button" onClick="bundle(qty)">Add Bundle to Cart</a>
 </div>
     {{ logic_script }}
