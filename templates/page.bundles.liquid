@@ -37,15 +37,18 @@
     console.log('id 1: ', product_id_1, product_id_2, product_id_3);
         jQuery.post('/cart/add.js', {
         quantity: 1,
-        id: product_id_1
+        id: product_id_1,
+        async: true
         });
         jQuery.post('/cart/add.js', {
         quantity: 1,
-        id: product_id_2
+        id: product_id_2,
+        async: true
         });
         jQuery.post('/cart/add.js', {
         quantity: 1,
-        id: product_id_2
+        id: product_id_2,
+        async: true
         });
 };
 </script>
