@@ -9,6 +9,25 @@
 {% endif %}
 {% section 'product-icons' %}
 {% section 'instagram-feed' %}
+{% if collection %}
+{% if collection.previous_product or collection.next_product %}
+  <p>
+    {% if collection.previous_product %}
+      {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
+      {{ 'products.general.previous_product_html' | t | link_to: prev_url }}
+    {% else %}
+      {{ 'products.general.previous_product_html' | t }}
+    {% endif %}
+    |
+    {% if collection.next_product %}
+      {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
+      {{ 'products.general.next_product_html' | t | link_to: next_url }}
+    {% else %}
+      {{ 'products.general.next_product_html' | t }}
+    {% endif %}
+  </p>
+{% endif %}
+{% endif %}
 {% section 'visual-call-out' %}
 {% section 'product-ratings' %}
 {% section 'product-testimonials' %}
