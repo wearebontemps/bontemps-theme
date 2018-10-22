@@ -1,8 +1,12 @@
-{% if product.tags contains "single box" %}
+{% for tag in product.tags %}
+{% if tag contains "single box" %}
 {% assign custom_collection = collections.singles.products %}
+{% break %}
 {% else %}
-{% assign custom_collectionm = collection %}
+{% assign custom_collection = collection %}
 {% endif %}
+{% endfor%}
+
   {% if custom_collection %}
   {% if custom_collection.previous_product %}
     {{ 'Previous Product' | link_to: custom_collection.previous_product }} |
