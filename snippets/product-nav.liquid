@@ -1,19 +1,11 @@
-{% assign custom_collection = collections['all'] %}
 
-{% if custom_collection %}
-  <p>
-    {% if custom_collection.previous_product %}
-      {% capture prev_url %}{{ custom_collection.previous_product }}{% endcapture %}
-      {{ 'products.general.previous_product_html' | t | link_to: prev_url }}
-    {% else %}
-      {{ 'products.general.previous_product_html' | t }}
-    {% endif %}
-    |
-    {% if custom_collection.next_product %}
-      {% capture next_url %}{{ custom_collection.next_product }}{% endcapture %}
-      {{ 'products.general.next_product_html' | t | link_to: next_url }}
-    {% else %}
-      {{ 'products.general.next_product_html' | t }}
-    {% endif %}
-  </p>
+  {% if collection %}
+  {% if collection.previous_product %}
+    {{ 'Previous Product' | link_to: collection.previous_product }} |
+  {% endif %}
+  {% if collection.next_product %}
+    {{ 'Next Product' | link_to: collection.next_product }}
+  {% endif %}
 {% endif %}
+  <p>{{ collection.products_count }}</p>
+ <p>{{ collection.handle }}</p>
