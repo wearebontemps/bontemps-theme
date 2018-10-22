@@ -337,9 +337,11 @@
       "vendor": "Vendor",
       "quantity_minimum_message": "Quantity must be 1 or more",
       "include_taxes": "Tax included.",
-      "previous_product_html": "Previous Product",
-      "next_product_html": "Next Product",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping calculated<\/a> at checkout."
+    },
+    "general": {
+      "previous_product_html": "Previous Product",
+      "next_product_html": "Next Product"
     }
   },
   "gift_cards": {
