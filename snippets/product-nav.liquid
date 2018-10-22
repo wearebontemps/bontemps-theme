@@ -1,14 +1,16 @@
-{% if collection %}
+{% assign custom_collection = collections['all'].products %}
+
+{% if custom_collection %}
   <p>
-    {% if collection.previous_product %}
-      {% capture prev_url %}{{ collection.previous_product }}{% endcapture %}
+    {% if custom_collection.previous_product %}
+      {% capture prev_url %}{{ custom_collection.previous_product }}{% endcapture %}
       {{ 'products.general.previous_product_html' | t | link_to: prev_url }}
     {% else %}
       {{ 'products.general.previous_product_html' | t }}
     {% endif %}
     |
-    {% if collection.next_product %}
-      {% capture next_url %}{{ collection.next_product }}{% endcapture %}
+    {% if custom_collection.next_product %}
+      {% capture next_url %}{{ custom_collection.next_product }}{% endcapture %}
       {{ 'products.general.next_product_html' | t | link_to: next_url }}
     {% else %}
       {{ 'products.general.next_product_html' | t }}
