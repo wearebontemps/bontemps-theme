@@ -49,6 +49,7 @@ Theme Store optional settings
 
             <div class="slideshow__text-content {% if forloop.first %}slick-active{% endif %}">
               <div class="page-width  slideshow-inner-text {% if block.settings.justification == 'left' %}left{% elsif block.settings.justification == 'right' %}right{% endif %}">
+              {% include 'product-nav' %}
                 {% unless block.settings.title == blank %}
                   <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                     {{ block.settings.title | escape }}
