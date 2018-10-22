@@ -41,7 +41,7 @@
   <div class="row product-single">
     <div class="col col col-sm-6 col-md-7 {{ product_description_width }}">
       <div class="product-single__meta">
-        collection - effect tag
+        <p class="tasting-notes">collection - effect tag</p>
         <h1 class="product-single__title">{{ product.title }}</h1>
       </div>
 
@@ -129,7 +129,7 @@
         {% endif %} <!-- end img -->
 
         <div class="product-meta">
-          caffeine level -- sachet count
+          <p class="variant-details">caffeine level -- sachet count</p>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
