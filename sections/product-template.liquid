@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="col col col-sm-6 col-md-5 product-single__photos product-single__photos--full{% endif %}">
+    <div class="col col col-sm-6 col-md-5 product-single__photos product-single__photos--full">
       <div class="floating-box">
         {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
         {% for image in product.images %}
