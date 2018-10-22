@@ -59,6 +59,17 @@ Theme Store optional settings
                     {{ block.settings.subheading | escape }}
                   </span>
                 {% endunless %}
+                <h1>
+                  <span role="text">
+                    <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
+                    {{ collection.title }}
+                  </span>
+                </h1>
+                {% if collection.description != blank %}
+                  <div class="rte">
+                    {{ collection.description }}
+                  </div>
+                {% endif %}
                 {% unless block.settings.link == blank %}
                 <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }}</span></a>
                 {% endunless %}
@@ -106,7 +117,7 @@ Theme Store optional settings
 
 {% schema %}
 {
-  "name": "Header-Product Page",
+  "name": "Header-Collection Page",
   "settings": [
       {
       "type": "checkbox",
