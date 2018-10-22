@@ -1,5 +1,4 @@
-{% if collection %}
-{% if collection.previous_product or collection.next_product %}
+
   <p>
     {% if collection.previous_product %}
       {% capture prev_url %}{{ collection.previous_product}}{% endcapture %}
@@ -16,5 +15,3 @@
     {% endif %}
   </p>
   <p>{{ collection.products_count }}</p>
-{% endif %}
-{% endif %}
