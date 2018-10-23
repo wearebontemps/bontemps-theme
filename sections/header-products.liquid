@@ -16,7 +16,6 @@ Theme Store optional settings
   </header>
 </div>
 <section data-section-id="{{ section.id }}" data-section-type="" class="{% if section.settings.header-slider %}header-slider{% endif %}{% if page.url contains '/pages/' %} small-page-header{% elsif page.url contains '/collections/' %} small-page-header{% endif %}">
-
 {% if section.settings.header-slider %}
   <div class="slideshow-wrapper slider single-item">
     <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">

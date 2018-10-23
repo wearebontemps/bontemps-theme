@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-clear contained row">
-<div class="col-4">
+<nav class="navbar navbar-expand-md navbar-light bg-clear contained row d-flex">
+<div class="col-6 col-sm-4">
   <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,7 +48,7 @@
     </ul>
   </div>
   </div>
-  <div class="col-md-4 d-flex justify-content-center">
+  <div class="col-sm-4 col-12 order-sm-2 order-3 d-flex justify-content-center">
   <a href="/" class="logo-image">
     {% if section.settings.logo != blank %}
     {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -60,7 +60,7 @@
     {% endif %}
   </a>
   </div>
-  <div class="col-4 {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+  <div class="col-6 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
   <div class="site-header__icons-wrapper">
       <div class="site-header__search site-header__icon small--hide">
         {% include 'search-form' %}
