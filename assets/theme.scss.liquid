@@ -3655,16 +3655,32 @@ margin: 2em;
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
   background: white;
   max-width: 360px;
-  color: #e0592a;
+  .product-form {
+    padding-top: 0;
+  }
+
   .product-single__photo-wrapper {
     min-height: 360px;
   }
   .product-meta {
     margin: 1em;
     color: #e0592a;
+    p, span {
+      color: #e0592a;
+    }
   }
   .btn {
     background-color: #e0592a;
+  }
+  .price-item {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    background: white;
+    padding: 5px 10px;
+    min-width: 66px;
+    color: #e0592a;
+    font-weight: bold;
   }
 }
 
