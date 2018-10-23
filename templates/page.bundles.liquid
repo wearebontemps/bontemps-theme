@@ -21,7 +21,6 @@ $(document).on('cart.requestStarted', function(event, cart) {
     console.log("Cart Ready");
     });
 $(document).on('cart.requestComplete', function(event, cart) {
-        window.location = "/discount/THREESOME?redirect=/cart";
     });
 </script>
 <script>
@@ -94,6 +93,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
             function(error){
                 if (!error){
                     console.log("No Errors");
+                    window.location = "/discount/THREESOME?redirect=/cart";
                 }
             })
         } else {
