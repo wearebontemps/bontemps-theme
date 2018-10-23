@@ -16,6 +16,9 @@ This module is dependant on the cart.js package being installed on the theme -
 $(document).on('cart.requestStarted', function(event, cart) {
     console.log("started");
     });
+    $(document).on('cart.ready', function(event, cart) {
+    console.log("Cart Ready");
+    });
 $(document).on('cart.requestComplete', function(event, cart) {
         window.location = "/discount/THREESOME?redirect=/cart";
     });
@@ -73,7 +76,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
         console.log(id_array);
         if(id_array.length == 3 ){
         for (i = 0; i < id_array.length; i++){
-            CartJS.addItem(id_array[i], 1, properties=null,options={
+            CartJS.addItem(id_array[i], 1,null,{
                 "complete": function() {
                     console.log('complete!');
                 },
