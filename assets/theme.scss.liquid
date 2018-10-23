@@ -3651,6 +3651,7 @@ margin: 2em;
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
   background: white;
   max-width: 360px;
+  margin-top: -4em;
   .product-form {
     padding-top: 0;
   }
@@ -3670,7 +3671,7 @@ margin: 2em;
   }
   .price-item {
     position: absolute;
-    top: 30px;
+    top: calc(-4em + 30px);
     left: 40px;
     background: white;
     padding: 5px 10px;
@@ -3678,6 +3679,12 @@ margin: 2em;
     color: #e0592a;
     font-weight: bold;
   }
+}
+.3pack-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
 }
 
 .product-icon-bar{
