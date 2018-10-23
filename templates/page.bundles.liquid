@@ -12,6 +12,7 @@ This module is dependant on the cart.js package being installed on the theme -
     });
 </script>
 {% endcomment %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <script type="text/javascript">
 $(document).on('cart.requestStarted', function(event, cart) {
     console.log("started");
@@ -86,6 +87,25 @@ $(document).on('cart.requestComplete', function(event, cart) {
                 async: true
             })
         }
+            async.each(id_array, function(id, next){
+                CartJS.addItem(id, 1,null,{
+                    "complete": function() {
+                        console.log('complete!');
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
+                    console.log("No Errors");
+                }
+            })
         } else {
             alert("Please add more items to your bundle");
         }
