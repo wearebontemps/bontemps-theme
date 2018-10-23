@@ -159,9 +159,9 @@ $(window).scroll(function() {
         $(".top-nav-box").removeClass("shrink");
     }
     if (scroll >= 950) {
-        $(".header-add-to-cart").toggleFade;
-    } else {
-        $(".header-add-to-cart").toggleFade;
+        $(".header-add-to-cart").fadeToggle();
+    } else if (scroll < 950){
+        $(".header-add-to-cart").fadeToggle();
     }
 });
 </script>
