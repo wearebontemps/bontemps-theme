@@ -83,11 +83,7 @@
         </a>
       {% endif %}
     {% endif %} {% endcomment %}
-  {% if template contains "product" %}
-    <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn header-add-to-cart">
-      <span>Add to Cart</span>
-    </button>
-  {% endif %}
+  
     <a href="/cart" class="site-header__icon site-header__cart">
 
       {% include 'icon-cart' %}
@@ -99,7 +95,12 @@
         </div>
       {% endif %}
     </a>
-
+  {% if template contains "product" %}
+  <form class="product-form" action="/cart/add" data-productid="{{product.id}}"  method="post"> 
+    <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
+    <input type="submit" value="Add To Cart" class="btn btn header-add-to-cart" />
+  </form>
+  {% endif %}
     {% unless linklists[section.settings.main_linklist] == blank %}
       <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
         {% include 'icon-hamburger' %}
