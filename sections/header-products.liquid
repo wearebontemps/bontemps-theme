@@ -10,6 +10,11 @@ Theme Store required settings
 Theme Store optional settings
 - Home page only: only shows on the home page
 {%- endcomment -%}
+<div class="top-nav-box">
+  <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
+  {% include "header-nav" %}
+  </header>
+</div>
 <section data-section-id="{{ section.id }}" data-section-type="" class="{% if section.settings.header-slider %}header-slider{% endif %}{% if page.url contains '/pages/' %} small-page-header{% elsif page.url contains '/collections/' %} small-page-header{% endif %}">
 
 {% if section.settings.header-slider %}
@@ -87,11 +92,6 @@ Theme Store optional settings
     {{ 'homepage.onboarding.no_content' | t }}
   </div>
 {% endif %}
-</div>
-<div class="top-nav-box">
-  <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-  {% include "header-nav" %}
-  </header>
 </div>
 
 </section>
