@@ -1,11 +1,19 @@
+{% for tag in product.tags %}
+{% if tag contains "single box" %}
+{% assign custom_collection = collections['singles'].products %}
+{% break %}
+{% else %}
+{% assign custom_collection = collection %}
+{% endif %}
+{% endfor%}
 
-  {% if collection %}
-  {% if collection.previous_product %}
-    {{ 'Previous Product' | link_to: collection.previous_product }} |
+  {% if custom_collection %}
+  {% if custom_collection.previous_product %}
+    {{ 'Previous Product' | link_to: custom_collection.previous_product }} |
   {% endif %}
-  {% if collection.next_product %}
-    {{ 'Next Product' | link_to: collection.next_product }}
+  {% if custom_collection.next_product %}
+    {{ 'Next Product' | link_to: custom_collection.next_product }}
   {% endif %}
 {% endif %}
-  <p>{{ collection.products_count }}</p>
- <p>{{ collection.handle }}</p>
+  <p>{{ custom_collection.products_count }}</p>
+ <p>{{ custom_collection.handle }}</p>

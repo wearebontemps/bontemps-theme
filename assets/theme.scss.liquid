@@ -2405,11 +2405,36 @@ textarea {
   padding-bottom: $gutter-site-mobile;
 }
 .top-nav-box{
-  position:absolute;
+  position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
   padding: 2rem 3rem;
+  transition: padding 0.7s, background-color 0.5s;
+  &.shrink{
+    padding: .5rem 3rem;
+    background-color: rgba(255,255,255, 0.95);
+    -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+    -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+    box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  }
+  @include media-query($small){
+    padding: 0.5rem 0rem !important;
+  }
+}
+.header-logo-box{
+  @include media-query($small){
+    margin-top: 1.5em;
+  }
+}
+.header-add-to-cart{
+  width: auto;
+  visibility: hidden;
+  transition: visibility, 0.4s;
+  padding: 0;
+  &.show{
+    visibility: unset;
+  }
 }
 .slideshow-inner-text{
   &.right{
@@ -2545,12 +2570,6 @@ textarea {
   transition: $transition-drawer;
   position: relative;
   overflow: hidden;
-
-  @include media-query($medium-up) {
-    // Prevent mobile menu inline styles from overriding desktop styles
-    // sass-lint:disable no-important
-    @include transform(translate3d(0, 0, 0));
-  }
 }
 
 hr {
@@ -3908,9 +3927,6 @@ margin: 2em;
 }
 
 @include media-query($small) {
-  .template-product .main-content {
-    padding-top: $grid-gutter-mobile;
-  }
   .thumbnails-slider--active {
     .product-single__thumbnails {
       display: none;
@@ -4474,12 +4490,10 @@ margin: 2em;
 @include media-query($medium-up) {
   .site-header__cart,
   .site-header__account {
-    position: absolute;
-    top: 50%;
+    position: relative;
     right: 0;
     padding: 10px 11px;
     margin-left: 5px;
-    @include transform(translateY(-50%));
   }
 
   .site-header__account {

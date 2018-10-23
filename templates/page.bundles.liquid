@@ -12,7 +12,17 @@ This module is dependant on the cart.js package being installed on the theme -
     });
 </script>
 {% endcomment %}
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
+<script type="text/javascript">
+$(document).on('cart.requestStarted', function(event, cart) {
+    console.log("started");
+    });
+    $(document).on('cart.ready', function(event, cart) {
+    console.log("Cart Ready");
+    });
+$(document).on('cart.requestComplete', function(event, cart) {
+    });
+</script>
 <script>
     var product_text_1 = $('#selected_product_1');
     var product_text_2 = $('#selected_product_2');
@@ -65,20 +75,31 @@ This module is dependant on the cart.js package being installed on the theme -
         }
         console.log(id_array);
         if(id_array.length == 3 ){
-        for (i = 0; i < id_array.length; i++){
-            CartJS.addItem(id_array[i], 1, properties=null,options={
-                "complete": function() {
-                    console.log('complete!');
-                },
-                "success": function(data, textStatus, jqXHR){
-                    console.log('success')
+            async.each(id_array, function(id, next){
+                CartJS.addItem(id, 1, {"Part of a Bundle": "Get 3 for 2"},{
+                    "complete": function() {
+                        console.log('complete!');
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
+                    console.log("No Errors");
+                    window.location = "/discount/THREESOME?redirect=/cart";
                 }
             })
-        }
         } else {
             alert("Please add more items to your bundle");
         }
     };
+
 </script>
 
 {% endcapture %}
@@ -123,8 +144,3 @@ This module is dependant on the cart.js package being installed on the theme -
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
     {{ logic_script }}
-<script type="text/javascript">
-$(document).on('cart.requestComplete', function(event, cart) {
-        window.location = "/discount/THREESOME?redirect=/cart";
-    });
-</script>
