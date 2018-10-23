@@ -61,7 +61,7 @@
   </a>
   </div>
   <div class="col-6 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
-  <div class="site-header__icons-wrapper d-flex justify-content-end">
+  <div class="site-header__icons-wrapper d-flex justify-content-between">
       {% comment %} <div class="site-header__search site-header__icon small--hide">
         {% include 'search-form' %}
       </div>
@@ -83,8 +83,13 @@
         </a>
       {% endif %}
     {% endif %} {% endcomment %}
-
+  {% if template contains "product" %}
+    <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn header-add-to-cart">
+      <span>Add to Cart</span>
+    </button>
+  {% endif %}
     <a href="/cart" class="site-header__icon site-header__cart">
+
       {% include 'icon-cart' %}
       <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
       {% if cart.item_count > 0 %}
@@ -101,11 +106,6 @@
         {% include 'icon-close' %}
       </button>
     {% endunless %}
-    {% if template contains "product" %}
-    <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn product-form__cart-submit">
-      <span>Add to Cart</span>
-      </button>
-    {% endif %}
   </div>
   </div>
 </nav>

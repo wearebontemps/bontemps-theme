@@ -158,6 +158,11 @@ $(window).scroll(function() {
     } else {
         $(".top-nav-box").removeClass("shrink");
     }
+    if (scroll >= 950) {
+        $(".header-add-to-cart").addClass("show");
+    } else {
+        $(".header-add-to-cart").removeClass("show");
+    }
 });
 </script>
 </body>
