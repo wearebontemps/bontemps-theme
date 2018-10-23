@@ -129,7 +129,10 @@
         {% endif %} <!-- end img -->
 
         <div class="product-meta">
-          <p class="variant-details">caffeine level -- sachet count</p>
+          <div class="variant-details">
+            <p class="caffeine-level">Caffeine <span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><p/>
+            <p class="sachet-count">20</p>
+          </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
