@@ -160,7 +160,7 @@ $(window).scroll(function() {
     }
     if (scroll >= 950) {
         $(".header-add-to-cart").fadeToggle();
-    } else {
+    } else if (scroll < 950){
         $(".header-add-to-cart").fadeToggle();
     }
 });
