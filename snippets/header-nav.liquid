@@ -101,7 +101,7 @@
         {% include 'icon-close' %}
       </button>
     {% endunless %}
-    {% if template containse "product" %}
+    {% if template contains "product" %}
     <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
                 <span id="AddToCartText-{{ section.id }}">
                   {% unless current_variant.available %}
