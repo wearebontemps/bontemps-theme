@@ -12,7 +12,14 @@ This module is dependant on the cart.js package being installed on the theme -
     });
 </script>
 {% endcomment %}
-
+<script type="text/javascript">
+$(document).on('cart.requestStarted', function(event, cart) {
+    console.log("started");
+    });
+$(document).on('cart.requestComplete', function(event, cart) {
+        window.location = "/discount/THREESOME?redirect=/cart";
+    });
+</script>
 <script>
     var product_text_1 = $('#selected_product_1');
     var product_text_2 = $('#selected_product_2');
@@ -124,8 +131,3 @@ This module is dependant on the cart.js package being installed on the theme -
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
     {{ logic_script }}
-<script type="text/javascript">
-$(document).on('cart.requestComplete', function(event, cart) {
-        window.location = "/discount/THREESOME?redirect=/cart";
-    });
-</script>
