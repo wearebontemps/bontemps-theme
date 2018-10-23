@@ -62,15 +62,15 @@
   </div>
   <div class="col-6 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
   <div class="site-header__icons-wrapper d-flex justify-content-end">
-      <div class="site-header__search site-header__icon small--hide">
+      {% comment %} <div class="site-header__search site-header__icon small--hide">
         {% include 'search-form' %}
       </div>
     <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top medium-up--hide">
       {% include 'icon-search' %}
       <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-    </button>
+    </button> {% endcomment %}
 
-    {% if shop.customer_accounts_enabled %}
+    {% comment %} {% if shop.customer_accounts_enabled %}
       {% if customer %}
         <a href="/account" class="site-header__icon site-header__account">
           {% include 'icon-login' %}
@@ -82,7 +82,7 @@
           <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
         </a>
       {% endif %}
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     <a href="/cart" class="site-header__icon site-header__cart">
       {% include 'icon-cart' %}
