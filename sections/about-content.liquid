@@ -1,13 +1,21 @@
-<div class="" data-section-id="{{ section.id }}" data-section-type="quotes">
-<div class="contained text-center">
+<div class=" text-center">
 <h1 class="section-header">{{ section.settings.section_title }}</h1>
 <p>{{ section.settings.subtitle }}</p>
 </div>
-
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
-  {% endif %}
-</div>
+{% for block in section.blocks %}
+{% capture image_layout %}
+ <div class="col-sm-5 about-image-wrap">
+  {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %}
+ </div>
+{% endcapture %}
+  <div class="row d-flex align-items-center">
+    <h2 class="about-subtitle">{{ block.settins.heading}}</h2>
+    <p>{{ block.settings.text_content }}</p>
+  </div>
+{% endfor %}
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
 
 {% schema %}
   {
@@ -47,40 +55,14 @@
             "id": "heading",
             "label": "section heading",
             "default": {
-              "en": "Rethinking beverages for our female contemporaries."
+              "en": "It’s 2018, your teas should be clean."
             }
           },
           {
             "type": "text",
-            "id": "author",
-            "label": {
-              "en": "Author",
-              "de": "Autor",
-              "fr": "Auteur",
-              "it": "Autore",
-              "ja": "執筆者",
-              "es": "Autor",
-              "pt-BR": "Autoria"
-            },
-            "default": {
-              "en": "Author's name",
-              "de": "Name des Autors",
-              "fr": "Nom de l'auteur",
-              "it": "Nome dell'autore",
-              "ja": "筆者の名前",
-              "es": "Nombre del autor",
-              "pt-BR": "Nome do(a) autor(a)"
-            }
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": {
-              "en": "Title"
-            },
-            "default": {
-              "en": "Interior Design"
-            }
+            "id": "text_content",
+            "label": "Text Content",
+            "default": "lorem"
           },
           {
             "type": "image_picker",
@@ -88,12 +70,6 @@
             "label": "Image"
           }
         ]
-      }
-    ],
-      "presets": [
-      {
-      "name": "Product Testimonials",
-      "category": "Product"
       }
     ]
   }
