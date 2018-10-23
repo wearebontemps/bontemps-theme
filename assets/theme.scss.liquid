@@ -3655,9 +3655,8 @@ margin: 2em;
   .product-form {
     padding-top: 0;
   }
-
   .product-single__photo-wrapper {
-    min-height: 360px;
+    //min-height: 360px;
   }
   .product-meta {
     margin: 1em;
@@ -3678,6 +3677,24 @@ margin: 2em;
     min-width: 66px;
     color: #e0592a;
     font-weight: bold;
+  }
+  .variant-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .caffeine-level {
+      .dot {
+        height: 25px;
+        width: 25px;
+        border: 1px solid #e0592a;
+        border-radius: 50%;
+        display: inline-block;
+        &.fill {
+          background-color: #e0592a;
+        }
+      }
+    }
+    .sachet-count {}
   }
 }
 .three-pack-link {
