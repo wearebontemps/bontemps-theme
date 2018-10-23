@@ -2405,11 +2405,15 @@ textarea {
   padding-bottom: $gutter-site-mobile;
 }
 .top-nav-box{
-  position:absolute;
+  position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
   padding: 2rem 3rem;
+  transition: padding 0.7s;
+  &.shrink{
+    padding: .5rem 3rem;
+  }
 }
 .slideshow-inner-text{
   &.right{
