@@ -149,5 +149,16 @@
         CartJS.init({{ cart | json }});
     });
 </script>
+<script type="text/javascript">
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 400) {
+        $(".top-nav-box").addClass("shrink");
+    } else {
+        $(".top-nav-box").removeClass("shrink");
+    }
+});
+</script>
 </body>
 </html>
