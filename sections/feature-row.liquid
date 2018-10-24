@@ -1,26 +1,28 @@
+
 <div class="page-width feature-row">
+{% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+{% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+{% for block in section.blocks %}
   {% capture image_layout %}
     <div class="feature-row__item">
-      {% if section.settings.image != blank %}
-        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
-        {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style' with image: section.settings.image, width: 545, height: 545, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+      {% if block.settings.image != blank %}
+        {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {% include 'image-style' with image: block.settings.image, width: 545, height: 545, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+          <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
             <img id="{{ img_id }}"
-                 class="feature-row__image lazyload"
-                 src="{{ section.settings.image | img_url: '200x200' }}"
-                 data-src="{{ img_url }}"
-                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                 data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                 data-sizes="auto"
-                 alt="{{ section.settings.image.alt | escape }}">
+              class="feature-row__image lazyload"
+              src="{{ block.settings.image | img_url: '200x200' }}"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+              data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ block.settings.image.alt | escape }}">
           </div>
         </div>
 
         <noscript>
-          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
+          {{ block.settings.image | img_url: '600x600', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
         </noscript>
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -29,28 +31,29 @@
   {% endcapture %}
 
   <div class="feature-row">
-    {% if section.settings.layout == 'left' %}
+    {% if block.settings.layout == 'left' %}
       {{ image_layout }}
     {% endif %}
 
-    <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
-      {% if section.settings.title != blank %}
-        <h2 class="h3">{{ section.settings.title | escape }}</h2>
+    <div class="feature-row__item feature-row__text feature-row__text--{{ block.settings.layout }}">
+      {% if block.settings.title != blank %}
+        <h2 class="h3">{{ block.settings.title | escape }}</h2>
       {% endif %}
-      {% if section.settings.text != blank %}
-        <div class="rte rte-setting featured-row__subtext">{{ section.settings.text }}</div>
+      {% if block.settings.text != blank %}
+        <div class="rte rte-setting featured-row__subtext">{{ block.settings.text }}</div>
       {% endif %}
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="btn">
-          {{ section.settings.button_label | escape }}
+      {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+        <a href="{{ block.settings.button_link }}" class="btn">
+          {{ block.settings.button_label | escape }}
         </a>
       {% endif %}
     </div>
 
-    {% if section.settings.layout == 'right' %}
+    {% if block.settings.layout == 'right' %}
       {{ image_layout }}
     {% endif %}
   </div>
+  {% endfor %}
 </div>
 
 {% schema %}
@@ -65,7 +68,8 @@
       "pt-BR": "Imagem com texto"
     },
     "class": "index-section",
-    "settings": [
+    "settings": [],
+    "blocks": [
       {
         "type": "image_picker",
         "id": "image",
