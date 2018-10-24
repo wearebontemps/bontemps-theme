@@ -3,6 +3,7 @@
 <div id="demo" class="carousel slide" data-ride="carousel">
 {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
 {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+<div class="carousel-inner">
 {% for block in section.blocks %}
   {% capture image_layout %}
     <div class="feature-row__item">
@@ -31,7 +32,6 @@
     </div>
   {% endcapture %}
 
-  <div class="carousel-inner">
   <div class="carousel-item {% if forloop.first %}active{% endif %}">
   <div class="feature-row">
     {% if block.settings.layout == 'left' %}
@@ -57,14 +57,16 @@
     {% endif %}
     </div>
   </div>
-  </div>
   {% endfor %}
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
+    </div>
+
+ 
   </div>
 </div>
 
