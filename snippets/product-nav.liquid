@@ -1,7 +1,6 @@
 {% for tag in product.tags %}
 {% if tag contains "single box" %}
-{% assign custom_collection = collections['singles'].products %}
-{% break %}
+{% assign custom_collection = collections.singles.products %}
 {% else %}
 {% assign custom_collection = collection %}
 {% endif %}
