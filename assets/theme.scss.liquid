@@ -3668,10 +3668,13 @@ margin: 2em;
   .btn, .btn span {
     background-color: #e0592a;
     color: white !important;
+    &:hover {
+      background-color: #c95026;
+    }
   }
   .price-item {
     position: absolute;
-    top: calc(-4em + 30px);
+    top: calc(-4em + 40px);
     left: 40px;
     background: white;
     padding: 5px 10px;
@@ -3706,8 +3709,9 @@ margin: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 0 0 20px 0;
   text-transform: uppercase;
+  color: #e0592a;
 }
 
 .product-icon-bar{
