@@ -41,7 +41,15 @@
   <div class="row product-single">
     <div class="col col col-sm-6 col-md-7 ">
       <div class="product-single__meta">
-        <p class="tasting-notes">collection - effect tag</p>
+        <p class="tasting-notes">
+          <span class="collection-title">{{ collection.title }}</span>
+          {% if current_tags != blank %}
+          {% for tag in current_tags %}
+          {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
+          <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+          {% endfor %}
+          {% endif %}
+        </p>
         <h1 class="product-single__title">{{ product.title }}</h1>
       </div>
 
@@ -131,7 +139,13 @@
         <div class="product-meta">
           <div class="variant-details">
             <p class="caffeine-level">Caffeine <span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><p/>
-            <p class="sachet-count">20</p>
+            <p class="sachet-count">
+              {% for tag in current_tags %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endfor %}
+              tea sachets
+            </p>
           </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
@@ -186,13 +200,13 @@
               {% endfor %}
             </select>
 
-            {% if section.settings.show_quantity_selector %}
-              <div class="product-form__item product-form__item--quantity">
-                <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
-              </div>
-            {% endif %}
             <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+              {% if section.settings.show_quantity_selector %}
+                <div class="product-form__item product-form__item--quantity">
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+                </div>
+              {% endif %}
               <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
                 <span id="AddToCartText-{{ section.id }}">
                   {% unless current_variant.available %}
@@ -212,16 +226,17 @@
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- {% if collection %}
+{%- comment -%} if collection %}
   <div class="text-center return-link-wrapper page-width">
     <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
       {% include 'icon-arrow-left' %}
       {{ 'products.product.back_to_collection' | t: title: collection.title }}
     </a>
   </div>
-{% endif %} -->
+{% endif %}{%- endcomment -%}
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">

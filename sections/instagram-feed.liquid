@@ -1,5 +1,11 @@
  {% comment %} <div id="evm-instagram-feed"></div><script src="https://expertvillagemedia.com/instagramfeed/embed.js" data-shop-id="pangea-dev.myshopify.com"></script> {% endcomment %}
 
+ <div class="instafeed-copy text-center">
+   <div class="content-copy">
+     <h3 class="">{{section.settings.first_section_header}}</h3>
+     {{section.settings.first_section_copy}}
+  </div>
+ </div>
 <div id="instafeed" class="row"></div>
 {% raw %}
 <script type="text/javascript">
@@ -26,6 +32,18 @@
         "type": "color",
         "id": "background_color",
         "label": "Section Background"
+      },
+      {
+        "type": "text",
+        "label": "First Section Header",
+        "id": "first_section_header",
+        "default": "#timewellspent"
+      },
+      {
+        "type": "richtext",
+        "label": "First Section Copy",
+        "id": "first_section_copy",
+        "default": "<p>Discover those that have mastered the art @bontemps</p>"
       }
   ],
   "presets": [
