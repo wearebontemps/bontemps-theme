@@ -3177,8 +3177,51 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   background-position: bottom;
   background-repeat: no-repeat;
   min-height: 600px;
+  &.lower {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
   @media screen and (max-width: 652px){
     background-position: center;
+    min-height: 400px;
+  }
+  @media screen and (min-width: 1200px){
+    background-position: center;
+  }
+  @media screen and (min-width: 1680px){
+    background-position: center;
+  }
+}
+.visual-block {
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .content-copy{
+    color: $color-text;
+    h2{
+      font-size: 34px;
+      @media screen and (max-width: 576px){
+      text-align: center;
+      font-size: 30px;
+      }
+    }
+    p{
+      font-size: 16px;
+      @media screen and (max-width: 576px){
+        text-align: center;
+        //font-size: 1em;
+        padding-right: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 652px){
+    background-position: center;
+    min-height: 400px;
   }
   @media screen and (min-width: 1200px){
     background-position: center;
@@ -6911,4 +6954,7 @@ $toolbar-height-small: 46px;
     opacity: 1;
     cursor: pointer;
   }
+}
+.instafeed-copy {
+  margin-top: 3em;
 }
