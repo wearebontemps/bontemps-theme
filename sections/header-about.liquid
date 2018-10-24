@@ -59,12 +59,12 @@ Theme Store optional settings
                     {{ block.settings.subheading | escape }}
                   </span>
                 {% endunless %}
-                <h1 class="text-white">
+                {% comment %} <h1 class="text-white">
                   <span role="text">
                     <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
                     {{ page.title }}
                   </span>
-                </h1>
+                </h1> {% endcomment %}
                 {% unless block.settings.link == blank %}
                 <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }}</span></a>
                 {% endunless %}
