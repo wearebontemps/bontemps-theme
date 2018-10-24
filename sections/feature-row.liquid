@@ -1,5 +1,6 @@
 
 <div class="page-width feature-row">
+<div id="demo" class="carousel slide" data-ride="carousel">
 {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
 {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
 {% for block in section.blocks %}
@@ -30,7 +31,8 @@
     </div>
   {% endcapture %}
 
-  <div class="feature-row">
+  <div class="feature-row carousel-inner">
+  <div class="carousel-item">
     {% if block.settings.layout == 'left' %}
       {{ image_layout }}
     {% endif %}
@@ -53,7 +55,15 @@
       {{ image_layout }}
     {% endif %}
   </div>
+  </div>
   {% endfor %}
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+  </div>
 </div>
 
 {% schema %}
