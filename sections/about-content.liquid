@@ -9,8 +9,11 @@
  </div>
 {% endcapture %}
   <div class="row d-flex align-items-center">
+  {{ image_layout }}
+  <div class="text-left">
     <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
     <p>{{ block.settings.text_content }}</p>
+    </div>
   </div>
 {% endfor %}
 {% if section.blocks.size == 0 %}
