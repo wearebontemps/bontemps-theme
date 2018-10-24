@@ -41,7 +41,15 @@
   <div class="row product-single">
     <div class="col col col-sm-6 col-md-7 ">
       <div class="product-single__meta">
-        <p class="tasting-notes">collection - effect tag</p>
+        <p class="tasting-notes">
+          <span class="collection-title">{{ collection.title }}</span>
+          {% if current_tags != blank %}
+          {% for tag in current_tags %}
+          {% assign tag_mod = tag | handle | remove: 'effct-' | split: '-' %}
+          <span class="text-white"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+          {% endfor %}
+          {% endif %}
+        </p>
         <h1 class="product-single__title">{{ product.title }}</h1>
       </div>
 
