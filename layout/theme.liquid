@@ -150,6 +150,7 @@
     });
 </script>
 <script type="text/javascript">
+  $(".header-add-to-cart").hide();
   $(window).scroll(function() {
       var scroll = $(window).scrollTop();
       if (scroll >= 150) {
@@ -157,7 +158,6 @@
       } else {
           $(".top-nav-box").removeClass("shrink");
       };
-      $(".header-add-to-cart").hide();
       if (scroll > 900) {
         $(".header-add-to-cart").fadeIn();
       } else {
