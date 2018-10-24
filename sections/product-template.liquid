@@ -42,7 +42,7 @@
     <div class="col col col-sm-6 col-md-7 ">
       <div class="product-single__meta">
         <p class="tasting-notes">
-          <span class="collection-title">{{ collection.title }}</span>
+          <span class="collection-title">Blends</span>
           {% if current_tags != blank %}
           {% for tag in current_tags %}
           {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
@@ -142,7 +142,8 @@
             <p class="sachet-count">
               {% for tag in current_tags %}
               {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-              {% for word in tag_mod %}{{ word }} {% endfor %} tea sachets
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              tea sachets
               </p>
           </div>
           <div class="product__price">
