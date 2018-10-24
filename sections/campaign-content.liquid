@@ -2,15 +2,17 @@
 <h2 class="section-header">{{ section.settings.section_title }}</h2>
 <p class="text-orange">{{ section.settings.subtitle }}</p>
 </div>
-{% for block in section.blocks %}
   <div class="row d-flex align-items-center" style='padding: 1em 0;'>
+
+{% for block in section.blocks %}
   <div class="d-flex flex-column align-items-center justify-content-between col-6 col-sm-4 col-md-3">
-   <img class="about-image" src="{{ block.settings.image | img_url: '800x' }}"/>
+    <img class="about-image" src="{{ block.settings.image | img_url: '800x' }}"/>
     <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
     <a href="{{block.settings.link_url}}">{{ block.settings.link_text }}</p>
     </div>
-  </div>
 {% endfor %}
+  </div>
+
 {% if section.blocks.size == 0 %}
   {% include 'no-blocks' %}
 {% endif %}
@@ -18,7 +20,7 @@
 {% schema %}
   {
     "name": {
-      "en": "About main Content"
+      "en": "Campaign Content"
     },
     "class": "index-section",
     "settings": [
