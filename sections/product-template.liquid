@@ -45,8 +45,8 @@
           <span class="collection-title">{{ collection.title }}</span>
           {% if current_tags != blank %}
           {% for tag in current_tags %}
-          {% assign tag_mod = tag | handle | remove: 'effct-' | split: '-' %}
-          <span class="text-white"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+          {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
+          <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
           {% endfor %}
           {% endif %}
         </p>
@@ -139,7 +139,11 @@
         <div class="product-meta">
           <div class="variant-details">
             <p class="caffeine-level">Caffeine <span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><p/>
-            <p class="sachet-count">20 tea sachets</p>
+            <p class="sachet-count">
+              {% for tag in current_tags %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %} tea sachets
+              </p>
           </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
