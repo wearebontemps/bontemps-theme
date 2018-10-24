@@ -150,17 +150,17 @@
     });
 </script>
 <script type="text/javascript">
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
-    if (scroll >= 150) {
-        $(".top-nav-box").addClass("shrink");
-    } else {
-        $(".top-nav-box").removeClass("shrink");
-    };
-    if (scroll == 950) {
-      $(".header-add-to-cart").fadeToggle();
-    };
-});
+  $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if (scroll >= 150) {
+          $(".top-nav-box").addClass("shrink");
+      } else {
+          $(".top-nav-box").removeClass("shrink");
+      };
+      if (scroll == '950') {
+        $(".header-add-to-cart").fadeToggle();
+      };
+  });
 </script>
 </body>
 </html>
