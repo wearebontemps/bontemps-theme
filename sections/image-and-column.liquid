@@ -8,7 +8,7 @@
         </div>
         <ul>
         {% for block in section.blocks %}
-        <li><img src="{{ block.settings.list_item_image | img_url: '40x40' }}"/>{{ block.settings.list_item }}</li>
+        <li style="padding: .5em 0;"><img style="margin-right: .5em;" src="{{ block.settings.list_item_image | img_url: '30x30' }}"/>{{ block.settings.list_item }}</li>
         {% endfor %}
         </ul>
     </div>
