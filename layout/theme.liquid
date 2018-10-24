@@ -157,9 +157,12 @@
       } else {
           $(".top-nav-box").removeClass("shrink");
       };
-      if (scroll == '950') {
-        $(".header-add-to-cart").fadeToggle();
-      };
+      $(".header-add-to-cart").hide();
+      if (scroll > 900) {
+        $(".header-add-to-cart").fadeIn();
+      } else {
+        $(".header-add-to-cart").fadeOut();
+      }
   });
 </script>
 </body>
