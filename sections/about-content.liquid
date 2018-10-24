@@ -3,7 +3,7 @@
 <p>{{ section.settings.subtitle }}</p>
 </div>
 {% for block in section.blocks %}
-{% cycle 'odd', 'even' %}
+{% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
 {% capture image_layout %}
  <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
  <img class="about-image" src="{{ block.settings.image | img_url: '800x' }}"/>
@@ -11,12 +11,12 @@
  </div>
 {% endcapture %}
   <div class="row d-flex align-items-center" style='padding: 1em 0;'>
-  {% if cycle == 'odd' %}{{ image_layout }}{% endif %}
+  {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
   <div class="text-left col-sm-7">
     <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
     <p>{{ block.settings.text_content }}</p>
     </div>
-    {% if cycle == 'even' %}{{ image_layout }}{% endif %}
+    {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
   </div>
 {% endfor %}
 {% if section.blocks.size == 0 %}
