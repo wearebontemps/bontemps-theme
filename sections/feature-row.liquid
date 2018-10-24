@@ -9,7 +9,7 @@
     <div class="feature-row__item">
       {% if block.settings.image != blank %}
         {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style' with image: block.settings.image, width: 545, height: 545, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+        {% include 'image-style' with image: block.settings.image, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
           <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
             <img id="{{ img_id }}"
