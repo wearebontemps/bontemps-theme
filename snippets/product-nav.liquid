@@ -1,12 +1,9 @@
 
 
   {% if collection %}
-  {% if collection.previous_product %}
     {{ 'Previous Product' | link_to: collection.previous_product }} |
-  {% endif %}
-  {% if collection.next_product %}
     {{ 'Next Product' | link_to: collection.next_product }}
-  {% endif %}
+
 {% endif %}
   <p>{{ collection.products_count }}</p>
  <p>{{ collection.handle }}</p>
