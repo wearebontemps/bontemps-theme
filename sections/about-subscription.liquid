@@ -1,4 +1,4 @@
-<div class="text-center" style="background-color: {{ section.settings.bg_color }}">
+<div class="text-center" style="background-color: {{ section.settings.bg_color }}; padding: 2em 0;">
 <div class="contained">
      <p class="h2 text-white cooper">
       {{ section.settings.newsletter_form_heading | escape }}
@@ -6,7 +6,7 @@
     {% if section.settings.newsletter_form_subheading != blank %}
       <div class="password__form-subheading rte">{{ section.settings.newsletter_form_subheading }}</div>
     {% endif %}
-  <div class="klaviyo-signup">
+  <div class="klaviyo-signup" style="margin: 0 auto;">
 <div class="klaviyo-form-LPS6EQ"></div>
 </div>
 </div>
@@ -16,7 +16,6 @@
     "name": {
       "en": "About Subscription"
     },
-    "class": "",
     "settings": [
       {
         "type": "text",
