@@ -143,8 +143,9 @@
               {% for tag in current_tags %}
               {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
               {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endfor %}
               tea sachets
-              </p>
+            </p>
           </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
