@@ -42,7 +42,7 @@
     <div class="col col col-sm-6 col-md-7 ">
       <div class="product-single__meta">
         <p class="tasting-notes">
-          <span class="collection-title">Blends</span>
+          <span class="collection-title">{{ collection.title }}</span>
           {% if current_tags != blank %}
           {% for tag in current_tags %}
           {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
@@ -227,14 +227,14 @@
   </div>
 </div>
 
-<!-- {% if collection %}
+{%- comment -%} if collection %}
   <div class="text-center return-link-wrapper page-width">
     <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
       {% include 'icon-arrow-left' %}
       {{ 'products.product.back_to_collection' | t: title: collection.title }}
     </a>
   </div>
-{% endif %} -->
+{% endif %}{%- endcomment -%}
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
