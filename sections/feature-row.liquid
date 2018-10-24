@@ -31,8 +31,9 @@
     </div>
   {% endcapture %}
 
-  <div class="feature-row carousel-inner">
+  <div class="carousel-inner">
   <div class="carousel-item {% if forloop.first %}active{% endif %}">
+  <div class="feature-row">
     {% if block.settings.layout == 'left' %}
       {{ image_layout }}
     {% endif %}
@@ -54,6 +55,7 @@
     {% if block.settings.layout == 'right' %}
       {{ image_layout }}
     {% endif %}
+    </div>
   </div>
   </div>
   {% endfor %}
