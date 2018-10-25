@@ -18,7 +18,8 @@
               <div class="dropdown-box">
             {% endif %}
             <div class="header-image-box">
-            {% assign custom = collections.[childlink.handle] %}
+            {% assign handle = childlink.handle %}
+            {% assign custom = collections.handle %}
             <p>Object title: {{ custom.handle }}</p>
             <img src="{{ custom.featured_image | img_url: '300x' }}"/>
             </div>
