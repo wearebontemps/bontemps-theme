@@ -127,15 +127,13 @@ $(document).on('cart.requestComplete', function(event, cart) {
     <a type="button" id="remove_3" onClick="removeProduct('3')">Remove</a>
     </div>
 </div>
-<div class=" grid" style="margin: 2em 0;">
+<div class="row" style="margin: 2em 0;">
     {% for product in collections.all.products %}
-    {% comment %} <div class="col-4" style="margin-bottom: 2em; padding: 1em;">
-    <h2>{{product.title}}</h2>
-    <p>{{product.id}}</p>
-    <a type="button" class="btn btn-small" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
-    </div> {% endcomment %}
-    <div class="grid__item ">
-        {% include 'product-card-grid' %}
+    <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
+        <img src="{{ product.featured_image | img_url: '600x'}}"/>
+        <h2>{{product.title}}</h2>
+        <p>{{product.id}}</p>
+        <a type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {% endfor %}
 </div>
