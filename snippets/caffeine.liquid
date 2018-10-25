@@ -1,0 +1,34 @@
+{% for tag in product.tags %}
+{% if tag contains 'caffeine' %}
+{% assign tag_caf = tag | handle | remove: 'caffeine-' %}
+{% endif %}
+{% endfor %}
+<p class="caffeine-level">
+Caffeine
+{% if tag_caf == '4' %}
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+{% elsif tag_caf == '3' %}
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+<span class="dot"></span>
+{% elsif tag_caf == '2' %}
+<span class="dot fill"></span>
+<span class="dot fill"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+{% elsif tag_caf == '1' %}
+<span class="dot fill"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+{% else %}
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+{% endif %}
+</p>
