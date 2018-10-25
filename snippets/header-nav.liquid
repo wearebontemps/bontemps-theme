@@ -18,7 +18,9 @@
               <div class="dropdown-box">
             {% endif %}
             <div class="header-image-box">
-            <p>Object title: {{ childlink.object.handle }}</p>
+            {% assign custom = collections.[childlink.handle] %}
+            <p>Object title: {{ custom.handle }}</p>
+            <img src="{{ custom.featured_image | img_url: '300x' }}"/>
             </div>
               {% if link.links != blank %}
                 <a class="text-dark collection-category" href="{{ childlink.url }}"><h4>{{ childlink.title }}</h4></a>
