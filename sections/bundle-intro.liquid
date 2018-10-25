@@ -1,0 +1,53 @@
+<div class="row text-center" style="margin: 2em 0;">
+<div class="col-12 text-center">
+<h1>{{ section.settings.section_title }}</h1>
+<p>{{ section.settings.section_subtitle }}</p>
+<h2>{{ section.settings.price_heading }}</h2>
+<p>{{ section.settings.price_info }}</p>
+</div>
+</div>
+{% schema %}
+    {
+    "name": "Make a Bundle Intro",
+    "settings": [
+        {
+        "type": "text",
+        "id": "section_title",
+        "label": {
+            "en": "Section Heading"
+        },
+        "default": {
+            "en": "Make It A Threesome"
+        }
+        },
+        {
+        "type": "text",
+        "id": "subtitle",
+        "label": {
+            "en": "Section subeading"
+        },
+        "default": {
+            "en": "Select Three Blends for Free Shipping"
+        }
+        },
+        {
+        "type": "text",
+        "id": "price_heading",
+        "label": {
+            "en": "Price Heading"
+        },
+        "default": {
+            "en": "$29.95"
+        }
+        },
+        {
+        "type": "text",
+        "id": "price_info",
+        "label": {
+            "en": "Price info"
+        },
+        "default": "60 tea sachets"
+        }
+    ]
+    }
+{% endschema %}

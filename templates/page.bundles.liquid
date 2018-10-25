@@ -12,6 +12,9 @@ This module is dependant on the cart.js package being installed on the theme -
     });
 </script>
 {% endcomment %}
+
+
+{% capture logic_script %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <script type="text/javascript">
 $(document).on('cart.requestStarted', function(event, cart) {
@@ -29,8 +32,6 @@ $(document).on('cart.requestComplete', function(event, cart) {
     var product_text_3 = $('#selected_product_3');
     console.log(product_text_1)
 </script>
-
-{% capture logic_script %}
 <script>
     var product_id_1;
     var product_id_2;
@@ -104,18 +105,12 @@ $(document).on('cart.requestComplete', function(event, cart) {
 
 {% endcapture %}
 
-
-<!-- TODO config this page and schema -->
+{{ logic_script }}
 {% layout 'theme' %}
 {% section 'header-bundles' %}
 <div class="contained">
-<div class="row text-center" style="margin: 2em 0;">
-<div class="col-12 text-center">
-<h1>Make It A Threesome</h1>
-<p>Select Three Blends for Free Shipping</p>
-<h2>$29.95</h2>
-<p>60 tea sachets</p>
-</div>
+{% section 'bundle-intro' %}
+<div class="row">
     <div class="col-4">
     <h3 id="selected_product_1"></h3>
     <h4>Tea One</h4>
@@ -132,15 +127,17 @@ $(document).on('cart.requestComplete', function(event, cart) {
     <a type="button" id="remove_3" onClick="removeProduct('3')">Remove</a>
     </div>
 </div>
-<div class="row" style="margin: 2em 0;">
+<div class="row grid" style="margin: 2em 0;">
     {% for product in collections.all.products %}
     <div class="col-4" style="margin-bottom: 2em; padding: 1em;">
     <h2>{{product.title}}</h2>
     <p>{{product.id}}</p>
     <a  type="button" class="btn btn-small" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
+    <div class="grid__item {{ grid_item_width }}">
+        {% include 'product-card-grid', max_height: max_height %}
+    </div>
     {% endfor %}
 </div>
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
 </div>
-    {{ logic_script }}

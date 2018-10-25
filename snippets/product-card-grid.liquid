@@ -23,7 +23,7 @@
             alt="">
     </div>
   </div>
-
+{% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
   <noscript>
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
