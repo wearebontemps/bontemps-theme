@@ -1,0 +1,420 @@
+{% if section.settings.show_related_products == true %}
+<div class="product-template__container page-width" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+
+{% comment %}
+  Number of related items per row,
+  and number of rows.
+{% endcomment %}
+
+{% assign number_of_related_products_per_row = section.settings.related_grid_num %}
+{% assign number_of_rows = section.settings.related_grid_row %}
+
+{% comment %}
+  Heading.
+  Leave blank if you don't need one.
+{% endcomment %}
+
+{% assign heading = section.settings.related_title %}
+
+{% comment %}
+  Set either or both to true, if you want
+  to limit yourself to items with same vendor, and/or type.
+{% endcomment %}
+
+{% assign same_vendor = false %}
+{% assign same_type = false %}
+
+{% comment %}
+  Collections to ignore.
+  Never pick related items from those.
+{% endcomment %}
+
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+
+{% if product.metafields.c_f['Related Products'] %}
+  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+{% endif %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+  {% assign current_product = product %}
+
+  {% case number_of_related_products_per_row %}
+    {% when '1' %}
+      {% assign grid_item_width = '' %}
+  {%- assign max_height = 700 -%}
+    {% when '2' %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-half' %}
+  	  {%- assign max_height = 530 -%}
+    {% when '3' %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-third' %}
+      {%- assign max_height = 345 -%}
+    {% when '4' %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+  {%- assign max_height = 250 -%}
+    {% when '5' %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-fifth' %}
+  {%- assign max_height = 195 -%}
+    {% when '6' %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-sixth' %}
+  {%- assign max_height = 195 -%}
+    {% else %}
+      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+  {%- assign max_height = 195 -%}
+  {% endcase %}
+
+{% comment %} regular related items {% endcomment %}
+  {% capture related_items %}
+  <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %} contained">
+
+  {% for product in collection.products %}
+  {% unless product.handle == current_product.handle %}
+  {% unless same_vendor and current_product.vendor != product.vendor %}
+  {% unless same_type and current_product.type != product.type %}
+  <div class="grid__item {{ grid_item_width }}">
+    {% include 'product-card-grid', max_height: max_height %}
+  </div>
+  {% assign counter = counter | plus: 1 %}
+  {% if counter == break_at %}
+  {% break %}
+  {% endif %}
+  {% endunless %}
+  {% endunless %}
+  {% endunless %}
+  {% endfor %}
+  </div>
+  {% endcapture %}
+
+
+{% if collection.products.size >= 2 %}
+{% assign test_size = true %}
+{% endif %}
+{% comment %} capture slider {% endcomment %}
+{% capture related_slider %}
+<div class="container text-center my-3">
+    <div class="row mx-auto my-auto">
+        <div id="recommendSlider" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+            {% for product in collection.products %}
+              {% unless product.handle == current_product.handle %}
+              {% unless same_vendor and current_product.vendor != product.vendor %}
+              {% unless same_type and current_product.type != product.type %}
+              {%- assign block_product = product -%}
+              {%- assign current_variant = block_product.selected_or_first_available_variant -%}
+              {%- assign featured_image = current_variant.featured_image | default: block_product.featured_image -%}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="col-6">
+                    <div class="product-slider-image" >
+                    {% include 'responsive-image' with
+                      image: featured_image,
+                      max_width: 700,
+                      max_height: 800,
+                    %}
+                    </div>
+                  <p>{{ block_product.title | default: onboarding_title }}</p>
+                  <a class="btn collection-product-button subtle" href="{{ block_product.url | within: collection }}">
+                    {% if block_product.available %}
+                      {% if block_product.compare_at_price > block_product.price %}
+
+                        {% if block_product.price_varies %}
+                          {%- assign sale_price = block_product.price | money -%}
+                          {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                        {% else %}
+                          {{ 'products.product.on_sale' | t }}
+                          {{ block_product.price | money }}
+                        {% endif %}
+
+                      {% else %}
+
+                      {% if block_product.price_varies %}
+                        {%- assign price = block_product.price | money -%}
+                        {{ 'products.product.from_text_html' | t: price: price }}
+                      {% else %}
+                        {{ block_product.price | money }}
+                      {% endif %}
+
+                    {% endif %}
+
+                    {% if block_product.compare_at_price > block_product.price %}
+                      <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                      <s>{{ block_product.compare_at_price | money }}</s>
+                    {% endif %}
+
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </a>
+                </div>
+                </div>
+              {% endunless %}
+              {% endunless %}
+              {% endunless %}
+              {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#recommendSlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#recommendSlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endcapture %}
+
+
+
+
+{% comment %} related items inside the same ritual {% endcomment %}
+{% capture related_items_ritual %}
+  <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %} contained">
+
+  {% for product in ritual.products %}
+  {% unless product.handle == current_product.handle %}
+  {% unless same_vendor and current_product.vendor != product.vendor %}
+  {% unless same_type and current_product.type != product.type %}
+  <div class="grid__item {{ grid_item_width }}">
+    {% include 'product-card-grid', max_height: max_height %}
+  </div>
+  {% assign counter = counter | plus: 1 %}
+  {% if counter == break_at %}
+  {% break %}
+  {% endif %}
+  {% endunless %}
+  {% endunless %}
+  {% endunless %}
+  {% endfor %}
+  </div>
+{% endcapture %}
+
+
+{% if ritual.products.size >= 3 %}
+{% assign ritual_size = true %}
+{% endif %}
+{% comment %} capture slider {% endcomment %}
+{% capture ritual_slider %}
+<div class="container text-center my-3">
+    <div class="row mx-auto my-auto">
+        <div id="ritualSlider" class="glow-carousel carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+            {% for product in ritual.products %}
+              {% unless product.handle == current_product.handle %}
+              {% unless same_vendor and current_product.vendor != product.vendor %}
+              {% unless same_type and current_product.type != product.type %}
+              {%- assign block_product = product -%}
+              {%- assign current_variant = block_product.selected_or_first_available_variant -%}
+              {%- assign featured_image = current_variant.featured_image | default: block_product.featured_image -%}
+                {% if forloop.first %}
+                <div class="carousel-item active ritual-slide">
+                {% else %}
+                <div class="carousel-item ritual-slide">
+                 {% endif %}
+                 <div class="col-6">
+                    <div class="product-slider-image" >
+                    {% include 'responsive-image' with
+                      image: featured_image,
+                      max_width: 700,
+                      max_height: 800
+                    %}
+                    </div>
+                  <p>{{ block_product.title | default: onboarding_title }}</p>
+                  <a class="btn collection-product-button subtle" href="{{ block_product.url | within: collection }}">
+                    {% if block_product.available %}
+                      {% if block_product.compare_at_price > block_product.price %}
+
+                        {% if block_product.price_varies %}
+                          {%- assign sale_price = block_product.price | money -%}
+                          {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                        {% else %}
+                          {{ 'products.product.on_sale' | t }}
+                          {{ block_product.price | money }}
+                        {% endif %}
+
+                      {% else %}
+
+                      {% if block_product.price_varies %}
+                        {%- assign price = block_product.price | money -%}
+                        {{ 'products.product.from_text_html' | t: price: price }}
+                      {% else %}
+                        {{ block_product.price | money }}
+                      {% endif %}
+
+                    {% endif %}
+
+                    {% if block_product.compare_at_price > block_product.price %}
+                      <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                      <s>{{ block_product.compare_at_price | money }}</s>
+                    {% endif %}
+
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </a>
+                </div>
+                </div>
+              {% endunless %}
+              {% endunless %}
+              {% endunless %}
+              {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#ritualSlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#ritualSlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endcapture %}
+
+
+  {% assign related_items = related_items | trim %}
+
+  {% unless related_items == blank %}
+<div class="row">
+
+<div class="col-sm-12 related-products-col">
+  <aside class="">
+    <div class="">
+      <header class="section-header">
+        <h5 class="section-header__title underlined">{{ heading }}</h5>
+      </header>
+      <div class="">
+      {% if test_size %}
+      {{ related_slider }}
+      {% else %}
+      {{ related_items }}
+      {% endif %}
+      </div>
+    </div>
+  </aside>
+  </div>
+  {% capture clean_ingredients %}
+    {% assign has_clean_ingredients = false %}
+      <ul>
+        {% for tag in product.tags %}
+          {% if tag contains 'gluten-free' or tag contains 'vegan' or tag contains 'cruelty-free'  or tag contains 'organic' %}
+          {% assign has_clean_ingredients = true %}
+          {% if tag contains 'gluten-free' %}
+            <li><span><img class="lazyload js skin-type-icon" src="{{ 'gluten-free.png' | asset_url }}"/></span><h4 class="clean-ingredient-title">{{ tag | capitalize | replace: '-', ' ' }}</h4></li>
+          {% elsif tag contains 'vegan' %}
+            <li><span><img class="lazyload js skin-type-icon" src="{{ 'vegan.png' | asset_url }}"/></span><h4 class="clean-ingredient-title">{{ tag | capitalize | replace: '-', ' ' }}</h4></li>
+          {% elsif tag contains 'cruelty-free' %}
+            <li><span><img class="lazyload js skin-type-icon" src="{{ 'crueltyfree.png' | asset_url }}"/></span><h4 class="clean-ingredient-title">{{ tag | capitalize | replace: '-', ' ' }}</h4></li>
+          {% elsif tag contains 'organic' %}
+            <li><span><img class="lazyload js skin-type-icon" src="{{ 'organic.png' | asset_url }}"/></span><h4 class="clean-ingredient-title">{{ tag | capitalize | replace: '-', ' ' }}</h4></li>
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endcapture %}
+  {% if has_clean_ingredients %}
+  <div class="col-sm-6 order-1 order-md-2 clean-ingredients">
+  <aside class="grid">
+    <div class="grid__item">
+      {{ clean_ingredients }}
+    </div>
+    </aside>
+    </div>
+  {% endif %}
+</div>
+  {% endunless %}
+{% endif %}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Related products",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Show related products",
+      "default": true
+    },
+    {
+      "id": "related_title",
+      "type": "text",
+      "label": "Section title",
+      "default": "Other fine products"
+    },
+    {
+      "type": "select",
+      "id": "related_grid_num",
+      "label": "Products per row (Desktop)",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "related_grid_row",
+      "label": "Number of rows (Desktop)",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
