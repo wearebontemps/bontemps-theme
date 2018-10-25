@@ -148,7 +148,7 @@
               {%- assign block_product = product -%}
               {%- assign current_variant = block_product.selected_or_first_available_variant -%}
               {%- assign featured_image = current_variant.featured_image | default: block_product.featured_image -%}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="carousel-item">
                 <div class="col-6">
                     <div class="product-slider-image" >
                     {% include 'responsive-image' with
@@ -256,7 +256,7 @@
                 <div class="carousel-item active ritual-slide">
                 {% else %}
                 <div class="carousel-item ritual-slide">
-                 {% endif %}                
+                 {% endif %}
                  <div class="col-6">
                     <div class="product-slider-image" >
                     {% include 'responsive-image' with
