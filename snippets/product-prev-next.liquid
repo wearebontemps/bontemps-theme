@@ -1,0 +1,6 @@
+{% if collection %}
+<div class="next-product-nav d-flex justify-content-between align-items-center">
+  <a class="previous" href="{{ collection.previous_product }}">{% include 'icon-arrow-left' %} Previous Product</span>
+  <a class="previous" href="{{ collection.next_product }}">{% include 'icon-arrow-right' %} Next Product</span>
+</div>
+{% endif %}
