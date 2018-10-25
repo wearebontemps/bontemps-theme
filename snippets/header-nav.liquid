@@ -17,6 +17,7 @@
             {% if forloop.index == 1 or forloop.index > 1 %}
               <div class="dropdown-box">
             {% endif %}
+            {% capture image_box %}
             <div class="header-image-box">
             {% assign handle = childlink.object.handle %}
             {% assign custom = childlink.object.products_count %}
@@ -28,8 +29,9 @@
             <img src="{{ section.settings.threesome_image | img_url: '300x' }}"/>
             {% endif %}
             </div>
+            {% endcapture %}
               {% if link.links != blank %}
-                <a class="text-dark collection-category" href="{{ childlink.url }}"><h4>{{ childlink.title }}</h4></a>
+                <a class="text-dark collection-category" href="{{ childlink.url }}">{{ image_box }}<h4>{{ childlink.title }}</h4></a>
                 {% if childlink.links != blank %}
                 <ul class="dropdown-category-list">
                 {% for grandchildlink in childlink.links %}
