@@ -111,20 +111,20 @@ $(document).on('cart.requestComplete', function(event, cart) {
 <div class="contained">
 {% section 'bundle-intro' %}
 <div class="row">
-    <div class="col-4">
+    <div class="col-4 d-flex flex-column align-items-center justify-content-between">
     <h3 id="selected_product_1"></h3>
     <h4>Tea One</h4>
-    <a type="button" id="remove_1" onClick="removeProduct('1')">Remove</a>
+    <button class="btn btn-small" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
     </div>
-    <div class="col-4">
+    <div class="col-4 d-flex flex-column align-items-center justify-content-between">
     <h3 id="selected_product_2"></h3>
     <h4>Tea Two</h4>
-    <a type="button" id="remove_2" onClick="removeProduct('2')">Remove</a>
+    <button class="btn btn-small" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
     </div>
-    <div class="col-4">
+    <div class="col-4 d-flex flex-column align-items-center justify-content-between">
     <h3 id="selected_product_3"></h3>
     <h4>Tea Three</h4>
-    <a type="button" id="remove_3" onClick="removeProduct('3')">Remove</a>
+    <button class="btn btn-small" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
     </div>
 </div>
 <div class="row" style="margin: 2em 0;">
@@ -132,10 +132,9 @@ $(document).on('cart.requestComplete', function(event, cart) {
     <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
         <img src="{{ product.featured_image | img_url: '600x'}}"/>
         <h2>{{product.title}}</h2>
-        <p>{{product.id}}</p>
         <a type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
     {% endfor %}
 </div>
-<a type="button" onClick="bundle()">Add Bundle to Cart</a>
+<button class="btn btn-small" type="button" onClick="bundle()">Add Bundle to Cart</button>
 </div>
