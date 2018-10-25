@@ -19,7 +19,7 @@
             {% endif %}
             <div class="header-image-box">
             {% assign handle = childlink.object.handle %}
-            {% assign custom = handle.products_count %}
+            {% assign custom = childlink.object.products_count %}
             <p>Object title: {{ handle }}</p>
             <p>Collection title: {{ custom }}</p>
             <img src="{{ custom.featured_image | img_url: '300x' }}"/>
