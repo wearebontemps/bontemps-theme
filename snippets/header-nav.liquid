@@ -12,11 +12,14 @@
           {{ link.title }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <div class="dropdown-shop">
+          <div class="dropdown-shop d-flex align-items-center">
           {% for childlink in link.links %}
             {% if forloop.index == 1 or forloop.index > 1 %}
               <div class="dropdown-box">
             {% endif %}
+            <div class="header-image-box">
+            <p>Object title: {{ link.object.title }}</p>
+            </div>
               {% if link.links != blank %}
                 <a class="text-dark collection-category" href="{{ childlink.url }}"><h4>{{ childlink.title }}</h4></a>
                 {% if childlink.links != blank %}
