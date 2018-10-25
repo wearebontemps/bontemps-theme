@@ -27,8 +27,8 @@
               {% endif %}
             </blockquote>
             <span class="ratings star star-{{ block.settings.star-count }}"><i class="fa fa-star"></i></span>
-            {%- if product.featured_image -%}
-            <img src="{{ product.featured_image | img_url: '300x' }}" alt="{{ product.featured_image.alt }}" class="testimonial-product-img" style="max-width: 100px;">
+            {%- if block.settings.featured_image -%}
+            <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
             {% endif %}
             </div>
           </div>
@@ -146,6 +146,11 @@
             "default": {
               "en": "Interior Design"
             }
+          },
+          {
+            "type": "image_picker",
+            "id": "featured_image",
+            "label": "Tea Image"
           },
           {
             "type": "image_picker",
