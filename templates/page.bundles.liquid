@@ -127,14 +127,16 @@ $(document).on('cart.requestComplete', function(event, cart) {
     <a type="button" id="remove_3" onClick="removeProduct('3')">Remove</a>
     </div>
 </div>
-<div class="row" style="margin: 2em 0;">
+<div class="row grid" style="margin: 2em 0;">
     {% for product in collections.all.products %}
     <div class="col-4" style="margin-bottom: 2em; padding: 1em;">
     <h2>{{product.title}}</h2>
     <p>{{product.id}}</p>
     <a  type="button" class="btn btn-small" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</a>
     </div>
-    {% include 'product-card-grid' %}
+    <div class="grid__item {{ grid_item_width }}">
+        {% include 'product-card-grid', max_height: max_height %}
+    </div>
     {% endfor %}
 </div>
 <a type="button" onClick="bundle()">Add Bundle to Cart</a>
