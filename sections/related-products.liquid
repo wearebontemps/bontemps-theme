@@ -92,13 +92,13 @@
 
 
   {% capture related_items %}
-<div class="grid page-width grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+<div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
 
   {% for product in collection.products %}
   {% unless product.handle == current_product.handle %}
   {% unless same_vendor and current_product.vendor != product.vendor %}
   {% unless same_type and current_product.type != product.type %}
-  <div class="grid__item {{ grid_item_width }}" style="padding-left: 0;">
+  <div class="grid__item {{ grid_item_width }}">
     {% include 'product-card-related', max_height: max_height %}
 
   </div>
