@@ -130,7 +130,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
 <div class="row" style="margin: 2em 0;">
 <ul class="grid grid--uniform  grid--view-items col-12">
 {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
-{%- assign max_height = 250 -%}
+{%- assign max_height = 345 -%}
     {% for product in collections.singles.products %}
     {% comment %} <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
         <img src="{{ product.featured_image | img_url: '600x'}}"/>
