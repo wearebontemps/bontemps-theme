@@ -35,7 +35,7 @@ Theme Store optional settings
 
         <div class=" slideshow__slide slideshow__slide--{{ block.id }} {% if forloop.first %}slick-active{% endif %}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
             <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
-              data-bgset="{% include 'bgset', image: block.settings.image %}"
+              data-bgset="{% include 'bgset', image: product.images.last %}"
               data-sizes="auto"
               data-parent-fit="cover"
               style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ product.images.last | img_url: '300x300' }});{% endif %}">
