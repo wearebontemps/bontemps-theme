@@ -2,11 +2,10 @@
 <div class="grid-view-item product-card" style="height: 100%; width: 100%; background-color: orange;">
     <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
     {% include 'product-card-hover' %}
-    <div style="position:relative; padding-top:{% unless section.settings.inner_image == blank %}{{ 1 | divided_by: section.settings.inner_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+    <div style="position:relative;">
       <img id="{{ img_id }}"
             class="grid-view-item__image lazyload"
-            src="{{ section.settings.inner_image.src | img_url: '300x300' }}"
-            data-src="{{ img_url }}"
+            src="{{ section.settings.inner_image.src }}"
             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
             data-aspectratio="{{ section.settings.inner_image.aspect_ratio }}"
             data-sizes="auto"
