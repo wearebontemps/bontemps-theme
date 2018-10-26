@@ -30,7 +30,9 @@
   </noscript>
 
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-
+  {% for tag in product.tags %}
+  <p>{{ tag }}</p>
+  {% endfor %}
   {% include 'product-price', variant: product %}
 
 </div>
