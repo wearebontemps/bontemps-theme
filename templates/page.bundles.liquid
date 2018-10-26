@@ -128,13 +128,18 @@ $(document).on('cart.requestComplete', function(event, cart) {
     </div>
 </div>
 <div class="row" style="margin: 2em 0;">
+<ul class="list-view-items col-12">
     {% for product in collections.singles.products %}
-    <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
+    {% comment %} <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
         <img src="{{ product.featured_image | img_url: '600x'}}"/>
         <h2>{{product.title}}</h2>
         <button type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
-    </div>
+    </div> {% endcomment %}
+          <li class="list-view-item">
+            {% include 'product-card-list', product: product %}
+          </li>
     {% endfor %}
+    </ul>
     <div class="col-12 text-center">
     <button class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
     </div>
