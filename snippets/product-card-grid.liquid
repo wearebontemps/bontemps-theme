@@ -31,7 +31,7 @@
   <div class="product-meta">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
       <div class="variant-details">
-      {% include 'caffeine' %}
+      {% include 'product-tags' %}
         <p class="sachet-count">
           {% for tag in product.tags %}
           {% if tag contains 'sachets' %}
@@ -45,7 +45,7 @@
       <div class="product__price">
         {% include 'product-price', variant: product %}
       </div>
-      
+
     </div>
 
 </div>
