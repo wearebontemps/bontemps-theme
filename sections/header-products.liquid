@@ -34,17 +34,11 @@ Theme Store optional settings
                 {% for block in section.blocks %}
 
         <div class=" slideshow__slide slideshow__slide--{{ block.id }} {% if forloop.first %}slick-active{% endif %}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
-                  {%- assign is_background_video = false -%}
-                  {% if block.type == 'video' %}
-                    {% if block.settings.video_type == 'background' or block.settings.video_type =='background-chrome' %}
-                      {%- assign is_background_video = true -%}
-                    {% endif %}
-                  {% endif %}
             <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
-                 data-bgset="{% include 'bgset', image: block.settings.image %}"
-                 data-sizes="auto"
-                 data-parent-fit="cover"
-                 style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
+              data-bgset="{% include 'bgset', image: block.settings.image %}"
+              data-sizes="auto"
+              data-parent-fit="cover"
+              style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ product.images.last | img_url: '300x300' }});{% endif %}">
             </div>
           <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
             <div class="overlay-box" style="background-color: {{ block.settings.color_image_overlay }}; opacity: {{ block.settings.color_image_opacity | times: 0.01 }};">
