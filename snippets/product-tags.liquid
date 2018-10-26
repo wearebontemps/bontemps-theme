@@ -1,0 +1,8 @@
+{% if product.tags != blank %}
+{% for tag in product.tags %}
+{% if tag contains 'effect' %}
+{% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
+<span class="effect">{% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+{% endif %}
+{% endfor %}
+{% endif %}

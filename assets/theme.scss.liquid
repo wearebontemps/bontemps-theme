@@ -873,11 +873,18 @@ html input {
   }
 }
 
+button, a {
+  &:focus, &:hover, &:active {
+    outline: none;
+  }
+}
+
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
   border-style: none;
+  outline: none;
   padding: 0;
 }
 
@@ -2766,7 +2773,7 @@ hr {
 
 .grid--view-items {
   overflow: auto;
-  margin-bottom: -$section-spacing-small;
+  //margin-bottom: -$section-spacing-small;
 }
 
 .grid-view-item {
@@ -3209,6 +3216,12 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   display: flex;
   flex-direction: row;
   align-items: center;
+  .visual-block-inner {
+    padding: 0 5.5em;
+    @media screen and (max-width: 576px){
+      padding: 0 2em;
+    }
+  }
   .content-copy{
     color: $color-text;
     h2{
@@ -3725,6 +3738,9 @@ h1.section-header{
   .product-form {
     padding-top: 0;
   }
+  .product-form__item--quantity {
+    padding: 0;
+  }
   .product-single__photo-wrapper {
     //min-height: 360px;
   }
@@ -3782,6 +3798,9 @@ h1.section-header{
   padding: 0 0 20px 0;
   text-transform: uppercase;
   color: #e0592a;
+  a {
+    color: #e0592a;
+  }
 }
 
 .product-icon-bar{
@@ -6378,22 +6397,21 @@ $toolbar-height-small: 46px;
     justify-content: center;
     color: #e0592a;
     font-family: 'Gotham';
-    font-size: 10px;
+    font-size: .8em;
+    line-height: 1;
+    max-width: 70px;
     img {
-      // -webkit-transform: rotate(180deg);     /* Chrome and other webkit browsers */
-      // -moz-transform: rotate(180deg);        /* FF */
-      // -o-transform: rotate(180deg);          /* Opera */
-      // -ms-transform: rotate(180deg);         /* IE9 */
-      // transform: rotate(180deg);
+      width:  60px;
+      margin-bottom: -10px;
     }
   }
   .next {
     img {
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);    
-      transform: rotate(180deg);
+      // -webkit-transform: rotate(180deg);
+      // -moz-transform: rotate(180deg);
+      // -o-transform: rotate(180deg);
+      // -ms-transform: rotate(180deg);
+      // transform: rotate(180deg);
     }
   }
 }
@@ -6416,17 +6434,17 @@ $toolbar-height-small: 46px;
   span.yotpo-stars {
     margin-bottom: 5px !important;
   }
-  .btn.reviews-link {
-    background: none;
-    background-color: transparent;
-    border-color: transparent;
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: normal;
-    letter-spacing: 0.4px;
-    text-align: center;
-    color: #9dafbd;
-  }
+}
+.btn.reviews-link {
+  background: none;
+  background-color: transparent;
+  border-color: transparent;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #9dafbd;
 }
 // Slick overrides
 .slick-dotted.quotes-slider.slick-initialized {
@@ -6994,23 +7012,75 @@ $toolbar-height-small: 46px;
 
 .product-card {
   position: relative;
-
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+  background: white;
+  max-width: 360px;
+  margin: 0 0 1.75em;
   &:hover,
   &:focus-within {
     .product-card__image-wrapper {
       opacity: 0.8;
     }
-
     .product-card__title {
       border-bottom-color: $color-text;
     }
+  }
+  .product-card_title {
+    font-family: 'Gotham';
+     font-size: 18px;
+     font-weight: bold;
+     line-height: 1.44;
+     letter-spacing: -0.5px;
+     color: #3c3d4b;
+     display: inline-block;
+     text-align: left;
+     margin-bottom: 1em;
+  }
+  .price-item {
+    position: absolute;
+    top: calc(-1em + 40px);
+    left: 25px;
+    background: white;
+    padding: 5px 10px;
+    min-width: 66px;
+    color: #e0592a;
+    font-weight: bold;
+  }
+  .product-meta {
+    margin: 1em;
+    color: #e0592a;
+    p, span {
+      //color: #e0592a;
+    }
+  }
+  .variant-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //min-height: 36px;
+    margin: 0 0 20px;
+    p {margin-bottom: 0;}
+    .caffeine-level {
+      .dot {
+        height: 10px;
+        width: 10px;
+        border: 1px solid #e0592a;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 2px;
+        &.fill {
+          background-color: #e0592a;
+        }
+      }
+    }
+    .sachet-count {}
   }
 }
 .product-icon{
   max-width: 80px;
 }
 .product-card__title {
-  border-bottom: 1px solid transparent;
+  //border-bottom: 1px solid transparent;
   display: inline;
 }
 
