@@ -13,8 +13,9 @@
   {% endunless %}
 
   <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
-  <div class='product-card-hover'>
-    <h1>TEST</h1>
+    <div class='product-card-hover d-flex align-items-center justify-content-around'>
+      <p>Perfect for settling nerves and staying on your A-game</p>
+      <div>{% include 'caffeine' %}</div>
     </div>
     <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
