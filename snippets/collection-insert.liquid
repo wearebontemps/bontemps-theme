@@ -2,7 +2,7 @@
 <div class="grid-view-item product-card" style="height: 100%; width: 100%; background-color: orange;">
     <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
     {% include 'product-card-hover' %}
-    <div style="position:relative;">
+    <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
             class="grid-view-item__image lazyload"
             src="{{ section.settings.insert_image.src | img_url: '300x300' }}"
