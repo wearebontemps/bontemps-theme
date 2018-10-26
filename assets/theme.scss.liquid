@@ -965,6 +965,10 @@ $grid-breakpoints: (
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: -$grid-gutter;
+  @include media-query($small) {
+    margin-left: -$grid-gutter-mobile;
+  }
 }
 
 .grid__item {
