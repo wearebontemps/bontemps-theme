@@ -7035,6 +7035,11 @@ $toolbar-height-small: 46px;
       border-bottom-color: $color-text;
     }
   }
+  img {
+    &:hover {
+      filter: blur(4px);
+    }
+  }
   .product-card_title {
     font-family: 'Gotham';
      font-size: 18px;
@@ -7055,6 +7060,10 @@ $toolbar-height-small: 46px;
     min-width: 66px;
     color: #e0592a;
     font-weight: bold;
+    &:hover {
+      filter: blur(4px);
+      display: none;
+    }
   }
   .product-meta {
     margin: 1em;
@@ -7100,7 +7109,7 @@ $toolbar-height-small: 46px;
   left: 0;
   right: 0;
   opacity: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.6);
   transition: opacity 0.6s;
   z-index: 30;
   padding: 2em;
