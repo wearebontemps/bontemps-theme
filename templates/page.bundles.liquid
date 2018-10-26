@@ -137,14 +137,14 @@ $(document).on('cart.requestComplete', function(event, cart) {
         <h2>{{product.title}}</h2>
         <button type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
     </div> {% endcomment %}
-          <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
+          <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }} d-flex flex-column">
             {% include 'product-card-grid', max_height: max_height %}
             <button type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
           </li>
     {% endfor %}
     </ul>
     <div class="col-12 text-center">
-    <button class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
+    <button style="margin:.5em 0;" class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
     </div>
 </div>
 
