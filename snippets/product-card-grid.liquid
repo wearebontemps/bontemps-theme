@@ -1,4 +1,7 @@
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+    <div class='product-card-hover'>
+    <h1>TEST</h1>
+    </div>
   <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
     <span class="visually-hidden">{{ product.title }}</span>
   </a>
@@ -21,9 +24,6 @@
             data-aspectratio="{{ product.featured_image.aspect_ratio }}"
             data-sizes="auto"
             alt="">
-    </div>
-    <div class='product-card-hover'>
-    <h1>TEST</h1>
     </div>
   </div>
 {% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
