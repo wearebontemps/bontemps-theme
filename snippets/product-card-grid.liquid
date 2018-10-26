@@ -12,7 +12,7 @@
   {% endunless %}
 
   <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
-    <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+    <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
             class="grid-view-item__image lazyload"
             src="{{ product.featured_image | img_url: '300x300' }}"
@@ -21,6 +21,9 @@
             data-aspectratio="{{ product.featured_image.aspect_ratio }}"
             data-sizes="auto"
             alt="">
+    </div>
+    <div class='product-card-hover'>
+    <h1>TEST</h1>
     </div>
   </div>
 {% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
