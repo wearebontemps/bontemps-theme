@@ -7021,7 +7021,6 @@ $toolbar-height-small: 46px;
     .product-card__image-wrapper {
       opacity: 0.8;
     }
-
     .product-card__title {
       border-bottom-color: $color-text;
     }
@@ -7033,6 +7032,38 @@ $toolbar-height-small: 46px;
      line-height: 1.44;
      letter-spacing: -0.5px;
      color: #3c3d4b;
+  }
+  .price-item {
+    position: absolute;
+    top: calc(-4em + 40px);
+    left: 40px;
+    background: white;
+    padding: 5px 10px;
+    min-width: 66px;
+    color: #e0592a;
+    font-weight: bold;
+  }
+  .variant-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //min-height: 36px;
+    margin: 0 0 20px;
+    p {margin-bottom: 0;}
+    .caffeine-level {
+      .dot {
+        height: 10px;
+        width: 10px;
+        border: 1px solid #e0592a;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 2px;
+        &.fill {
+          background-color: #e0592a;
+        }
+      }
+    }
+    .sachet-count {}
   }
 }
 .product-icon{
