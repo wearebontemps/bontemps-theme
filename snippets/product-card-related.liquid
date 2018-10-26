@@ -31,21 +31,15 @@
   <div class="product-meta">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
       <div class="variant-details">
-      {% include 'caffeine' %}
-        <p class="sachet-count">
-          {% for tag in product.tags %}
-          {% if tag contains 'sachets' %}
-          {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-          {% for word in tag_mod %}{{ word }} {% endfor %}
-          {% endif %}
-          {% endfor %}
-          tea sachets
-        </p>
+        {% if product.tags != blank %}
+        {% for tag in product.tags %}
+        {% if tag contains 'effect' %}
+        {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
+        <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
       </div>
-      <div class="product__price">
-        {% include 'product-price', variant: product %}
-      </div>
-      
     </div>
 
 </div>
