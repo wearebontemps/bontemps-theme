@@ -151,7 +151,7 @@
   },
   "collections": {
     "general": {
-      "view_all": "View all",
+      "view_all": "Meet The Family",
       "view_all_label": "View all products in the {{ collection_name }} collection",
       "no_matches": "Sorry, there are no products in this collection",
       "items_with_count": {

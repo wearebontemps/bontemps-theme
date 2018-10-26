@@ -1,0 +1,21 @@
+{%- assign img_url = section.settings.insert_image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+<a href="/pages/make-it-a-threesome">
+<div class="grid-view-item product-card" style="height: 100%; width: 100%; background-color: orange;">
+    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
+    <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+    <div class='product-card-overlay-copy d-flex flex-column align-items-center justify-content-start'>
+        <h2 class="text-white">Design a 3 Pack</h2>
+        <p class="text-white">GET FREE SHIPPING</p>
+    </div>
+    <img id="{{ img_id }}"
+        class="grid-view-item__image lazyload"
+        src="{{ section.settings.insert_image.src | img_url: '300x300' }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-aspectratio="{{ section.settings.insert_image.aspect_ratio }}"
+        data-sizes="auto"
+        alt="">
+    </div>
+  </div>
+</div>
+</a>
