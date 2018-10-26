@@ -1,4 +1,4 @@
 <div class='product-card-hover d-flex flex-column align-items-center justify-content-around'>
-      <p>{{ product.description | strip_html | truncatewords: 20, '...' }}</p>
-      <div>{% include 'caffeine' %}</div>
-    </div>
+  <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
+  <div>{% include 'caffeine' %}</div>
+</div>
