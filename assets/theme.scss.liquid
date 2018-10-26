@@ -3730,6 +3730,19 @@ h1.section-header{
   color: #e0592a;
   margin-top: 1em;
 }
+.caffeine-level {
+  .dot {
+    height: 10px;
+    width: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    &.fill {
+      background-color: white;
+    }
+  }
+}
 .floating-box {
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
   background: white;
@@ -3749,6 +3762,14 @@ h1.section-header{
     color: #e0592a;
     p, span {
       color: #e0592a;
+    }
+    .caffeine-level {
+      .dot {
+        border: 1px solid #e0592a;
+        &.fill {
+          background-color: #e0592a;
+        }
+      }
     }
   }
   .btn, .btn span {
@@ -3778,19 +3799,7 @@ h1.section-header{
     .sachet-count {}
   }
 }
-.caffeine-level {
-  .dot {
-    height: 10px;
-    width: 10px;
-    border: 1px solid #e0592a;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 2px;
-    &.fill {
-      background-color: #e0592a;
-    }
-  }
-}
+
 .three-pack-link {
   display: flex;
   align-items: center;
