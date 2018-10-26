@@ -13,11 +13,29 @@
         get: 'user',
         template: '<div class="col-4 col-md-2 instagram-image"><img src="{{image}}" /><a href="{{link}}" target="_blank" class="instagram-feed-link"><div class="instagram-overlay-icon"><img src="https://cdn.shopify.com/s/files/1/0013/5531/7307/files/instagram-logo.png?7050140443920899339"></div></a></div>',
         userId: '8251013339',
-        accessToken: '5753363998.b811630.b5667cd5841f4d3d915a593a73bdd128',
+        accessToken: '8251013339.1677ed0.768d765d16f44705b8d0ba0c37fa1651',
         resolution: 'standard_resolution',
-        limit: 6,
-        links: true
-    });
+        limit: 30,
+        links: true,
+        filter: function(image) {
+          var blockedUsernames = ['9square'];
+          // check for blocked users
+          for (var i=0; i<blockedUsernames.length; i++) {
+            for (var j=0; j<image.tags.length; j++){
+              if (image.tags[j] === blockedUsernames[i]){
+                  return false;
+                }
+            }
+              return true;
+              }
+          },
+        after: function () {
+          var images = $("#instafeed").find('div.instagram-image');
+          if (images.length > 6) {
+            $(images.slice(6, images.length)).remove();
+          }
+        }
+        });
     userFeed.run();
 </script>
 {% endraw %}
@@ -44,6 +62,12 @@
         "label": "First Section Copy",
         "id": "first_section_copy",
         "default": "<p>Discover those that have mastered the art @bontemps</p>"
+      },
+      {
+      "type": "text",
+      "id": "filter_handle",
+      "label": "the hashtag you filter with on IG, which cannot be changed here",
+      "default": "bettertea"
       }
   ],
   "presets": [
