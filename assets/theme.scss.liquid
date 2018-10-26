@@ -873,11 +873,18 @@ html input {
   }
 }
 
+button {
+  &:focus, &:hover, &:active {
+    outline: none;
+  }
+}
+
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
   border-style: none;
+  outline: none;
   padding: 0;
 }
 
@@ -6378,9 +6385,11 @@ $toolbar-height-small: 46px;
     justify-content: center;
     color: #e0592a;
     font-family: 'Gotham';
-    font-size: 10px;
+    font-size: .8em;
+    max-width: 70px;
     img {
-      width:  40px;
+      width:  60px;
+      margin-bottom: -10px;
     }
   }
   .next {
