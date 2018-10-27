@@ -1,5 +1,5 @@
 <a href="{{ product.url }}">
-<div class='product-card-hover hover_{{product.id}} d-flex flex-column align-items-center justify-content-around'>
+<div class='product-card-hover d-flex flex-column align-items-center justify-content-around'>
   <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
   <div>{% include 'caffeine' %}</div>
 </div>

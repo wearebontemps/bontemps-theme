@@ -1,4 +1,4 @@
-<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+<div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
     
   {% comment %} <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
     <span class="visually-hidden">{{ product.title }}</span>
