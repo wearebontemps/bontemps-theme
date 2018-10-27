@@ -53,7 +53,7 @@
         <input type="submit" value="Add To Cart" class="btn" style="margin: 1em;" />
       </form>
     </div>
-    <div class="product__price">
+    <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}
     </div>
     <script type="text/javascript">
@@ -64,6 +64,13 @@
         }, function() {
           $('.form_{{ product.id }}').hide(300);
           $('.details_{{ product.id }}').show(300);
+      });
+      $('.bg_hover_{{ product.id }}').hover(function() {
+          $('.ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
+          $('.price_hover_{{ product.id }}').hide(300);
+        }, function() {
+          $('.ProductCardImage-collection-template-{{ product.id }}').removeClass('blur');
+          $('.price_hover_{{ product.id }}').show(300);
       });
     })
     </script>
