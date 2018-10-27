@@ -65,11 +65,11 @@
           $('.form_{{ product.id }}').hide(300);
           $('.details_{{ product.id }}').show(300);
       });
-      $('#bg_hover_{{ product.id }}').hover(function() {
-          $('.ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
+      $('.bg_hover_{{ product.id }}').hover(function() {
+          $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('.price_hover_{{ product.id }}').hide(300);
         }, function() {
-          $('.ProductCardImage-collection-template-{{ product.id }}').removeClass('blur');
+          $('#ProductCardImage-collection-template-{{ product.id }}').removeClass('blur');
           $('.price_hover_{{ product.id }}').show(300);
       });
     })
