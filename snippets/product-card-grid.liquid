@@ -32,7 +32,7 @@
   </noscript>
   <div class="product-meta">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-      <div class="variant-details">
+      <div class="variant-details details_{{product.id}}">
       {% include 'product-tags' %}
         <p class="sachet-count">
           {% for tag in product.tags %}
@@ -44,7 +44,7 @@
           tea sachets
         </p>
       </div>
-      <form class=" card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
+      <form class="card-add-to-cart form_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display:none;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
         <input type="submit" value="Add To Cart" class="btn" />
       </form>
@@ -52,5 +52,13 @@
         {% include 'product-price', variant: product %}
       </div>
     </div>
-
+    <script type="text/javascript">
+      $('.hover_{{ product.id }}').hover(function() {
+          $('.details_{{ product.id }}').hide();
+          $('.form_{{ product.id }}').show();
+        }, function() {
+          $('.form_{{ product.id }}').hide();
+          $('.details_{{ product.id }}').show();
+      });
+    </script>
 </div>
