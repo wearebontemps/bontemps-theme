@@ -46,9 +46,9 @@
         </p>
       </div>
       </div>
-      <form class="card-add-to-cart form_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display:none;">
+      <form class="card-add-to-cart form_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display:none;display: none; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-        <input type="submit" value="Add To Cart" class="btn" />
+        <input type="submit" value="Add To Cart" class="btn" style="margin: 1em;" />
       </form>
       <div class="product__price">
         {% include 'product-price', variant: product %}
@@ -56,11 +56,11 @@
     </div>
     <script type="text/javascript">
       $('.hover_{{ product.id }}').hover(function() {
-          $('.details_{{ product.id }}').hide();
-          $('.form_{{ product.id }}').show();
+          $('.details_{{ product.id }}').hide(fast);
+          $('.form_{{ product.id }}').show(fast);
         }, function() {
-          $('.form_{{ product.id }}').hide();
-          $('.details_{{ product.id }}').show();
+          $('.form_{{ product.id }}').hide(fast);
+          $('.details_{{ product.id }}').show(fast);
       });
     </script>
 </div>
