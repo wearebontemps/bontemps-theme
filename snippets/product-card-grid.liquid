@@ -30,9 +30,9 @@
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
-  <div class="product-meta">
+  <div class="product-meta details_{{product.id}}">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-      <div class="variant-details details_{{product.id}}">
+      <div class="variant-details ">
       {% include 'product-tags' %}
         <p class="sachet-count">
           {% for tag in product.tags %}
