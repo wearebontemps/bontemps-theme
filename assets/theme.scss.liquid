@@ -965,6 +965,10 @@ $grid-breakpoints: (
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: -$grid-gutter;
+  @include media-query($small) {
+    margin-left: -$grid-gutter-mobile;
+  }
 }
 
 .grid__item {
@@ -1393,6 +1397,7 @@ h3 {
   font-size: em($font-size-header);
   text-transform: none;
   letter-spacing: 0;
+  color: #3c3d4b;
 
   @include media-query($small) {
     font-size: em(floor($font-size-header * 0.78));
@@ -3223,12 +3228,13 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     }
   }
   .content-copy{
-    color: $color-text;
+    color: #3c3d4b;
     h2{
       font-size: 34px;
       @media screen and (max-width: 576px){
       text-align: center;
       font-size: 30px;
+      color: #3c3d4b;
       }
     }
     p{
@@ -7031,16 +7037,21 @@ $toolbar-height-small: 46px;
       border-bottom-color: $color-text;
     }
   }
-  .product-card_title {
+  img {
+    &:hover {
+      filter: blur(4px);
+    }
+  }
+  .product-card__title {
     font-family: 'Gotham';
      font-size: 18px;
      font-weight: bold;
      line-height: 1.44;
      letter-spacing: -0.5px;
-     color: #3c3d4b;
+     color: #3c3d4b !important;
      display: inline-block;
      text-align: left;
-     margin-bottom: 1em;
+     //margin-bottom: 1em;
   }
   .price-item {
     position: absolute;
@@ -7051,10 +7062,14 @@ $toolbar-height-small: 46px;
     min-width: 66px;
     color: #e0592a;
     font-weight: bold;
+    &:hover {
+      filter: blur(4px);
+      display: none;
+    }
   }
   .product-meta {
     margin: 1em;
-    color: #e0592a;
+    color: #9dafbd;
     p, span {
       //color: #e0592a;
     }
@@ -7096,7 +7111,7 @@ $toolbar-height-small: 46px;
   left: 0;
   right: 0;
   opacity: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.6);
   transition: opacity 0.6s;
   z-index: 30;
   padding: 2em;
