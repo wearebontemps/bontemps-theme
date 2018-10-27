@@ -30,7 +30,8 @@
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
-  <div class="product-meta details_{{product.id}}">
+  <div class="product-meta ">
+  <div class="details_{{product.id}}">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
       <div class="variant-details ">
       {% include 'product-tags' %}
@@ -43,6 +44,7 @@
           {% endfor %}
           tea sachets
         </p>
+      </div>
       </div>
       <form class="card-add-to-cart form_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display:none;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
