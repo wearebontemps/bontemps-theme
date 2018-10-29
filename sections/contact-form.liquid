@@ -1,14 +1,14 @@
-<div class="contact-form form-vertical">
+<div class="contact-form form-vertical contained">
   {%- assign formId = 'ContactForm' -%}
   {% form 'contact', id: formId %}
     {% include 'form-status', formId %}
 
-    <div class="grid grid--half-gutters">
-      <div class="grid__item medium-up--one-half">
+    <div class="row">
+      <div class="col-sm-6">
         <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
         <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
       </div>
-      <div class="grid__item medium-up--one-half">
+      <div class="col-sm-6">
         <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
         <input
           type="email"
@@ -27,14 +27,16 @@
         <span id="{{ formId}}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
       </div>
     </div>
-
-    <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
-    <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
-
-    <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
-    <textarea rows="10" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-
-    <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
-
+    <div class="col-12">
+      <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+      <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+    </div>
+    <div class="col-12">
+      <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+      <textarea rows="10" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+    </div>
+    <div class="col-12 text-center">
+      <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+    </div>
   {% endform %}
 </div>
