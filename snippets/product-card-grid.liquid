@@ -63,6 +63,7 @@
     </div>
     <script type="text/javascript">
     $( document ).ready(function(){
+      {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
           $('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').show(300);
@@ -70,6 +71,7 @@
           $('.form_{{ product.id }}').hide(300);
           $('.details_{{ product.id }}').show(300);
       });
+      {% endunless %}
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('.price_hover_{{ product.id }}').hide(300);
