@@ -138,7 +138,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
     </div> {% endcomment %}
           <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height %}
-            {% comment %} <button  style="margin: .5em 0 1em; max-width: 180px;" type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button> {% endcomment %}
+            <button  style="margin: .5em 0 1em; max-width: 180px;" type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
           </li>
     {% endfor %}
     </ul>
