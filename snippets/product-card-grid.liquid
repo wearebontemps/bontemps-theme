@@ -57,10 +57,10 @@
         <input type="submit" value="Add To Cart" class="btn" style="margin: 0 1em 1em;" />
       </form>
     </div>
-    {% endunless %}
     <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}
     </div>
+      {% endunless %}
     <script type="text/javascript">
     $( document ).ready(function(){
       {% unless page_toggle == true %}
