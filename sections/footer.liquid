@@ -95,8 +95,8 @@
 <footer class="site-footer" role="contentinfo" style="background-color: {{ section.settings.bg_color }}">
   <div class="page-width">
     <div class="row">
-    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-        <a href="/" class="logo-image">
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
+    <a href="/" class="logo-image">
           {% if section.settings.logo != blank %}
           {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
           <img src="{{ section.settings.logo | img_url: image_size }}"
@@ -106,6 +106,16 @@
           {{ shop.name }}
           {% endif %}
         </a>
+    </div>
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
+        <h4>PRODUCTS</h4>
+    </div>
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
+            <h4>COMPANY</h4>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
         </div>
@@ -114,7 +124,6 @@
         {% endif %}
       </div>
       <div class="col-sm-4 d-flex flex-column align-items-center">
-      <h4>PRODUCTS</h4>
         {% if linklists[section.settings.footer_linklist].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist].links %}
@@ -127,7 +136,6 @@
       </div>
 
       <div class="col-sm-4 d-flex flex-column align-items-center">
-        <h4>COMPANY</h4>
         {% if linklists[section.settings.footer_linklist_two].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist_two].links %}
