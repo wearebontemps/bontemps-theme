@@ -23,7 +23,7 @@ Shopify.AjaxifyCart = (function($) {
     addingToCartBtnLabel:          'Adding...',
     soldOutBtnLabel:               'Sold Out',
     howLongTillBtnReturnsToNormal: 1000, // in milliseconds.
-    cartCountSelector:             '.cart-count, #cart-count a:first, #gocart p a, #cart .checkout em, .item-count, #cart_target',
+    cartCountSelector:             '#cart_target',
     cartTotalSelector:             '#cart-price',
     // 'aboveForm' for top of add to cart form, 
     // 'belowForm' for below the add to cart form, and 
@@ -98,6 +98,8 @@ Shopify.AjaxifyCart = (function($) {
                 if (_config.cartCountSelector && $(_config.cartCountSelector).size) {
                 var value = $(_config.cartCountSelector).html() || '0';
                 $(_config.cartCountSelector).html(value.replace(/[0-9]+/,cart.item_count)).removeClass('hidden-count');
+                $('#cart_target').text({{ cart.item_count }});
+                console.log({{ cart.item_count }});
                 }
                 if (_config.cartTotalSelector && $(_config.cartTotalSelector).size ) {
                 if (typeof Currency !== 'undefined' && typeof Currency.moneyFormats !== 'undefined') {
@@ -138,8 +140,6 @@ Shopify.AjaxifyCart = (function($) {
             }
           }
         });   
-         $('#cart_target').text({{ cart.item_count }});
-        console.log({{ cart.item_count }});
         return false;    
       });
     });
