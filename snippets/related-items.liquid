@@ -64,30 +64,8 @@
   {% assign counter = 0 %}
   {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
   {% assign current_product = product %}
-
-  {% case number_of_related_products_per_row %}
-    {% when '1' %}
-      {% assign grid_item_width = '' %}
-  {%- assign max_height = 700 -%}
-    {% when '2' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-half' %}
-  	  {%- assign max_height = 530 -%}
-    {% when '3' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-third' %}
-      {%- assign max_height = 345 -%}
-    {% when '4' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
-  {%- assign max_height = 250 -%}
-    {% when '5' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-fifth' %}
-  {%- assign max_height = 195 -%}
-    {% when '6' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-sixth' %}
-  {%- assign max_height = 195 -%}
-    {% else %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
-  {%- assign max_height = 195 -%}
-  {% endcase %}
+{% assign grid_item_width = ' medium-up--one-third' %}
+{%- assign max_height = 345 -%}
 
 
   {% capture related_items %}
