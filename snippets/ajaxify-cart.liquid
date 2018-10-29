@@ -121,8 +121,6 @@ Shopify.AjaxifyCart = (function($) {
                 };
                 
             });
-            $('#cart_target').text({{ cart.item_count }});
-                console.log({{ cart.item_count }});
             },
           error: function(XMLHttpRequest) {
             var response = eval('(' + XMLHttpRequest.responseText + ')');
@@ -140,6 +138,8 @@ Shopify.AjaxifyCart = (function($) {
             }
           }
         });   
+         $('#cart_target').text({{ cart.item_count }});
+        console.log({{ cart.item_count }});
         return false;    
       });
     });
