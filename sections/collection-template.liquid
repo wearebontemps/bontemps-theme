@@ -24,7 +24,7 @@
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
 
-    {% if section.settings.show_collection_image and collection.image %}
+    {% comment %} {% if section.settings.show_collection_image and collection.image %}
       <div class="collection-hero">
         <div class="collection-hero__image ratio-container lazyload js"
              data-bgset="{% include 'bgset', image: collection.image %}"
@@ -43,7 +43,7 @@
           </h1>
         </div>
       </div>
-      {% comment %} {% if collection.description != blank %}
+      {% if collection.description != blank %}
         <div class="rte collection-description page-width">
           {{ collection.description }}
         </div>
