@@ -3403,3 +3403,7 @@ theme.init = function() {
 };
 
 $(theme.init);
+jQuery('#notify-me').click(function() {
+  jQuery('#notify-me-wrapper').fadeIn();
+  return false;
+} );
