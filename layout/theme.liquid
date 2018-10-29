@@ -166,5 +166,10 @@
   });
 </script>
 {% include 'ajaxify-cart' %}
+<script type="text/javascript">
+    $('.cart_updater').click(function(){
+      $('#cart_target').text({{ cart.item_count }});
+    })
+</script>
 </body>
 </html>
