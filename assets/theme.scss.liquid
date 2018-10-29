@@ -1222,6 +1222,8 @@ $grid-breakpoints: (
 }
 #cart-drawer{
   display:none;
+  position: fixed;
+  top: 0;
   right: 0;
   width: 400px;
   height: 100vh;
@@ -1231,7 +1233,7 @@ $grid-breakpoints: (
   background: white;
   z-index: 10000;
   &.show{
-    display: fixed;
+    display: block;
   }
 }
 /*============================================================================
