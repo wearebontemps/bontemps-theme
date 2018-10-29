@@ -2,13 +2,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Whoops this tea is out of stock</h5>
+            <h3 class="modal-title" id="exampleModalLongTitle">Whoops this tea is out of stock</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body text-center">
-            <p>Would you like us to let you know when its available?</p>
+            <p>Would you like us to let you know when {{ product.title | escape }} is available?</p>
             <div id="sold-out">
             {% form 'contact' %}
                 {% if form.posted_successfully? %}
@@ -26,7 +26,6 @@
                 {% else %}
                 <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
                 {% endif %}
-                <input name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
                 <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send" />
                 </div>
                 {% endunless %}
