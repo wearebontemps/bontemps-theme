@@ -21,6 +21,7 @@
                 {% endif %}
                 {% unless form.posted_successfully? %}
                 <div id="notify-me-wrapper" class="clearfix" style="text-align:center;">
+                <input type="hidden" name="product" value="{{ product.title }}" />
                 {% if customer %}
                 <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
                 {% else %}
