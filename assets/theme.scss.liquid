@@ -1220,7 +1220,14 @@ $grid-breakpoints: (
 .hide {
   display: none !important;
 }
-
+.cart-drawer{
+  display:none;
+  right: 0;
+  width: 400px;
+  &.show{
+    display: fixed;
+  }
+}
 /*============================================================================
   Skip to content button
     - Overrides .visually-hidden when focused
