@@ -126,7 +126,7 @@
             <a href="/cart" class="site-header__icon site-header__cart">
             {% include 'icon-bag' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-            {% if cart.item_count > 0 %}
+            {% if cart.item_count > -1 %}
                 <div id="CartCount" class="site-header__cart-count">
                 <span>{{ cart.item_count }}</span>
                 <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
