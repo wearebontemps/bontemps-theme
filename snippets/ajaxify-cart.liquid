@@ -87,6 +87,7 @@ Shopify.AjaxifyCart = (function($) {
           success: function(itemData) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
+            $('#cart_target').text({{ cart.item_count }}).delay(2000);
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
             _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
@@ -180,7 +181,7 @@ Shopify.AjaxifyCart.init({ cartCountSelector: '#CartCount span' });
   vertical-align: middle;
 }
 .ajaxified-cart-feedback.success { 
-  color: #3D9970;
+  color: black;
 }
 .ajaxified-cart-feedback.error { 
   color: #FF4136; 
