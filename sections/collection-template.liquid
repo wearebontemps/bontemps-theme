@@ -43,12 +43,7 @@
           </h1>
         </div>
       </div>
-      {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-        <div class="page-width">
-          <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
-        </div>
-      {% endif %}
-      {% if collection.description != blank %}
+      {% comment %} {% if collection.description != blank %}
         <div class="rte collection-description page-width">
           {{ collection.description }}
         </div>
@@ -61,7 +56,7 @@
           {% endif %}
         </div>
       </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
