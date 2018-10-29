@@ -168,7 +168,7 @@
 {% include 'ajaxify-cart' %}
 <script type="text/javascript">
     $('.cart_updater').click(function(){
-      $('#cart_target').text({{ cart.item_count }});
+      $('#cart_target').text({{ cart.item_count }}).delay(2000);
     })
 </script>
 </body>
