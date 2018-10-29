@@ -87,7 +87,8 @@ Shopify.AjaxifyCart = (function($) {
           success: function(itemData) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
-            $('#cart_target').text({{ cart.item_count }}).delay(2000);
+            $('#cart_target').text({{ cart.item_count }});
+            console.log({{ cart.item_count }})
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
             _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
