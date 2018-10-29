@@ -99,8 +99,6 @@ Shopify.AjaxifyCart = (function($) {
                 var value = $(_config.cartCountSelector).html() || '0';
                 $(_config.cartCountSelector).html(value.replace(/[0-9]+/,cart.item_count)).removeClass('hidden-count');
                 }
-                $('#cart_target').text({{ cart.item_count }});
-                console.log({{ cart.item_count }})
                 if (_config.cartTotalSelector && $(_config.cartTotalSelector).size()) {
                 if (typeof Currency !== 'undefined' && typeof Currency.moneyFormats !== 'undefined') {
                     var newCurrency = '';
@@ -121,6 +119,8 @@ Shopify.AjaxifyCart = (function($) {
                     $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
                 }
                 };
+                $('#cart_target').text({{ cart.item_count }});
+                console.log({{ cart.item_count }});
             });
             },
           error: function(XMLHttpRequest) {
