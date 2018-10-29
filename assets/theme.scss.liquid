@@ -1225,7 +1225,7 @@ $grid-breakpoints: (
   position: fixed;
   top: 0;
   right: 0;
-  width: 400px;
+  width: 0;
   height: 100vh;
   overflow: scroll;
   padding:2em;
@@ -1234,6 +1234,8 @@ $grid-breakpoints: (
   z-index: 10000;
   &.show{
     display: block;
+    width: 400px;
+
   }
 }
 /*============================================================================
