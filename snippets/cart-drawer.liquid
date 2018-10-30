@@ -44,17 +44,6 @@
         </div>
         </div>
         {% endfor %}
-  <div class="row">
-  <div class="col-12">
-  <div class="d-flex align-items-center justify-content-between" style="margin-bottom:1em;">
-    <p style="margin:0;">{{ 'cart.general.subtotal' | t }}</p>
-    <p >{{ cart.total_price | money }}</p>
-    {% if cart.total_discounts > 0 %}
-      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
-    {% endif %}
-    </div>
-    </div>
-  </div>
       <div class="cart__footer">
         <div class="grid">
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
