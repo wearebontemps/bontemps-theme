@@ -39,46 +39,22 @@ Shopify.AjaxifyCart = (function($) {
   
   // We need some feedback when adding an item to the cart.
   // Here it is.  
-   var popCart = function(data, callback) {
-        var params = {
-          type: 'POST',
-          url: '/cart/update.js',
-          data: { updates: { {{ variant_id }}: 1 } },
-          dataType: 'json',
-          success: function(cart) {
-            if ((typeof callback) === 'function') {
-              $('#cart_target').html(cart.item_count);
-              callback(cart);
-            }
-            else {
-              Shopify.api.onCartUpdate(cart);
-            }
-          },
-          error: function(XMLHttpRequest, textStatus) {
-            Shopify.api.onError(XMLHttpRequest, textStatus);
-          }
-        };
-        $.ajax(params);
-      };
-      popCart({}, function(cart) {console.log(cart)});
-      $( window ).load(function() {
-          if (window.location.href.indexOf('reload')==-1) {
-              window.location.replace(window.location.href+'?reload');
-          }
-      });
-  var _showFeedback = function(success, html, $addToCartForm) {
-    $('.ajaxified-cart-feedback').remove();
-    var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
-    switch (_config.feedbackPosition) {
-      case 'aboveForm':
-        $addToCartForm.before(feedback);
-        break;
-      case 'belowForm':
-        $addToCartForm.after(feedback);
-        break;
-      case 'nextButton':
-      default:
-        $addToCartForm.find(_config.addToCartBtnSelector).after(feedback);
+   var popCart = function(){
+        $('#cart_target').html(cart.item_count);
+    };
+    var _showFeedback = function(success, html, $addToCartForm) {
+        $('.ajaxified-cart-feedback').remove();
+        var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
+        switch (_config.feedbackPosition) {
+            case 'aboveForm':
+            $addToCartForm.before(feedback);
+            break;
+            case 'belowForm':
+            $addToCartForm.after(feedback);
+            break;
+            case 'nextButton':
+            default:
+            $addToCartForm.find(_config.addToCartBtnSelector).after(feedback);
         break;   
     }
     // If you use animate.css
