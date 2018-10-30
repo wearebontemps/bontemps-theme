@@ -47,7 +47,7 @@ Shopify.AjaxifyCart = (function($) {
           dataType: 'json',
           success: function(cart) {
             if ((typeof callback) === 'function') {
-              $('.cart-count').html(cart.item_count);
+              $('#cart_target').html(cart.item_count);
               callback(cart);
             }
             else {
