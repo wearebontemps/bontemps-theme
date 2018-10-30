@@ -22,16 +22,15 @@
             <div class="col-6 d-flex flex-column align-items-start justify-content-between">
                 <p>{{ item.variant.title }}</p><span class="small-show"> x {{ item.quantity }}</span></p>
                 <div class="cart-item-number" data-label="{{ 'cart.label.quantity' | t }}">
-                <input type="number"
+                <input style="width: 100%;" type="number"
                     class="field-{{ forloop.index }} first-field"
                     name="updates[{{ item.key }}]"
                     id="updates_{{ item.key }}"
                     value="{{ item.quantity }}"
-                    min="0"
-                    aria-label="{{ 'cart.general.item_quantity' | t }}">
+                    min="0"/>
                 </div>
             </div>
-            <div class="col-6 cart-item-info" data-label="{{ 'cart.label.price' | t }}">
+            <div class="col-6 cart-item-info d-flex flex-column align-items-start justify-content-between" data-label="{{ 'cart.label.price' | t }}">
             <div class="">
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="">
                 <small>{{ 'cart.general.remove' | t }}</small>
