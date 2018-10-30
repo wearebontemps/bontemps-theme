@@ -1,137 +1,122 @@
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
-<a href="#" id="close_drawer"><span>x</span></a>
+<a style="float:right;" href="#" id="close_drawer"><span>x</span></a>
   {% if cart.item_count > 0 %}
     <div class="section-header text-center">
       <h1>{{ 'cart.general.title' | t }}</h1>
     </div>
 
     <form action="/cart" method="post" novalidate class="cart">
-      <table>
-        <thead class="cart__row">
-          <th colspan="2" scope="col">{{ 'cart.label.product' | t }}</th>
-          <th class="cart__row-price" scope="col">{{ 'cart.label.price' | t }}</th>
-          <th class="text-center small--hide" scope="col">{{ 'cart.label.quantity' | t }}</th>
-          <th class="text-right small--hide" scope="col">{{ 'cart.label.total' | t }}</th>
-        </thead>
-        <tbody>
-          {% for item in cart.items %}
-            <tr class="cart__row border-bottom line{{ forloop.index }}{% if forloop.first %} border-top{% endif %}">
-              <td class="cart__image-wrapper">
-                <div>
-                  <img class="cart__image" src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">
+      <div class="row">
+      <div class="col-6 col-sm-2">
+          <h5 class="text-left">{{ 'cart.label.product' | t }}</h5>
+        </div>
+        <div class="col-6 col-sm-10">
+          <div class="col-12 col-sm-4 offset-sm-8 cart-titles">
+            <h5 class="small-hide">{{ 'cart.label.price' | t }}</h5>
+            <h5 class="small-hide">{{ 'cart.label.quantity' | t }}</h5>
+            <h5>{{ 'cart.label.total' | t }}</h5>
+          </div>
+        </div>
+      </div>
+        {% for item in cart.items %}
+        {% include 'bold-cart-item' with item %}
+        {% comment %}
+
+        Cart Item Template
+        =====================
+        The data-label attributes on <td> elements are mobile-friendly
+        helpers used for responsive-table labels
+        {% endcomment %}
+
+          <div class="row" style="margin: .25em auto;">
+            <div class="col-4 col-sm-2" data-label="{{ 'customer.order.product' | t }}">
+
+              {% if item.image != blank %}
+                <a href="{{ item.url | within: collections.all }}">
+                  {{ item | img_url: '240x240' | img_tag: item.title }}
+                </a>
+              {% endif %}
+
+            </div>
+            <div class="col-8 col-sm-10 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">
+            <div class="row" style="width:100%;">
+            <div class="col-8 col-sm-8 d-flex flex-column align-items-start justify-content-start">
+            {% if item.product.template_suffix contains "alpine" %}
+            <img src="{{ 'ap-logo-bk.png' | asset_url }}" style="max-width: 60px"/>
+            {% elsif item.product.template_suffix contains "chasen" %}
+            <img src="{{ 'Chasen_Stone_dark.png' | asset_url }}" style="max-width: 100px"/>
+            {% else %}
+            <img src="{{ 'pangea-logo-sm-black.png' | asset_url }}" style="max-width: 100px"/>
+            {% endif %}
+              <a href="{{ item.url }}">{{ item.product.title }}</a><span class="small-show"> x {{ item.quantity }}</span>
+              {{ bold_item_properties }}
+              {{ bold_recurring_desc }}
+              {% unless item.product.has_only_default_variant %}
+                <p>{{ item.variant.title }}</p><span class="small-show"> x {{ item.quantity }}</span></p>
+              {% endunless %}
+              {% endif %} {% endcomment %}
+            <div class="small-hide">
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="{{ bold_remove_class }}">
+                <small>{{ 'cart.general.remove' | t }}</small>
+              </a>
+            </div>
+            </div>
+            <div class="col-4 cart-item-info" data-label="{{ 'cart.label.price' | t }}">
+              {% if item.original_line_price != bold_item_line_price %}
+                <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
+                {{ bold_item_price | money }}
+                <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
+                <s>{{ item.original_price | money }}</s>
+              {% else %}
+              <div class="cart-price per">
+                {{ bold_item_price | money }}
                 </div>
-              </td>
-              <td class="cart__meta small--text-left">
-                <div class="list-view-item__title">
-                  <a href="{{ item.url }}">
-                    {{ item.product.title }}
-                    {% if item.quantity > 1 %}
-                      <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
-                    {% endif %}
-                  </a>
-                </div>
-                {% unless item.variant.title contains 'Default' %}
-                  <div class="cart__meta-text">
-                    {% for option in item.product.options %}
-                      {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
-                    {% endfor %}
-                  </div>
-                {% endunless %}
-
-                {% comment %}
-                  Optional, loop through custom product line items if available
-
-                  Line item properties come in as having two parts. The first part will be passed with the default form,
-                  but p.last is the actual custom property and may be blank. If it is, don't show it.
-
-                  For more info on line item properties, visit:
-                    - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
-                {% endcomment %}
-                {%- assign property_size = item.properties | size -%}
-                {% if property_size > 0 %}
-                  <div class="cart__meta-text">
-                    {% for p in item.properties %}
-                      {% unless p.last == blank %}
-                        {{ p.first }}:
-
-                        {% comment %}
-                          Check if there was an uploaded file associated
-                        {% endcomment %}
-                        {% if p.last contains '/uploads/' %}
-                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                        {% else %}
-                          {{ p.last }}
-                        {% endif %}
-                      {% endunless %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-
-                <p class="small--hide">
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--tertiary cart__remove" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
-                </p>
-              </td>
-              <td class="cart__price-wrapper">
-                {{ item.price | money }}
-
-                {% for discount in item.discounts %}
-                  <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
-                {% endfor %}
-
-                <div class="cart__edit medium-up--hide">
-                  <button type="button" class="btn btn--secondary btn--small js-edit-toggle cart__edit--active" data-target="line{{ forloop.index }}" aria-label="{{ 'cart.general.edit' | t }} {{ item.product.title }}" aria-expanded="false">
-                    <span class="cart__edit-text--edit">{{ 'cart.general.edit' | t }}</span>
-                    <span class="cart__edit-text--cancel">{{ 'cart.general.cancel' | t }}</span>
-                  </button>
-                </div>
-              </td>
-              <td class="text-right small--hide">
-                <div class="cart__qty">
-                  <label for="updates_large_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
-                  <input class="cart__qty-input" type="number" name="updates[]" id="updates_large_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*" data-quantity-item="{{ forloop.index }}">
-                </div>
-              </td>
-              <td class="text-right small--hide">
-                {% if item.original_line_price != item.line_price %}
-                  <div class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></div>
-                {% endif %}
-
-                <div>
-                  {{ item.line_price | money }}
-                </div>
-
-                {% for discount in item.discounts %}
-                  <div class="cart-item__discount">{{ discount.title }}</div>
-                {% endfor %}
-              </td>
-            </tr>
-            <tr class="medium-up--hide cart__update-wrapper">
-              <td colspan="3" class="text-right">
-                <div class="cart__update-controls">
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0"
-                    class="btn btn--small btn--tertiary cart__remove medium-up--hide cart__update-control"
-                    aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">
-                      {{ 'cart.general.remove' | t }}
-                  </a>
-                  <div class="cart__qty cart__update-control">
-                    <label for="updates_{{ item.key }}"
-                      class="cart__qty-label">
-                        {{ 'cart.label.quantity' | t }}
-                    </label>
-                    <input class="cart__qty-input" type="number" id="updates_{{ item.key }}"
-                      value="{{ item.quantity }}" min="0" pattern="[0-9]*"
-                      data-quantity-item="{{ forloop.index }}">
-                  </div>
-                  <button type="submit" name="update" class="btn btn--small medium-up--hide cart__update-control"
-                    aria-label="{{ 'cart.general.update' | t }} {{ item.product.title }}">
-                    {{ 'cart.general.update' | t }}
-                  </button>
-                </div>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+              {% endif %}
+            <div class="cart-item-number small-hide" data-label="{{ 'cart.label.quantity' | t }}">
+              <input type="number"
+                class="field-{{ forloop.index }} first-field"
+                name="updates[{{ item.key }}]"
+                id="updates_{{ item.key }}"
+                value="{{ item.quantity }}"
+                min="0"
+                aria-label="{{ 'cart.general.item_quantity' | t }}">
+            </div>
+            <div class="cart-price" data-label="{{ 'cart.label.total' | t }}">
+              {{ bold_item_line_price | money }}
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        {% endfor %}
+  <div class="row">
+  <div class="col-4 col-sm-9"></div>
+  <div class="col-8 col-sm-3">
+  <div class="d-flex align-items-center justify-content-between" style="margin-bottom:1em;">
+    <p style="margin:0;">{{ 'cart.general.subtotal' | t }}</p>
+    <p >{{ bold_cart_total_price | money }}</p>
+    {% if cart.total_discounts > 0 %}
+      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
+    {% endif %}
+    </div>
+    <p class="text-right">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+    </div>
+  </div>
+    {% comment %} {% if settings.cart_notes_enable %}
+      <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+      <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+    {% endif %} {% endcomment %}
+    <div class="row">
+    <div class="col-sm-6"></div>
+    {{ bold_ro_cart }}
+    <div style="padding-top: 1em;" class="col-sm-6 cart-button-wrap">
+    <script>
+      document.write('<a class="btn cart-btn small-hide" href="' + document.referrer + '">Continue Shopping</a>');
+    </script>
+      <input style="margin-left: .5em;" type="submit" name="update" class="btn cart-btn" value="{{ 'cart.general.update' | t }}">
+      <input style="margin-left: .5em;" type="submit" name="checkout" class="cart-btn btn" value="{{ 'cart.general.checkout' | t }}">
+    </div>
+    </div>
 
       <div class="cart__footer">
         <div class="grid">
