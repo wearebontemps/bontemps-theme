@@ -20,7 +20,7 @@
             <div class="col-8 col-sm-10 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">
             <div class="row" style="width:100%;">
             <div class="col-6 d-flex flex-column align-items-start justify-content-between">
-                <p>{{ item.variant.title }}</p><span class="small-show"> x {{ item.quantity }}</span></p>
+                <p>{{ item.variant.title }} x {{ item.quantity }}</span></p>
                 <div class="cart-item-number" data-label="{{ 'cart.label.quantity' | t }}">
                 <input style="width: 100%;" type="number"
                     class="field-{{ forloop.index }} first-field"
@@ -30,7 +30,7 @@
                     min="0"/>
                 </div>
             </div>
-            <div class="col-6 cart-item-info d-flex flex-column align-items-start justify-content-between" data-label="{{ 'cart.label.price' | t }}">
+            <div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ 'cart.label.price' | t }}">
             <div class="">
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="">
                 <small>{{ 'cart.general.remove' | t }}</small>
