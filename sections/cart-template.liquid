@@ -118,9 +118,6 @@
                       class="cart__qty-label">
                         {{ 'cart.label.quantity' | t }}
                     </label>
-                    <input class="cart__qty-input" type="number" id="updates_{{ item.key }}"
-                      value="{{ item.quantity }}" min="0" pattern="[0-9]*"
-                      data-quantity-item="{{ forloop.index }}">
                   </div>
                   <button type="submit" name="update" class="btn btn--small medium-up--hide cart__update-control"
                     aria-label="{{ 'cart.general.update' | t }} {{ item.product.title }}">
