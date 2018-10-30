@@ -19,40 +19,27 @@
             </div>
             <div class="col-8 col-sm-10 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">
             <div class="row" style="width:100%;">
-            <div class="col-6 d-flex flex-column align-items-start justify-content-start">
-              {% unless item.product.has_only_default_variant %}
+            <div class="col-6 d-flex flex-column align-items-start justify-content-between">
                 <p>{{ item.variant.title }}</p><span class="small-show"> x {{ item.quantity }}</span></p>
-              {% endunless %}
-            <div class="small-hide">
+                <div class="cart-item-number" data-label="{{ 'cart.label.quantity' | t }}">
+                <input type="number"
+                    class="field-{{ forloop.index }} first-field"
+                    name="updates[{{ item.key }}]"
+                    id="updates_{{ item.key }}"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    aria-label="{{ 'cart.general.item_quantity' | t }}">
+                </div>
+            </div>
+            <div class="col-6 cart-item-info" data-label="{{ 'cart.label.price' | t }}">
+            <div class="">
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="">
                 <small>{{ 'cart.general.remove' | t }}</small>
               </a>
             </div>
-            </div>
-            <div class="col-6 cart-item-info" data-label="{{ 'cart.label.price' | t }}">
-                <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ item.price | money }}
-                <div class="cart__edit medium-up--hide">
-                  <button type="button" class="btn btn--secondary btn--small js-edit-toggle cart__edit--active" data-target="line{{ forloop.index }}" aria-label="{{ 'cart.general.edit' | t }} {{ item.product.title }}" aria-expanded="false">
-                    <span class="cart__edit-text--edit">{{ 'cart.general.edit' | t }}</span>
-                    <span class="cart__edit-text--cancel">{{ 'cart.general.cancel' | t }}</span>
-                  </button>
-                </div>
-            <div class="cart-item-number" data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number"
-                class="field-{{ forloop.index }} first-field"
-                name="updates[{{ item.key }}]"
-                id="updates_{{ item.key }}"
-                value="{{ item.quantity }}"
-                min="0"
-                aria-label="{{ 'cart.general.item_quantity' | t }}">
-            </div>
             <div>
             {{ item.line_price | money }}
             </div>
-            {% for discount in item.discounts %}
-                  <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
-                {% endfor %}
             </div>
           </div>
         </div>
