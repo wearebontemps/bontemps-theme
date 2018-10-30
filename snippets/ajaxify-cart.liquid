@@ -41,6 +41,7 @@ Shopify.AjaxifyCart = (function($) {
   // Here it is.  
    var popCart = function(){
          $('#cart_target').text({{cart.item_count}});
+         $('#cart_target').addCLass('show');
             console.log({{cart.item_count}});
     };
     var _showFeedback = function(success, html, $addToCartForm){
