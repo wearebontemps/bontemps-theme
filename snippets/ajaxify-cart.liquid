@@ -39,11 +39,33 @@ Shopify.AjaxifyCart = (function($) {
   
   // We need some feedback when adding an item to the cart.
   // Here it is.  
-   var popCart = function(){
-    location.reload();
-    location.reload();
-    $('#cart-drawer').addClass('show');
-  }
+   var popCart = function(data, callback) {
+        var params = {
+          type: 'POST',
+          url: '/cart/update.js',
+          data: { updates: { {{ variant_id }}: 1 } },
+          dataType: 'json',
+          success: function(cart) {
+            if ((typeof callback) === 'function') {
+              $('.cart-count').html(cart.item_count);
+              callback(cart);
+            }
+            else {
+              Shopify.api.onCartUpdate(cart);
+            }
+          },
+          error: function(XMLHttpRequest, textStatus) {
+            Shopify.api.onError(XMLHttpRequest, textStatus);
+          }
+        };
+        $.ajax(params);
+      };
+      popCart({}, function(cart) {console.log(cart)});
+      $( window ).load(function() {
+          if (window.location.href.indexOf('reload')==-1) {
+              window.location.replace(window.location.href+'?reload');
+          }
+      });
   var _showFeedback = function(success, html, $addToCartForm) {
     $('.ajaxified-cart-feedback').remove();
     var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
