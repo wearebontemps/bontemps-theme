@@ -1,5 +1,5 @@
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
-
+<a href="#" id="close_drawer"><span>x</span></a>
   {% if cart.item_count > 0 %}
     <div class="section-header text-center">
       <h1>{{ 'cart.general.title' | t }}</h1>
@@ -190,3 +190,9 @@
   {% endif %}
 </div>
 
+<script type="text/javascript">
+$('#close_drawer').click(function(e){
+    e.preventDefault();
+    $('#cart-drawer').removeClass('show');
+})
+</script>
