@@ -40,7 +40,8 @@ Shopify.AjaxifyCart = (function($) {
   // We need some feedback when adding an item to the cart.
   // Here it is.  
    var popCart = function(){
-        $('#cart_target').html({{cart.item_count}});
+       console.log({{cart.item_count}})
+        $('#cart_target').text({{cart.item_count}});
     };
     var _showFeedback = function(success, html, $addToCartForm) {
         $('.ajaxified-cart-feedback').remove();
@@ -57,8 +58,6 @@ Shopify.AjaxifyCart = (function($) {
             $addToCartForm.find(_config.addToCartBtnSelector).after(feedback);
         break;   
     }
-    // If you use animate.css
-    // $('.ajaxified-cart-feedback').addClass('animated bounceInDown');
     $('.ajaxified-cart-feedback').slideDown();
     popCart();
       };
