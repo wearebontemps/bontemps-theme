@@ -39,6 +39,9 @@ Shopify.AjaxifyCart = (function($) {
   
   // We need some feedback when adding an item to the cart.
   // Here it is.  
+   var popCart = function(){
+    $('#cart-drawer').addClass('show');
+  }
   var _showFeedback = function(success, html, $addToCartForm) {
     $('.ajaxified-cart-feedback').remove();
     var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
@@ -57,8 +60,8 @@ Shopify.AjaxifyCart = (function($) {
     // If you use animate.css
     // $('.ajaxified-cart-feedback').addClass('animated bounceInDown');
     $('.ajaxified-cart-feedback').slideDown();
-     $('#cart-drawer').addClass('show');
-  };
+    popCart();
+      };
   var _setText = function($button, label) {
     if ($button.children().length) {
       $button.children().each(function() {
@@ -71,9 +74,7 @@ Shopify.AjaxifyCart = (function($) {
       $button.val(label).text(label);
     }
   };
-  var popCart() = function(){
-    $('#cart-drawer').addClass('show');
-  }
+ 
   var _init = function() {   
     $(document).ready(function() { 
       $(_config.addToCartFormSelector).submit(function(e) {
