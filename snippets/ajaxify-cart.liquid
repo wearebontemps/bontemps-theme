@@ -42,9 +42,10 @@ Shopify.AjaxifyCart = (function($) {
    var popCart = function(){
        jQuery(function() {
             CartJS.init({{ cart | json }});
+            console.log({{cart.item_count}})
+            $('#cart_target').text({{cart.item_count}});
         });
-       console.log({{cart.item_count}})
-        $('#cart_target').text({{cart.item_count}});
+       
     };
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
