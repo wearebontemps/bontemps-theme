@@ -41,11 +41,11 @@ Shopify.AjaxifyCart = (function($) {
   // Here it is.  
    var popCart = function(){
        jQuery(function() {
-            CartJS.init({{ cart | json }});
+            CartJS.init({{ cart | json }}).then(
             console.log({{cart.item_count}})
             $('#cart_target').text({{cart.item_count}});
+            );
         });
-       
     };
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
