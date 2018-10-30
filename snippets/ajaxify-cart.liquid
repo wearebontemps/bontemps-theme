@@ -40,6 +40,7 @@ Shopify.AjaxifyCart = (function($) {
   // We need some feedback when adding an item to the cart.
   // Here it is.  
    var popCart = function(){
+       Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
        console.log({{cart.item_count}})
         $('#cart_target').text({{cart.item_count}});
     };
@@ -92,7 +93,7 @@ Shopify.AjaxifyCart = (function($) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
-            _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
+            _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
                 $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
                 _setText($addToCartBtn,_config.addToCartBtnLabel);
