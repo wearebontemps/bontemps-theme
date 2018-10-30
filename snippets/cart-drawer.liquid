@@ -24,23 +24,21 @@
                 <p>{{ item.variant.title }}</p><span class="small-show"> x {{ item.quantity }}</span></p>
               {% endunless %}
             <div class="small-hide">
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="{{ bold_remove_class }}">
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="">
                 <small>{{ 'cart.general.remove' | t }}</small>
               </a>
             </div>
             </div>
             <div class="col-4 cart-item-info" data-label="{{ 'cart.label.price' | t }}">
-              {% if item.original_line_price != bold_item_line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ bold_item_price | money }}
-                <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ item.original_price | money }}</s>
-              {% else %}
-              <div class="cart-price per">
-                {{ bold_item_price | money }}
+                {{ item.price | money }}
+                <div class="cart__edit medium-up--hide">
+                  <button type="button" class="btn btn--secondary btn--small js-edit-toggle cart__edit--active" data-target="line{{ forloop.index }}" aria-label="{{ 'cart.general.edit' | t }} {{ item.product.title }}" aria-expanded="false">
+                    <span class="cart__edit-text--edit">{{ 'cart.general.edit' | t }}</span>
+                    <span class="cart__edit-text--cancel">{{ 'cart.general.cancel' | t }}</span>
+                  </button>
                 </div>
-              {% endif %}
-            <div class="cart-item-number small-hide" data-label="{{ 'cart.label.quantity' | t }}">
+            <div class="cart-item-number" data-label="{{ 'cart.label.quantity' | t }}">
               <input type="number"
                 class="field-{{ forloop.index }} first-field"
                 name="updates[{{ item.key }}]"
@@ -49,20 +47,22 @@
                 min="0"
                 aria-label="{{ 'cart.general.item_quantity' | t }}">
             </div>
-            <div class="cart-price" data-label="{{ 'cart.label.total' | t }}">
-              {{ bold_item_line_price | money }}
+            <div>
+            {{ item.line_price | money }}
             </div>
+            {% for discount in item.discounts %}
+                  <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
+                {% endfor %}
             </div>
           </div>
         </div>
         </div>
         {% endfor %}
   <div class="row">
-  <div class="col-4 col-sm-9"></div>
-  <div class="col-8 col-sm-3">
+  <div class="col-12">
   <div class="d-flex align-items-center justify-content-between" style="margin-bottom:1em;">
     <p style="margin:0;">{{ 'cart.general.subtotal' | t }}</p>
-    <p >{{ bold_cart_total_price | money }}</p>
+    <p >{{ cart.total_price | money }}</p>
     {% if cart.total_discounts > 0 %}
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
@@ -70,18 +70,6 @@
     <p class="text-right">{{ 'cart.general.shipping_at_checkout' | t }}</p>
     </div>
   </div>
-    <div class="row">
-    <div class="col-sm-6"></div>
-    {{ bold_ro_cart }}
-    <div style="padding-top: 1em;" class="col-sm-6 cart-button-wrap">
-    <script>
-      document.write('<a class="btn cart-btn small-hide" href="' + document.referrer + '">Continue Shopping</a>');
-    </script>
-      <input style="margin-left: .5em;" type="submit" name="update" class="btn cart-btn" value="{{ 'cart.general.update' | t }}">
-      <input style="margin-left: .5em;" type="submit" name="checkout" class="cart-btn btn" value="{{ 'cart.general.checkout' | t }}">
-    </div>
-    </div>
-
       <div class="cart__footer">
         <div class="grid">
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
