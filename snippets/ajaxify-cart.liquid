@@ -40,11 +40,13 @@ Shopify.AjaxifyCart = (function($) {
   // We need some feedback when adding an item to the cart.
   // Here it is.  
    var popCart = function(){
-       Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
+       jQuery(function() {
+            CartJS.init({{ cart | json }});
+        });
        console.log({{cart.item_count}})
         $('#cart_target').text({{cart.item_count}});
     };
-    var _showFeedback = function(success, html, $addToCartForm) {
+    var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
         var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
         switch (_config.feedbackPosition) {
@@ -61,23 +63,23 @@ Shopify.AjaxifyCart = (function($) {
     }
     $('.ajaxified-cart-feedback').slideDown();
     popCart();
-      };
-  var _setText = function($button, label) {
+    };
+var _setText = function($button, label) {
     if ($button.children().length) {
-      $button.children().each(function() {
+        $button.children().each(function() {
         if ($.trim($(this).text()) !== '') {
-          $(this).text(label);
+            $(this).text(label);
         }
-      });
+        });
     }
     else {
-      $button.val(label).text(label);
+        $button.val(label).text(label);
     }
-  };
- 
-  var _init = function() {   
-    $(document).ready(function() { 
-      $(_config.addToCartFormSelector).submit(function(e) {
+};
+
+  var _init = function() {
+    $(document).ready(function() {
+        $(_config.addToCartFormSelector).submit(function(e) {
         e.preventDefault();
         var $addToCartForm = $(this);
         var $addToCartBtn = $addToCartForm.find(_config.addToCartBtnSelector);
@@ -85,11 +87,11 @@ Shopify.AjaxifyCart = (function($) {
         $addToCartBtn.addClass('disabled').prop('disabled', true);
         // Add to cart.
         $.ajax({
-          url: _config.shopifyAjaxAddURL,
-          dataType: 'json',
-          type: 'post',
-          data: $addToCartForm.serialize(),
-          success: function(itemData) {
+            url: _config.shopifyAjaxAddURL,
+            dataType: 'json',
+            type: 'post',
+            data: $addToCartForm.serialize(),
+            success: function(itemData) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
@@ -126,30 +128,29 @@ Shopify.AjaxifyCart = (function($) {
                     $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
                 }
                 };
-                
             });
             },
-          error: function(XMLHttpRequest) {
+            error: function(XMLHttpRequest) {
             var response = eval('(' + XMLHttpRequest.responseText + ')');
             response = response.description;
             if (response.slice(0,4) === 'All ') {
-              _showFeedback('error', response.replace('All 1 ', 'All '), $addToCartForm);
-              $addToCartBtn.prop('disabled', false);
-              _setText($addToCartBtn, _config.soldOutBtnLabel);
-              $addToCartBtn.prop('disabled',true);
+                _showFeedback('error', response.replace('All 1 ', 'All '), $addToCartForm);
+                $addToCartBtn.prop('disabled', false);
+                _setText($addToCartBtn, _config.soldOutBtnLabel);
+                $addToCartBtn.prop('disabled',true);
             }
             else {
-              _showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
-              $addToCartBtn.prop('disabled', false).removeClass('disabled');
-              _setText($addToCartBtn, _config.addToCartBtnLabel);
+                _showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
+                $addToCartBtn.prop('disabled', false).removeClass('disabled');
+                _setText($addToCartBtn, _config.addToCartBtnLabel);
             }
-          }
-        });   
-        return false;    
-      });
+        }
+        });
+        return false;
     });
-  };
-  return {
+    });
+    };
+    return {
     init: function(params) {
         // Configuration
         params = params || {};
