@@ -450,10 +450,10 @@ $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 {{ base_font | font_face }}
 
 {% if settings.type_bold_product_titles %}
-  {%- assign header_font_bold = header_font | font_modify: 'weight', 'bolder' -%}
+  {%- assign header_font_bold = header_font | font_modify: 'weight', 'normal' -%}
 {% endif %}
 
-{%- assign base_font_bold = base_font | font_modify: 'weight', 'bolder' -%}
+{%- assign base_font_bold = base_font | font_modify: 'weight', 'normal' -%}
 {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
 {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
 
@@ -3183,6 +3183,14 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 @font-face {
   font-family: 'Gotham';
+  font-style: normal;
+  src: url('./gotham-light.ttf');
+}
+@font-face {
+  font-family: 'Gotham';
+  font-style: bold;
+  font-weight: 600;
+  font-weight: 500;
   src: url('./gotham-book.ttf');
 }
 // @font-face {
@@ -3732,7 +3740,7 @@ margin: 2em;
       color: #9dafbd;
     }
     .product-single__title {
-      font-family: Gotham;
+      font-family: 'Gotham';
       font-size: 2.5em;
       font-style: normal;
       font-stretch: normal;
@@ -3743,7 +3751,7 @@ margin: 2em;
   }
 }
 h1.section-header{
-  font-family: Gotham;
+  font-family: 'Gotham';
   font-size: 2.5em;
   font-style: normal;
   font-stretch: normal;
@@ -6391,7 +6399,7 @@ $toolbar-height-small: 46px;
     .quote-title {
       font-family: 'Gotham';
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.44;
       letter-spacing: -0.5px;
       color: #9dafbd;
@@ -6401,7 +6409,7 @@ $toolbar-height-small: 46px;
 
     }
     .quote-author {
-      font-family: Gotham;
+      font-family: 'Gotham';
       font-size: 2.5em;
       font-style: normal;
       font-stretch: normal;
@@ -6470,7 +6478,7 @@ $toolbar-height-small: 46px;
   background: none;
   background-color: transparent;
   border-color: transparent;
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-size: 12px;
   font-weight: normal;
   letter-spacing: 0.4px;
