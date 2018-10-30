@@ -40,7 +40,7 @@ Shopify.AjaxifyCart = (function($) {
   // We need some feedback when adding an item to the cart.
   // Here it is.  
    var popCart = function(){
-        $('#cart_target').html(cart.item_count);
+        $('#cart_target').html({{cart.item_count}});
     };
     var _showFeedback = function(success, html, $addToCartForm) {
         $('.ajaxified-cart-feedback').remove();
