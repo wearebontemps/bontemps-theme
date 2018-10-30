@@ -57,6 +57,7 @@ Shopify.AjaxifyCart = (function($) {
     // If you use animate.css
     // $('.ajaxified-cart-feedback').addClass('animated bounceInDown');
     $('.ajaxified-cart-feedback').slideDown();
+     $('#cart-drawer').addClass('show');
   };
   var _setText = function($button, label) {
     if ($button.children().length) {
@@ -70,6 +71,9 @@ Shopify.AjaxifyCart = (function($) {
       $button.val(label).text(label);
     }
   };
+  var popCart() = function(){
+    $('#cart-drawer').addClass('show');
+  }
   var _init = function() {   
     $(document).ready(function() { 
       $(_config.addToCartFormSelector).submit(function(e) {
@@ -88,7 +92,7 @@ Shopify.AjaxifyCart = (function($) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
-            _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a>.',$addToCartForm, $('#cart-drawer').addClass('show'););
+            _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
                 $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
                 _setText($addToCartBtn,_config.addToCartBtnLabel);
