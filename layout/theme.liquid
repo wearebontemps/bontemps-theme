@@ -38,7 +38,8 @@
   {% include 'social-meta-tags' %}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   {{ "vendor.js" | asset_url | script_tag }}
-  <script>
+  {{ "theme.js" | asset_url | script_tag }}
+  <script type="text/javascript">
     var theme = {
       strings: {
         addToCart: {{ 'products.product.add_to_cart' | t | json }},
@@ -57,12 +58,11 @@
         newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }}
       },
       moneyFormat: {{ shop.money_format | json }}
-    }
+    };
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   </script>
-  {{ "theme.js" | asset_url | script_tag }}
 
-  <script>
+  <script type="text/javascript">
     window['friendbuy'] = window['friendbuy'] || [];
     window['friendbuy'].push(['site', 'site-f917c2f6-www.shopbontemps.com']);
     window['friendbuy'].push(['track', 'customer',
