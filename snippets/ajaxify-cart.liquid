@@ -40,12 +40,12 @@ Shopify.AjaxifyCart = (function($) {
   // We need some feedback when adding an item to the cart.
   // Here it is.  
    var popCart = function(){
-        CartJS.init({{ cart | json }}).promise().done(function(){
-        $('#cart-drawer').addClass('show');
-        $('#cart_target').text({{cart.item_count}});
-        console.log({{cart.item_count}});
-        });
-        
+       jQuery.getJSON('/cart.js', function(cart) {
+            // now have access to Shopify cart object
+            console.log('There are now ' + cart.item_count + ' items in the cart.');
+            $('#cart_target').text(cart.item_count);
+            $('#cart-drawer').addClass('show');
+        } );
     };
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
