@@ -1304,6 +1304,16 @@ html {
     margin-bottom: $section-spacing;
   }
 }
+/*================ Section defaults ================*/
+
+.shopify-section {
+  //padding: 150px;
+  padding: 4em 3em;
+  min-height: 300px;
+  @include media-query($medium-down) {
+    padding: 3em 0;
+  }
+}
 
 /*================ Typography ================*/
 blockquote {
@@ -7183,7 +7193,7 @@ $toolbar-height-small: 46px;
   display: none !important;
 }
 .instagram-image{
-  padding: 0px !important;
+  padding: 0 15px !important;
   position: relative;
   align-self: center;
 }
@@ -7222,4 +7232,8 @@ $toolbar-height-small: 46px;
 }
 .instafeed-copy {
   margin-top: 3em;
+}
+
+#instafeed row {
+  margin-bottom: 2em;
 }
