@@ -38,7 +38,6 @@
   {% include 'social-meta-tags' %}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   {{ "vendor.js" | asset_url | script_tag }}
-  {{ "theme.js" | asset_url | script_tag }}
   <script>
     var theme = {
       strings: {
@@ -61,6 +60,7 @@
     }
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   </script>
+  {{ "theme.js" | asset_url | script_tag }}
 
   <script>
     window['friendbuy'] = window['friendbuy'] || [];
