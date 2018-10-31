@@ -1304,6 +1304,18 @@ html {
     margin-bottom: $section-spacing;
   }
 }
+/*================ Section defaults ================*/
+
+.shopify-section {
+  .section-inner {
+    //padding: 150px;
+    padding: 4em 3em;
+    min-height: 300px;
+    @include media-query($medium-down) {
+      padding: 3em 0;
+    }
+  }
+}
 
 /*================ Typography ================*/
 blockquote {
@@ -1402,10 +1414,11 @@ h1 {
   }
 }
 
-h2 {
-  font-size: em(floor($font-size-header * 0.78));
+h2, .h2 {
+  //font-size: em(floor($font-size-header * 1.1));
+  font-size: 1.9em;
   @include media-query($small) {
-    font-size: em(floor(($font-size-header * 0.78) * 0.9));
+    font-size: calc(1.9em * 0.9);
   }
 }
 
@@ -1556,12 +1569,11 @@ li {
   text-shadow: 0 0 4px $color-text-shadow;
 }
 
-.mega-title {
-  margin-bottom: 8px;
-}
 
-.mega-title--large {
+.mega-title, .mega-title--large {
   font-size: em($font-size-header + 8);
+  margin-bottom: 1em;
+  font-size: 3em;
 
   @include media-query($medium-up) {
     font-size: em(floor($font-size-header * 2.5));
@@ -2468,9 +2480,11 @@ textarea {
     text-align: left;
   }
 }
-.navbar-nav{
+.navbar-nav {
+  align-items: center;
   .nav-item{
-    padding: 1em 1.5em;
+    padding: 1em;
+    font-size: .9em;
   }
 }
 /*================ Site Nav Links ================*/
@@ -6457,8 +6471,8 @@ $toolbar-height-small: 46px;
 
 //related prod slick-slider
 .related-items {
-  padding: 3em 0;
-  min-height: 300px;
+  //padding: 3em 0;
+  //min-height: 300px;
   text-align: center;
   }
 
@@ -7182,7 +7196,7 @@ $toolbar-height-small: 46px;
   display: none !important;
 }
 .instagram-image{
-  padding: 0px !important;
+  padding: 0 15px !important;
   position: relative;
   align-self: center;
 }
@@ -7221,4 +7235,8 @@ $toolbar-height-small: 46px;
 }
 .instafeed-copy {
   margin-top: 3em;
+}
+
+#instafeed row {
+  margin-bottom: 2em;
 }
