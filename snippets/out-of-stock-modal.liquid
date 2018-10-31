@@ -40,6 +40,8 @@
 {% comment %} <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#outOfStock">
   Launch demo modal
 </button> {% endcomment %}
+   {% unless product.available %} 
+
 <script type="text/javascript">
 $( document ).ready(function(){
     var content=$("#outOfStock");
@@ -47,3 +49,4 @@ $( document ).ready(function(){
     console.log('Modal Ready: ' , content )
 });
 </script>
+{% endunless %}
