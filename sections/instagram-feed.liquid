@@ -1,44 +1,45 @@
  {% comment %} <div id="evm-instagram-feed"></div><script src="https://expertvillagemedia.com/instagramfeed/embed.js" data-shop-id="pangea-dev.myshopify.com"></script> {% endcomment %}
-
- <div class="instafeed-copy text-center">
-   <div class="content-copy">
-     <h3 class="">{{section.settings.first_section_header}}</h3>
-     {{section.settings.first_section_copy}}
-  </div>
- </div>
-<div id="instafeed" class="row"></div>
-{% raw %}
-<script type="text/javascript">
-    var userFeed = new Instafeed({
-        get: 'user',
-        template: '<div class="col-4 col-md-2 instagram-image"><img src="{{image}}" /><a href="{{link}}" target="_blank" class="instagram-feed-link"><div class="instagram-overlay-icon"><img src="https://cdn.shopify.com/s/files/1/0013/5531/7307/files/instagram-logo.png?7050140443920899339"></div></a></div>',
-        userId: '8251013339',
-        accessToken: '8251013339.1677ed0.768d765d16f44705b8d0ba0c37fa1651',
-        resolution: 'standard_resolution',
-        limit: 30,
-        links: true,
-        filter: function(image) {
-          var blockedUsernames = ['bettertea'];
-          // check for blocked users
-          for (var i=0; i<blockedUsernames.length; i++) {
-            for (var j=0; j<image.tags.length; j++){
-              if (image.tags[j] === blockedUsernames[i]){
-                  return false;
-                }
-            }
-              return true;
+ <div class="section-inner">
+   <div class="instafeed-copy text-center">
+     <div class="content-copy">
+       <h3 class="">{{section.settings.first_section_header}}</h3>
+       {{section.settings.first_section_copy}}
+    </div>
+   </div>
+  <div id="instafeed" class="row"></div>
+</div>
+  {% raw %}
+  <script type="text/javascript">
+      var userFeed = new Instafeed({
+          get: 'user',
+          template: '<div class="col-4 col-md-2 instagram-image"><img src="{{image}}" /><a href="{{link}}" target="_blank" class="instagram-feed-link"><div class="instagram-overlay-icon"><img src="https://cdn.shopify.com/s/files/1/0013/5531/7307/files/instagram-logo.png?7050140443920899339"></div></a></div>',
+          userId: '8251013339',
+          accessToken: '8251013339.1677ed0.768d765d16f44705b8d0ba0c37fa1651',
+          resolution: 'standard_resolution',
+          limit: 30,
+          links: true,
+          filter: function(image) {
+            var blockedUsernames = ['bettertea'];
+            // check for blocked users
+            for (var i=0; i<blockedUsernames.length; i++) {
+              for (var j=0; j<image.tags.length; j++){
+                if (image.tags[j] === blockedUsernames[i]){
+                    return false;
+                  }
               }
-          },
-        after: function () {
-          var images = $("#instafeed").find('div.instagram-image');
-          if (images.length > 6) {
-            $(images.slice(6, images.length)).remove();
+                return true;
+                }
+            },
+          after: function () {
+            var images = $("#instafeed").find('div.instagram-image');
+            if (images.length > 6) {
+              $(images.slice(6, images.length)).remove();
+            }
           }
-        }
-        });
-    userFeed.run();
-</script>
-{% endraw %}
+          });
+      userFeed.run();
+  </script>
+  {% endraw %}
 
 <!-- to use, set the userid and access token for your instagram account -->
 
