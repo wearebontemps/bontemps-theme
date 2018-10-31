@@ -1,15 +1,17 @@
 <div class="text-center" style="background-color: {{ section.settings.bg_color }}; padding: 2em 0;">
-<div class="contained">
-     <h1 class="h1 text-black">
-      {{ section.settings.newsletter_form_heading | escape }}
-    </h1>
-    {% if section.settings.newsletter_form_subheading != blank %}
-      <div class="password__form-subheading" style="max-width: ; margin: 0 auto;"><p>{{ section.settings.newsletter_form_subheading }}</p></div>
-    {% endif %}
-  <div class="klaviyo-signup" style="margin: 0 auto;">
-<div class="klaviyo-form-LPS6EQ"></div>
-</div>
-</div>
+  <div class="section-inner">
+    <div class="contained">
+         <h1 class="h1 text-black">
+          {{ section.settings.newsletter_form_heading | escape }}
+        </h1>
+        {% if section.settings.newsletter_form_subheading != blank %}
+          <div class="password__form-subheading" style="max-width: ; margin: 0 auto;"><p>{{ section.settings.newsletter_form_subheading }}</p></div>
+        {% endif %}
+      <div class="klaviyo-signup" style="margin: 0 auto;">
+    <div class="klaviyo-form-LPS6EQ"></div>
+    </div>
+    </div>
+  </div>
 </div>
 {% schema %}
   {

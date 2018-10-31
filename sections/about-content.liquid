@@ -1,24 +1,26 @@
-<div class=" text-center">
-<h1 class="section-header">{{ section.settings.section_title }}</h1>
-<p>{{ section.settings.subtitle }}</p>
-</div>
-{% for block in section.blocks %}
-{% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
-{% capture image_layout %}
- <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
- <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
-  {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
- </div>
-{% endcapture %}
-  <div class="row d-flex align-items-center" style='padding: 1em 0;'>
-  {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
-  <div class="text-left col-sm-7">
-    <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
-    <p>{{ block.settings.text_content }}</p>
-    </div>
-    {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
+<div class="section-inner">
+  <div class="text-center">
+  <h1 class="section-header">{{ section.settings.section_title }}</h1>
+  <p>{{ section.settings.subtitle }}</p>
   </div>
-{% endfor %}
+  {% for block in section.blocks %}
+  {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
+  {% capture image_layout %}
+   <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
+   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
+    {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
+   </div>
+  {% endcapture %}
+    <div class="row d-flex align-items-center" style='padding: 1em 0;'>
+    {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
+    <div class="text-left col-sm-7">
+      <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
+      <p>{{ block.settings.text_content }}</p>
+      </div>
+      {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
+    </div>
+  {% endfor %}
+</div>
 {% if section.blocks.size == 0 %}
   {% include 'no-blocks' %}
 {% endif %}

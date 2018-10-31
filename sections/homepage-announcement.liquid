@@ -1,15 +1,16 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
-<div class="row contained">
-  <div class="col-6 d-flex align-items-center justify-content-center">
-    <h2>{{ section.settings.title }}</h2>
-  </div>
-  <div class="col-6">
-    <p>{{ section.settings.text }}</p>
+<div class="section-inner">
+  <div class="row contained">
+    <div class="col-6 d-flex align-items-center justify-content-center">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="col-6">
+      <p>{{ section.settings.text }}</p>
+    </div>
   </div>
 </div>
-
 {% schema %}
 {
   "name": {

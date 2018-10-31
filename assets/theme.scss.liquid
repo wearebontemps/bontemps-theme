@@ -1307,11 +1307,13 @@ html {
 /*================ Section defaults ================*/
 
 .shopify-section {
-  //padding: 150px;
-  padding: 4em 3em;
-  min-height: 300px;
-  @include media-query($medium-down) {
-    padding: 3em 0;
+  .section-inner {
+    //padding: 150px;
+    padding: 4em 3em;
+    min-height: 300px;
+    @include media-query($medium-down) {
+      padding: 3em 0;
+    }
   }
 }
 
