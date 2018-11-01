@@ -60,7 +60,7 @@ Shopify.AjaxifyCart = (function($) {
                 'value="' + item.quantity + '" min="0"/></div>'+
                 '<div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
                 '<div><a href="/cart/change?line='+ i + '&amp;quantity=0"><small>{{ "cart.general.remove" | t }}</small></a></div>'+
-                '<div>' + item.line_price + '</div>' +
+                '<div>{{ item.line_price | money }}</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
