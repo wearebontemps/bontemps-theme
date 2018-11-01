@@ -159,15 +159,15 @@
 </script>
 <script type="text/javascript">
   $(".header-add-to-cart").hide();
-  $( document ).ready{
-      var scroll = $(window).scrollTop();
-      if (scroll >= 150) {
+  $( document ).ready(function(){
+      var offset = $(window).scrollTop();
+      if (offset >= 150) {
           $(".top-nav-box").addClass("shrink");
       }
-      if (scroll > 700) {
+      if (offset > 700) {
         $(".header-add-to-cart").fadeIn();
       }
-  }
+  });
   $(window).scroll(function() {
       var scroll = $(window).scrollTop();
       if (scroll >= 150) {
