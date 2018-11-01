@@ -23,41 +23,6 @@
     {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
-
-    {% comment %} {% if section.settings.show_collection_image and collection.image %}
-      <div class="collection-hero">
-        <div class="collection-hero__image ratio-container lazyload js"
-             data-bgset="{% include 'bgset', image: collection.image %}"
-             data-sizes="auto"
-             data-parent-fit="cover"
-             style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
-        <noscript>
-          <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
-        </noscript>
-        <div class="collection-hero__title-wrapper">
-          <h1 class="collection-hero__title page-width">
-            <span role="text">
-              <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-              {{ collection.title }}
-            </span>
-          </h1>
-        </div>
-      </div>
-      {% if collection.description != blank %}
-        <div class="rte collection-description page-width">
-          {{ collection.description }}
-        </div>
-      {% endif %}
-    {% else %}
-      <div class="page-width">
-        <div class="section-header text-center">
-          {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-            <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %} {% endcomment %}
-
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
         <div class="page-width">

@@ -48,7 +48,6 @@ Shopify.AjaxifyCart = (function($) {
             var indexPlus = i + 1;
             var str = item.line_price.toString();
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
-
             console.log(item, priceFormatted);
             domSelector.append(
                 '<div class="row" style="margin: .25em auto;">'+
