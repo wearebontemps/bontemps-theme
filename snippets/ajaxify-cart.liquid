@@ -44,9 +44,11 @@ Shopify.AjaxifyCart = (function($) {
         console.log(cart.items);
         domSelector.html('');
         for (i = 0; i < cart.items.length; i++){
-            var indexPlus = i + 1;
             item = cart.items[i];
-            console.log(item)
+            var indexPlus = i + 1;
+            var priceFormatted = '$' + parseFloat(item.line_price, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+
+            console.log(item, priceFormatted);
             domSelector.append(
                 '<div class="row" style="margin: .25em auto;">'+
                 '<div class="col-4 col-sm-2" data-label="{{ "customer.order.product" | t }}">'+
@@ -61,7 +63,7 @@ Shopify.AjaxifyCart = (function($) {
                 'value="' + item.quantity + '" min="0"/></div>'+
                 '<div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
                 '<div><a href="/cart/change?line='+ indexPlus + '&amp;quantity=0"><small>{{ "cart.general.remove" | t }}</small></a></div>'+
-                '<div>{{"' + item.line_price + '"| money }}</div>' +
+                '<div>{{ item.line_price | money }}</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
