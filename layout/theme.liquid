@@ -108,9 +108,12 @@
   {% include 'style-tags' %}
 
   {{ content_for_header }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
+
+  {% include 'timber-cart-drawer' %}
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -171,5 +174,18 @@
       }
   });
 </script>
+    {% include 'ajax-cart-template' %}
+{% if template.name == 'product' or template.name == 'index' %}
+      <script>
+        // Override default values of shop.strings for each template.
+        // Alternate product templates can change values of
+        // add to cart button, sold out, and unavailable states here.
+        theme.productStrings = {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }}
+        }
+      </script>
+    {% endif %}
 </body>
 </html>
