@@ -45,7 +45,13 @@ Shopify.AjaxifyCart = (function($) {
         for (i = 0; i < cart.items.length; i++){
             console.log(cart.items[i].title);
             domSelector.html(
-                '<div class="row" style="margin: .25em auto;">'+cart.items[i].title+'</div>'
+                '<div class="row" style="margin: .25em auto;">'+
+                '<div class="col-4 col-sm-2" data-label="{{ "customer.order.product" | t }}">'+
+                cart.items[i].title+
+                
+                
+                
+                '</div></div>'
                 );
         }
     };
