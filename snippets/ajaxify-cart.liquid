@@ -43,7 +43,7 @@ Shopify.AjaxifyCart = (function($) {
         var domSelector = $('#cart-drawer-inner');
         console.log(cart.items);
         for (i = 0; i <= cart.items.length; i++){
-            domSelector.append(cart.items[index].title);
+            domSelector.append(cart.items[i].title);
         }
     };
     var popCart = function(){
