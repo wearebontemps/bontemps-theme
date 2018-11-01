@@ -37,17 +37,17 @@ Shopify.AjaxifyCart = (function($) {
     shopifyAjaxAddURL:             '/cart/add.js',
     shopifyAjaxCartURL:            '/cart.js'
   };
-  
   // We need some feedback when adding an item to the cart.
-  // Here it is.  
-  var buildCart = function(cart){
-      var domSelector = $('#cart-drawer-inner');
-      async.each(cart.items, function(index, cart){
-          domSelector.append(cart.items[index].title);
-      })
-  }
-   var popCart = function(){
-       jQuery.getJSON('/cart.js', function(cart) {
+  // Here it is.
+    var buildCart = function(cart){
+        var domSelector = $('#cart-drawer-inner');
+        console.log(cart.items);
+        async.each(cart.items, function(index){
+            domSelector.append(cart.items[index].title);
+        })
+    };
+    var popCart = function(){
+        jQuery.getJSON('/cart.js', function(cart) {
             // now have access to Shopify cart object
             console.log('There are now ' + cart.item_count + ' items in the cart.');
             $('#cart_target').text(cart.item_count);
