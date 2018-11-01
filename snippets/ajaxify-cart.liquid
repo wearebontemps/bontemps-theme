@@ -42,7 +42,7 @@ Shopify.AjaxifyCart = (function($) {
     var buildCart = function(cart){
         var domSelector = $('#cart-drawer-inner');
         console.log(cart.items);
-        async.each(cart.items, function(index){
+        for ( i = 0; i <= cart.items.length , i++){
             domSelector.append(cart.items[index].title);
         })
     };
