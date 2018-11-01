@@ -54,7 +54,7 @@ Shopify.AjaxifyCart = (function($) {
                 '<div class="row" style="width:100%;">'+
                 '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
                 '<p>'+ item.title + ' x ' + item.quantity + '</span></p></div></div>'+
-                '<input style="width: 100%;" type="number" class="field-' + forloop.index + 'first-field" name="updates[' + item.key + ']"' +
+                '<input style="width: 100%;" type="number" class="field-' + i + 'first-field" name="updates[' + item.key + ']"' +
                 'id="updates_'+ item.key + '"'+
                 'value="' + item.quantity + '" min="0"/></div>' +
                 '</div>'
