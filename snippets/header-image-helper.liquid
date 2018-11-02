@@ -4,21 +4,21 @@
         $(window).resize(function() {
         windowsize = $(window).width();
         if (windowsize < 750) {
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile | img_url: '800x' }}");
         } else if (windowsize >= 750){
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image | img_url: '2000x'}}");
         }else {
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image | img_url: '2000x'}}");
         }
         });
         $(document).ready(function() {
         windowsize = $(window).width();
         if (windowsize < 750) {
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile | img_url: '800x'}}");
         } else if (windowsize >= 750){
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image | img_url: '2000x'}}");
         }else {
-            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image | img_url: '2000x'}}");
         }
         });
     </script>
