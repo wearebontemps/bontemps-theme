@@ -1222,6 +1222,8 @@ $grid-breakpoints: (
 .hide {
   display: none !important;
 }
+
+$cart-width: 420px;
 #cart-drawer{
   position: absolute;
   top: 0;
@@ -1235,7 +1237,7 @@ $grid-breakpoints: (
   z-index: 10001;
   width: 0;
   &.show{
-    width: 420px;
+    width: $cart-width;
   }
 }
 .cart-drawer-wrapper{
@@ -1251,6 +1253,13 @@ $grid-breakpoints: (
   &.show{
     width: 100vw;
   }
+}
+.cart-drawer-closer{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: $cart-width;
 }
 /*============================================================================
   Skip to content button
