@@ -103,7 +103,7 @@
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
         </noscript>
 
-        {% if product.images.size > 1 %}
+        {% comment %} {% if product.images.size > 1 %}
           {% if product.images.size > 3 %}
             {%- assign enable_thumbnail_slides = true -%}
           {% endif %}
@@ -134,7 +134,7 @@
               </button>
             {% endif %}
           </div>
-        {% endif %} <!-- end img -->
+        {% endif %} <!-- end img --> {% endcomment %}
 
         <div class="product-meta">
           <div class="variant-details">
