@@ -33,6 +33,7 @@ Theme Store optional settings
  
             <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
                  data-sizes="auto"
+                  data-bgset="{% include 'bgset', image: block.settings.image %}"
                  data-parent-fit="cover"
                  style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
             </div>
