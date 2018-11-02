@@ -119,7 +119,7 @@
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
           {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
-            <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
+            <ul class="site-footer__linklist">
               {% for link in linklists[section.settings.footer_linklist_three].links %}
                 <li class="site-footer__linklist-item">
                   <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
@@ -295,7 +295,13 @@
         "type": "link_list",
         "id": "footer_linklist_three",
         "label": {
-          "en": "Legal Links",
+          "en": "Legal menu",
+          "de": "Legal Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
         },
         "default": "legal-menu",
         "info": {
