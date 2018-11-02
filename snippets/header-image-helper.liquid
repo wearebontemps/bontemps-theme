@@ -1,28 +1,3 @@
-{% comment %} {% if block.settings.image_mobile != blank %}
-    <script type="text/javascript">
-    var windowsize = $(window).width();
-        $(window).resize(function() {
-        windowsize = $(window).width();
-        if (windowsize < 750) {
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-        } else if (windowsize >= 750){
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image | img_url: '3000x3000' }}");
-        }else {
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image | img_url: '3000x3000'}}");
-        }
-        });
-        $(document).ready(function() {
-        windowsize = $(window).width();
-        if (windowsize < 750) {
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-        } else if (windowsize >= 750){
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image | img_url: '3000x3000' }}");
-        }else {
-            $(".background-target-{{forloop.index}}").attr("src", "{{block.settings.image | img_url: '3000x3000'}}");
-        }
-        });
-    </script>
-{% endif %} {% endcomment %}
 {% if block.settings.image_mobile != blank %}
     <script type="text/javascript">
     var windowsize = $(window).width();
