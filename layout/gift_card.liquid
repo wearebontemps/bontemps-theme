@@ -37,6 +37,22 @@
       }
     };
   </script>
+  <script type="text/javascript">
+    window['friendbuy'] = window['friendbuy'] || [];
+    window['friendbuy'].push(['site', 'site-f917c2f6-www.shopbontemps.com']);
+    window['friendbuy'].push(['track', 'customer',
+        {
+            id: '{{ customer.id }}',
+            email: '{{ customer.email }}',
+            first_name: '{{ customer.first_name }}',
+            last_name: '{{ customer.last_name }}'
+        }
+    ]);
+    (function (f, r, n, d, b, y) {
+        b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+    })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
+ </script>
+
 
   {{ content_for_header }}
 </head>

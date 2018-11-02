@@ -1,5 +1,3 @@
-
-
 {%- assign social_icons = false -%}
 {% capture social_layout %}
           <ul class="list--inline site-footer__social-icons social-icons site-footer__subwrapper">
@@ -95,8 +93,8 @@
 <footer class="site-footer" role="contentinfo" style="background-color: {{ section.settings.bg_color }}">
   <div class="page-width">
     <div class="row">
-    <div class="col-sm-4 d-flex align-items-center justify-content-center">
-    <a href="/" class="logo-image">
+    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+      <a href="/" class="logo-image">
           {% if section.settings.logo != blank %}
           {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
           <img src="{{ section.settings.logo | img_url: image_size }}"
@@ -107,23 +105,32 @@
           {% endif %}
         </a>
     </div>
-    <div class="col-sm-4 d-flex align-items-center justify-content-center">
-        <h3 class="text-white" style="margin-bottom: 0;">PRODUCTS</h3>
+    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+        <h4 class="text-white" style="margin-bottom: 0;">PRODUCTS</h4>
     </div>
-    <div class="col-sm-4 d-flex align-items-center justify-content-center">
-        <h3 class="text-white" style="margin-bottom: 0;">COMPANY</h4>
+    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+        <h4 class="text-white" style="margin-bottom: 0;">COMPANY</h4>
     </div>
     </div>
     <div class="row">
-    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+    <div class="col-sm-4 d-flex flex-column align-items-start justify-content-between">
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
+          {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
+            <ul class="small site-footer__linklist">
+              {% for link in linklists[section.settings.footer_linklist_three].links %}
+                <li class="site-footer__linklist-item">
+                  <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
         {% if social_icons %}
         {{ social_layout }}
         {% endif %}
       </div>
-      <div class="col-sm-4 d-flex flex-column align-items-center">
+      <div class="col-sm-4 d-flex flex-column align-items-start">
         {% if linklists[section.settings.footer_linklist].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist].links %}
@@ -135,7 +142,7 @@
         {% endif %}
       </div>
 
-      <div class="col-sm-4 d-flex flex-column align-items-center">
+      <div class="col-sm-4 d-flex flex-column align-items-start">
         {% if linklists[section.settings.footer_linklist_two].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist_two].links %}
@@ -264,6 +271,29 @@
         "id": "footer_linklist_two",
         "label": {
           "en": "Additional menu",
+          "de": "Extra Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
+        },
+        "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_three",
+        "label": {
+          "en": "Legal links menu",
           "de": "Extra Menü",
           "fr": "Menu supplémentaire",
           "it": "Menu aggiuntivo",

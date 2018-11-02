@@ -1534,6 +1534,7 @@ h6 {
 p {
   color: $color-body-text;
   margin: 0 0 ($section-spacing-small / 1.8);
+  font-weight: 400;
 
   @include media-query($small) {
     font-size: em($font-size-base - 1);
@@ -4070,9 +4071,10 @@ h1.section-header{
   display: block;
   margin: 0 auto;
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
+  top: 0px;
+  left: 0px;
+  //width: calc(100% - 8px);
+  width: 100%;
 
   .no-js & {
     position: relative;
@@ -6142,8 +6144,17 @@ $toolbar-height-small: 46px;
   @include media-query($small) {
     text-align: center;
   }
-  p,a,h4,small{
+  p,h4,small{
     color: white;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  a {
+    color: white;
+    &:hover, &:active, &:visited {
+      color: #eee;
+    }
   }
 }
 
@@ -6156,10 +6167,10 @@ $toolbar-height-small: 46px;
 
 .site-footer__linklist,
 .site-footer__newsletter {
-  margin-top: $section-spacing-small;
+  margin-top: 10px;
 
   @include media-query($medium-up) {
-    margin-top: $section-spacing;
+    margin-top: 10px;
   }
 }
 
@@ -6198,7 +6209,8 @@ $toolbar-height-small: 46px;
 }
 
 .site-footer__subwrapper {
-  margin-top: $section-spacing-small;
+  //margin-top: $section-spacing-small;
+  margin-top: 15px;
 }
 
 .site-footer__secondary-wrapper {
@@ -6427,6 +6439,7 @@ $toolbar-height-small: 46px;
   }
   .quotes-slider__text {
     padding: 0 3em 0 4em;
+    font-size: 1em;
     .quote-title {
       font-family: 'Gotham';
       font-size: 18px;
@@ -6435,6 +6448,8 @@ $toolbar-height-small: 46px;
       letter-spacing: -0.5px;
       color: #9dafbd;
       margin-bottom: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
     }
     .quote-content {
 
@@ -7099,9 +7114,9 @@ $toolbar-height-small: 46px;
   }
   .product-card__title {
     font-family: 'Gotham';
-     font-size: 18px;
+     //font-size: 18px;
      font-weight: bold;
-     line-height: 1.44;
+     line-height: 1.25;
      letter-spacing: -0.5px;
      color: #3c3d4b !important;
      display: inline-block;
@@ -7125,6 +7140,7 @@ $toolbar-height-small: 46px;
   .product-meta {
     margin: 1em;
     color: #9dafbd;
+    padding-bottom: 1px;
     p, span {
       //color: #e0592a;
     }
