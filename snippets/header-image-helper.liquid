@@ -23,3 +23,28 @@
         });
     </script>
 {% endif %}
+{% if block.settings.image_mobile != blank %}
+    <script type="text/javascript">
+    var windowsize = $(window).width();
+        $(window).resize(function() {
+        windowsize = $(window).width();
+        if (windowsize < 750) {
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile}}");
+        } else if (windowsize >= 750){
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+        }else {
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+        }
+        });
+        $(document).ready(function() {
+        windowsize = $(window).width();
+        if (windowsize < 750) {
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image_mobile}}");
+        } else if (windowsize >= 750){
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+        }else {
+            $(".background-target-{{forloop.index}}").css("background-image", "{{block.settings.image}}");
+        }
+        });
+    </script>
+{% endif %}

@@ -36,7 +36,7 @@ Theme Store optional settings
                       {%- assign is_background_video = true -%}
                     {% endif %}
                   {% endif %}
-            <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
+            <div class="background-target-{{forloop.index}} slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
                  data-bgset="{% include 'bgset', image: block.settings.image %}"
                  data-sizes="auto"
                  data-parent-fit="cover"
