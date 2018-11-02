@@ -118,6 +118,15 @@
     <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
+          {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
+            <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
+              {% for link in linklists[section.settings.footer_linklist_three].links %}
+                <li class="site-footer__linklist-item">
+                  <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
         {% if social_icons %}
         {{ social_layout }}
@@ -272,6 +281,23 @@
           "pt-BR": "Menu adicional"
         },
         "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_three",
+        "label": {
+          "en": "Legal Links",
+        },
+        "default": "legal-menu",
         "info": {
           "en": "This menu won't show dropdown items",
           "de": "Dieses Menü zeigt keine Dropdowns an",

@@ -1534,6 +1534,7 @@ h6 {
 p {
   color: $color-body-text;
   margin: 0 0 ($section-spacing-small / 1.8);
+  font-weight: 400;
 
   @include media-query($small) {
     font-size: em($font-size-base - 1);
@@ -4070,9 +4071,10 @@ h1.section-header{
   display: block;
   margin: 0 auto;
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
+  top: 0px;
+  left: 0px;
+  //width: calc(100% - 8px);
+  width: 100%;
 
   .no-js & {
     position: relative;
