@@ -76,11 +76,11 @@ Theme Store optional settings
             </div>
           </div>
         </div>
+        {% include 'header-image-helper' %}
       {% endfor %}
     </div>
   </div>
 {% endif %}
-{% include 'header-image-helper' %}
 {% if section.blocks.size == 0 %}
   <div class="placeholder-noblocks">
     {{ 'homepage.onboarding.no_content' | t }}
