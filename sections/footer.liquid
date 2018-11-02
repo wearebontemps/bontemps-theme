@@ -106,10 +106,10 @@
         </a>
     </div>
     <div class="col-sm-4 d-flex align-items-center justify-content-center">
-        <h3 class="text-white" style="margin-bottom: 0;">PRODUCTS</h3>
+        <h4 class="text-white" style="margin-bottom: 0;">PRODUCTS</h4>
     </div>
     <div class="col-sm-4 d-flex align-items-center justify-content-center">
-        <h3 class="text-white" style="margin-bottom: 0;">COMPANY</h4>
+        <h4 class="text-white" style="margin-bottom: 0;">COMPANY</h4>
     </div>
     </div>
     <div class="row">
@@ -117,7 +117,7 @@
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
           {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
-            <ul class="site-footer__linklist">
+            <ul class="small site-footer__linklist">
               {% for link in linklists[section.settings.footer_linklist_three].links %}
                 <li class="site-footer__linklist-item">
                   <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>

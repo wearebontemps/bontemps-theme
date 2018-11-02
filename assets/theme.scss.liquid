@@ -6144,8 +6144,17 @@ $toolbar-height-small: 46px;
   @include media-query($small) {
     text-align: center;
   }
-  p,a,h4,small{
+  p,h4,small{
     color: white;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  a {
+    color: white;
+    &:hover, &:active, &:visited {
+      color: #eee;
+    }
   }
 }
 
@@ -6158,10 +6167,10 @@ $toolbar-height-small: 46px;
 
 .site-footer__linklist,
 .site-footer__newsletter {
-  margin-top: $section-spacing-small;
+  margin-top: 10px;
 
   @include media-query($medium-up) {
-    margin-top: $section-spacing;
+    margin-top: 10px;
   }
 }
 
