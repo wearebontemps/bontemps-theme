@@ -1223,21 +1223,31 @@ $grid-breakpoints: (
   display: none !important;
 }
 #cart-drawer{
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: -100vw;
+  right: 0;
   width: 0;
-  height: 100vh;
+  height: 100%;
   overflow: scroll;
   padding:2em;
-  transition: all 1s;
   background: white;
-  z-index: 10000;
+  z-index: 10001;
   &.show{
     display: block;
     width: 400px;
     right: 0;
   }
+}
+.cart-drawer-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+  transition: all 1s;
+  z-index: 10000;
+  background: transparent;
 }
 /*============================================================================
   Skip to content button
