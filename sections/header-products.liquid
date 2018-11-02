@@ -39,14 +39,14 @@ Theme Store optional settings
               data-bgset="{% include 'bgset', image: product.images.last %}"
               data-sizes="auto"
               data-parent-fit="cover"
-              style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ product.images.last | img_url: '300x300' }});{% endif %}">
+              style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ product.images.last | img_url: '800x' }});{% endif %}">
             </div>
             {% else %}
             <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
               data-bgset="{% include 'bgset', image: block.settings.image %}"
               data-sizes="auto"
               data-parent-fit="cover"
-              style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
+              style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '800x' }});{% endif %}">
             </div>
             {% endif %}
           <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
