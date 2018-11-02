@@ -115,7 +115,7 @@
                 <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
               </button>
             {% endif %}
-            <ul class="row grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+            {% comment %} <ul class="row grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
               {% for image in product.images %}
                 <li class="col {{ product_thumbnail_width }} product-single__thumbnails-item js">
                   <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
@@ -126,7 +126,7 @@
                   </a>
                 </li>
               {% endfor %}
-            </ul>
+            </ul> {% endcomment %}
             {% if enable_thumbnail_slides == true %}
               <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
                 {% include 'icon-chevron-right' %}
