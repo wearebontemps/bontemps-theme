@@ -3,7 +3,7 @@
   {% assign desc =  product.description | split: "<!--ingredients-->" %}
   <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
   <p>Organic Ingredients:</p>
-  <p>{{ desc | strip_html  }}</p>
+  <p>{{ desc[1] }}</p>
   <div>{% include 'caffeine' %}</div>
 </div>
 </a>
