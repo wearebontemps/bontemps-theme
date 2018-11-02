@@ -108,13 +108,9 @@
   {% include 'style-tags' %}
 
   {{ content_for_header }}
-  {{ 'modernizr.min.js' | asset_url | script_tag }}
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
-
-  {% include 'timber-cart-drawer' %}
-
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   <div id="SearchDrawer" class="search-bar drawer drawer--top" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}">
