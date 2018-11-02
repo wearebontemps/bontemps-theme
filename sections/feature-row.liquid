@@ -1,5 +1,5 @@
 
-<div class="page-width feature-row">
+<div class="feature-row">
 <div id="demo" class="carousel slide" data-ride="carousel">
 {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
 {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
@@ -22,7 +22,9 @@
               alt="{{ block.settings.image.alt | escape }}">
           </div>
         </div> {% endcomment %}
-      <img src="{{block.settings.image | img_url: '800x'}}"/>
+      <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+        <img src="{{block.settings.image | img_url: '800x'}}"/>
+      </div>
         <noscript>
           {{ block.settings.image | img_url: '600x600', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
         </noscript>
@@ -66,7 +68,7 @@
   </a>
     </div>
 
- 
+
   </div>
 </div>
 
