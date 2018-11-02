@@ -1,6 +1,9 @@
 <a href="{{ product.url | within: collection }}">
 <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-around'>
-  <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
+  {% capture desc %}{{product.description | split: "<!--ingredients-->" }}
+  <p>{{ desc.first | strip_html | truncatewords: 15, '...' }}</p>
+  <p>Organic Ingredients:</p>
+  <p>{{ desc.last | strip_html }}</p>
   <div>{% include 'caffeine' %}</div>
 </div>
 </a>
