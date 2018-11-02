@@ -1,4 +1,4 @@
-{% if block.settings.image_mobile != blank %}
+{% comment %} {% if block.settings.image_mobile != blank %}
     <script type="text/javascript">
     var windowsize = $(window).width();
         $(window).resize(function() {
@@ -22,7 +22,7 @@
         }
         });
     </script>
-{% endif %}
+{% endif %} {% endcomment %}
 {% if block.settings.image_mobile != blank %}
     <script type="text/javascript">
     var windowsize = $(window).width();
