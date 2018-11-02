@@ -1,18 +1,18 @@
 {% capture layout %}
-    <div class="col-6 d-flex flex-column align-items-start justify-content-between image-column">
+    <div class="col-6 d-flex flex-column align-items-start justify-content-between text-container">
         <div>
             <h1>{{ section.settings.text_1 }}</h1>
             <p>{{ section.settings.text_2 }}</p>
         </div>
         <ul>
         {% for block in section.blocks %}
-        <li style="padding: .5em 0;"><img style="margin-right: .5em;" src="{{ block.settings.list_item_image | img_url: '30x30' }}"/>{{ block.settings.list_item }}</li>
+        <li><img src="{{ block.settings.list_item_image | img_url: '30x30' }}"/>{{ block.settings.list_item }}</li>
         {% endfor %}
         </ul>
     </div>
 {% endcapture %}
 
-  <div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x1200' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
+  <div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
     <div class="row contained d-flex align-items-center section-inner" style="height: {{ section.settings.section_height | times: 10 }}px">
         {% if section.settings.layout == 'left' %}
             {{ layout }}
