@@ -6,7 +6,7 @@
     </div>
 
     <form action="/cart" method="post" novalidate class="cart">
-        {% for item in cart.items %}
+        {% comment %} {% for item in cart.items %}
           <div class="row" style="margin: .25em auto;">
             <div class="col-4 col-sm-2" data-label="{{ 'customer.order.product' | t }}">
 
@@ -43,7 +43,9 @@
           </div>
         </div>
         </div>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
+        <div id="cart-drawer-inner">
+        </div>
       <div class="cart__footer">
         <div class="grid">
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
@@ -100,7 +102,7 @@
     </div>
   {% endif %}
 </div>
-
+{% include 'ajax-cart-template' %}
 <script type="text/javascript">
 $('#close_drawer').click(function(e){
     e.preventDefault();
