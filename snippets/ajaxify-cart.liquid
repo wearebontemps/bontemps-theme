@@ -77,7 +77,7 @@ Shopify.AjaxifyCart = (function($) {
             console.log('There are now ' + cart.item_count + ' items in the cart.');
             $('#cart_target').text(cart.item_count);
             buildCart(cart);
-            $('#cart-drawer').addClass('show');
+            $('.cart-drawer-wrapper').addClass('show');
         } );
     };
     var _showFeedback = function(success, html, $addToCartForm){
