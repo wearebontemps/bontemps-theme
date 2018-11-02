@@ -1231,8 +1231,14 @@ $grid-breakpoints: (
   overflow: scroll;
   padding:2em;
   background: white;
+  transition: all 1s;
   z-index: 10001;
-  width: 400px;
+  width: 0;
+  display: none;
+  &.show{
+    width: 430px;
+    display: block;
+  }
 }
 .cart-drawer-wrapper{
   position: fixed;
