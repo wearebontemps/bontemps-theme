@@ -80,7 +80,7 @@ Theme Store optional settings
     </div>
   </div>
 {% endif %}
-
+{% include 'header-image-helper-' %}
 {% if section.blocks.size == 0 %}
   <div class="placeholder-noblocks">
     {{ 'homepage.onboarding.no_content' | t }}
@@ -199,6 +199,11 @@ Theme Store optional settings
                 "type": "image_picker",
                 "id": "image",
                 "label": "Image"
+              },
+              {
+                "type": "image_picker",
+                "id": "image_mobile",
+                "label": "Image (Mobile View)"
               },
               {
                 "type": "select",
