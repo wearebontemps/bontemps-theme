@@ -3849,6 +3849,9 @@ h1.section-header{
     .sachet-count {}
   }
 }
+.product-price {
+  font-size: .95em;
+}
 
 .three-pack-link {
   display: flex;
@@ -7247,6 +7250,11 @@ $toolbar-height-small: 46px;
 .image-and-text-box {
   .text-container {
     max-width: 360px;
+    margin: 1em 1em 1em 3em;
+    min-height: 100%;
+    @include media-query ($small) {
+      margin: 1em;
+    }
   }
   ul {
     margin-top: 3em;
