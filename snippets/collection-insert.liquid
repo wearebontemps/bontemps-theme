@@ -3,10 +3,10 @@
 <div class="grid-view-item product-card" style="height: 100%; width: 100%;">
     <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
     <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
-    <div class='product-card-overlay-copy d-flex flex-column align-items-center justify-content-start'>
+    {% comment %} <div class='product-card-overlay-copy d-flex flex-column align-items-center justify-content-start'>
         <h2 class="text-white">Design a 3 Pack</h2>
         <p class="text-white">GET FREE SHIPPING</p>
-    </div>
+    </div> {% endcomment %}
     <img id="{{ img_id }}"
         class="grid-view-item__image lazyload"
         src="{{ section.settings.insert_image.src | img_url: '300x300' }}"
