@@ -5620,7 +5620,12 @@ $color-slideshow-close-text: #000;
 }
 
 // carousel overrides
-
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 80px;
+}
 .carousel-control-prev-icon {
   background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
 }
