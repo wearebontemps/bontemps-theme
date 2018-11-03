@@ -61,7 +61,7 @@
     </ul>
   </div>
   </div>
-  <div class="col-sm-4 col-12 order-sm-2 order-3 d-flex justify-content-center header-logo-box">
+  <div class="col-sm-4 col-4 order-sm-2 order-3 d-flex justify-content-center header-logo-box">
   <a href="/" class="logo-image">
     {% if section.settings.logo != blank %}
     {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -73,7 +73,7 @@
     {% endif %}
   </a>
   </div>
-  <div class="col-6 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+  <div class="col-4 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
   <div class="site-header__icons-wrapper d-flex justify-content-end">
       {% comment %} <div class="site-header__search site-header__icon small--hide">
         {% include 'search-form' %}
