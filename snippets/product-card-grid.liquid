@@ -54,7 +54,7 @@
     <div class="form_{{product.id}}" style="display: none;">
       <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: 0 1em 2em;" />
+        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
       </form>
     </div>
     <div class="product__price price_hover_{{product.id}}">
