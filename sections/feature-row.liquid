@@ -57,6 +57,9 @@
     {% if block.settings.layout == 'right' %}
       {{ image_layout }}
     {% endif %}
+    {%- if block.settings.featured_image -%}
+    <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
+    {% endif %}
     </div>
   </div>
   {% endfor %}
@@ -185,6 +188,11 @@
           "es": "<p>Vincula un texto largo con una imagen para dar visibilidad a tu producto, colección o publicación de blog elegida. Agrega detalles sobre disponibilidad, estilo, o incluso ofrece una reseña.</p>",
           "pt-BR": "<p>Emparelhe textos grandes com uma imagem para dar foco ao produto, coleção ou postagem do blog escolhido. Adicione detalhes sobre disponibilidade, estilo ou até mesmo um comentário.</p>"
         }
+      },
+      {
+        "type": "image_picker",
+        "id": "featured_image",
+        "label": "Tea Image"
       },
       {
         "type": "text",
