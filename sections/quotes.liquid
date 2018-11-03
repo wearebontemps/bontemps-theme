@@ -11,9 +11,8 @@
         {% for block in section.blocks %}
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="row quote-row d-flex align-items-center">
-            <div class="col-4">
             {% assign featured_image = block.settings.image %}
-                <img src="{{featured_image | img_url: '800x' }}"/>
+            <div class="col-4" style="background-image: url('{{featured_image | img_url: '800x' }}'); background-position: center; background-size: cover;">
             </div>
             <div class="col-8">
             <blockquote class="quotes-slider__text text-left">
@@ -27,6 +26,9 @@
                 <div class="quote-content">{{ block.settings.quote }}</div>
               {% endif %}
             </blockquote>
+            {%- if block.settings.featured_image -%}
+            <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
+            {% endif %}
             </div>
           </div>
         </div>
@@ -143,6 +145,11 @@
             "default": {
               "en": "Interior Design"
             }
+          },
+          {
+            "type": "image_picker",
+            "id": "featured_image",
+            "label": "Tea Image"
           },
           {
             "type": "image_picker",
