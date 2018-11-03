@@ -1,5 +1,5 @@
 <div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-    
+
   {% comment %} <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
     <span class="visually-hidden">{{ product.title }}</span>
   </a> {% endcomment %}
@@ -30,7 +30,7 @@
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
-    <div class="product-meta " style="padding-bottom: .5em;">
+    <div class="product-meta">
     <div class="details_{{product.id}}">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details ">
