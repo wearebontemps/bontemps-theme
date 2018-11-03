@@ -1,4 +1,4 @@
- {% comment %} <div id="evm-instagram-feed"></div><script src="https://expertvillagemedia.com/instagramfeed/embed.js" data-shop-id="pangea-dev.myshopify.com"></script> {% endcomment %}
+{% comment %} <div id="evm-instagram-feed"></div><script src="https://expertvillagemedia.com/instagramfeed/embed.js" data-shop-id="pangea-dev.myshopify.com"></script> {% endcomment %}
  <div class="section-inner">
    <div class="instafeed-copy text-center">
      <div class="content-copy">
@@ -42,40 +42,3 @@
   {% endraw %}
 
 <!-- to use, set the userid and access token for your instagram account -->
-
-{% schema %}
-{
-  "name": "Bon Temps Instagram",
-  "settings": [
-      {
-        "type": "color",
-        "id": "background_color",
-        "label": "Section Background"
-      },
-      {
-        "type": "text",
-        "label": "First Section Header",
-        "id": "first_section_header",
-        "default": "#timewellspent"
-      },
-      {
-        "type": "richtext",
-        "label": "First Section Copy",
-        "id": "first_section_copy",
-        "default": "<p>Discover those that have mastered the art @bontemps</p>"
-      },
-      {
-      "type": "text",
-      "id": "filter_handle",
-      "label": "the hashtag you filter with on IG, which cannot be changed here",
-      "default": "bettertea"
-      }
-  ],
-  "presets": [
-    {
-      "name": "Instagram Feed",
-      "category": "Features"
-    }
-  ]
-}
-{% endschema %}
