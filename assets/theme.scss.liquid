@@ -2503,16 +2503,39 @@ textarea {
 .slideshow-inner-text{
   &.right{
     text-align: right;
+    max-width: 40%;
+    margin-left: 50%;
+    @include media-query($small){
+      max-width: 100%;
+      margin-right: 0;
+      margin-left: 0%;
+      font-size: .8em;
+    }
   }
   &.left{
     text-align: left;
+    max-width: 40%;
+    margin-right: 50%;
+    @include media-query($small){
+      max-width: 100%;
+      margin-right: 0;
+      margin-left: 0%;
+      font-size: .8em;
+    }
   }
+}
+.top-nav-box > header > nav, .top-nav-box > header > nav a {
+    color: #bc451b !important;
 }
 .navbar-nav {
   align-items: center;
   .nav-item{
     padding: 1em;
     font-size: .9em;
+    line-height: 1.1;
+    @include media-query($small){
+      padding: 1em .5em;
+    }
   }
 }
 /*================ Site Nav Links ================*/
