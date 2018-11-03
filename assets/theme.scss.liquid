@@ -687,35 +687,37 @@ $slick-opacity-not-active: 0.25;
 }
 .slick-prev {
   left: 3em;
+  background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
   [dir="rtl"] & {
     left: auto;
     right: -25px;
   }
-  &:before {
-    //content: $slick-prev-character;
-    background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
-
-    [dir="rtl"] & {
-      background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
-      //content: $slick-next-character;
-    }
-  }
+  // &:before {
+  //   //content: $slick-prev-character;
+  //   background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
+  //
+  //   [dir="rtl"] & {
+  //     background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
+  //     //content: $slick-next-character;
+  //   }
+  // }
 }
 
 .slick-next {
   right: 3em;
+  background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
   [dir="rtl"] & {
     left: -25px;
     right: auto;
   }
-  &:before {
-    background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
-    //content: $slick-next-character;
-    [dir="rtl"] & {
-      background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
-      //content: $slick-prev-character;
-    }
-  }
+  // &:before {
+  //   background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
+  //   //content: $slick-next-character;
+  //   [dir="rtl"] & {
+  //     background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
+  //     //content: $slick-prev-character;
+  //   }
+  // }
 }
 
 
