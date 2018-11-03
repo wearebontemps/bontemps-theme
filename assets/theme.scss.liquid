@@ -652,8 +652,8 @@ $slick-opacity-not-active: 0.25;
 .slick-next {
   position: absolute;
   display: block;
-  height: 20px;
-  width: 20px;
+  height: 60px;
+  width: 60px;
   line-height: 0px;
   cursor: pointer;
   background: transparent;
@@ -692,9 +692,12 @@ $slick-opacity-not-active: 0.25;
     right: -25px;
   }
   &:before {
-    content: $slick-prev-character;
+    //content: $slick-prev-character;
+    background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
+
     [dir="rtl"] & {
-      content: $slick-next-character;
+      background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
+      //content: $slick-next-character;
     }
   }
 }
@@ -706,12 +709,15 @@ $slick-opacity-not-active: 0.25;
     right: auto;
   }
   &:before {
-    content: $slick-next-character;
+    background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
+    //content: $slick-next-character;
     [dir="rtl"] & {
-      content: $slick-prev-character;
+      background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
+      //content: $slick-prev-character;
     }
   }
 }
+
 
 /* Dots */
 
