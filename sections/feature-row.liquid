@@ -1,6 +1,6 @@
 
 <div class="feature-row">
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div id="demo" class="carousel slide" data-ride="carousel"  data-interval="7500">
 {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
 {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
 <div class="carousel-inner">
@@ -42,7 +42,7 @@
 
     <div class="feature-row__item feature-row__text feature-row__text--{{ block.settings.layout }}">
       {% if block.settings.title != blank %}
-        <h2 class="h3">{{ block.settings.title | escape }}</h2>
+        <h2 class="h2">{{ block.settings.title | escape }}</h2>
       {% endif %}
       {% if block.settings.text != blank %}
         <div class="rte rte-setting featured-row__subtext">{{ block.settings.text }}</div>
