@@ -31,7 +31,7 @@
             </div>
             {% endcapture %}
               {% if link.links != blank %}
-                <a class="text-dark collection-category" href="{{ childlink.url }}">{{ image_box }}<h4>{{ childlink.title }}</h4></a>
+                <a class="text-dark collection-category text-center" href="{{ childlink.url }}">{{ image_box }}<p>{{ childlink.title }}</p></a>
                 {% if childlink.links != blank %}
                 <ul class="dropdown-category-list">
                 {% for grandchildlink in childlink.links %}
