@@ -1,5 +1,5 @@
 {% capture layout %}
-    <div class="col-sm-6 d-flex flex-column align-items-start justify-content-center text-container">
+    <div class="col-sm-10 d-flex flex-column align-items-start justify-content-center text-container">
         <div>
             <h1>{{ section.settings.text_1 }}</h1>
             <p>{{ section.settings.text_2 }}</p>
@@ -17,7 +17,7 @@
         {% if section.settings.layout == 'left' %}
             {{ layout }}
         {% endif %}
-        <div class="col-sm-6"></div>
+        <div class="col-sm-2"></div>
         {% if section.settings.layout == 'right' %}
             {{ layout }}
         {% endif %}
