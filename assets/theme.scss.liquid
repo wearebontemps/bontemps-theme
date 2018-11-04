@@ -693,6 +693,8 @@ $slick-opacity-not-active: 0.25;
 }
 .slick-prev {
   left: 3em;
+  top: 85%;
+  left: 90%;
   background-color: transparent;
   background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
   [dir="rtl"] & {
@@ -714,6 +716,7 @@ $slick-opacity-not-active: 0.25;
   right: 3em;
   background-color: transparent !important;
   background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
+  background-image: url('{{ "arrow-right-oranage@3x.png" | asset_url }}');
   [dir="rtl"] & {
     left: -25px;
     right: auto;
@@ -2662,7 +2665,7 @@ textarea {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.95);
   background-clip: unset;
   border: none;
   border-radius: none;
