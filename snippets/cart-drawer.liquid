@@ -2,11 +2,9 @@
 <div class="cart-drawer-closer"></div>
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
 <a style="float:right;" href="#" id="close_drawer"><span>x</span></a>
-  {% if cart.item_count > 0 %}
     <div class="section-header text-center">
       <h1>{{ 'cart.general.title' | t }}</h1>
     </div>
-
     <form action="/cart" method="post" novalidate class="cart">
         <div id="cart-drawer-inner">
         </div>
@@ -55,16 +53,6 @@
         </div>
       </div>
     </form>
-  {% else %}
-    <div class="empty-page-content text-center">
-      <h1>{{ 'cart.general.title' | t }}</h1>
-      <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
-      <div class="cookie-message">
-        <p>{{ 'cart.general.cookies_required' | t }}</p>
-      </div>
-      <a href="/" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
-    </div>
-  {% endif %}
 </div>
 </div>
 {% include 'ajax-cart-template' %}
