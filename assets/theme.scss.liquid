@@ -6245,6 +6245,9 @@ $toolbar-height-small: 46px;
       color: #eee;
     }
   }
+  .site-footer__copyright--bottom.site-footer__subwrapper {
+    text-align: left !important;
+  }
 }
 
 @include media-query($medium-up) {
@@ -6270,6 +6273,10 @@ $toolbar-height-small: 46px;
   @include media-query($medium-up) {
     display: block;
     padding: 0 20px 6px 0;
+  }
+  @include media-query($small) {
+    text-align: left;
+    padding-left: 0;
   }
 }
 
