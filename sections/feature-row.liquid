@@ -1,6 +1,6 @@
 
 <div class="feature-row">
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div id="demo" class="carousel slide" data-ride="carousel"  data-interval="7500">
 {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
 {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
 <div class="carousel-inner">
@@ -31,6 +31,9 @@
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
+      {%- if block.settings.featured_image -%}
+      <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="feature-row-product-img" style="max-width: 160px;">
+      {% endif %}
     </div>
   {% endcapture %}
 
@@ -42,7 +45,7 @@
 
     <div class="feature-row__item feature-row__text feature-row__text--{{ block.settings.layout }}">
       {% if block.settings.title != blank %}
-        <h2 class="h3">{{ block.settings.title | escape }}</h2>
+        <h2 class="h2">{{ block.settings.title | escape }}</h2>
       {% endif %}
       {% if block.settings.text != blank %}
         <div class="rte rte-setting featured-row__subtext">{{ block.settings.text }}</div>
@@ -185,6 +188,11 @@
           "es": "<p>Vincula un texto largo con una imagen para dar visibilidad a tu producto, colección o publicación de blog elegida. Agrega detalles sobre disponibilidad, estilo, o incluso ofrece una reseña.</p>",
           "pt-BR": "<p>Emparelhe textos grandes com uma imagem para dar foco ao produto, coleção ou postagem do blog escolhido. Adicione detalhes sobre disponibilidade, estilo ou até mesmo um comentário.</p>"
         }
+      },
+      {
+        "type": "image_picker",
+        "id": "featured_image",
+        "label": "Tea Image"
       },
       {
         "type": "text",

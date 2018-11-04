@@ -1,5 +1,5 @@
 <div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-    
+
   {% comment %} <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
     <span class="visually-hidden">{{ product.title }}</span>
   </a> {% endcomment %}
@@ -30,7 +30,7 @@
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
-    <div class="product-meta " style="padding-bottom: .5em;">
+    <div class="product-meta">
     <div class="details_{{product.id}}">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details ">
@@ -54,7 +54,7 @@
     <div class="form_{{product.id}}" style="display: none;">
       <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: 0 1em 1em;" />
+        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
       </form>
     </div>
     <div class="product__price price_hover_{{product.id}}">

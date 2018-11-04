@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-clear contained row d-flex">
-<div class="col-6 col-sm-4">
+  <div class="col-4 col-sm-4">
   <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,7 +31,7 @@
             </div>
             {% endcapture %}
               {% if link.links != blank %}
-                <a class="text-dark collection-category" href="{{ childlink.url }}">{{ image_box }}<h4>{{ childlink.title }}</h4></a>
+                <a class="text-dark collection-category text-center" href="{{ childlink.url }}">{{ image_box }}<p>{{ childlink.title }}</p></a>
                 {% if childlink.links != blank %}
                 <ul class="dropdown-category-list">
                 {% for grandchildlink in childlink.links %}
@@ -61,7 +61,7 @@
     </ul>
   </div>
   </div>
-  <div class="col-sm-4 col-12 order-sm-2 order-3 d-flex justify-content-center header-logo-box">
+  <div class="col-sm-4 col-4 order-sm-2 order-2 d-flex justify-content-center header-logo-box">
   <a href="/" class="logo-image">
     {% if section.settings.logo != blank %}
     {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -73,53 +73,53 @@
     {% endif %}
   </a>
   </div>
-  <div class="col-6 col-sm-4 order-sm-3 order-2  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
-  <div class="site-header__icons-wrapper d-flex justify-content-end">
-      {% comment %} <div class="site-header__search site-header__icon small--hide">
-        {% include 'search-form' %}
-      </div>
-    <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top medium-up--hide">
-      {% include 'icon-search' %}
-      <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-    </button> {% endcomment %}
-
-    {% comment %} {% if shop.customer_accounts_enabled %}
-      {% if customer %}
-        <a href="/account" class="site-header__icon site-header__account">
-          {% include 'icon-login' %}
-          <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-        </a>
-      {% else %}
-        <a href="/account/login" class="site-header__icon site-header__account">
-          {% include 'icon-login' %}
-          <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
-        </a>
-      {% endif %}
-    {% endif %} {% endcomment %}
-
-    <a href="/cart" class="site-header__icon site-header__cart">
-
-      {% include 'icon-bag' %}
-      <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-      {% if cart.item_count > 0 %}
-        <div id="CartCount" class="site-header__cart-count">
-          <span id="cart_target">{{ cart.item_count }}</span>
-          <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+  <div class="col-4 col-sm-4 order-sm-3 order-3  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+    <div class="site-header__icons-wrapper d-flex justify-content-end">
+        {% comment %} <div class="site-header__search site-header__icon small--hide">
+          {% include 'search-form' %}
         </div>
-      {% endif %}
-    </a>
-  {% if template contains "product" %}
-  <form class="header-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
-    <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-    <input type="submit" value="Add To Cart" class="btn" />
-  </form>
-  {% endif %}
-    {% unless linklists[section.settings.main_linklist] == blank %}
-      <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-        {% include 'icon-hamburger' %}
-        {% include 'icon-close' %}
-      </button>
-    {% endunless %}
-  </div>
+      <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top medium-up--hide">
+        {% include 'icon-search' %}
+        <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+      </button> {% endcomment %}
+
+      {% comment %} {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a href="/account" class="site-header__icon site-header__account">
+            {% include 'icon-login' %}
+            <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+          </a>
+        {% else %}
+          <a href="/account/login" class="site-header__icon site-header__account">
+            {% include 'icon-login' %}
+            <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+          </a>
+        {% endif %}
+      {% endif %} {% endcomment %}
+
+      <a href="/cart" class="site-header__icon site-header__cart">
+
+        {% include 'icon-bag' %}
+        <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+        {% if cart.item_count > 0 %}
+          <div id="CartCount" class="site-header__cart-count">
+            <span id="cart_target">{{ cart.item_count }}</span>
+            <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+          </div>
+        {% endif %}
+      </a>
+    {% if template contains "product" %}
+    <form class="header-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
+      <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
+      <input type="submit" value="Add To Cart" class="btn" />
+    </form>
+    {% endif %}
+      {% unless linklists[section.settings.main_linklist] == blank %}
+        <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+          {% include 'icon-hamburger' %}
+          {% include 'icon-close' %}
+        </button>
+      {% endunless %}
+    </div>
   </div>
 </nav>

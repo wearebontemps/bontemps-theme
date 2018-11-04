@@ -55,9 +55,9 @@ Theme Store optional settings
                   </h2>
                 {% endunless %}
                 {% unless block.settings.subheading == blank %}
-                  <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                  <h4 class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
                     {{ block.settings.subheading | escape }}
-                  </span>
+                  </h4>
                 {% endunless %}
                 {% comment %} <h1 class="text-white">
                   <span role="text">
