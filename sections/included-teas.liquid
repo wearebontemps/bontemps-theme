@@ -19,7 +19,7 @@
     {% if tag contains "effect" %}
     {% assign effect = tag | split: "-" %}
     {% assign effect_mod = effect[1] %}
-    <p><{{ effect_mod }}/p>
+    <p><{{ effect_mod }}</p>
     {% endif %}
     </div>
     {% endfor %}
