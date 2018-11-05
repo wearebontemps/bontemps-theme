@@ -53,9 +53,9 @@ Theme Store optional settings
                   <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                     {{ block.settings.custom_title | escape }}
                   </h2>
-                  <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                  <h4 class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
                     {{ block.settings.custom_subtitle | escape }}
-                  </span>
+                  </h4>
                 {% endunless %}
                 {% unless block.settings.has_custom_text == true %}
                 <h1 class="text-white">
@@ -99,6 +99,7 @@ Theme Store optional settings
 {% endif %}
 </div>
 <div class="top-nav-box">
+  {% include "announcement-bar" %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>

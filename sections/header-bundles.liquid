@@ -30,7 +30,7 @@ Theme Store optional settings
                 {% for block in section.blocks %}
 
         <div class=" slideshow__slide slideshow__slide--{{ block.id }} {% if forloop.first %}slick-active{% endif %}" {{ block.shopify_attributes }}>
- 
+
             <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
                  data-sizes="auto"
                   data-bgset="{% include 'bgset', image: block.settings.image %}"
@@ -50,9 +50,9 @@ Theme Store optional settings
                   </h2>
                 {% endunless %}
                 {% unless block.settings.subheading == blank %}
-                  <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                  <h4 class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
                     {{ block.settings.subheading | escape }}
-                  </span>
+                  </h4>
                 {% endunless %}
                 {% unless block.settings.link == blank %}
                 <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }}</span></a>
@@ -83,6 +83,7 @@ Theme Store optional settings
 {% endif %}
 </div>
 <div class="top-nav-box">
+  {% include "announcement-bar" %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
