@@ -6,7 +6,7 @@
   {% for tag in product.tags %}
   {% if tag contains "contains" %}
   {% assign tag_mod = tag | split: "-" %}
-  {% assign product_id = tag_mod[1] | handleize %}
+  {% assign product_id = tag_mod[1] %}
   {% assign product = all_products['product_id'] %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
