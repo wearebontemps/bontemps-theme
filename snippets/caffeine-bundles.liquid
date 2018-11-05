@@ -1,3 +1,4 @@
+<div class="product-meta">
 {% for tag in custom_product.tags %}
 {% if tag contains 'caffeine' %}
 {% assign tag_caf = tag | handle | remove: 'caffeine-' %}
@@ -38,3 +39,4 @@ Caffeine
 <br/>
 {% endif %}
 </p>
+</div>
