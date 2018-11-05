@@ -5,7 +5,7 @@
     <div class="section-header text-center">
       <h1>{{ 'cart.general.title' | t }}</h1>
     </div>
-    <form action="/cart/update" method="post" novalidate class="cart">
+    <form action="/cart/add" method="post" novalidate class="cart">
         <div id="cart-drawer-inner">
         </div>
       <div class="cart__footer">
@@ -39,8 +39,8 @@
                 {{ 'cart.general.continue_shopping' | t }}
               </a> -->
               <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a>
-              <input type="submit" name="update"
-                class="btn btn--secondary small--hide cart__submit-control"
+              <input type="button" name="update" onClick="popCart()"
+                class="btn btn--secondary small--hide"
                 value="{{ 'cart.general.update' | t }}">
               <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
