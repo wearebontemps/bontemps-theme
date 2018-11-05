@@ -14,6 +14,15 @@
     <div class="row d-flex align-items-center " style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7">
+    {% for tag in custom_product.tags %}
+    <div class="product-meta">
+    {% if tag contains "effect" %}
+    {% assign effect = tag | split: "-" %}
+    {% assign effect_mod = effect[1] %}
+    <p><{{ effect_mod }}/p>
+    {% endif %}
+    </div>
+    {% endfor %}
       <h1 class="about-subtitle product-included">{{ custom_product.title}}</h1>
       <p>{{ custom_product.description }}</p>
       {% include 'caffeine-bundles' %}
