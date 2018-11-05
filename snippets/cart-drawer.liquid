@@ -38,18 +38,18 @@
               <!-- <a href="collections/all" class="btn btn--secondary cart__continue small--hide cart__submit-control" >
                 {{ 'cart.general.continue_shopping' | t }}
               </a> -->
-              <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a>
-              <input type="submit" name="update"
+              {% comment %} <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a> {% endcomment %}
+              {% comment %} <input type="submit" name="update"
                 class="btn btn--secondary small--hide cart__submit-control"
-                value="{{ 'cart.general.update' | t }}">
+                value="{{ 'cart.general.update' | t }}"> {% endcomment %}
               <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
                 value="{{ 'cart.general.checkout' | t }}">
             </div>
 
-            {% if additional_checkout_buttons %}
+            {% comment %} {% if additional_checkout_buttons %}
               <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
-            {% endif %}
+            {% endif %} {% endcomment %}
           </div>
         </div>
       </div>
