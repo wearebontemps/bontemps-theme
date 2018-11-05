@@ -121,6 +121,12 @@ Theme Store optional settings
   "name": "Header Blends",
   "settings": [
       {
+      "type": "checkbox",
+      "id": "announcement_bar_enabled",
+      "label": "Show announcement",
+      "default": false
+      },
+      {
         "type": "checkbox",
         "id": "header-slider",
         "label": "Has slideshow?",
@@ -145,6 +151,18 @@ Theme Store optional settings
             "value": "large"
           }
         ]
+      },
+      {
+        "type": "text",
+        "id": "announcement_bar_text",
+        "label": "Announcement text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "announcement_bar_link",
+        "label": "Announcement link",
+        "info": "Optional"
       },
       {
         "type": "image_picker",
