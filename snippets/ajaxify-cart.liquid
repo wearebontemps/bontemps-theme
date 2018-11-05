@@ -73,9 +73,11 @@ Shopify.AjaxifyCart = (function($) {
     };
     var popCart = function(){
         jQuery.getJSON('/cart.js', function(cart) {
+            var sbt = cart.total_price.toString();
+            var subtotalFormatted ='$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2);
             // now have access to Shopify cart object
-            console.log('There are now ' + cart.item_count + ' items in the cart.');
             $('#cart_target').text(cart.item_count);
+            $('.cart__subtotal').text(subtotalFormatted);
             buildCart(cart);
             $('.cart-drawer-wrapper').addClass('show');
             $('#cart-drawer').addClass('show');
