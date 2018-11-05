@@ -88,6 +88,11 @@ Shopify.AjaxifyCart = (function($) {
             });
         } );
     };
+     $('#header-cart-opener').click(function(e){
+        e.preventDefault();
+        console.log("running Cart");
+        popCart();
+    });
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
         var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
@@ -189,11 +194,6 @@ var _setText = function($button, label) {
         });
         return false;
     });
-    });
-    $('#header-cart-opener').click(function(e){
-    e.preventDefault();
-    console.log("running Cart");
-    popCart();
     });
     };
     return {
