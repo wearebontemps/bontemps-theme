@@ -1,8 +1,4 @@
-<div class="section-inner">
-  <div class="text-center">
-  <h1 class="section-header">{{ section.settings.section_title }}</h1>
-  <p>{{ section.settings.subtitle }}</p>
-  </div>
+<div class="section-inner contained">
   {% for tag in product.tags %}
   {% if tag contains "contains" %}
   {% assign tag_mod = tag | split: "-" %}
@@ -15,7 +11,7 @@
     {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
    </div>
   {% endcapture %}
-    <div class="row d-flex align-items-center" style='padding: 1em 0;'>
+    <div class="row d-flex align-items-center product-single" style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7">
       <h1 class="about-subtitle product-single__title">{{ product.title}}</h1>
