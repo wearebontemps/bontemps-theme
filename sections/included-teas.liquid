@@ -13,8 +13,8 @@
   {% endcapture %}
     <div class="row d-flex align-items-center " style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
-    <div class="text-left col-sm-7 product-included">
-      <h1 class="about-subtitle product-single__title">{{ custom_product.title}}</h1>
+    <div class="text-left col-sm-7">
+      <h1 class="about-subtitle product-included">{{ custom_product.title}}</h1>
       <p>{{ custom_product.description }}</p>
       {% include 'caffeine-bundles' %}
       </div>
