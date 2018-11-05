@@ -2696,6 +2696,17 @@ textarea {
     display: block;
   }
 }
+.navbar-toggler {
+border: 0px transparent;
+border: none;
+padding: 0;
+  .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+    background-image: url('{{ "sandwich@3x.png" | asset_url }}');
+  }
+}
+
 
 // Centered dropdown
 .site-nav__dropdown--centered {
@@ -2712,7 +2723,7 @@ textarea {
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
-    padding: 0 3rem;
+    padding: 1em 4rem;
     @include media-query($small){
       padding: 0 2rem;
     }
@@ -2734,7 +2745,7 @@ textarea {
   background-color: rgba(255,255,255,0.95);
   background-clip: unset;
   border: none;
-  border-radius: none;
+  border-radius: 0;
   width: 100%;
   max-height: 350px;
   .dropdown-box {
@@ -2744,7 +2755,7 @@ textarea {
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    padding: .35em 0;
+    padding: .65em 0;
     .header-image-box {
       padding: 0;
       align-items: center;
