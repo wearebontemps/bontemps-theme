@@ -83,8 +83,8 @@ Shopify.AjaxifyCart = (function($) {
             $('#cart-drawer').addClass('show');
             var selects = $('input.update-select');
             $(selects).change(function(){
-                id = this.attr('id');
-                console.log(id);
+                element = this
+                console.log(element);
             });
         } );
     };
