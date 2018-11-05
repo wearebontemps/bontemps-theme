@@ -2591,7 +2591,17 @@ textarea {
     }
   }
 }
+.navbar-collapse.collapse {
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 1s;
+}
 .navbar-collapse.collapse.show {
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 1s;
   @include media-query($small){
     background: rgba(255,255,255,0.95);
     width: 350px;
@@ -2602,6 +2612,15 @@ textarea {
     z-index: 5;
     box-shadow: 2px 3px 4px rgba(0,0,0,.2);
     margin: -1em 0 0 -1em;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 1s;
+    button.navbar-toggler {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+    }
   }
 }
 
