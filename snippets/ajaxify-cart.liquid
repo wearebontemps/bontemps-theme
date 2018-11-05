@@ -143,7 +143,6 @@ var _setText = function($button, label) {
                 var value = $(_config.cartCountSelector).html() || '0';
                 $(_config.cartCountSelector).html(value.replace(/[0-9]+/,cart.item_count)).removeClass('hidden-count');
                 $('#cart_target').text({{ cart.item_count }});
-                console.log({{ cart.item_count }});
                 }
                 if (_config.cartTotalSelector && $(_config.cartTotalSelector).size ) {
                 if (typeof Currency !== 'undefined' && typeof Currency.moneyFormats !== 'undefined') {
