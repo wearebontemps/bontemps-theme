@@ -77,7 +77,7 @@ Shopify.AjaxifyCart = (function($) {
             var subtotalFormatted ='$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2);
             // now have access to Shopify cart object
             $('#cart_target').text(cart.item_count);
-            &('.cart__subtotal').text(subtotalFormatted);
+            $('.cart__subtotal').text(subtotalFormatted);
             buildCart(cart);
             $('.cart-drawer-wrapper').addClass('show');
             $('#cart-drawer').addClass('show');
