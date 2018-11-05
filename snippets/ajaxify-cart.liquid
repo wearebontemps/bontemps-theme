@@ -58,7 +58,7 @@ Shopify.AjaxifyCart = (function($) {
                 '<div class="row" style="width:100%;">'+
                 '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
                 '<p>'+ item.title + ' x ' + item.quantity + '</span></p>'+
-                '<input style="width: 100%;" type="number" class="field-' + i + 'first-field" name="updates[' + item.key + ']"' +
+                '<input style="width: 100%;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
                 'id="updates_'+ item.key + '"'+
                 'value="' + item.quantity + '" min="0"/></div>'+
                 '<div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
@@ -70,6 +70,10 @@ Shopify.AjaxifyCart = (function($) {
                 '</div>'
                 );
         }
+        var selects = $('input.update-select');
+            $(selects).change(function(){
+            console.log(this.attr('id'));
+        });
     };
     var popCart = function(){
         jQuery.getJSON('/cart.js', function(cart) {
@@ -206,7 +210,9 @@ var _setText = function($button, label) {
 Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
 
 </script>
+<script type="text/javascript">
 
+</script>
 {% comment %}
   If you want to animate your feedback message.
 {% endcomment %}
