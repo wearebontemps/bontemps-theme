@@ -7,7 +7,7 @@
   {% if tag contains "contains" %}
   {% assign tag_mod = tag | split: "-" %}
   {% assign product_id = tag_mod[1] | handleize %}
-  {% assign product = all_products.product_id %}
+  {% assign product = all_products['product_id'] %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
    <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
