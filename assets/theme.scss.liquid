@@ -2592,11 +2592,15 @@ textarea {
 }
 .navbar-collapse.collapse.show {
   @include media-query($small){
-    background: white;
-    width: 80vw;
+    background: rgba(255,255,255,0.95);
+    width: 350px;
     left: 0px;
     top: 0px;
     height: 100vh;
+    position: absolute;
+    z-index: 5;
+    box-shadow: 2px 3px 4px rgba(0,0,0,.2);
+    margin: -1em 0 0 -1em;
   }
 }
 
