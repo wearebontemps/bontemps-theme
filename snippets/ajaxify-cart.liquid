@@ -70,10 +70,6 @@ Shopify.AjaxifyCart = (function($) {
                 '</div>'
                 );
         }
-        var selects = $('input.update-select');
-            $(selects).change(function(){
-            console.log(this.attr('id'));
-        });
     };
     var popCart = function(){
         jQuery.getJSON('/cart.js', function(cart) {
@@ -85,6 +81,11 @@ Shopify.AjaxifyCart = (function($) {
             buildCart(cart);
             $('.cart-drawer-wrapper').addClass('show');
             $('#cart-drawer').addClass('show');
+            var selects = $('input.update-select');
+            $(selects).change(function(){
+                id = this.attr('id');
+                console.log(id);
+            });
         } );
     };
     var _showFeedback = function(success, html, $addToCartForm){
