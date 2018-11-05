@@ -69,4 +69,9 @@ $('.cart-drawer-closer').click(function(e){
     $('#cart-drawer').removeClass('show');
     $('.cart-drawer-wrapper').removeClass('show');
 });
+$('#header-cart-opener').click(function(e){
+    e.preventDefault();
+    $('#cart-drawer').addClass('show');
+    $('.cart-drawer-wrapper').addClass('show');
+});
 </script>
