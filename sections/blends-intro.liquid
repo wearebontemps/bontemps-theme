@@ -1,43 +1,52 @@
-<div class="section-inner">
-  <div class="row text-center" style="margin: 2em 0;">
-    <div class="col-12 text-center">
-    <h1>{{ section.settings.section_title }}</h1>
-    <p>{{ section.settings.section_subtitle }}</p>
-    <h4>{{ section.settings.tags }}</h4>
+{% if section.settings.show-intro %}
+  <div class="section-inner">
+    <div class="row text-center" style="margin: 2em 0;">
+      <div class="col-12 text-center">
+      <h1>{{ section.settings.section_title }}</h1>
+      <p>{{ section.settings.section_subtitle }}</p>
+      <h4>{{ section.settings.tags }}</h4>
+      </div>
     </div>
   </div>
-</div>
+{% endif %}
+
 {% schema %}
     {
     "name": "Collection Intro",
     "settings": [
         {
+          "type": "checkbox",
+          "id": "show-intro",
+          "label": "Has intro?",
+          "default": true
+        },
+        {
         "type": "text",
         "id": "section_title",
         "label": {
             "en": "Section Heading"
-        },
+            },
         "default": {
             "en": "Fresh Blends"
-        }
+            }
         },
         {
         "type": "text",
         "id": "section_subtitle",
         "label": {
             "en": "Section subtext"
-        },
+            },
         "default": {
             "en": "Buy Three or More Blends for Free Shipping"
-        }
+            }
         }
         {
         "type": "text",
         "id": "tags",
         "label": {
             "en": "tags"
-        },
-        "default": "Energy Calm Focus"
+            },
+        "default": { "Energy Calm Focus"
         }
     ]
     }
