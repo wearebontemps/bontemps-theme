@@ -2587,7 +2587,8 @@ textarea {
     font-size: .9em;
     line-height: 1.1;
     @include media-query($small){
-      padding: 1em .5em;
+      padding: 1em .5em 0;
+      width: 100%;
     }
   }
 }
@@ -2616,6 +2617,9 @@ textarea {
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
     animation-delay: 1s;
+    .navbar-nav {
+      align-items: flex-start;
+    }
     button.navbar-toggler {
       position: absolute;
       top: 16px;
@@ -2803,7 +2807,7 @@ padding: 0;
     @include media-query($small){
       position: relative !important;
       padding: 0;
-    }  
+    }
   }
 }
 .nav-item.dropdown.shop {
