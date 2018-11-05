@@ -1,37 +1,37 @@
-<div class="section-inner">
-  <div class="text-center">
-  <h1 class="section-header">{{ section.settings.section_title }}</h1>
-  <p>{{ section.settings.subtitle }}</p>
-  </div>
+<div class="contained">
   {% for tag in product.tags %}
   {% if tag contains "contains" %}
   {% assign tag_mod = tag | split: "-" %}
   {% assign product_id = tag_mod[1] %}
-  {% assign product = all_products['product_id'] %}
+  {% assign custom_product = all_products[product_id] %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
    <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
-   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
+   <img class="about-image text-orange" src="{{ custom_product.featured_image | img_url: '800x' }}"/>
     {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
    </div>
   {% endcapture %}
-  <p>{{ product_id }}, {{ product.id }}</p>
-    <div class="row d-flex align-items-center" style='padding: 1em 0;'>
+    <div class="row d-flex align-items-center " style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7">
-      <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
-      <p>{{ block.settings.text_content }}</p>
+    {% for tag in custom_product.tags %}
+    <div class="product-meta">
+    {% if tag contains "effect" %}
+    {% assign effect = tag | split: "-" %}
+    {% assign effect_mod = effect[1] %}
+    <p><{{ effect_mod }}/p>
+    {% endif %}
+    </div>
+    {% endfor %}
+      <h1 class="about-subtitle product-included">{{ custom_product.title}}</h1>
+      <p>{{ custom_product.description }}</p>
+      {% include 'caffeine-bundles' %}
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
     </div>
   </div>
   {% endif %}
   {% endfor %}
-  
-{% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
-{% endif %}
-
 {% schema %}
   {
     "name": {
@@ -58,33 +58,6 @@
         "default": {
           "en": "Our blends are designed to heighten the highs, cushion the lows and complement the in-betweens of women’s everyday pursuits."
         }
-      }
-    ],
-    "blocks": [
-      {
-        "type": "quote",
-        "name": "About block",
-        "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "section heading",
-            "default": {
-              "en": "It’s 2018, your teas should be clean."
-            }
-          },
-          {
-            "type": "text",
-            "id": "text_content",
-            "label": "Text Content",
-            "default": "lorem"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          }
-        ]
       }
     ]
   }
