@@ -7,6 +7,7 @@
   {% if tag contains "contains" %}
   {% assign tag_mod = tag | split: "-" %}
   {% assign product_id = tag_mod[1] %}
+  {% assign product = all_products['product_id'] %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
    <div class="col-sm-5 about-image-wrap" style='padding: .5em;'>
@@ -14,7 +15,7 @@
     {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
    </div>
   {% endcapture %}
-  <p>{{ product_id }}</p>
+  <p>{{ product_id }}, {{ product.id }}</p>
     <div class="row d-flex align-items-center" style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7">
