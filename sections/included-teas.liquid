@@ -18,8 +18,9 @@
     <div class="row d-flex align-items-center" style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7">
-      <h2 class="about-subtitle">{{ product.title}}</h2>
+      <h1 class="about-subtitle product-single__title">{{ product.title}}</h1>
       <p>{{ product.description }}</p>
+      {% include 'caffeine' %}
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
     </div>
