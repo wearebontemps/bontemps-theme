@@ -92,8 +92,8 @@
 
 <footer class="site-footer" role="contentinfo" style="background-color: {{ section.settings.bg_color }}">
   <div class="page-width">
-    <div class="row">
-    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+    <div class="row headers">
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
       <a href="/" class="logo-image">
           {% if section.settings.logo != blank %}
           {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -105,15 +105,15 @@
           {% endif %}
         </a>
     </div>
-    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
         <h4 class="text-white" style="margin-bottom: 0;">PRODUCTS</h4>
     </div>
-    <div class="col-sm-4 d-flex align-items-center justify-content-start">
+    <div class="col-sm-4 d-flex align-items-center justify-content-center">
         <h4 class="text-white" style="margin-bottom: 0;">COMPANY</h4>
     </div>
     </div>
-    <div class="row">
-    <div class="col-sm-4 d-flex flex-column align-items-start justify-content-between">
+    <div class="row nav-items">
+    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
         <div class="site-footer__copyright--bottom site-footer__subwrapper">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
           {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
@@ -130,7 +130,7 @@
         {{ social_layout }}
         {% endif %}
       </div>
-      <div class="col-sm-4 d-flex flex-column align-items-start">
+      <div class="col-sm-4 d-flex flex-column align-items-center">
         {% if linklists[section.settings.footer_linklist].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist].links %}
@@ -142,7 +142,7 @@
         {% endif %}
       </div>
 
-      <div class="col-sm-4 d-flex flex-column align-items-start">
+      <div class="col-sm-4 d-flex flex-column align-items-center">
         {% if linklists[section.settings.footer_linklist_two].links.size > 0 %}
           <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
             {% for link in linklists[section.settings.footer_linklist_two].links %}

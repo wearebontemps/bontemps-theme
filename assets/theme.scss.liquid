@@ -6299,6 +6299,16 @@ $toolbar-height-small: 46px;
   .site-footer__copyright--bottom.site-footer__subwrapper {
     text-align: left !important;
   }
+  .row.headers div {
+    @include media-query($small) {
+      justify-content: flex-start;
+    }
+  }
+  .row.nav-items div {
+    @include media-query($small) {
+      align-items: flex-start;
+    }
+  }
 }
 
 @include media-query($medium-up) {

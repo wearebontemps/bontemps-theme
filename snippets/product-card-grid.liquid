@@ -78,6 +78,7 @@
           $('.price_hover_{{ product.id }}').hide(300);
         }, function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').removeClass('blur');
+          $('#ProductCardImage-featured-collections-{{ product.id }}').removeClass('blur');
           $('.price_hover_{{ product.id }}').show(300);
       });
     })
