@@ -35,9 +35,11 @@
             {%- endcapture -%}
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
             <div class="cart__submit-controls">
-              <a href="collections/all" class="btn btn--secondary cart__continue small--hide cart__submit-control" >
+              <!-- <a href="collections/all" class="btn btn--secondary cart__continue small--hide cart__submit-control" >
                 {{ 'cart.general.continue_shopping' | t }}
-              </a>
+              </a> -->
+              <a id="continue-shopping" href="" title="Continue shopping">Continue Shopping</a>
+
               <input type="submit" name="update"
                 class="btn btn--secondary small--hide cart__submit-control"
                 value="{{ 'cart.general.update' | t }}">
