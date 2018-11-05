@@ -2525,21 +2525,21 @@ textarea {
   top: 0;
   z-index: 1000;
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 3rem 3rem 1rem;
   transition: padding 0.7s, background-color 0.5s;
   &.shrink{
     //padding: .75rem 3rem;
-    padding: 2rem 3rem 1rem;
+    padding: 2.5rem 0 .5rem;
     background-color: rgba(255,255,255, 0.95);
     -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
     -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
     box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
     @include media-query($small){
-      padding: 2rem 0 1rem;
+      padding: 2.5rem 0 .5rem;
     }
   }
   @include media-query($small){
-    padding: 2rem 0 1rem;
+    padding: 2.5rem 0 1rem;
   }
 }
 .header-logo-box{
@@ -2774,6 +2774,10 @@ padding: 0;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding: 1em 3rem;
+    @include media-query($small){
+      padding: 0 2rem;
+    }
   }
   .dropdown-menu {
     .dropdown-box {
