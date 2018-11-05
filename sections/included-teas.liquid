@@ -11,9 +11,9 @@
     {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
    </div>
   {% endcapture %}
-    <div class="row d-flex align-items-center product-single" style='padding: 1em 0;'>
+    <div class="row d-flex align-items-center " style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
-    <div class="text-left col-sm-7">
+    <div class="text-left col-sm-7 product-single">
       <h1 class="about-subtitle product-single__title">{{ product.title}}</h1>
       <p>{{ product.description }}</p>
       {% include 'caffeine' %}
