@@ -2754,8 +2754,15 @@ textarea {
         }
       }
     }
+  }
 }
-&.shop {
+.nav-item.dropdown.shop {
+  .dropdown-shop {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //text-align: left;
+  }
   .dropdown-menu {
     .dropdown-box {
       height: 100%;
@@ -2775,13 +2782,14 @@ textarea {
         justify-content: center;
         display: flex;
         img {
+          display: flex;
           max-height: 160px;
           }
         }
       }
     }
   }
-}
+
 
 /*================ Child list ================*/
 .site-nav__childlist {
