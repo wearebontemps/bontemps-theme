@@ -72,7 +72,8 @@ Shopify.AjaxifyCart = (function($) {
         }
         var selects = $('input.update-select');
             $(selects).change(function(){
-            console.log(this.attr('id'));
+            id = this.attr('id');
+            console.log(id);
         });
     };
     var popCart = function(){
