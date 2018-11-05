@@ -330,7 +330,7 @@ $widescreen: 'widescreen';
     - Default is no push classes
 ==============================================================================*/
 $grid-breakpoint-has-widths: ($narrowscreen, $small, $medium-up);
-$grid-breakpoint-has-push: ($small, $medium-up);
+$grid-breakpoint-has-push: ($narrowscreen, $small, $medium-up);
 
 /*================ Color Variables ================*/
 
@@ -7460,4 +7460,9 @@ $toolbar-height-small: 46px;
 
 #instafeed row {
   margin-bottom: 2em;
+}
+// grid overrrides
+@media only screen and (max-width: 500px)
+.small--one-half {
+    width: 100%;
 }
