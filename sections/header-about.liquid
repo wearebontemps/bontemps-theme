@@ -94,6 +94,7 @@ Theme Store optional settings
 {% endif %}
 </div>
 <div class="top-nav-box">
+  {% include "announcement-bar" %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
@@ -145,12 +146,6 @@ Theme Store optional settings
             "value": "large"
           }
         ]
-      },
-      {
-        "type": "checkbox",
-        "id": "announcement_bar_home_page_only",
-        "label": "Show on home page only",
-        "default": true
       },
       {
         "type": "text",
@@ -222,26 +217,6 @@ Theme Store optional settings
                 ]
               },
               {
-                "type": "select",
-                "id": "justification",
-                "label": "Text justification",
-                "default": "center",
-                "options": [
-                  {
-                    "value": "left",
-                    "label": "Left"
-                  },
-                  {
-                    "value": "center",
-                    "label": "Center"
-                  },
-                  {
-                    "value": "right",
-                    "label": "Right"
-                  }
-                ]
-              },
-              {
                 "type": "color",
                 "id": "color_image_overlay",
                 "label": "Image Overlay",
@@ -260,7 +235,7 @@ Theme Store optional settings
           ],
           "presets": [
           {
-            "name": "header-product-pages",
+            "name": "header-about-page",
             "category": "Headers"
           }
           ]

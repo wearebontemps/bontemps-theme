@@ -1,0 +1,53 @@
+{% if section.settings.show-intro %}
+  <div class="section-inner">
+    <div class="row text-center" style="margin: 2em 0;">
+      <div class="col-12 text-center">
+      <h1>{{ section.settings.section_title }}</h1>
+      <p>{{ section.settings.section_subtitle }}</p>
+      <h4>{{ section.settings.tags }}</h4>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+    {
+    "name": "Packs Intro",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "show-intro",
+          "label": "Has intro?",
+          "default": true
+        },
+        {
+        "type": "text",
+        "id": "section_title",
+        "label": {
+            "en": "Section Heading"
+            },
+        "default": {
+            "en": "Delicious Packs"
+            }
+        },
+        {
+        "type": "text",
+        "id": "section_subtitle",
+        "label": {
+            "en": "Section subtext"
+            },
+        "default": {
+            "en": "Free Shipping"
+            }
+        },
+        {
+        "type": "text",
+        "id": "tags",
+        "label": {
+            "en": "tags"
+            },
+        "default": "Energy  •  Focus  •  Calm"
+        }
+      ]
+    }
+{% endschema %}
