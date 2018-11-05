@@ -575,6 +575,7 @@ $slick-opacity-not-active: 0.25;
   left: 0;
   top: 0;
   display: block;
+  max-height: 325px;
 
   &:before,
   &:after {
@@ -593,6 +594,7 @@ $slick-opacity-not-active: 0.25;
 .slick-slide {
   float: left;
   height: 100%;
+  max-height: 325px;
   min-height: 1px;
   [dir="rtl"] & {
     float: right;
@@ -5595,6 +5597,7 @@ $color-slideshow-close-text: #000;
 
 .slideshow-wrapper {
   position: relative;
+  max-height: 325px;
 }
 
 .slideshow {
@@ -6301,12 +6304,12 @@ $toolbar-height-small: 46px;
   }
   .row.headers div {
     @include media-query($small) {
-      justify-content: flex-start;
+      justify-content: flex-start !important;
     }
   }
   .row.nav-items div {
     @include media-query($small) {
-      align-items: flex-start;
+      align-items: flex-start !important;
     }
   }
 }
