@@ -630,6 +630,7 @@ $slick-opacity-not-active: 0.25;
   display: none;
 }
 
+
 /*================ Slick Slider Theme ================*/
 .slick-list {
   &.draggable {
@@ -5659,6 +5660,11 @@ $color-slideshow-close-text: #000;
       color: $color-slideshow-dots;
     }
   }
+}
+
+#header-homepage.header-slider {
+  .slick-track, .slick-slide, .slideshow-wrapper {
+    max-height: unset;
 }
 
 .video-is-playing .slick-dots {
