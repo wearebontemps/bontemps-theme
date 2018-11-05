@@ -2712,6 +2712,10 @@ textarea {
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
+    padding: 0 3rem;
+    @include media-query($small){
+      padding: 0 2rem;
+    }
   }
 .dropdown-menu {
   position: fixed !important;
@@ -2739,12 +2743,10 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 1em;
-    //min-width: 120px;
-    padding: 0;
-    //max-height: 170px;
+    margin: 0;
+    padding: .35em 0;
     .header-image-box {
-      padding: 1em;
+      padding: 0;
       align-items: center;
       justify-content: center;
       display: flex;
