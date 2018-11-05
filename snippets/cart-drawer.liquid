@@ -39,9 +39,9 @@
                 {{ 'cart.general.continue_shopping' | t }}
               </a> -->
               <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a>
-              <input type="button" name="update" onClick="popCart()"
+              <button type="button" name="update" onclick="popCart()"
                 class="btn btn--secondary small--hide"
-                value="{{ 'cart.general.update' | t }}">
+                value="">{{ 'cart.general.update' | t }}</button>
               <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
                 value="{{ 'cart.general.checkout' | t }}">
