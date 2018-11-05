@@ -205,8 +205,9 @@ var _setText = function($button, label) {
 
 Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
 $('.update-select').change(function(){
-        var newId = this.attr('id');
-        console.log(newId);
+    console.log(this)
+    var newId = this.attr('id');
+    console.log(newId);
 });
 </script>
 
