@@ -2606,26 +2606,21 @@ textarea {
   -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
   animation-delay: 1s;
-}
-.navbar-collapse.collapse.show {
-  -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-  animation-delay: 1s;
-  @include media-query($small){
+  @include media-query($small) {
     background: rgba(255,255,255,0.95);
-    width: 350px;
-    left: 0px;
-    top: 0px;
-    height: 100vh;
     position: absolute;
     z-index: 5;
-    box-shadow: 2px 3px 4px rgba(0,0,0,.2);
     margin: -1em 0 0 -1em;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 1s;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    overflow: scroll;
+    background: white;
+    transition: all 0.6s;
+    z-index: 10000;
+    width: 0;
+    box-shadow: 2px 3px 4px rgba(0,0,0,.2);
     .navbar-nav {
       align-items: flex-start;
     }
@@ -2636,12 +2631,57 @@ textarea {
     }
   }
 }
+.navbar-collapse.collapse.show {
+  @include media-query($small){
+    width: 350px;
+  }
+}
 .collapsing {
     -webkit-transition: none !important;
     transition: none !important;
     display: none !important;
 }
 
+//start
+// $cart-width: 420px;
+// #cart-drawer{
+//   position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  overflow: scroll;
+  background: white;
+  transition: all 0.6s;
+  z-index: 10001;
+  width: 0;
+  box-shadow: -2px 3px 4px rgba(0,0,0,.2);
+//   &.show{
+//     width: $cart-width;
+//     padding:2em;
+//   }
+// }
+// .cart-drawer-wrapper{
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   height: 100vh;
+//   width: 0;
+//   transition: all 1s;
+//   z-index: 10000;
+//   background: transparent;
+//   &.show{
+//     width: 100vw;
+//   }
+// }
+// .cart-drawer-closer{
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: $cart-width;
+// }
+//end
 .announcement-bar {
   z-index: $z-index-announcement-bar;
   text-align: center;
@@ -6872,6 +6912,9 @@ $toolbar-height-small: 46px;
   //padding: 3em 0;
   //min-height: 300px;
   text-align: center;
+  @include media-query($small) {
+    margin-left: -20px;
+    }
   }
 
 // yotpo Ratings
