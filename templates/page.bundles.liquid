@@ -16,7 +16,7 @@ This module is dependant on the cart.js package being installed on the theme -
 
 {% capture logic_script %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
-<script type="text/javascript">
+{% comment %} <script type="text/javascript">
 $(document).on('cart.requestStarted', function(event, cart) {
     console.log("started");
     });
@@ -25,7 +25,7 @@ $(document).on('cart.requestStarted', function(event, cart) {
     });
 $(document).on('cart.requestComplete', function(event, cart) {
     });
-</script>
+</script> {% endcomment %}
 <script>
     var product_text_1 = $('#selected_product_1');
     var product_text_2 = $('#selected_product_2');
@@ -96,7 +96,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
                 if (!error){
                     console.log("No Errors");
                     // window.location = "/discount/THREESOME?redirect=/cart";
-                    window.location = "/cart";
+                    window.location = "/checkout";
                 }
             })
         } else {
