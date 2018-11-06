@@ -1,0 +1,33 @@
+<div style="background-color: {{ section.settings.section_bg }}" class="password-background-box">
+
+<div class="prefooter-box">
+<div class="row contained">
+<div class='col-md-12'>
+<h2 class="cooper" style="color: {{section.settings.copy_color}}">{{section.settings.first_section_header}}</h2>
+</div>
+</div>
+</div>
+</div>
+{% schema %}
+{
+    "name": "Prefooter Promo",
+ "settings": [
+    {
+        "type": "text",
+        "label": " Section Header",
+        "id": "first_section_header",
+        "default": "Every pack of 3 teas comes with free shipping"
+    },
+    {
+        "type": "color",
+        "label": " Section bg",
+        "id": "section_bg"
+    },
+    {
+        "type": "color",
+        "label": " Section copy color",
+        "id": "copy_color"
+    }
+    ]
+}
+{% endschema %}
