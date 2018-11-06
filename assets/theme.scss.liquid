@@ -946,7 +946,7 @@ $grid-breakpoints: (
   display: none !important;
 }
 
-$cart-width: 420px;
+$cart-width: 360px;
 #cart-drawer{
   position: absolute;
   top: 0;
@@ -2604,11 +2604,12 @@ textarea {
 .navbar-collapse.collapse {
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
-    position: absolute;
+    position: fixed;
     z-index: 5;
-    margin: -1em 0 0 -1em;
+    margin: 0;
+    padding: 1em 2rem;
     top: 0;
-    right: 0;
+    left: 0;
     width: 0;
     height: 100vh;
     overflow: scroll;
@@ -2630,7 +2631,10 @@ textarea {
 }
 .navbar-collapse.collapse.show {
   @include media-query($small){
-    width: 350px;
+    width: 360px;
+    .nav-item.dropdown .dropdown-menu {
+      z-index: unset;
+    }
   }
 }
 .collapsing {
