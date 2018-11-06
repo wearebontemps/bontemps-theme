@@ -7,7 +7,16 @@
   {% assign desc =  product.description | split: "<!--ingredients-->" %}
   <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
   {% if desc != blank %}
+  {% for collection in product.collections %}
+  {% if collection.handle contains "variety" %}
+  {% assign variety = true %}
+  {% endif %}
+  {% endfor %}
+  {% if variety %}
+  <p>Includes these fine teas:</p>
+  {% else %}
   <p>Organic Ingredients:</p>
+  {% endif %}
   <p>{{ desc[1] }}</p>
   {% endif %}
   <div>{% include 'caffeine' %}</div>
