@@ -7752,9 +7752,13 @@ $toolbar-height-small: 46px;
   }
   .price-item {
     position: absolute;
-    top: calc(-3em + 46px);
-    right: 10px;
-    left: unset;
+    top: calc(-9em + 45px);
+    left: 0;
+    background: white;
+    padding: 5px 10px;
+    min-width: 66px;
+    color: #e0592a;
+    font-weight: bold;
   }
   .product-single__meta {
     text-align: center;
@@ -7782,5 +7786,11 @@ $toolbar-height-small: 46px;
   }
   #shopify-section-instagram-feed .section-inner {
     padding-top: 0;
+  }
+  #instafeed.row {
+    margin-right: -15px;
+    .instagram-image {
+      padding: 0 15px 15px 0 !important;
+    }
   }
 }
