@@ -462,8 +462,8 @@ $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 {{ base_font_italic | font_face }}
 {{ base_font_bold_italic | font_face }}
 
-$font-weight-body--bold: {{ base_font_bold.weight | default: 700 }};
-$font-weight-header--bold: {{ header_font_bold.weight | default: 700 }};
+$font-weight-body--bold: {{ base_font_bold.weight | default: 600 }};
+$font-weight-header--bold: {{ header_font_bold.weight | default: 600 }};
 
 $font-stack-header: {{ header_font.family }}, {{ header_font.fallback_families }};
 $font-style-header: {{ header_font.style }};
@@ -7749,5 +7749,8 @@ $toolbar-height-small: 46px;
     top: calc(-3em + 40px);
     right: 10px;
     left: unset;
+  }
+  .product-single__meta {
+    text-align: center;
   }
 }
