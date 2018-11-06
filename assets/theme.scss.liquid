@@ -6810,7 +6810,7 @@ $toolbar-height-small: 46px;
   .quotes-slider {
     height: 100%;
   }
-  .col-4 {
+  .col-4, .col-sm-4 {
     min-height: 400px;
   }
   .quotes-slider__text {
@@ -6924,6 +6924,10 @@ $toolbar-height-small: 46px;
   margin-right: 0;
   div{
     padding:0;
+    padding-right: 2em;
+    @media screen and (max-width: 500px){
+      padding-right: unset;
+    }
   }
   .quote-image{
     width: 100%;
