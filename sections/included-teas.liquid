@@ -10,9 +10,9 @@
     <img class="about-image text-orange" src="{{ custom_product.featured_image | img_url: '800x' }}"/>
   </div>
   {% endcapture %}
-  <div class="row d-flex align-items-center {% if cycle_var == 'even' %}order-1 order-2{% endif %}" style='padding: 1em 0;'>
+  <div class="row d-flex align-items-center" style='padding: 1em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
-    <div class="text-left col-sm-7 ">
+    <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-1 order-2{% endif %}">
       <div class="" style="margin: 1rem 0;">
         <p class="tasting-notes">
           {% for tag in custom_product.tags %}
