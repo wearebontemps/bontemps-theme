@@ -2602,10 +2602,6 @@ textarea {
   }
 }
 .navbar-collapse.collapse {
-  -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-  animation-delay: 1s;
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
     position: absolute;
@@ -2617,7 +2613,7 @@ textarea {
     height: 100vh;
     overflow: scroll;
     background: white;
-    animation: slide 0.5s forwards;
+    animation: slide;
     transition: all 0.6s;
     z-index: 10000;
     width: 0;
@@ -2638,8 +2634,8 @@ textarea {
   }
 }
 .collapsing {
-    -webkit-transition: none !important;
-    transition: none !important;
+    //-webkit-transition: none !important;
+    //transition: none !important;
     display: none !important;
 }
 
@@ -4085,7 +4081,7 @@ h1.section-header{
     border: 1px solid white;
     border-radius: 50%;
     display: inline-block;
-    margin: 0 2px;
+    margin: 0 1px;
     &.fill {
       background-color: white;
     }
@@ -4128,7 +4124,10 @@ h1.section-header{
     justify-content: space-between;
     //min-height: 36px;
     margin: 0 0 20px;
-    p {margin-bottom: 0;}
+    font-size: .9em;
+    p {
+      margin-bottom: 0;
+    }
     .sachet-count {}
     @include media-query($small){
       display: inline-block;
@@ -7526,6 +7525,7 @@ $toolbar-height-small: 46px;
     justify-content: space-between;
     //min-height: 36px;
     margin: 0 0 0;
+    font-size: .9em;
     p {margin-bottom: 0;}
     .caffeine-level {
       .dot {
@@ -7534,7 +7534,7 @@ $toolbar-height-small: 46px;
         border: 1px solid #e0592a;
         border-radius: 50%;
         display: inline-block;
-        margin: 0 2px;
+        margin: 0 1px;
         &.fill {
           background-color: #e0592a;
         }
