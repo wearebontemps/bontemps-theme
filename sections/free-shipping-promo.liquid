@@ -1,9 +1,9 @@
 <div style="background-color: {{ section.settings.section_bg }}" class="background-box">
 
 <div class="prefooter-box">
-<div class="row contained">
+<div class="row contained" style="padding: 1em;">
 <div class='col-md-12'>
-<h4 class="text-center" style="color: {{section.settings.copy_color}}; font-weight: 500;">{{section.settings.first_section_header}}<span>{{ 'delivery-truck.png' | asset_url | img_tag }}</span></h4>
+<h4 class="text-center" style="margin: 0;color: {{section.settings.copy_color}}; font-weight: 500;">{{section.settings.first_section_header}}{% if section.settings.has_truck %}<span style="margin-left: .5em;">{{ 'delivery-truck.png' | asset_url | img_tag }}</span>{% endif %}</h4>
 </div>
 </div>
 </div>
@@ -27,6 +27,11 @@
         "type": "color",
         "label": " Section copy color",
         "id": "copy_color"
+    },
+    {
+        "type": "checkbox",
+        "id": "has_truck",
+        "label": "display truck?"
     }
     ]
 }
