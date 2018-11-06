@@ -39,7 +39,7 @@
   {% endcase %}
 
   <div class="row product-single">
-    <div class="col col col-sm-6 col-md-7 order-md-1 order-sm-1 order-2">
+    <div class="col col-sm-6 col-md-6 order-md-1 order-sm-1 order-2">
       <div class="product-single__meta">
         <p class="tasting-notes">
           <span class="collection-title">{{ collection.title }}</span>
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <div class="col col col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
+    <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
         <div class="d-block d-sm-none">{% include 'product-collnav' %}</div>
         {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
