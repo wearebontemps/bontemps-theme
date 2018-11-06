@@ -7752,7 +7752,7 @@ $toolbar-height-small: 46px;
   }
   .price-item {
     position: absolute;
-    top: calc(-3em + 40px);
+    top: calc(-3em + 46px);
     right: 10px;
     left: unset;
   }
@@ -7765,7 +7765,19 @@ $toolbar-height-small: 46px;
     justify-content: space-between;
     align-items: start;
   }
-  .product-icon-bar.section-inner {
+  .product-icon-bar .section-inner {
     padding-top: 0;
+    .row {
+      padding: 0;
+      .flex-column {
+        padding-bottom: 1.5em;
+        &:last-of-type {
+          padding-bottom: 0;
+        }
+      }
+    }
+    .product-icon {
+      max-width: 30px;
+    }
   }
 }
