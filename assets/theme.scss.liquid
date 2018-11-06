@@ -2632,6 +2632,8 @@ textarea {
 .navbar-collapse.collapse.show {
   @include media-query($small){
     width: 360px;
+    animation: slide;
+    transition: all 0.6s;
     .nav-item.dropdown .dropdown-menu {
       z-index: unset;
     }
@@ -2640,7 +2642,10 @@ textarea {
 .collapsing {
     //-webkit-transition: none !important;
     //transition: none !important;
-    display: none !important;
+    //display: none !important;
+    animation: slide;
+    transition: all 0.6s;
+    position: absolute;
 }
 
 .announcement-bar {
