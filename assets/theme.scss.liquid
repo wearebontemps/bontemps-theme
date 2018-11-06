@@ -7703,7 +7703,7 @@ $toolbar-height-small: 46px;
 #instafeed row {
   margin-bottom: 2em;
 }
-// grid overrrides
+// bootstrap specific grid overrrides
 @media only screen and (max-width: 500px) {
   .small--one-half {
       width: 100%;
@@ -7711,6 +7711,8 @@ $toolbar-height-small: 46px;
       margin: 0 auto 1.75em auto;
     }
   }
+}
+@media only screen and (max-width: 576px) {
   .grid {
     // fix this for realteds
     margin-left: -$grid-gutter-mobile * 2;
