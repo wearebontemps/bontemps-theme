@@ -25,10 +25,11 @@
               {% if block.settings.quote != blank %}
                 <div class="quote-content">{{ block.settings.quote }}</div>
               {% endif %}
+              {% for i in (1..block.settings.star-count) %}
+              <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
+              {% endfor %}
             </blockquote>
-            {% for i in (1..block.settings.star-count) %}
-            <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
-            {% endfor %}
+            
             {%- if block.settings.featured_image -%}
             <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
             {% endif %}
