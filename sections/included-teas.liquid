@@ -24,7 +24,7 @@
           {% endfor %}
         </p>
     </div>
-      <a href="{{custom_product.url | within: 'collection'}}"><h1 class="about-subtitle product-included">{{ custom_product.title}}</h1></a>
+      <a href="{{custom_product.url | within: collection}}"><h1 class="about-subtitle product-included">{{ custom_product.title}}</h1></a>
       <p>{{ custom_product.description }}</p>
       {% include 'caffeine-bundles' %}
       </div>
