@@ -39,7 +39,7 @@
   {% endcase %}
 
   <div class="row product-single">
-    <div class="col col col-sm-6 col-md-7 order-md-1 order-sm-1 order-2">
+    <div class="col col-sm-6 col-md-6 order-md-1 order-sm-1 order-2">
       <div class="product-single__meta">
         <p class="tasting-notes">
           <span class="collection-title">{{ collection.title }}</span>
@@ -64,10 +64,100 @@
         <div class="product-single__description rte">
           {{ product.description }}
         </div>
+        <div class="product-meta d-block d-sm-none">
+          <div class="variant-details">
+          {% include 'caffeine' %}
+            <p class="sachet-count">
+              {% for tag in product.tags %}
+              {% if tag contains 'sachets' %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endif %}
+              {% endfor %}
+              tea sachets
+            </p>
+          </div>
+          <div class="product__price">
+            {% include 'product-price', variant: current_variant %}
+          </div>
+
+          {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product__policies rte">
+              {%- if shop.taxes_included -%}
+                {{ 'products.product.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {% if section.settings.show_quantity_selector %}
+            <div id="error-quantity-{{ section.id }}" class="form-message form-message--error product__quantity-error hide" tabindex="-1">
+              {% include 'icon-error' %} {{ 'products.product.quantity_minimum_message' | t }}
+            </div>
+          {% endif %}
+
+          {% capture "form_classes" -%}
+            product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}{% if section.settings.enable_payment_button and product.has_only_default_variant%} product-form--payment-button-no-variants{% endif %}
+          {%- endcapture %}
+
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate' %}
+            {% unless product.has_only_default_variant %}
+              {% for option in product.options_with_values %}
+                <div class="selector-wrapper js product-form__item">
+                  <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
+                    {{ option.name }}
+                  </label>
+                  <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                    {% for value in option.values %}
+                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endfor %}
+            {% endunless %}
+
+            <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                    {{ variant.title }}
+                  </option>
+                {% else %}
+                  <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+              {% if section.settings.show_quantity_selector %}
+                <div class="product-form__item product-form__item--quantity">
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+                </div>
+              {% endif %}
+              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+              </button>
+              <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span>
+              {% if section.settings.enable_payment_button %}
+                {{ form | payment_button }}
+              {% endif %}
+            </div>
+          {% endform %}
+        </div>
     </div>
 
-    <div class="col col col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
+    <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
+        <div class="d-block d-sm-none">{% include 'product-collnav' %}</div>
         {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
         {% for image in product.images %}
           {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -136,7 +226,7 @@
           </div>
         {% endif %} <!-- end img --> {% endcomment %}
 
-        <div class="product-meta">
+        <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
           {% include 'caffeine' %}
             <p class="sachet-count">
