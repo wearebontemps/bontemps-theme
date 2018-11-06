@@ -17,19 +17,19 @@ This module is dependant on the cart.js package being installed on the theme -
 {% capture logic_script %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <script type="text/javascript">
-$(document).on('cart.requestStarted', function(event, cart) {
+$(document).on("cart.requestStarted", function(event, cart) {
     console.log("started");
     });
-    $(document).on('cart.ready', function(event, cart) {
+    $(document).on("cart.ready", function(event, cart) {
     console.log("Cart Ready");
     });
-$(document).on('cart.requestComplete', function(event, cart) {
+$(document).on("cart.requestComplete", function(event, cart) {
     });
 </script>
 <script>
-    var product_text_1 = $('#selected_product_1');
-    var product_text_2 = $('#selected_product_2');
-    var product_text_3 = $('#selected_product_3');
+    var product_text_1 = $("#selected_product_1");
+    var product_text_2 = $("#selected_product_2");
+    var product_text_3 = $("#selected_product_3");
     console.log(product_text_1)
 </script>
 <script>
@@ -40,28 +40,28 @@ $(document).on('cart.requestComplete', function(event, cart) {
     function addProduct(id, title){
         console.log(id, title);
         var title = title;
-        if ($('#selected_product_1').text() == "" ){
-            $('#selected_product_1').text(title);
+        if ($("#selected_product_1").text() == "" ){
+            $("#selected_product_1").text(title);
             product_id_1 = id;
-        } else if ($('#selected_product_2').text() == ""){
-            $('#selected_product_2').text(title);
+        } else if ($("#selected_product_2").text() == ""){
+            $("#selected_product_2").text(title);
             product_id_2 = id;
         } else {
-            $('#selected_product_3').text(title);
+            $("#selected_product_3").text(title);
             product_id_3 = id;
         }
-       $("html, body").animate({ scrollTop: $('#bundle_anchor').offset().top -380}, 800);
+       $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
 
     };
     function removeProduct(loc){
-        if (loc == '1'){
-            $('#selected_product_1').text("");
+        if (loc == "1"){
+            $("#selected_product_1").text("");
             product_id_1 = null;
-        } else if (loc == '2'){
-            $('#selected_product_2').text("");
+        } else if (loc == "2"){
+            $("#selected_product_2").text("");
             product_id_2 = null;
-        } else if (loc == '3'){
-            $('#selected_product_3').text("");
+        } else if (loc == "3"){
+            $("#selected_product_3").text("");
             product_id_3 = null;
         }
     };
@@ -81,7 +81,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
             async.each(id_array, function(id, next){
                 CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
                     "complete": function() {
-                        console.log('complete!');
+                        console.log("complete!");
                     },
                     "success": function(data, textStatus, jqXHR){
                         next();
@@ -108,10 +108,10 @@ $(document).on('cart.requestComplete', function(event, cart) {
 {% endcapture %}
 
 {{ logic_script }}
-{% layout 'theme' %}
-{% section 'header-bundles' %}
+{% layout "theme" %}
+{% section "header-bundles" %}
 <div class="contained">
-{% section 'bundle-intro' %}
+{% section "bundle-intro" %}
 <div id="bundle_anchor" class="row">
     <div class="col-4 d-flex flex-column align-items-center justify-content-between">
     <h3 id="selected_product_1"></h3>
@@ -134,12 +134,12 @@ $(document).on('cart.requestComplete', function(event, cart) {
 </div>
 <ul class="grid grid--uniform  grid--view-items">
 {%- assign max_height = 345 -%}
-{%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+{%- assign grid_item_width = "small--one-half medium-up--one-third" -%}
     {% for product in collections.singles.products %}
         <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
-        {% include 'product-card-grid-bundles', max_height: max_height %}
+        {% include "product-card-grid-bundles", max_height: max_height %}
         <div style="width: 100%; text-align: center;">
-            <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
+            <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick="addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
         </div>
         </li>
     {% endfor %}
