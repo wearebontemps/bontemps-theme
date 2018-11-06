@@ -40,10 +40,10 @@ $(document).on('cart.requestComplete', function(event, cart) {
     function addProduct(id, title){
         console.log(id, title);
         var title = title;
-        if ($('#selected_product_1').text() == '' ){
+        if ($('#selected_product_1').text() == "" ){
             $('#selected_product_1').text(title);
             product_id_1 = id;
-        } else if ($('#selected_product_2').text() == ''){
+        } else if ($('#selected_product_2').text() == ""){
             $('#selected_product_2').text(title);
             product_id_2 = id;
         } else {
@@ -55,13 +55,13 @@ $(document).on('cart.requestComplete', function(event, cart) {
     };
     function removeProduct(loc){
         if (loc == '1'){
-            $('#selected_product_1').text('');
+            $('#selected_product_1').text("");
             product_id_1 = null;
         } else if (loc == '2'){
-            $('#selected_product_2').text('');
+            $('#selected_product_2').text("");
             product_id_2 = null;
         } else if (loc == '3'){
-            $('#selected_product_3').text('');
+            $('#selected_product_3').text("");
             product_id_3 = null;
         }
     };
