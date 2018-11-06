@@ -16,11 +16,13 @@
     <div class="text-left col-sm-7">
     {% for tag in custom_product.tags %}
     <div class="product-meta">
+    <p class="tasting-notes">
     {% if tag contains "effect" %}
     {% assign effect = tag | split: "-" %}
     {% assign effect_mod = effect[1] %}
-    <p>{{ effect_mod }}</p>
+    <span class="effect">{% unless forloop.first %} - {% endunless %}{{ effect_mod }}</span>
     {% endif %}
+    <p>
     </div>
     {% endfor %}
       <h1 class="about-subtitle product-included">{{ custom_product.title}}</h1>
