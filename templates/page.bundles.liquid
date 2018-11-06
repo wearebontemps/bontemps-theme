@@ -135,13 +135,8 @@ $(document).on('cart.requestComplete', function(event, cart) {
 {%- assign max_height = 345 -%}
 {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
     {% for product in collections.singles.products %}
-    {% comment %} <div class="col-4 d-flex flex-column align-items-center justify-content-between" style="margin-bottom: 2em; padding: 1em;">
-        <img src="{{ product.featured_image | img_url: '600x'}}"/>
-        <h2>{{product.title}}</h2>
-        <button type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
-    </div> {% endcomment %}
         <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
-        {% include 'product-card-grid', max_height: max_height %}
+        {% include 'product-card-grid-bundles', max_height: max_height %}
         <div style="width: 100%; text-align: center;">
             <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick="addProduct('{{ product.selected_or_first_available_variant.id }}', '{{product.title | escape }}');" id="bundle_adder_{{ product.id }}">Add to Bundle</button>
         </div>
