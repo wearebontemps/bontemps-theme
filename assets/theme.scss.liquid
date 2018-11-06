@@ -7717,6 +7717,15 @@ $toolbar-height-small: 46px;
     // fix this for realteds
     margin-left: -$grid-gutter-mobile * 2;
   }
+  .row.product-single {
+    margin: 0;
+  }
+  .product-single__photo-wrapper {
+    margin-left: -37px;
+  }
+  .slideshow-wrapper.slider.single-item {
+    display: none;
+  }
   .floating-box {
     box-shadow: none;
     background: white;
@@ -7725,5 +7734,16 @@ $toolbar-height-small: 46px;
     width: 100vw;
     padding: 0;
     margin: 0;
+    max-width: 576px;
+  }
+  .price-item {
+    position: absolute;
+    top: calc(-6em + 40px);
+    left: 40px;
+    background: white;
+    padding: 5px 10px;
+    min-width: 66px;
+    color: #e0592a;
+    font-weight: bold;
   }
 }
