@@ -1416,7 +1416,9 @@ $slick-opacity-not-active: 0.25;
   top: 0;
   display: block;
   max-height: 375px;
-
+  @media screen and (max-width: 500px){
+    max-height: 400px;
+  }
   &:before,
   &:after {
     content: "";
@@ -1435,6 +1437,9 @@ $slick-opacity-not-active: 0.25;
   float: left;
   height: 100%;
   max-height: 375px;
+  @media screen and (max-width: 500px){
+    max-height: 400px;
+  }
   min-height: 1px;
   [dir="rtl"] & {
     float: right;
