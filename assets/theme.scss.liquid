@@ -6819,11 +6819,14 @@ $toolbar-height-small: 46px;
   .quotes-slider {
     height: 100%;
   }
-  .col-4, .col-sm-4 {
+  .col-3, .col-sm-4 {
     min-height: 400px;
   }
   .quotes-slider__text {
     padding: 0 3em 0 4em;
+    @media screen and (max-width: 500px){
+      padding: 0 3em 0 2em;
+    }
     font-size: 1em;
     .quote-title {
       font-family: 'Gotham';

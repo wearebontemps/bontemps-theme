@@ -12,9 +12,9 @@
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="row quote-row d-flex align-items-center">
             {% assign featured_image = block.settings.image %}
-            <div class="col-4" style="background-image: url('{{featured_image | img_url: '800x' }}'); background-position: center; background-size: cover;">
+            <div class="col-3 col-sm-4" style="background-image: url('{{featured_image | img_url: '800x' }}'); background-position: center; background-size: cover;">
             </div>
-            <div class="col-8">
+            <div class="col-9 col-sm-8">
             <blockquote class="quotes-slider__text text-left">
               {% if block.settings.title != blank %}
                 <div class="quote-title">{{ block.settings.title }}</div>
