@@ -50,7 +50,7 @@ $(document).on('cart.requestComplete', function(event, cart) {
             $('#selected_product_3').text(title);
             product_id_3 = id;
         }
-       $("html, body").animate({ scrollTop: $('#bundles_anchor').offset().top }, 1000);
+       $("html, body").animate({ scrollTop: $('#bundle_anchor').offset().top -380}, 800);
 
     };
     function removeProduct(loc){
