@@ -2621,17 +2621,14 @@ textarea {
     }
   }
 }
-.navbar-collapse.collapsing{
-  transition: none;
-  display: none;
-}
+
 .navbar-collapse.collapse{
   left: -360px;
+  display: fixed;
 }
 .navbar-collapse.collapse.show {
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
-    position: fixed;
     z-index: 5;
     margin: 0;
     padding: 1em 2rem;
@@ -2644,7 +2641,6 @@ textarea {
     animation: slide;
     transition: all 0.6s;
     z-index: 10000;
-    width: 0;
     box-shadow: 2px 3px 4px rgba(0,0,0,.2);
     .navbar-nav {
       align-items: flex-start;
