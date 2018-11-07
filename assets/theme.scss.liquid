@@ -3957,27 +3957,7 @@ p.tagline{
 #email-submit{
   background-color: #ffa400 !important;
 }
-#Contact_newsletter{
-  display: flex;
-  align-items: center;
-  -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-  -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-  box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-}
-.password__input-group {
-  align-self: center;
-  margin-top: 1em;
-  padding: 1em;
-  .input-group__field{
-    height: 20px;
-    text-align: center;
-    input{
-      border: none;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
-  }
-}
+
 .ValidationMessage__FormStyledValidationMessage-kgukRS {
   color: white !important;
 }
@@ -7486,9 +7466,40 @@ $toolbar-height-small: 46px;
   @include align-self(flex-end);
   text-align: right;
 }
-
+#Contact_newsletter{
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  max-width: 750px;
+  margin: 0 auto;
+  .password__input-group {
+    align-self: center;
+    margin-top: 1em;
+    padding: 1em;
+    .input-group__field{
+      height: 20px;
+      text-align: center;
+      input{
+        border: none;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+  }
+}
 .newsletter-section {
-  padding-top: $section-spacing;
+  //padding-top: $section-spacing;
+  form {
+    max-width: 750px;
+    min-height: 120px;
+    margin: 0 auto;
+    .input-group__btn {
+      flex-grow: .3;
+      margin-left: 10px;
+    }
+  }
 }
 
 .index-section--newsletter-background {
