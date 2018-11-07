@@ -7564,6 +7564,14 @@ $toolbar-height-small: 46px;
 .about-subtitle{
   margin: 1em 0;
 }
+.about-content {
+  .text-left.col-sm-7 {
+    padding: 0 3.5em;
+    @include media-query($small) {
+      padding: 1em 2em;
+    }
+  }
+}
 .product-card {
   position: relative;
   box-shadow: 5px 10px 15px 2px rgba(0,0,0,0.1);
