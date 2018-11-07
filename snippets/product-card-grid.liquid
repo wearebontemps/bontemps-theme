@@ -50,13 +50,7 @@
     {% if page.url contains "threesome" %}
     {% assign page_toggle = true %}
     {% endif %}
-    {% if page_toggle == true %}
-    <div class="form_{{product.id}}" style="display: none;">
-    <div style="width: 100%; text-align: center;">
-      <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");' id="bundle_adder_{{ product.id }}">Add to Bundle</button>
-    </div>
-    </div>
-    {% else %}
+    {% unless page_toggle == true %}
     <div class="form_{{product.id}}" style="display: none;">
       <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
@@ -66,9 +60,10 @@
     <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}
     </div>
-    {% endif %}
+      {% endunless %}
     <script type="text/javascript">
     $( document ).ready(function(){
+      {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
           //$('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').addClass('fadeIn');
@@ -76,6 +71,7 @@
           $('.form_{{ product.id }}').removeClass('fadeIn');
           //$('.details_{{ product.id }}').show(300);
       });
+      {% endunless %}
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-featured-collections-{{ product.id }}').addClass('blur');
