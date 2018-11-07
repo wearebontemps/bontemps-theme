@@ -50,7 +50,11 @@
     {% if page.url contains "threesome" %}
     {% assign page_toggle = true %}
     {% endif %}
-    {% unless page_toggle == true %}
+    {% if page_toggle == true %}
+    <div style="width: 100%; text-align: center;">
+      <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");' id="bundle_adder_{{ product.id }}">Add to Bundle</button>
+    </div>
+    {% else %}
     <div class="form_{{product.id}}" style="display: none;">
       <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
@@ -60,7 +64,7 @@
     <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}
     </div>
-      {% endunless %}
+    {% endif %}
     <script type="text/javascript">
     $( document ).ready(function(){
       {% unless page_toggle == true %}
