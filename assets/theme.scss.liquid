@@ -7478,9 +7478,10 @@ $toolbar-height-small: 46px;
   .password__input-group {
     align-self: center;
     margin-top: 1em;
-    padding: 1em;
+    padding: 1em 2em;
     .input-group__field{
       height: 60px;
+      max-width: 525px;
       text-align: center;
       border-radius: 5px;
       border: solid 1px #d1dbe3;
@@ -7492,7 +7493,10 @@ $toolbar-height-small: 46px;
     }
     .input-group__btn {
       flex-grow: .3;
-      margin-left: 10px;
+      margin-left: 20px;
+      .btn {
+        height: 60px;
+      }
     }
   }
 }
