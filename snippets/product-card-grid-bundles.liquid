@@ -1,8 +1,5 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
 <div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-
-  {% comment %} <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
-    <span class="visually-hidden">{{ product.title }}</span>
-  </a> {% endcomment %}
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -50,20 +47,31 @@
     {% if page.url contains "threesome" %}
     {% assign page_toggle = true %}
     {% endif %}
-    {% unless page_toggle == true %}
+    {% if page_toggle == true %}
     <div class="form_{{product.id}}" style="display: none;">
-      <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
+    <div style="width: 100%; text-align: center;">
+      <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");' id="bundle_adder_{{ product.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %}><span id="AddToCartText-{{ section.id }}">
+        {% unless current_variant.available %}
+          {{ 'products.product.sold_out' | t }}
+        {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% endunless %}
+      </span></button>
+    </div>
+    </div>
+    {% else %}
+    <div class="form_{{product.id}}" style="display: none;">
+      <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;"{% unless current_variant.available %}disabled="disabled"{% endunless %}>
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
+        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" {% unless current_variant.available %}disabled="disabled"{% endunless %}/>
       </form>
     </div>
     <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}
     </div>
-      {% endunless %}
+    {% endif %}
     <script type="text/javascript">
     $( document ).ready(function(){
-      {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
           //$('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').addClass('fadeIn');
@@ -71,7 +79,6 @@
           $('.form_{{ product.id }}').removeClass('fadeIn');
           //$('.details_{{ product.id }}').show(300);
       });
-      {% endunless %}
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-featured-collections-{{ product.id }}').addClass('blur');

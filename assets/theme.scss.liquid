@@ -1565,6 +1565,7 @@ $slick-opacity-not-active: 0.25;
   }
   @include media-query($small) {
     right: .5em;
+    top: 76%;
   }
 }
 
@@ -2620,7 +2621,23 @@ textarea {
     }
   }
 }
-.navbar-collapse.collapse {
+.navbar-collapse.collapsing{
+  transition: none;
+  display: block;
+  z-index: -10;
+  height: 0;
+  width: 0;
+  position: fixed;
+  top: 0;
+}
+.navbar-collapse.collapse{
+  @include media-query($small) {
+    left: -360px;
+    height: 0;
+    width: 0;
+  }
+}
+.navbar-collapse.collapse.show {
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
     position: fixed;
@@ -2628,15 +2645,14 @@ textarea {
     margin: 0;
     padding: 1em 2rem;
     top: 0;
-    left: 0;
-    width: 0;
+    left: -360px;
+    width: 360px;
     height: 100vh;
     overflow: scroll;
     background: white;
     animation: slide;
     transition: all 0.6s;
     z-index: 10000;
-    width: 0;
     box-shadow: 2px 3px 4px rgba(0,0,0,.2);
     .navbar-nav {
       align-items: flex-start;
@@ -2651,7 +2667,7 @@ textarea {
 }
 .navbar-collapse.collapse.show {
   @include media-query($small){
-    width: 360px;
+    left: 0;
     animation: slide;
     transition: all 0.6s;
     .nav-item.dropdown .dropdown-menu {
@@ -2659,15 +2675,6 @@ textarea {
     }
   }
 }
-.collapsing {
-    //-webkit-transition: none !important;
-    //transition: none !important;
-    //display: none !important;
-    animation: slide;
-    transition: all 0.6s;
-    position: absolute;
-}
-
 .announcement-bar {
   z-index: $z-index-announcement-bar;
   text-align: center;
@@ -3324,7 +3331,16 @@ hr {
     display: block;
   }
 }
-
+// text orange ===============================
+.text-orange{
+  color: #bc451b !important;
+}
+.campaign-subtitle{
+  margin: 1em 0 0;
+}
+.campaign-link{
+  margin-bottom: .5em;
+}
 /*============================================================================
   Slick slider overrides
 ==============================================================================*/
@@ -4031,10 +4047,13 @@ p.tagline{
 }
 
 .campaign-cta-box {
-  margin: 0 -2em;
   padding: 3em;
+  max-width: 700px;
+  margin: 0 auto;
 }
-
+.Button__FormStyledButton-p2mbjt-0{
+  margin-left: 0px;
+}
 .row.product-single {
 margin: 2em;
 }
@@ -5737,7 +5756,17 @@ $nav-button-padding: 15px;
     font-size: 14px;
   }
   .grid{
-    margin: 0;
+    @media screen and (max-width: 576px){
+      margin: 0;
+    }
+    .grid__item{
+    }
+  }
+  .grid-uniform{
+    margin: 0 15px;
+    @media screen and (max-width: 576px){
+      margin: 0;
+    }
     .grid__item{
     }
   }
@@ -5784,11 +5813,9 @@ $nav-button-padding: 15px;
   width: 100%;
   text-align: center;
 }
-.modal-dialog{
 
-}
 .product-page-image{
-  @media screen only and (max-width: 576px){
+  @media screen and (max-width: 576px){
     width: 100vw;
   }
 }
@@ -6507,6 +6534,7 @@ $toolbar-height-small: 46px;
   padding: $section-spacing;
   @include media-query($small) {
     text-align: center;
+    padding-bottom: 80px;
   }
   p,h4,small{
     color: white;
@@ -6872,14 +6900,21 @@ $toolbar-height-small: 46px;
   .testimonial-product-img {
     width: 100px;
     height: 100px;
+    
     box-shadow: 5px 4px 10px rgba(0,0,0,0.2);
     position: absolute;
     left: -70px;
     bottom: 15%;
+    @include media-query($small) {
+      width: 60px;
+      height: 60px;
+      left: -40px;
+      bottom: 25%;
+    }
   }
   @include media-query($small) {
-    min-height: 400px;
-    height: 400px;
+    min-height: unset;
+    height: unset;
     .col-3, .col-sm-4 {
       min-height: 180px;
       margin-bottom: 20px;
@@ -7615,12 +7650,14 @@ $toolbar-height-small: 46px;
       height: 60px !important;
       max-width: 525px !important;
       text-align: center !important;
-      border-radius: 5px !important;
+      border-radius: 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
       border: solid 1px #d1dbe3 !important;
     }
     .input-group__btn, button {
       flex-grow: .3 !important;
-      margin-left: 20px !important;
+      margin-left: 0px !important;
       background-color: #e0592a !important;
       color: white !important;
       color: #fff !important;
