@@ -70,11 +70,11 @@
     <script type="text/javascript">
     $( document ).ready(function(){
       $('.hover_{{ product.id }}').hover(function() {
-          $('.details_{{ product.id }}').hide(300);
+          //$('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').addClass('fadeIn');
         }, function() {
           $('.form_{{ product.id }}').removeClass('fadeIn');
-          $('.details_{{ product.id }}').show(300);
+          //$('.details_{{ product.id }}').show(300);
       });
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
