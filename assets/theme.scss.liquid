@@ -5737,7 +5737,11 @@ $nav-button-padding: 15px;
     font-size: 14px;
   }
   .grid{
-    margin: 0;
+    margin-left: 0;
+    margin-right: 30px;
+    @media screen and (max-width: 576px){
+      margin: 0;
+    }
     .grid__item{
     }
   }
@@ -5784,9 +5788,7 @@ $nav-button-padding: 15px;
   width: 100%;
   text-align: center;
 }
-.modal-dialog{
 
-}
 .product-page-image{
   @media screen and (max-width: 576px){
     width: 100vw;
