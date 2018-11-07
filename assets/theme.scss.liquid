@@ -1077,8 +1077,11 @@ html {
     }
   }
   .limitcopywidth {
-    max-width: 550px;
+    max-width: 700px;
     margin: 0 auto;
+    @include media-query($small) {
+      max-width: 550px;
+    }
   }
   p.subtitle {
     margin-bottom: 50px;
