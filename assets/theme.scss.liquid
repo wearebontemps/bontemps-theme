@@ -7585,7 +7585,7 @@ $toolbar-height-small: 46px;
   }
   p.subtitle {
     max-width: 550px;
-  margin: 0 auto 65px;
+    margin: 0 auto 4em;
   }
   .form-instructions {
     font-family: 'Roboto';
@@ -7619,9 +7619,19 @@ $toolbar-height-small: 46px;
       font-family: 'Roboto',sans-serif !important;
       font-style: normal !important;
       font-weight: 700 !important;
+      height: 38px;
     }
   }
   @include media-query($small) {
+    .form-version-cid-1 {
+      padding: 0 1em 2em;
+    }
+    input {
+      border-radius: 0px !important;
+    }
+    button {
+      margin-left: 0px !important;
+    }
   }
 }
 
