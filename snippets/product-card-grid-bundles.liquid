@@ -48,20 +48,26 @@
       </div>
     </div>
     {% if page.url contains "threesome" %}
-    {%- assign current_variant = product.selected_or_first_available_variant -%}
     {% assign page_toggle = true %}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
     {% endif %}
     {% if page_toggle == true %}
     <div class="form_{{product.id}}" style="display: none;">
     <div style="width: 100%; text-align: center;">
-      <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");' id="bundle_adder_{{ product.id }}">Add to Bundle</button>
+      <button  style="margin: 0 auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");' id="bundle_adder_{{ product.id }}"><span id="AddToCartText-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span></button>
     </div>
     </div>
     {% else %}
     <div class="form_{{product.id}}" style="display: none;">
       <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;"{% unless current_variant.available %}disabled="disabled"{% endunless %}>
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-        <input type="submit" value="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" {% unless current_variant.available %}disabled="disabled"{% endunless %}/>
+        <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" {% unless current_variant.available %}disabled="disabled"{% endunless %}/>
       </form>
     </div>
     <div class="product__price price_hover_{{product.id}}">
