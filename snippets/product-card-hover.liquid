@@ -1,5 +1,5 @@
-{% if page.url contains "threesome" and product.available %}
-<a href="#" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");'>
+{% if page.url contains "threesome"  %}
+<a href="#" {% if product.available %}onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");'{% endif %}>
 {% else %}
 <a href="{{ product.url | within: collection }}">
 {% endif %}
