@@ -7503,6 +7503,16 @@ $toolbar-height-small: 46px;
       }
     }
   }
+  @include media-query($small) {
+    margin: -1em auto 1em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    .input-group__btn {
+      flex-grow: 1;
+      margin-left: 0;
+    }
+  }
 }
 // .newsletter-section {
 //   //padding-top: $section-spacing;
