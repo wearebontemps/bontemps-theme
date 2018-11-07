@@ -2621,7 +2621,10 @@ textarea {
     }
   }
 }
-.navbar-collapse.collapse, .navbar-collapse.collapsing {
+.navbar-collapse.collapsing{
+  transition: all 0s;
+}
+.navbar-collapse.collapse {
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
     position: fixed;
