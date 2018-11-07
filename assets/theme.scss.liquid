@@ -2621,21 +2621,22 @@ textarea {
     }
   }
 }
-
+.navbar-collapse.collapsing{
+  transition: none;
+  display: none;
+}
 .navbar-collapse.collapse{
-  @include media-query($small) {
   left: -360px;
-  display: fixed;
-  }
 }
 .navbar-collapse.collapse.show {
   @include media-query($small) {
     background: rgba(255,255,255,0.95);
+    position: fixed;
     z-index: 5;
     margin: 0;
     padding: 1em 2rem;
     top: 0;
-    left: 0;
+    left: -360px;
     width: 360px;
     height: 100vh;
     overflow: scroll;
