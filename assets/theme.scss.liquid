@@ -2623,8 +2623,10 @@ textarea {
 }
 
 .navbar-collapse.collapse{
+  @include media-query($small) {
   left: -360px;
   display: fixed;
+  }
 }
 .navbar-collapse.collapse.show {
   @include media-query($small) {
