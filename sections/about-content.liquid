@@ -1,7 +1,7 @@
 <div class="section-inner">
-  <div class="text-center">
+  <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
-  <p>{{ section.settings.subtitle }}</p>
+  <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
