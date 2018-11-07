@@ -48,6 +48,7 @@
       </div>
     </div>
     {% if page.url contains "threesome" %}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
     {% assign page_toggle = true %}
     {% endif %}
     {% if page_toggle == true %}
