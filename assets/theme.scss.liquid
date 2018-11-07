@@ -7598,26 +7598,23 @@ $toolbar-height-small: 46px;
   }
   .password__input-group, .form-version-cid-1 {
     align-self: center;
-    margin-top: 1em;
-    padding: 1em 2em;
+    padding: 0 2em 1em;
     .input-group__field, input {
-      height: 60px;
-      max-width: 525px;
-      text-align: center;
-      border-radius: 5px;
-      border: solid 1px #d1dbe3;
-      // input{
-      //   border: none;
-      //   border-top-right-radius: 0px;
-      //   border-bottom-right-radius: 0px;
-      // }
+      height: 60px !important;
+      max-width: 525px !important;
+      text-align: center !important;
+      border-radius: 5px !important;
+      border: solid 1px #d1dbe3 !important;
     }
-    .input-group__btn, submit {
-      flex-grow: .3;
-      margin-left: 20px;
-      .btn {
-        height: 60px;
-      }
+    .input-group__btn, button {
+      flex-grow: .3 !important;
+      margin-left: 20px !important;
+      background-color: #e0592a !important;
+      color: white !important;
+      color: #fff !important;
+      font-family: 'Roboto',sans-serif !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
     }
   }
   @include media-query($small) {
@@ -7904,7 +7901,6 @@ $toolbar-height-small: 46px;
     max-width: 576px;
     @media screen and (max-width: 576px){
       max-width: unset;
-      width: unset;
     }
   }
   .product-meta {
