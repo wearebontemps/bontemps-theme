@@ -2623,7 +2623,10 @@ textarea {
 }
 .navbar-collapse.collapsing{
   transition: none;
-  display: none;
+  display: block;
+  z-index: -10;
+  height: 0;
+  width: 0;
 }
 .navbar-collapse.collapse{
   left: -360px;
