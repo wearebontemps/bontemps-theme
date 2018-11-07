@@ -1059,11 +1059,12 @@ html {
   font-size: 2.5em;
   font-style: normal;
   font-stretch: normal;
-  line-height: normal;
+  line-height: 1.1;
   letter-spacing: -0.9px;
   color: #e0592a;
   margin-top: 50px;
 }
+
 /*================ Section defaults ================*/
 
 .shopify-section {
@@ -1073,6 +1074,19 @@ html {
     min-height: 300px;
     @include media-query($medium-down) {
       padding: 3em 0;
+    }
+  }
+  .limitcopywidth {
+    max-width: 700px;
+    margin: 0 auto;
+    @include media-query($small) {
+      max-width: 550px;
+    }
+  }
+  p.subtitle {
+    margin-bottom: 50px;
+    &:first-of-type {
+      margin-bottom: 6em;
     }
   }
 }
@@ -3957,27 +3971,7 @@ p.tagline{
 #email-submit{
   background-color: #ffa400 !important;
 }
-#Contact_newsletter{
-  display: flex;
-  align-items: center;
-  -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-  -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-  box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
-}
-.password__input-group {
-  align-self: center;
-  margin-top: 1em;
-  padding: 1em;
-  .input-group__field{
-    height: 20px;
-    text-align: center;
-    input{
-      border: none;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
-  }
-}
+
 .ValidationMessage__FormStyledValidationMessage-kgukRS {
   color: white !important;
 }
@@ -4084,6 +4078,7 @@ h1.section-header{
   letter-spacing: -0.9px;
   color: #e0592a;
   margin-top: 1em;
+  margin-bottom: 30px;
 }
 .caffeine-level {
   .dot {
@@ -4502,6 +4497,11 @@ h1.section-header{
 
 /*================ Template | Collections ================*/
 .collection-view-insert{
+  img {
+    &:hover {
+      filter: blur(0px) !important;
+    }
+  }
   @media screen and (max-width: 500px){
     margin:0 0 5.2em;
   }
@@ -6829,7 +6829,7 @@ $toolbar-height-small: 46px;
     min-height: 400px;
   }
   .quotes-slider__text {
-    padding: 0 3em 0 4em;
+    padding: 0 3.5em 0 4.5em;
     @media screen and (max-width: 500px){
       padding: 0 3em 0 2em;
     }
@@ -6846,7 +6846,7 @@ $toolbar-height-small: 46px;
       text-transform: uppercase;
     }
     .quote-content {
-
+      max-width: 700px;
     }
     .quote-author {
       font-family: 'Gotham';
@@ -6868,6 +6868,14 @@ $toolbar-height-small: 46px;
     position: absolute;
     left: -70px;
     bottom: 15%;
+  }
+  @include media-query($small) {
+    min-height: 400px;
+    height: 400px;
+    .col-3, .col-sm-4 {
+      min-height: 180px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -7481,9 +7489,59 @@ $toolbar-height-small: 46px;
   @include align-self(flex-end);
   text-align: right;
 }
-
+#Contact_newsletter{
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
+  max-width: 750px;
+  min-height: 120px;
+  margin: 0 auto;
+  .password__input-group {
+    align-self: center;
+    margin-top: 1em;
+    padding: 1em 2em;
+    .input-group__field{
+      height: 60px;
+      max-width: 525px;
+      text-align: center;
+      border-radius: 5px;
+      border: solid 1px #d1dbe3;
+      input{
+        border: none;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+    .input-group__btn {
+      flex-grow: .3;
+      margin-left: 20px;
+      .btn {
+        height: 60px;
+      }
+    }
+  }
+  @include media-query($small) {
+    margin: -1em auto 1em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    .password__input-group {
+      margin-top: .5em;
+      padding: 1em;
+    }
+    .input-group__btn {
+      flex-grow: 1;
+      margin-left: 0;
+    }
+  }
+}
 .newsletter-section {
-  padding-top: $section-spacing;
+  .rte {
+    max-width: 550px;
+    margin: 0 auto 30px;
+  }
 }
 
 .index-section--newsletter-background {

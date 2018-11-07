@@ -102,10 +102,10 @@
 
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
-        {% if forloop.index == 4 %}
-        <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-          {% include 'collection-insert' %}
-        </li>
+          {% if forloop.index == 2 %}
+          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+            {% include 'collection-insert' %}
+          </li>
         {% endif %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height %}
@@ -204,7 +204,7 @@
 {% schema %}
   {
     "name": {
-      "en": "Collection pages",
+      "en": "Collection Packs",
       "de": "Kategorie-Seiten",
       "fr": "Pages de collections",
       "it": "Pagine delle collezioni",
