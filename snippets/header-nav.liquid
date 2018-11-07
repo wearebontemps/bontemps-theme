@@ -1,9 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-light bg-clear contained row d-flex">
   <div class="col-4 col-sm-4">
-  <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  {% comment %} <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> {% endcomment %}
+  <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse-side" data-target="#navbarSupportedContent" data-target-2=".side-collapse-container" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="side-collapse in collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
       {% if link.links != blank %}
@@ -128,3 +131,14 @@
     </div>
   </div>
 </nav>
+<script type="text/javascript">
+$(document).ready(function() {   
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+</script>
