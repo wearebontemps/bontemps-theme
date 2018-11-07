@@ -7473,34 +7473,41 @@ $toolbar-height-small: 46px;
   -moz-box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
   box-shadow: 0px 3px 105px -38px rgba(89,89,89,1);
   max-width: 750px;
+  min-height: 120px;
   margin: 0 auto;
   .password__input-group {
     align-self: center;
     margin-top: 1em;
     padding: 1em;
     .input-group__field{
-      height: 20px;
+      height: 60px;
       text-align: center;
+      border-radius: 5px;
+      border: solid 1px #d1dbe3;
       input{
         border: none;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
       }
     }
-  }
-}
-.newsletter-section {
-  //padding-top: $section-spacing;
-  form {
-    max-width: 750px;
-    min-height: 120px;
-    margin: 0 auto;
     .input-group__btn {
       flex-grow: .3;
       margin-left: 10px;
     }
   }
 }
+// .newsletter-section {
+//   //padding-top: $section-spacing;
+//   form {
+//     max-width: 750px;
+//     min-height: 120px;
+//     margin: 0 auto;
+//     .input-group__btn {
+//       flex-grow: .3;
+//       margin-left: 10px;
+//     }
+//   }
+// }
 
 .index-section--newsletter-background {
   background-color: $color-bg-alt;
