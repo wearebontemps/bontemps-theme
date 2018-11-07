@@ -177,7 +177,6 @@
         $(".header-add-to-cart").fadeOut();
       }
   });
-  $(document).ready(
     $('.collapse').on('show.bs.collapse hide.bs.collapse', function(e) {
         e.preventDefault();
     });
@@ -185,7 +184,6 @@
         e.preventDefault();
         $($(this).data('target')).toggleClass('in');
     });
-);
 </script>
     {% include 'ajax-cart-template' %}
 {% if template.name == 'product' or template.name == 'index' %}
