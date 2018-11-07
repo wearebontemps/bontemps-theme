@@ -1565,6 +1565,7 @@ $slick-opacity-not-active: 0.25;
   }
   @include media-query($small) {
     right: .5em;
+    top: 76%;
   }
 }
 
@@ -6515,6 +6516,7 @@ $toolbar-height-small: 46px;
   padding: $section-spacing;
   @include media-query($small) {
     text-align: center;
+    padding-bottom: 80px;
   }
   p,h4,small{
     color: white;
@@ -6880,14 +6882,21 @@ $toolbar-height-small: 46px;
   .testimonial-product-img {
     width: 100px;
     height: 100px;
+    
     box-shadow: 5px 4px 10px rgba(0,0,0,0.2);
     position: absolute;
     left: -70px;
     bottom: 15%;
+    @include media-query($small) {
+      width: 60px;
+      height: 60px;
+      left: -40px;
+      bottom: 25%;
+    }
   }
   @include media-query($small) {
-    min-height: 400px;
-    height: 400px;
+    min-height: unset;
+    height: unset;
     .col-3, .col-sm-4 {
       min-height: 180px;
       margin-bottom: 20px;
