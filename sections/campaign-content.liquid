@@ -7,7 +7,7 @@
   <div class="d-flex flex-column align-items-center justify-content-between col-6 col-sm-4 col-md-3">
     <img class="about-image" src="{{ block.settings.image | img_url: '800x' }}"/>
     <p class="campaign-subtitle text-orange">{{ block.settings.heading}}</p>
-    <a href="{{block.settings.link_url}}" class="text-orange"><small>{{ block.settings.link_text }}</small></a>
+    <a href="{{block.settings.link_url}}" class="text-orange"><small class="campaign-link">{{ block.settings.link_text }}</small></a>
     </div>
 {% endfor %}
   </div>
