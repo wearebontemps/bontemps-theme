@@ -5784,6 +5784,9 @@ $nav-button-padding: 15px;
 .modal-dialog{
   max-width: 90vw;
 }
+.product-page-image{
+  width: 100vw;
+}
 /*============================================================================
   Hero slider
 
@@ -7863,6 +7866,9 @@ $toolbar-height-small: 46px;
     padding: 0;
     margin: 0;
     max-width: 576px;
+    @media screen and (max-width: 576px){
+      max-width: unset;
+    }
   }
   .product-meta {
     margin: 0;

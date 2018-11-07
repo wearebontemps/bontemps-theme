@@ -168,7 +168,7 @@
 
           {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
 
-          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js">
+          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image">
             <div
             id="{{ zoom_img_id }}"
             style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
