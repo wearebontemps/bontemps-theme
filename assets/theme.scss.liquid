@@ -6854,6 +6854,14 @@ $toolbar-height-small: 46px;
     left: -70px;
     bottom: 15%;
   }
+  @include media-query($small) {
+    min-height: 400px;
+    height: 400px;
+    .col-3, .col-sm-4 {
+      min-height: 200px;
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .product-collnav {
