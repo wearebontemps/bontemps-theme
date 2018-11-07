@@ -1,13 +1,14 @@
-<div class="text-center" style="background-color: {{ section.settings.bg_color }}; padding: 2em 0;">
+<div class="text-center campaign-application-form" style="background-color: {{ section.settings.bg_color }};">
   <div class="section-inner">
     <div class="contained">
          <h1 class="h1 text-black">
           {{ section.settings.newsletter_form_heading | escape }}
         </h1>
         {% if section.settings.newsletter_form_subheading != blank %}
-          <div class="password__form-subheading" style="max-width: ; margin: 0 auto;"><p>{{ section.settings.newsletter_form_subheading }}</p></div>
+          <div class="limitcopywidth password__form-subheading" style="max-width: ; margin: 0 auto;"><p class="subtitle">{{ section.settings.newsletter_form_subheading }}</p></div>
         {% endif %}
       <div class="klaviyo-signup" style="margin: 0 auto;">
+        <p class="form-instructions">{{section.settings.form_instructions}}</p>
     <div class="klaviyo-form-LPS6EQ"></div>
     </div>
     </div>
@@ -37,6 +38,16 @@
         },
         "default": {
           "en": "$1000 cash to help you do more of what you love. Apply in less time than it takes to shave your legs."
+        }
+      },
+      {
+        "type": "text",
+        "id": "form_instructions",
+        "label": {
+          "en": "form instructions"
+        },
+        "default": {
+          "en": "We’ll send application details by email."
         }
       },
       {
