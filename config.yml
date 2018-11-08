@@ -7,12 +7,11 @@ development:
   ignore_files:
   - config/settings_data.json
   - theme.lock
-  
  #Pushing Production will hit the coming soon theme @ https://shopbontemps.com/
- production:
-   password: cc71fb917bf64053eb0b849955f0f99d
-   theme_id: "37720785014"
-   store: https://shopbontemps.myshopify.com
-   ignore_files:
-   - config/settings_data.json
-   - theme.lock
+production:
+  password: cc71fb917bf64053eb0b849955f0f99d
+  theme_id: "37720785014"
+  store: https://shopbontemps.myshopify.com
+  ignore_files:
+  - config/settings_data.json
+  - theme.lock
