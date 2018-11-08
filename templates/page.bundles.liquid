@@ -37,18 +37,28 @@ $(document).on("cart.requestComplete", function(event, cart) {
     var product_id_2;
     var product_id_3;
     var id_array = [];
+    function checkFull(){
+        if(product_id_1 != '' && product_id_2 != '' && product_id_3 != ''){
+            $('#bundle-adder-btn').show(300);
+        } else {
+            $('#bundle-adder-btn').hide(300);
+        }
+    }
     function addProduct(id, title){
         console.log(id, title);
         var title = title;
         if ($("#selected_product_1").text() == "" ){
             $("#selected_product_1").text(title);
             product_id_1 = id;
+            checkFull();
         } else if ($("#selected_product_2").text() == ""){
             $("#selected_product_2").text(title);
             product_id_2 = id;
+            checkFull();
         } else {
             $("#selected_product_3").text(title);
             product_id_3 = id;
+            checkFull();
         }
        $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
 
@@ -57,12 +67,15 @@ $(document).on("cart.requestComplete", function(event, cart) {
         if (loc == "1"){
             $("#selected_product_1").text("");
             product_id_1 = null;
+            checkFull();
         } else if (loc == "2"){
             $("#selected_product_2").text("");
             product_id_2 = null;
+            checkFull();
         } else if (loc == "3"){
             $("#selected_product_3").text("");
             product_id_3 = null;
+            checkFull();
         }
     };
     function bundle() {
@@ -129,8 +142,8 @@ $(document).on("cart.requestComplete", function(event, cart) {
     <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
   </div>
 </div>
-<div class="col-12 text-center bundle-complete-btn">
-<button style="margin: .5em 0;" class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
+<div class="col-12 text-center bundle-complete-btn" style="margin: 1em 0;">
+<button  id="bundle-adder-btn" style="display:none;" class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
 </div>
 <ul class="grid grid--uniform  grid--view-items">
 {%- assign max_height = 345 -%}
