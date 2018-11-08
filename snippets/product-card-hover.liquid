@@ -3,13 +3,15 @@
 {% else %}
 <a href="{{ product.url | within: collection }}">
 {% endif %}
-<div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-start'>
+<div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center'>
   {% assign desc =  product.description | split: "<!--ingredients-->" %}
   <p>{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
   {% if desc != blank %}
   {% for collection in product.collections %}
   {% if collection.handle contains "variety" %}
   {% assign variety = true %}
+  {% else %}
+  {% assign variety = false %}
   {% endif %}
   {% endfor %}
   {% if variety %}
