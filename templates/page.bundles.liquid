@@ -33,12 +33,12 @@ $(document).on("cart.requestComplete", function(event, cart) {
     console.log(product_text_1)
 </script>
 <script>
-    var product_id_1;
-    var product_id_2;
-    var product_id_3;
+    var product_id_1 = null ;
+    var product_id_2 = null;
+    var product_id_3 = null;
     var id_array = [];
     function checkFull(){
-        if(product_id_1 != '' && product_id_2 != '' && product_id_3 != ''){
+        if(product_id_1 != null && product_id_2 != null && product_id_3 != null){
             $('#bundle-adder-btn').show(300);
         } else {
             $('#bundle-adder-btn').hide(300);
