@@ -39,9 +39,9 @@ $(document).on("cart.requestComplete", function(event, cart) {
     var id_array = [];
     function checkFull(){
         if(product_id_1 != null && product_id_2 != null && product_id_3 != null){
-            $('#bundle-adder-btn').show(300);
+            $('#bundle-adder-btn').fadeIn(200);
         } else {
-            $('#bundle-adder-btn').hide(300);
+            $('#bundle-adder-btn').fadeOut(200);
         }
     }
     function addProduct(id, title){
