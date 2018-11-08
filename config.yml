@@ -1,5 +1,5 @@
 
-# Pushing 'development will hit the coming soon theme @ https://bontempsdev.myshopify.com/ '
+ #Pushing 'development will hit the coming soon theme @ https://bontempsdev.myshopify.com/ '
 development:
   password: 2d14c5c798951a9445a89e3630a8cb98
   theme_id: "32377012318"
@@ -8,11 +8,11 @@ development:
   - config/settings_data.json
   - theme.lock
   
-# Pushing Production will hit the coming soon theme @ https://shopbontemps.com/
-# production:
-#   password: cc71fb917bf64053eb0b849955f0f99d
-#   theme_id: "37720785014"
-#   store: https://shopbontemps.myshopify.com
-#   ignore_files:
-#   - config/settings_data.json
-#   - theme.lock
+ #Pushing Production will hit the coming soon theme @ https://shopbontemps.com/
+ production:
+   password: cc71fb917bf64053eb0b849955f0f99d
+   theme_id: "37720785014"
+   store: https://shopbontemps.myshopify.com
+   ignore_files:
+   - config/settings_data.json
+   - theme.lock
