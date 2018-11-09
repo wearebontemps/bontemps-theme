@@ -80,11 +80,11 @@
           //$('.details_{{ product.id }}').show(300);
       });
       $('.bg_hover_{{ product.id }}').hover(function() {
-          $('#ProductCardImageWrapper-{{ product.id }}').addClass('blur');
+          $('#ProductCardImage-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-featured-collections-{{ product.id }}').addClass('blur');
           $('.price_hover_{{ product.id }}').hide(0);
         }, function() {
-          $('#ProductCardImageWrapper-{{ product.id }}').removeClass('blur');
+          $('#ProductCardImage-{{ product.id }}').removeClass('blur');
           $('#ProductCardImage-featured-collections-{{ product.id }}').removeClass('blur');
           $('.price_hover_{{ product.id }}').show(0);
       });
