@@ -50,7 +50,7 @@ Theme Store optional settings
               <div class="page-width  slideshow-inner-text {% if block.settings.justification == 'left' %}left{% elsif block.settings.justification == 'right' %}right{% endif %}">
                 {% unless block.settings.title == blank %}
                   <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
-                    {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 != '' %}{{ block.settings.title_2 | escape }}{% endif %}
+                    {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 %}{{ block.settings.title_2 | escape }}{% endif %}
                   </h2>
                 {% endunless %}
                 {% unless block.settings.subheading == blank %}
@@ -262,8 +262,7 @@ Theme Store optional settings
               {
                 "type": "text",
                 "id": "title_2",
-                "label": "Heading part 2",
-                "default": ""
+                "label": "Heading part 2"
               },
               {
                 "type": "text",
