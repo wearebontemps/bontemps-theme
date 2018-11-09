@@ -74,7 +74,7 @@
       {% endunless %}
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
-          $('#ProductCardImage-collection-template-packs-{{ product.id }}').removeClass('blur');
+          $('#ProductCardImage-collection-template-packs-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-featured-collections-{{ product.id }}').addClass('blur');
           $('.price_hover_{{ product.id }}').hide(0);
         }, function() {
