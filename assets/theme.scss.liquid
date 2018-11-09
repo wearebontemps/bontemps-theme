@@ -2676,7 +2676,6 @@ textarea {
   }
 }
 .announcement-bar {
-  z-index: $z-index-announcement-bar;
   text-align: center;
   position: absolute;
   top: 0;
@@ -2685,6 +2684,8 @@ textarea {
   background: #e0592a;
   color: white;
   padding: 2px 0;
+  position: fixed;
+  z-index: 1000000;
   p, a {
     color: white;
   }
