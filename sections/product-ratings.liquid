@@ -4,11 +4,12 @@
 <div class="row contained product-reviews section-inner">
     <div class="col-sm-6 offset-sm-3 d-flex flex-column align-items-center justify-content-center text-center">
         <h3>{{ section.settings.title }}</h3>
-        {{ section.settings.text }}
+        {% comment %} {{ section.settings.text }}
          <div class="yotpo-star-box yotpo">
           <div class="yotpo bottomLine"
             data-product-id="{{ product.id }}">
           </div>
+          </div> {% endcomment %}
         <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>        </div>
         {% if section.settings.cta_text != blank %}
         <a class="small btn btn-text reviews-link" href="{{ section.settings.cta_link }}">
