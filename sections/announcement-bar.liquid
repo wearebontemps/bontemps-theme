@@ -1,0 +1,46 @@
+
+  {%- if section.settings.announcement_bar_enabled -%}
+  <div class="announcement-bar">
+    {%- if section.settings.announcement_bar_link != blank -%}
+    <a href="{{ section.settings.announcement_bar_link }}">
+      {{ section.settings.announcement_bar_text | escape }}
+    </a>
+    {%- else -%}
+    <p>{{ section.settings.announcement_bar_text | escape }}</p>
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+{% schema %}
+{
+  "name": "Header Announcement",
+  "settings": [
+      {
+      "type": "checkbox",
+      "id": "announcement_bar_enabled",
+      "label": "Show announcement",
+      "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_bar_text",
+        "label": "Announcement text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "announcement_bar_link",
+        "label": "Announcement link",
+        "info": "Optional"
+      },
+    ],
+    "presets": [
+        {
+        "name": "header-announcement",
+        "category": "Headers"
+        }
+        ]
+    }
+
+
+{% endschema %}
+

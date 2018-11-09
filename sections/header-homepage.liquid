@@ -1,4 +1,4 @@
-{%- comment -%}
+{% comment %} {%- comment -%} {% endcomment %}
 alt header.
 It is available in the "Header" section in the theme editor.
 
@@ -87,7 +87,7 @@ Theme Store optional settings
 {% endif %}
 </div>
 <div class="top-nav-box">
-  {% include "announcement-bar" %}
+  {% comment %} {% include "announcement-bar" %} {% endcomment %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
