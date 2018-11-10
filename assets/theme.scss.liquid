@@ -6691,7 +6691,15 @@ $toolbar-height-small: 46px;
     max-width: 100%;
   }
 }
+.feature-row__item:first-child {
+  @include flex(0 1 40%);
 
+  @include media-query($small) {
+    @include flex(1 1 auto);
+    width: 100%;
+    max-width: 100%;
+  }
+}
 .feature-row__image-wrapper {
   margin: 0 auto $section-spacing-small / 1.8;
   position: relative;
