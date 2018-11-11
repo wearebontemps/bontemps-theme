@@ -59,7 +59,7 @@ this product template is for preset bundles
 </script>
 
 <!-- begin klaviyo scripts -->
-<script text="text/javascript">
+{% comment %} <script text="text/javascript">
  var _learnq = _learnq || [];
  var item = {
    Name: {{ product.title|json }},
@@ -86,4 +86,4 @@ this product template is for preset bundles
      CompareAtPrice: item.CompareAtPrice
    }
  }]);
-</script>
+</script> {% endcomment %}

@@ -144,8 +144,8 @@
 
   </div>
 
-<script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/vMVGHTLESgcLeaLKdqm2Jl1VwxRoHLLaj1recjz6/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>  <!-- begin klaviyo scripts -->
-<script async type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=QqpSRS"></script>
+<script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/vMVGHTLESgcLeaLKdqm2Jl1VwxRoHLLaj1recjz6/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script> 
+
 {% include 'slick-logic' %}
 {% include 'ajaxify-cart' %}
 <script type="text/javascript">
@@ -191,5 +191,35 @@
         }
       </script>
     {% endif %}
+<!-- begin klaviyo scripts -->
+<script async type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=QqpSRS"></script>
+<script text="text/javascript">
+ var _learnq = _learnq || [];
+ var item = {
+   Name: {{ product.title|json }},
+   ProductID: {{ product.id|json }},
+   Categories: {{ product.collections|map:'title'|json }},
+   ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+   URL: "{{ shop.secure_url }}{{ product.url }}",
+   Brand: {{ product.vendor|json }},
+   Price: {{ product.price|money|json }},
+   CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+ };
+
+ _learnq.push(['track', 'Viewed Product', item]);
+
+ _learnq.push(['trackViewedItem', {
+   Title: item.Name,
+   ItemId: item.ProductID,
+   Categories: item.Categories,
+   ImageUrl: item.ImageURL,
+   Url: item.URL,
+   Metadata: {
+     Brand: item.Brand,
+     Price: item.Price,
+     CompareAtPrice: item.CompareAtPrice
+   }
+ }]);
+</script>
 </body>
 </html>
