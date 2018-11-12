@@ -4527,8 +4527,12 @@ h1.section-header{
   }
 }
 #collection-insert-target{
-  max-height: unset !important;
+  // max-height: unset !important;
   max-width: 100% !important;
+  max-height: 420px !important;
+  @include media-query($small){
+    max-height: 405px !important;
+  }
 }
 // Collection Hero
 //----------------------------------------
