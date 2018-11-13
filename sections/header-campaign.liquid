@@ -40,7 +40,7 @@ Theme Store optional settings
                  data-bgset="{% include 'bgset', image: block.settings.image %}"
                  data-sizes="auto"
                  data-parent-fit="cover"
-                 style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
+                 style="background-position: right {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
             </div>
           <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
             <div class="overlay-box" style="background-color: {{ block.settings.color_image_overlay }}; opacity: {{ block.settings.color_image_opacity | times: 0.01 }};">
