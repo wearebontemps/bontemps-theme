@@ -18,7 +18,7 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
       {%- if block.settings.featured_image -%}
-      <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="feature-row-product-img" style="max-width: 160px;">
+      <img src="{{ block.settings.featured_image | img_url: '300x' }}" class="feature-row-product-img" style="max-width: 160px;">
       {% endif %}
     </div>
   {% endcapture %}
