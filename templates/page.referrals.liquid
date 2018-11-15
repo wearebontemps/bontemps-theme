@@ -2,8 +2,13 @@
 {% layout 'theme' %}
 {% section 'announcement-bar' %}
 {% section 'header-referrals'%}
-<div class="contained" style="margin: 2em;">
+<div class="contained" style="margin: 2em auto;">
   <div class="">
     {{ page.content }}
   </div>
 </div>
+<style>
+iframe > html > body{
+  margin: 0 auto;
+}
+</style>
