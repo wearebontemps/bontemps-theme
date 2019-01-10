@@ -4157,7 +4157,17 @@ h1.section-header{
     p {
       margin-bottom: 0;
     }
-    .sachet-count {}
+    .sachet-count {
+      @include media-query($small){
+        text-align: right;
+      }
+      span.sachet-info{
+        content: "tea sachets";
+        @include media-query($small){
+          content: "ct";
+        }
+      }
+    }
     @include media-query($small){
       display: inline-block;
     }
