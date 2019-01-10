@@ -103,7 +103,7 @@
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           {% if forloop.index == 2 %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <li class="grid__item grid__item--{{section.id}} one-half {{ grid_item_width }}">
             {% include 'collection-insert' %}
           </li>
         {% endif %}
