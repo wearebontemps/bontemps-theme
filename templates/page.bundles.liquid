@@ -149,7 +149,7 @@ $(document).on("cart.requestComplete", function(event, cart) {
 
 <ul class="grid grid--uniform  grid--view-items">
 {%- assign max_height = 345 -%}
-{%- assign grid_item_width = "small--one-half medium-up--one-third" -%}
+{%- assign grid_item_width = "small-down--one-half medium-up--one-third" -%}
 {% for product in collections.singles.products %}
     <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
     {% include "product-card-grid-bundles", max_height: max_height %}
