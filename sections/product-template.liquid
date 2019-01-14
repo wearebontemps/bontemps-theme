@@ -340,11 +340,10 @@
 {% include 'out-of-stock-modal' %}
 <script type="text/javascript">
 $("#review-upper").click(function(){
-  $(document.body).animate({
-    'scrollTop':   $('#product-reviews').offset().top
-}, 800);
-})
-}
+    $(document.body).animate({
+      'scrollTop':   $('#product-reviews').offset().top
+  }, 800);
+  });
 </script>
 {% schema %}
   {
