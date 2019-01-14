@@ -3,11 +3,11 @@
     <h1 class="section-header">{{ section.settings.section_title }}</h1>
     <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
-  <div class="campaign-cta-box text-center" style="background-color: {{ section.settings.bg_color }};">
+  {% comment %} <div class="campaign-cta-box text-center" style="background-color: {{ section.settings.bg_color }};">
     <strong>{{ section.settings.sub_section_heading }}</strong>
     <br/>
     <a style="margin-top: 2em;" class="btn" href="{{ section.settings.cta_link }}">{{section.settings.cta_text}}</a>
-  </div>
+  </div> {% endcomment %}
 </div>
 {% schema %}
   {
