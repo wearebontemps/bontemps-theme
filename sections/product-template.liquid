@@ -51,7 +51,7 @@
           {% endfor %}
         </p>
         <h1 class="product-single__title">{{ product.title }}</h1>
-        <div id="review-upper" class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+        <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a>
       </div>
 
         {%- comment -%}
@@ -194,39 +194,6 @@
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
         </noscript>
 
-        {% comment %} {% if product.images.size > 1 %}
-          {% if product.images.size > 3 %}
-            {%- assign enable_thumbnail_slides = true -%}
-          {% endif %}
-
-          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
-            {% if enable_thumbnail_slides == true %}
-              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-                {% include 'icon-chevron-left' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
-              </button>
-            {% endif %}
-            <ul class="row grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
-              {% for image in product.images %}
-                <li class="col {{ product_thumbnail_width }} product-single__thumbnails-item js">
-                  <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                    data-thumbnail-id="{{ image.id }}"
-                    {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                      <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-            {% if enable_thumbnail_slides == true %}
-              <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-                {% include 'icon-chevron-right' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-              </button>
-            {% endif %}
-          </div>
-        {% endif %} <!-- end img --> {% endcomment %}
-
         <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
           {% include 'caffeine' %}
@@ -339,7 +306,8 @@
 {% endunless %}
 {% include 'out-of-stock-modal' %}
 <script type="text/javascript">
-$("#review-upper").click(function(){
+$("#review-upper").onClick(function(event){
+  event.preventDefault();
     $(document.body).animate({
       'scrollTop':   $('#product-reviews').offset().top
   }, 800);
