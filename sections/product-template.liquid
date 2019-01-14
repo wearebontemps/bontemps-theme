@@ -306,7 +306,7 @@
 {% endunless %}
 {% include 'out-of-stock-modal' %}
 <script type="text/javascript">
-$("#review-upper").onClick(function(event){
+$("#review-upper").click(function(event){
   event.preventDefault();
     $(document.body).animate({
       'scrollTop':   $('#product-reviews').offset().top
