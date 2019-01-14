@@ -307,9 +307,23 @@
 {% include 'out-of-stock-modal' %}
 <script type="text/javascript">
 $("#review-upper").click(function(event){
-  console.log("scroll click")
-  event.preventDefault();
-    $(document.body).scrollTop($('#product-reviews').offset().top)
+      // target element id
+    var id = $(this).attr('href');
+
+    // target element
+    var $id = $(id);
+    if ($id.length === 0) {
+        return;
+    }
+
+    // prevent standard hash navigation (avoid blinking in IE)
+    e.preventDefault();
+
+    // top position relative to the document
+    var pos = $id.offset().top;
+
+    // animated top scrolling
+    $('body, html').animate({scrollTop: pos});
   });
 </script>
 {% schema %}
