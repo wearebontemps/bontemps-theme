@@ -42,7 +42,7 @@
             {% for word in tag_mod %}{{ word }} {% endfor %}
             {% endif %}
             {% endfor %}
-            tea sachets
+            <span class="sachet-info"></span>
           </p>
         </div>
       </div>
@@ -52,10 +52,13 @@
     {% endif %}
     {% unless page_toggle == true %}
     <div class="form_{{product.id}}" style="display: none;">
-      <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
+      {% comment %} <form class="card-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
         <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
         <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
-      </form>
+      </form> {% endcomment %}
+      <a href="{{ product.url | within: collection }}" style="display: flex; flex-direction: column;">
+        <input type="submit" value="Discover" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
+      </a>
     </div>
     <div class="product__price price_hover_{{product.id}}">
       {% include 'product-price', variant: product %}

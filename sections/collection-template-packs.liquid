@@ -93,21 +93,21 @@
       {% when 2 %}
         {%- assign grid_item_width = 'medium-up--one-half' -%}
       {% when 3 %}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+        {%- assign grid_item_width = 'medium-up--one-third' -%}
       {% when 4 %}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+        {%- assign grid_item_width = 'medium-up--one-quarter' -%}
       {% when 5 %}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+        {%- assign grid_item_width = 'medium-up--one-fifth' -%}
       {% endcase %}
 
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           {% if forloop.index == 2 %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <li class="grid__item grid__item--{{section.id}} one-half {{ grid_item_width }}">
             {% include 'collection-insert' %}
           </li>
         {% endif %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <li class="grid__item grid__item--{{section.id}} one-half {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height %}
           </li>
         {% else %}
@@ -121,7 +121,7 @@
             <li class="grid__item">
               <div class="grid grid--uniform">
                 {% for i in (1..limit) %}
-                  <div class="grid__item {{ grid_item_width }}">
+                  <div class="grid__item one-half {{ grid_item_width }}">
                     <div class="grid-view-item">
                       <a href="#" class="grid-view-item__link">
                         <div class="grid-view-item__image">

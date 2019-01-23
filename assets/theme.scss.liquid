@@ -546,10 +546,10 @@ a {
   background-color: transparent;
 }
 
-b,
-strong, .strong {
-  font-weight: $font-weight-body--bold;
-}
+// b,
+// strong, .strong {
+//   font-weight: $font-weight-body--bold;
+// }
 
 em {
   font-style: italic;
@@ -2577,7 +2577,7 @@ textarea {
       font-size: 1em;
       line-height: 1;
       width: 100%;
-      height: 70px;
+      height: 90px;
       margin: 0 auto !important;
     }
   }
@@ -4157,9 +4157,19 @@ h1.section-header{
     p {
       margin-bottom: 0;
     }
-    .sachet-count {}
     @include media-query($small){
       display: inline-block;
+    }
+  }
+}
+.sachet-count {
+  @include media-query($small){
+    text-align: right;
+  }
+  span.sachet-info:after{
+    content: "tea sachets";
+    @include media-query($small){
+      content: "ct";
     }
   }
 }
@@ -4371,7 +4381,7 @@ h1.section-header{
 }
 
 .product-single__description {
-  margin-top: $grid-gutter;
+  margin-top: -10px;
 }
 
 .product__quantity-error {
@@ -6693,7 +6703,7 @@ $toolbar-height-small: 46px;
 }
 
 .feature-row__item {
-  @include flex(0 1 60%);
+  @include flex(0 1 75%);
 
   @include media-query($small) {
     @include flex(1 1 auto);
@@ -6702,7 +6712,7 @@ $toolbar-height-small: 46px;
   }
 }
 .feature-row__item:first-child {
-  @include flex(0 1 40%);
+  @include flex(0 1 25%);
 
   @include media-query($small) {
     @include flex(1 1 auto);
@@ -6744,11 +6754,11 @@ $toolbar-height-small: 46px;
 
 @include media-query($medium-up) {
   .feature-row__text--left {
-    padding-left: $section-spacing-small;
+    padding: $section-spacing-small;
   }
 
   .feature-row__text--right {
-    padding-right: $section-spacing-small;
+    padding: $section-spacing-small;
   }
 }
 
@@ -6984,6 +6994,28 @@ $toolbar-height-small: 46px;
   color: #e0592a;
 }
 // yotpo Ratings
+.yotpo.upper{
+  text-align: left !important;
+  a {text-align: left !important;}
+  .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
+    font-size: 20px !important;
+    color: #e0592a !important;
+  }
+  span.yotpo-stars {
+    margin-bottom: 5px !important;
+  }
+  .yotpo-regular-box{
+    margin-left: 0 !important;
+    padding: 0;
+    height: unset !important;
+    .yotpo-stars-and-sum-reviews{
+      text-align: left !important;
+    }
+  }
+  .yotpo-first-review{
+    display: none !important;
+  }
+}
 .yotpo {
   text-align: center !important;
   a {text-align: center !important;}

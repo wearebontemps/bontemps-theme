@@ -2,8 +2,24 @@
 {% layout 'theme' %}
 {% section 'announcement-bar' %}
 {% section 'header-referrals'%}
-<div class="contained" style="margin: 2em;">
+<div class="frame-container" style="margin: 2em auto;">
   <div class="">
     {{ page.content }}
   </div>
 </div>
+<style>
+.frame-container{
+  margin: auto;
+  
+}
+@media screen and (max-width: 794px ){
+  .frame-container{
+    width: 320px;
+  }
+  }
+</style>
+<script type="text/javascript">
+$( document ).ready(function(){
+  $("body[data-fbuy-state-statuses]").css( "margin", "0 auto" );
+});
+</script>
