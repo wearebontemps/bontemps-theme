@@ -1,0 +1,84 @@
+<div class="section-inner about-content">
+  <div class="text-center limitcopywidth">
+  <h1 class="section-header">{{ section.settings.section_title }}</h1>
+  <p class="subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+  {% for block in section.blocks %}
+  {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
+  {% capture image_layout %}
+   <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5em;'>
+   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
+    {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
+   </div>
+  {% endcapture %}
+    <div class="row d-flex align-items-center" style='padding: 3em 0;'>
+    {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
+    <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
+      <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
+      <p>{{ block.settings.text_content }}</p>
+      </div>
+      {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": {
+      "en": "About main Content"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": {
+          "en": "Section Heading"
+        },
+        "default": {
+          "en": "Rethinking beverages for our female contemporaries."
+        }
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": {
+          "en": "Section subeading"
+        },
+        "default": {
+          "en": "Our blends are designed to heighten the highs, cushion the lows and complement the in-betweens of women’s everyday pursuits."
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "About block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "section heading",
+            "default": {
+              "en": "It’s 2018, your teas should be clean."
+            }
+          },
+          {
+            "type": "text",
+            "id": "text_content",
+            "label": "Text Content",
+            "default": "lorem"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
