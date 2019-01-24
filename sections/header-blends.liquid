@@ -57,24 +57,6 @@ Theme Store optional settings
                     {{ block.settings.custom_subtitle | escape }}
                   </h4>
                 {% endunless %}
-                {% comment %}
-                {% unless block.settings.has_custom_text == true %}
-                <h1 class="text-white">
-                  <span role="text">
-                    <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-                    {{ collection.title }}
-                  </span>
-                </h1>
-                {% if collection.description != blank %}
-                  <div class="rte text-white">
-                    {{ collection.description }}
-                  </div>
-                {% endif %}
-                {% endunless %}
-                {% unless block.settings.link == blank %}
-                <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }}</span></a>
-                {% endunless %}
-                {% endcomment %}
                 {% if block.type == 'video' %}
                   {% unless block.settings.video_type == 'background' %}
                     <div class="slideshow__video-control--play-wrapper{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__video-control--play-wrapper--push{% endif %}">
