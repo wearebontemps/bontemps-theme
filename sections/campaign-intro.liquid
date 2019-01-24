@@ -1,8 +1,10 @@
 <div class="section-inner">
+{% if section.settings.section_title != blank %}
   <div class="text-center limitcopywidth" style="margin-bottom: 2em;">
     <h1 class="section-header">{{ section.settings.section_title }}</h1>
     {% if section.settings.subtitle != blank %}<p>{{ section.settings.subtitle }}</p>{% endif %}
   </div>
+{% endif %}
   <div class="campaign-cta-box text-center" style="background-color: {{ section.settings.bg_color }};">
     <strong>{{ section.settings.sub_section_heading }}</strong>
     <br/>
