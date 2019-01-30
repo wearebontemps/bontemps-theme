@@ -67,6 +67,7 @@
     <script type="text/javascript">
     $( document ).ready(function(){
       {% unless page_toggle == true %}
+      var w = $( window ).width();
       if ( w >= 768 ){
       $('.hover_{{ product.id }}').hover(function() {
           //$('.details_{{ product.id }}').hide(300);
