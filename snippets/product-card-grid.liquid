@@ -75,6 +75,7 @@
           //$('.details_{{ product.id }}').show(300);
       });
       {% endunless %}
+      if ($( window ).width() >= 768 ){
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-collection-template-packs-{{ product.id }}').addClass('blur');
@@ -86,6 +87,8 @@
           $('#ProductCardImage-featured-collections-{{ product.id }}').removeClass('blur');
           $('.price_hover_{{ product.id }}').show(0);
       });
+      }
+
     })
     </script>
 </div>
