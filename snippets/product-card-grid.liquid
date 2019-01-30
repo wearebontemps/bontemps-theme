@@ -69,13 +69,15 @@
       {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
         var w = $( window ).width();
-      if ( w >= 768 ){
+        if ( w >= 768 ){
           //$('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').addClass('fadeIn');
+        }
         }, function() {
+        if ( w >= 768 ){
           $('.form_{{ product.id }}').removeClass('fadeIn');
           //$('.details_{{ product.id }}').show(300);
-          }
+        }
       });
       {% endunless %}
       
