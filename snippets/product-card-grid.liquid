@@ -67,6 +67,7 @@
     <script type="text/javascript">
     $( document ).ready(function(){
       {% unless page_toggle == true %}
+      if ( w >= 768 ){
       $('.hover_{{ product.id }}').hover(function() {
           //$('.details_{{ product.id }}').hide(300);
           $('.form_{{ product.id }}').addClass('fadeIn');
@@ -74,6 +75,7 @@
           $('.form_{{ product.id }}').removeClass('fadeIn');
           //$('.details_{{ product.id }}').show(300);
       });
+      }
       {% endunless %}
       var w = $( window ).width();
       if ( w >= 768 ){
