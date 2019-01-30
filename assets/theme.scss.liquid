@@ -7835,8 +7835,10 @@ $toolbar-height-small: 46px;
     font-weight: bold;
   }
   &:hover{
-    opacity: 1;
-    cursor: pointer;
+    @media screen and (min-width: 768px){
+      opacity: 1;
+      cursor: pointer;
+    }
   }
 }
 .blur{

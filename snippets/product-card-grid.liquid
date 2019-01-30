@@ -75,7 +75,8 @@
           //$('.details_{{ product.id }}').show(300);
       });
       {% endunless %}
-      if ($( window ).width() >= 768 ){
+      var w = $( window ).width();
+      if ( w >= 768 ){
       $('.bg_hover_{{ product.id }}').hover(function() {
           $('#ProductCardImage-collection-template-{{ product.id }}').addClass('blur');
           $('#ProductCardImage-collection-template-packs-{{ product.id }}').addClass('blur');
