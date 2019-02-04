@@ -115,7 +115,9 @@
                       <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
                     {% endfor %}
                   </select>
+                  <option></option>
                 </div>
+                
               {% endfor %}
             {% endunless %}
 
