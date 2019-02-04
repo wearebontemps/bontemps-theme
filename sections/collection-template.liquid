@@ -107,7 +107,7 @@
           {% include 'collection-insert' %}
         </li>
         {% endif %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}{% if forloop.index == 4 %} chaser{% endif %}">
             {% include 'product-card-grid', max_height: max_height %}
           </li>
         {% else %}
