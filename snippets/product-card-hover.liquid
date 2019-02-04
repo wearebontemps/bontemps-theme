@@ -6,7 +6,7 @@
 {% assign size = product.images.size %}
 {% assign second = size | minus: 2 %}
 {% for image in product.images %}
-{% if forloop.rindex = 2 and size > 2 %}
+{% if forloop.rindex == 2 and size > 2 %}
 <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ image | img_url: '1000', scale: 1 }}'); background-size: cover;">
 {% else %}
 <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ product.images.last | img_url: '1000', scale: 1 }}'); background-size: cover;">
