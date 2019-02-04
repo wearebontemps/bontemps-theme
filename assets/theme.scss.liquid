@@ -950,18 +950,17 @@ $cart-width: 360px;
 #cart-drawer{
   position: absolute;
   top: 0;
-  right: 0;
-  width: 0;
+  right: -$cart-width;
+  width: $cart-width;
   height: 100%;
   overflow: scroll;
   background: white;
-  transition: all 0.6s;
+  transition: all 0.4s;
   z-index: 10001;
-  width: 0;
-  box-shadow: -2px 3px 4px rgba(0,0,0,.2);
+  // width: 0;
   &.show{
-    width: $cart-width;
-    padding:2em;
+    right: 0;
+    box-shadow: -2px 3px 4px rgba(0,0,0,.2);
   }
 }
 .cart-drawer-wrapper{
