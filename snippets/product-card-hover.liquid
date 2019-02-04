@@ -11,6 +11,7 @@
 {% else %}
 <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ product.images.last | img_url: '1000', scale: 1 }}'); background-size: cover;">
 {% endif %}
+{% endfor %}
   {% comment %} {% assign desc =  product.description | split: "<!--ingredients-->" %}
   <p class="strong">{{ product.description | strip_html | truncatewords: 15, '...' }}</p>
   {% if desc != blank %}
