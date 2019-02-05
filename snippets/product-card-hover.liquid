@@ -8,7 +8,7 @@
 {% if forloop.rindex == 2 and product.images.size >= 2 %}
   <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ image | img_url: '1000', scale: 1 }}'); background-size: cover;"></div>
   {% break %}
-{% elsif forloop.last %}
+{% else %}
   <div class='product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ product.images.last | img_url: '1000', scale: 1 }}'); background-size: cover;"></div>
 {% endif %}
 {% endfor %}
