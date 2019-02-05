@@ -7422,6 +7422,11 @@ $toolbar-height-small: 46px;
     margin-bottom: $grid-gutter;
   }
 }
+.chaser{
+  @include media-query($small) {
+    clear: left;
+  }
+}
 
 .collection-grid-item__title {
   color: $color-overlay-title-text;
