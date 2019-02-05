@@ -53,7 +53,11 @@
         <h1 class="product-single__title">{{ product.title }}</h1>
         {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
       </div>
-
+      <div class="yotpo-star-box yotpo">
+        <div class="yotpo bottomLine"
+          data-product-id="{{ product.id }}">
+        </div>
+      </div>
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
         {%- endcomment -%}
