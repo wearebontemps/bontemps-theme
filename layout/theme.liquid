@@ -34,7 +34,7 @@
   {%- if page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
-  
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -97,13 +97,13 @@
 
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127260994-1"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127260994-1"></script>
   <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-127260994-1', { 'optimize_id': 'GTM-TFVZZZV'});
-  </script>
+  </script> -->
   <!--[if (lte IE 9) ]>{{ 'match-media.min.js' | asset_url | script_tag }}<![endif] -->
 
   {%- if template.directory == 'customers' -%}
@@ -135,8 +135,11 @@
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZJG9VZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
-
   <div id="SearchDrawer" class="search-bar drawer drawer--top" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}">
     <div class="search-bar__table">
       <div class="search-bar__table-cell search-bar__form-wrapper">
@@ -159,13 +162,11 @@
 
 
   <div class="page-container" id="PageContainer">
-
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
     {% include 'cart-drawer' %}
     {% section 'footer' %}
-
   </div>
 
 <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/vMVGHTLESgcLeaLKdqm2Jl1VwxRoHLLaj1recjz6/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
@@ -255,9 +256,5 @@
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 </script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZJG9VZ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
