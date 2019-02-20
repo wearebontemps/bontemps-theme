@@ -1,0 +1,6 @@
+{% for tag in product.tags %}
+{% if tag contains "sample" %}
+{% assign product_tag = tag %}
+{% endif %}
+{% endfor %}
+{{ product_tag }}

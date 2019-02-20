@@ -1,9 +1,19 @@
 
-#Pushing 'development will hit the coming soon theme @ https://bontempsdev.myshopify.com/ '
+#old dev (transferred)
+# development:
+#   password: 2d14c5c798951a9445a89e3630a8cb98
+#   theme_id: "32377012318"
+#   store: https://bontempsdev.myshopify.com
+#   ignore_files:
+#   - config/settings_data.json
+#   - theme.lock
+
+
+# New dev store
 development:
-  password: 2d14c5c798951a9445a89e3630a8cb98
-  theme_id: "32377012318"
-  store: https://bontempsdev.myshopify.com
+  password: fea7247a87bd0590ed73847594f02d22
+  theme_id: "46307147824"
+  store: https://bon-temps-dev.myshopify.com
   ignore_files:
   - config/settings_data.json
   - theme.lock
