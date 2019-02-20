@@ -67,8 +67,10 @@
         ></p>
 
         <div class="product-single__description rte">
-          <strong>Description: </strong>{{ product.description }}
+          <strong>Description: </strong>
+          {{ product.description }}
         </div>
+        {% include "samples-helper" %}
         <div class="product-meta d-block d-sm-none">
           <div class="variant-details">
           {% include 'caffeine' %}
@@ -121,7 +123,6 @@
                   </select>
                   <option></option>
                 </div>
-                
               {% endfor %}
             {% endunless %}
 
@@ -183,14 +184,14 @@
             data-image-id="{{ image.id }}"
             {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
               <img id="{{ img_id }}"
-                   class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
-                   src="{{ image | img_url: '300x300' }}"
-                   data-src="{{ img_url }}"
-                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                   data-aspectratio="{{ image.aspect_ratio }}"
-                   data-sizes="auto"
-                   tabindex="-1"
-                   alt="{{ image.alt | escape }}">
+                  class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+                  src="{{ image | img_url: '300x300' }}"
+                  data-src="{{ img_url }}"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="{{ image.aspect_ratio }}"
+                  data-sizes="auto"
+                  tabindex="-1"
+                  alt="{{ image.alt | escape }}">
             </div>
           </div>
         {% endfor %}
