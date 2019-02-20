@@ -5,7 +5,7 @@
 {% endfor %}
 {% for product in collections.samples.products %}
     {% for tag in product.tags %}
-    {% if tag = product_tag %}
+    {% if tag == product_tag %}
     {% assign has_sample = true %}
     {% endif %}
     {% endfor %}
