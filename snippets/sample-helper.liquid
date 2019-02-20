@@ -3,6 +3,13 @@
 {% assign product_tag = tag %}
 {% endif %}
 {% endfor %}
+{% for product in collections.samples.products %}
+    {% for tag in product.tags %}
+    {% if tag = product_tag %}
+    {% assign has_sample = true %}
+    {% endif %}
+    {% endfor %}
+{% endfor %}
 <p class="sample-box">
-{{ product_tag }}
+{{ product_tag }}, {{ has_sample }}
 </p>
