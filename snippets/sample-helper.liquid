@@ -16,19 +16,27 @@
 {{ product_tag }}, <a href="{{sample.url}}">{{ sample.title }}</a>
 </p>
 
-        {% form 'product', sample, class:form_classes, novalidate: 'novalidate' %}
-            {% unless sample.has_only_default_variant %}
-            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if sample.has_only_default_variant %} product-form__item--no-variants{% endif %}">
-            <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless sample.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
-                <span id="AddToCartText-{{ section.id }}">
-                {% unless sample.available %}
-                    {{ 'products.sample.sold_out' | t }}
-                {% else %}
-                    {{ 'products.sample.add_to_cart' | t }}
-                {% endunless %}
-                </span>
-            </button>ß
-                {{ form | payment_button }}
-            </div>
-        {% endform %}
+  {% if sample.available %}
+  <form action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{sample.id}}">
+  {% endif %}
+    <button
+      type="submit"
+      name="add"
+      id="AddToCart-{{ section.id }}"
+      class="btn-submit"
+      data-add-to-cart
+      {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+        <span data-add-to-cart-text>
+          {% if current_variant.available %}
+            {{ 'products.sample.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.sample.sold_out' | t }}
+          {% endif %}
+        </span>
+    </button>
+    {% if sample.available %}
+  </form>
+{% endif %}
+
+
 {% endif %}
