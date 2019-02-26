@@ -15,4 +15,20 @@
 <p class="sample-box">
 {{ product_tag }}, <a href="{{sample.url}}">{{ sample.title }}</a>
 </p>
+
+        {% form 'product', sample, class:form_classes, novalidate: 'novalidate' %}
+            {% unless sample.has_only_default_variant %}
+            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if sample.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+            <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless sample.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                {% unless sample.available %}
+                    {{ 'products.sample.sold_out' | t }}
+                {% else %}
+                    {{ 'products.sample.add_to_cart' | t }}
+                {% endunless %}
+                </span>
+            </button>ß
+                {{ form | payment_button }}
+            </div>
+        {% endform %}
 {% endif %}
