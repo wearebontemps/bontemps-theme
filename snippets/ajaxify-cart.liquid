@@ -93,22 +93,13 @@ Shopify.AjaxifyCart = (function($) {
         console.log("running Cart");
         popCart();
     });
+    $('#sample-adder').click(function(e){
+      var sample_id = $('#sample-adder').attr('sample_id');
+      console.log( sample_id );
+    })
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
         var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
-        //switch (_config.feedbackPosition) {
-        //    case 'aboveForm':
-         //   $addToCartForm.before(feedback);
-           // break;
-            //case 'belowForm':
-         //   $addToCartForm.after(feedback);
-         //   break;
-         //   case 'nextButton':
-         //   default:
-         //   $addToCartForm.find(_config.addToCartBtnSelector).after(feedback);
-        //break;
-    //}
-   //$('.ajaxified-cart-feedback').slideDown();
     popCart();
     };
 var _setText = function($button, label) {
@@ -210,22 +201,12 @@ var _setText = function($button, label) {
     getConfig: function() {
       return _config;
     }
-  }  
+  } 
 })(jQuery);
 
 Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
 
 </script>
-<script type="text/javascript">
-
-</script>
-{% comment %}
-  If you want to animate your feedback message.
-{% endcomment %}
-
-{% comment %}
-{{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css' | stylesheet_tag }}
-{% endcomment %}
 
 {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
 
