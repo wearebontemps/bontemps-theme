@@ -13,6 +13,12 @@
 {% endfor %}
 {% if has_sample %}
 <p class="sample-box">
-<a href="{{sample.url}}">Try a Sample for only {{ sample.price | money }}!</a>
+<a href="{{sample.url}}">
+{% if product.handle contains "sample" %}
+Buy the full version for only {{ sample.price | money }}!
+{% else %}
+Try a Sample for only {{ sample.price | money }}!
+{% endif %}
+</a>
 </p>
 {% endif %}
