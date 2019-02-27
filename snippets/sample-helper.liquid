@@ -3,6 +3,16 @@
 {% assign product_tag = tag %}
 {% endif %}
 {% endfor %}
+{% if product.handle contains "sample" %}
+{% for product in collections.all.products %}
+    {% for tag in product.tags %}
+    {% if tag == product_tag and product.available %}
+    {% assign has_full_size = true %}
+    {% assign full_size = product %}
+    {% endif %}
+    {% endfor %}
+{% endfor %}
+{% else %}
 {% for product in collections.samples.products %}
     {% for tag in product.tags %}
     {% if tag == product_tag and product.available %}
@@ -11,14 +21,17 @@
     {% endif %}
     {% endfor %}
 {% endfor %}
+{% endif %}
 {% if has_sample %}
 <p class="sample-box">
 <a href="{{sample.url}}">
-{% if product.handle contains "sample" %}
-Buy the full version for only {{ sample.price | money }}!
-{% else %}
-Try a Sample for only {{ sample.price | money }}!
-{% endif %}
+Try a sample for only {{ sample.price | money }}!
+</a>
+</p>
+{% elsif has_full_size %}
+<p class="sample-box">
+<a href="{{full_size.url}}">
+Buy the full version for only {{ full_size.price | money }}!
 </a>
 </p>
 {% endif %}
