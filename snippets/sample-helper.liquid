@@ -13,9 +13,6 @@
 {% endfor %}
 {% if has_sample %}
 <p class="sample-box">
-<a href="{{sample.url}}">Try a Sample for only {{ sample.price }}!</a>
+<a href="{{sample.url}}">Try a Sample for only {{ sample.price | money }}!</a>
 </p>
 {% endif %}
-<script type="text/javascript">
-console.log({{ sample }});
-</script>
