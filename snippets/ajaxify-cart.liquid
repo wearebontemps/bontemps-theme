@@ -93,10 +93,6 @@ Shopify.AjaxifyCart = (function($) {
         console.log("running Cart");
         popCart();
     });
-    $('#sample-adder').click(function(e){
-      var sample_id = $('#sample-adder').attr('sample_id');
-      console.log( sample_id );
-    })
     var _showFeedback = function(success, html, $addToCartForm){
         $('.ajaxified-cart-feedback').remove();
         var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';

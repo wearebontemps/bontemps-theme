@@ -13,28 +13,8 @@
 {% endfor %}
 {% if has_sample %}
 <p class="sample-box">
-{{ product_tag }}, {{ sample.variant_id }} <a href="{{sample.url}}">{{ sample.title }}</a>
+{{ product_tag }}, {{ sample.variant_id }} <a href="{{sample.url}}">Try a Sample for only {{ sample.price }}!</a>
 </p>
-
-    <button
-        type="submit"
-        name="add"
-        id="sample-adder"
-        class="btn-submit"
-        sample_id ="{{ sample.id }}"
-        data-add-to-cart
-        {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-        <span data-add-to-cart-text>
-        {% if current_variant.available %}
-            {{ 'products.product.add_to_cart' | t }}
-        {% else %}
-            {{ 'products.product.sold_out' | t }}
-        {% endif %}
-        </span>
-    </button>
-
-
-
 {% endif %}
 <script type="text/javascript">
 console.log({{ sample }});
