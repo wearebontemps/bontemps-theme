@@ -22,7 +22,7 @@
         {% endif %}
     </div>
   </div>
-{% if section.settings.bg_image_mobile %}
+{% if section.settings.bg_image_mobile != blank  %}
     <script type="text/javascript">
     var windowsize = $(window).width();
         $(window).resize(function() {
