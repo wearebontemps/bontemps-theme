@@ -12,7 +12,7 @@
     </div>
 {% endcapture %}
 
-  <div class="image-and-text-box background-section-target" style=" background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
+  <div class="image-and-text-box" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
     <div class="row contained d-flex align-items-center section-inner" style="height: {{ section.settings.section_height | times: 10 }}px">
         {% if section.settings.layout == 'left' %}
             {{ layout }}
@@ -22,7 +22,8 @@
         {% endif %}
     </div>
   </div>
-      <script type="text/javascript">
+{% if section.settings.bg_image_mobile %}
+    <script type="text/javascript">
     var windowsize = $(window).width();
         $(window).resize(function() {
         windowsize = $(window).width();
@@ -45,6 +46,7 @@
         }
         });
     </script>
+{% endif %}
 {% schema %}
 {
     "name": "Image-Column",
