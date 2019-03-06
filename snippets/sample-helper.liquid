@@ -4,7 +4,7 @@
 {% endif %}
 {% endfor %}
 {% if product.handle contains "sample" %}
-{% for product in collections.blends.products %}
+{% for product in collections.singles.products %}
     {% for tag in product.tags %}
     {% if tag == product_tag and product.available %}
     {% assign has_full_size = true %}
