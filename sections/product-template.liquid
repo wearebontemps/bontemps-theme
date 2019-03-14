@@ -154,7 +154,9 @@
                   {% endunless %}
                 </span>
               </button>
+              {% unless product.handle contains "sample" %}
               <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span>
+              {% endunless %}
               {% if section.settings.enable_payment_button %}
                 {{ form | payment_button }}
               {% endif %}
@@ -283,14 +285,14 @@
                   {% endunless %}
                 </span>
               </button>
+              {% unless product.handle contains "sample" %}
               <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span>
-              {% if section.settings.enable_payment_button %}
+              {% endunless %}              {% if section.settings.enable_payment_button %}
                 {{ form | payment_button }}
               {% endif %}
             </div>
           {% endform %}
         </div>
-        <!-- <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span> -->
       </div>
     </div>
   </div>
