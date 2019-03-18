@@ -15,6 +15,15 @@
   </div>
   </div>
 </div>
+{% if section.settings.content_image_mobile != blank %}
+<style>
+@media screen and (max-width: 794px ){
+  .lower.visual-block{
+    background-image: url('{{section.settings.content_image_mobile | img_url: '2000x2000'}}');
+  }
+}
+</style>
+{% endif %}
 {% schema %}
   {
     "name": {
@@ -31,6 +40,11 @@
         "type": "image_picker",
         "id": "content_image",
         "label": "Content Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "content_image_mobile",
+        "label": "Content Image (Mobile)"
       },
       {
         "type": "text",
