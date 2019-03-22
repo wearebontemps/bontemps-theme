@@ -38,10 +38,6 @@
             {% for word in tag_mod %}{{ word }} {% endfor %}
             {% endif %}
             {% endfor %}
-            {% if product.template_suffix contains 'samples' %}
-              {% include 'caffeine' %}
-              {% comment %} {{ product.description | truncate: 140 }} {% endcomment %}
-            {% endif %}
             <span class="sachet-info"></span>
           </p>
         </div>
@@ -53,11 +49,11 @@
     {% assign page_toggle = true %}
     {% endif %}
     {% unless page_toggle == true %}
-    {% comment %} {% if product.template_suffix contains 'samples' %}
+     {% if product.template_suffix contains 'samples' %}
       <div class="sample-meta" style="display: none;">
       {{ product_meta }}
       </div>
-      {% endif %} {% endcomment %}
+      {% endif %}
     <div class="form_{{product.id}}" style="display: none;">
       {% if product.template_suffix contains 'samples' %}
         <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
