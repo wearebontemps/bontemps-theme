@@ -73,9 +73,10 @@
           isMobile = true;
       }
       if (isMobile){
-        $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function (){
+        $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function(){
           $(".add_{{product_id}}").submit();
         })
+        $('.form_{{ product.id }}').addClass('fadeIn');
       }
       {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
