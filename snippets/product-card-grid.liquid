@@ -73,7 +73,7 @@
           isMobile = true;
       }
       if (isMobile){
-        $('#mobile_toggle_product.id').removeAttr('href').attr('onClick','addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");')
+        $('#mobile_toggle_{{product.id}}').removeAttr('href').attr('onClick','addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");')
       }
       {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
