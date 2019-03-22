@@ -44,15 +44,13 @@
       </div>
     </div>
     {% endcapture %}
-    {% unless product.template_suffix contains 'samples' %}
     {{ product_meta }}
-    {% endunless %}
     {% if page.url contains "threesome" %}
     {% assign page_toggle = true %}
     {% endif %}
     {% unless page_toggle == true %}
      {% if product.template_suffix contains 'samples' %}
-      <div class="sample-meta" style="display: none;">
+      <div class="sample-meta" style="display: none; position:relative;">
       {{ product_meta }}
       </div>
       {% endif %}
