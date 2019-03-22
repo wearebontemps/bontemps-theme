@@ -40,7 +40,7 @@
             {% endfor %}
             {% if product.template_suffix contains 'samples' %}
               {% include 'caffeine' %}
-              {{ product.description | truncate: 140 }}
+              {% comment %} {{ product.description | truncate: 140 }} {% endcomment %}
             {% endif %}
             <span class="sachet-info"></span>
           </p>
