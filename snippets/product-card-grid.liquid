@@ -49,11 +49,11 @@
     {% assign page_toggle = true %}
     {% endif %}
     {% unless page_toggle == true %}
-     {% if product.template_suffix contains 'samples' %}
+     {% comment %} {% if product.template_suffix contains 'samples' %}
       <div class="sample-meta" style="display: none;">
       {{ product_meta }}
       </div>
-      {% endif %}
+      {% endif %} {% endcomment %}
     <div class="form_{{product.id}}" style="display: none;">
       {% if product.template_suffix contains 'samples' %}
         <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
