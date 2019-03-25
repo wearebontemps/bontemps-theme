@@ -129,8 +129,9 @@ var _setText = function($button, label) {
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
             _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
-                $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted').addClass('fadeIn');
+                $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
                 _setText($addToCartBtn,_config.addToCartBtnLabel);
+                $('.mobile_form_target').addClass('fadeIn');
             }, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
             $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
