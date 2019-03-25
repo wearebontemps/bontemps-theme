@@ -23,7 +23,7 @@ Shopify.AjaxifyCart = (function($) {
     addedToCartBtnLabel:           'Thank you!',
     addingToCartBtnLabel:          'Adding...',
     soldOutBtnLabel:               'Sold Out',
-    howLongTillBtnReturnsToNormal: 1000, // in milliseconds.
+    howLongTillBtnReturnsToNormal: 10, // in milliseconds.
     cartCountSelector:             '#cart_target',
     cartTotalSelector:             '#cart-price',
     // 'aboveForm' for top of add to cart form, 
@@ -129,10 +129,10 @@ var _setText = function($button, label) {
             $addToCartBtn.addClass('inverted');
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
             _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
-            //window.setTimeout(function(){
-            //   $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
-            //    _setText($addToCartBtn,_config.addToCartBtnLabel);
-            //}, _config.howLongTillBtnReturnsToNormal);
+            window.setTimeout(function(){
+               $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
+                _setText($addToCartBtn,_config.addToCartBtnLabel);
+            }, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
             $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
                 if (_config.cartCountSelector && $(_config.cartCountSelector).size) {
