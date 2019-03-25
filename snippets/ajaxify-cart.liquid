@@ -126,13 +126,13 @@ var _setText = function($button, label) {
             data: $addToCartForm.serialize(),
             success: function(itemData) {
             // Re-enable add to cart button.
-            $addToCartBtn.addClass('inverted');
-            _setText($addToCartBtn, _config.addedToCartBtnLabel);
-            _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
-            window.setTimeout(function(){
-                $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
-                _setText($addToCartBtn,_config.addToCartBtnLabel);
-            }, _config.howLongTillBtnReturnsToNormal);
+            //$addToCartBtn.addClass('inverted');
+            //_setText($addToCartBtn, _config.addedToCartBtnLabel);
+            //_showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
+            //window.setTimeout(function(){
+            //    $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
+            //    _setText($addToCartBtn,_config.addToCartBtnLabel);
+            //}, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
             $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
                 if (_config.cartCountSelector && $(_config.cartCountSelector).size) {
