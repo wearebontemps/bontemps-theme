@@ -18,10 +18,7 @@
         </a>
       {% endif %}
     </div>
-    <div class="product__price price_hover_{{product.id}}">
-      {% include 'product-price', variant: product %}
-    </div>
-  {% endcapture %}
+    {% endcapture %}
   {% unless product.featured_image == blank %}
     {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
@@ -39,13 +36,12 @@
         alt="">
     </div>
   </div>
-{% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
   <noscript>
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
   {% capture product_meta %}
-    <div class="product-meta">
+    <div class="product-meta" style="position: relative">
     <div class="details_{{product.id}}">
       <h4 style="display:block;" class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</h4>
         <div class="variant-details">
@@ -72,7 +68,9 @@
     {% assign page_toggle = true %}
     {% endif %}
     {% unless page_toggle == true %}
-
+<div class="product__price price_hover_{{product.id}}">
+      {% include 'product-price', variant: product %}
+    </div>
   {% endunless %}
 
 
