@@ -41,7 +41,6 @@ Shopify.AjaxifyCart = (function($) {
   // Here it is.
     var buildCart = function(cart){
         var domSelector = $('#cart-drawer-inner');
-        console.log(cart.items);
         domSelector.html('');
         for (i = 0; i < cart.items.length; i++){
             item = cart.items[i];
@@ -130,7 +129,7 @@ var _setText = function($button, label) {
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
             _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
-               $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
+                $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
                 _setText($addToCartBtn,_config.addToCartBtnLabel);
             }, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
