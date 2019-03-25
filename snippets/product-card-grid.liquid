@@ -8,7 +8,7 @@
   {% capture hover_button %}
       <div class="mobile_form_target form_{{product.id}}" style="display: none;">
       {% if product.template_suffix contains 'samples' %}
-        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column;">
+        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column; margin-top: 15px;">
           <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
           <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
         </form>
