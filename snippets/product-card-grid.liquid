@@ -93,7 +93,6 @@
       }
       {% unless page_toggle == true %}
       $('.hover_{{ product.id }}').hover(function() {
-        var w = $( window ).width();
         if ( isMobile == false ){
           $('.form_{{ product.id }}').addClass('fadeIn');
         }
@@ -102,7 +101,6 @@
       });
       {% endunless %}
       $('.bg_hover_{{ product.id }}').hover(function() {
-        var w = $( window ).width();
         if ( isMobile == false ){
           $('.price_hover_{{ product.id }}').hide(0);
         }
