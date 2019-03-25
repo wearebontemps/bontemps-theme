@@ -2,7 +2,9 @@
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
+  {% capture sample_info %}
+  {% include 'caffeine' %}
+  {% endcapture %}
   {% unless product.featured_image == blank %}
     {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
@@ -41,6 +43,9 @@
             <span class="sachet-info"></span>
           </p>
         </div>
+        {% if product.template_suffix contains "samples" %}
+        {{ sample_info }}
+        {% endif %}
       </div>
     </div>
     {% endcapture %}
