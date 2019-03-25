@@ -4,6 +4,8 @@
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
   {% capture sample_info %}
   {% include 'caffeine' %}
+  {% assign words = product.description | split: "{% notes %}" %}
+  {{ words }}
   {% endcapture %}
   {% capture hover_button %}
       <div class="mobile_form_target form_{{product.id}}" style="display: none;">

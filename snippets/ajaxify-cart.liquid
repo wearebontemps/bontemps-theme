@@ -90,7 +90,6 @@ Shopify.AjaxifyCart = (function($) {
     };
      $('#header-cart-opener').click(function(e){
         e.preventDefault();
-        console.log("running Cart");
         popCart();
     });
     var _showFeedback = function(success, html, $addToCartForm){
@@ -152,7 +151,7 @@ var _setText = function($button, label) {
                     }
                     if (newCurrency) {
                     $(_config.cartTotalSelector).html('<span class=money>' + Shopify.formatMoney(Currency.convert(cart.total_price, "{{ shop.currency }}", newCurrency), Currency.money_format[newCurrency]) + '</span>');
-                    } 
+                    }
                     else {
                     $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
                     }
