@@ -952,9 +952,6 @@ $cart-width: 400px;
   top: 0;
   right: -$cart-width;
   width: $cart-width;
-  @include media-query($small) {
-    width: 100vw;
-  }
   height: 100%;
   overflow: auto;
   background: white;
@@ -964,6 +961,9 @@ $cart-width: 400px;
   &.show{
     right: 0;
     box-shadow: -2px 3px 4px rgba(0,0,0,.2);
+    @include media-query($small) {
+      width: 100vw;
+    }
   }
 }
 .update-select{
