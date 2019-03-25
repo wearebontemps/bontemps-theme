@@ -94,8 +94,8 @@
           $('.sample-meta').show();
       }
       if (isMobile){
+        $(' sample-meta-mobile_{{ product.id }}').show();
         $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function(){
-          $(' sample-meta-mobile_{{ product.id }}').show();
           $('.form_{{ product.id }}').addClass('fadeIn');
         })
       }
