@@ -13,13 +13,13 @@
       {%- assign grid_item_width = 'medium-up--one-half' -%}
     {% when 3 %}
       {%- assign max_height = 345 -%}
-      {%- assign grid_item_width = 'one-half medium-up--one-third' -%}
+      {%- assign grid_item_width = 'medium-up--one-third' -%}
     {% when 4 %}
       {%- assign max_height = 250 -%}
-      {%- assign grid_item_width = 'one-half medium-up--one-quarter' -%}
+      {%- assign grid_item_width = 'medium-up--one-quarter' -%}
     {% when 5 %}
       {%- assign max_height = 195 -%}
-      {%- assign grid_item_width = 'one-half medium-up--one-fifth' -%}
+      {%- assign grid_item_width = 'medium-up--one-fifth' -%}
   {% endcase %}
 
   {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
