@@ -167,13 +167,9 @@ var _setText = function($button, label) {
             response = response.description;
             if (response.slice(0,4) === 'All ') {
                 _showFeedback('error', response.replace('All 1 ', 'All '), $addToCartForm);
-                $addToCartBtn.prop('disabled', false);
-                _setText($addToCartBtn, _config.soldOutBtnLabel);
-                $addToCartBtn.prop('disabled',true);
             }
             else {
                 _showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
-               
             }
         }
         });
