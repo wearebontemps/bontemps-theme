@@ -10,7 +10,7 @@
   {% capture hover_button %}
       <div class="mobile_form_target form_{{product.id}}" style="display: none;">
       {% if product.template_suffix contains 'samples' %}
-        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column; margin-top: 15px;">
+        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column; margin-top: 8px;">
           <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
           <input type="submit" value="Add To Cart" class="btn cart_updater" style="margin: -.5em 1em 1.5em;" />
         </form>
@@ -27,9 +27,9 @@
   {% endunless %}
 
   <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
-    <div class="sample-meta-mobile" style="display:none">
-        {{ sample_info }}
-        </div>
+    <div class="sample-meta-mobile sample-meta-mobile_{{ product.id }}" style="display:none">
+      {{ sample_info }}
+    </div>
     {% include 'product-card-hover' %}
     <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
@@ -95,7 +95,7 @@
       }
       if (isMobile){
         $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function(){
-          $('.sample-meta-mobile').show();
+          $(' sample-meta-mobile_{{ product.id }}').show();
         })
         $('.form_{{ product.id }}').addClass('fadeIn');
       }
