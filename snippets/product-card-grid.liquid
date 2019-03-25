@@ -3,11 +3,9 @@
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
   {% capture sample_info %}
-  <div class="sample-meta" style="display: none;">
   {% include 'caffeine' %}
   {% assign words = product.description | split: "<!--notes-->" %}
   {{ words[1] }}
-  </div>
   {% endcapture %}
   {% capture hover_button %}
       <div class="mobile_form_target form_{{product.id}}" style="display: none;">
@@ -23,11 +21,15 @@
       {% endif %}
     </div>
     {% endcapture %}
+
   {% unless product.featured_image == blank %}
     {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
 
   <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
+    <div class="sample-meta-mobile" style="display:none">
+        {{ sample_info }}
+        </div>
     {% include 'product-card-hover' %}
     <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
@@ -61,7 +63,9 @@
           </p>
         </div>
         {% if product.template_suffix contains "samples" %}
+        <div class="sample-meta"  style="display:none">
         {{ sample_info }}
+        </div>
         {% endif %}
       </div>
       {{ hover_button }}
@@ -91,7 +95,7 @@
       }
       if (isMobile){
         $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function(){
-          $(".add_{{product_id}}").submit();
+          $('.sample-meta-mobile').show();
         })
         $('.form_{{ product.id }}').addClass('fadeIn');
       }
