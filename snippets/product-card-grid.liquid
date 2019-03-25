@@ -5,7 +5,7 @@
   {% capture sample_info %}
   {% include 'caffeine' %}
   {% assign words = product.description | split: "<!--notes-->" %}
-  {{ words }}
+  {{ words[1] }}
   {% endcapture %}
   {% capture hover_button %}
       <div class="mobile_form_target form_{{product.id}}" style="display: none;">
