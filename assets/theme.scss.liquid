@@ -7915,12 +7915,12 @@ $toolbar-height-small: 46px;
   animation-fill-mode: both;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-  display: block !important;
+  display: block;
   position: absolute;
   background: white;
   width: 100%;
   bottom: 0px;
-  padding: 1em .5em 0;
+  // padding: 1em .5em 0;
   margin: 0;
 }
 .product-card-overlay-copy{
@@ -7932,6 +7932,11 @@ $toolbar-height-small: 46px;
   padding: 2em;
   text-align: center;
   z-index: 3;
+}
+.cart-add-to-cart.fadeIn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 // Instagram feed ================================================/
 #evm-insta {
