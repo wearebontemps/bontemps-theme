@@ -173,8 +173,7 @@ var _setText = function($button, label) {
             }
             else {
                 _showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
-                $addToCartBtn.prop('disabled', false).removeClass('disabled');
-                _setText($addToCartBtn, _config.addToCartBtnLabel);
+               
             }
         }
         });
