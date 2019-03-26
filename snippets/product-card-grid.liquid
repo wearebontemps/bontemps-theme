@@ -96,8 +96,13 @@
       if (isMobile){
         $('.sample-meta').show();
         $('#mobile_toggle_{{product.id}}').removeAttr('href').click(function(){
-          $('.form_{{ product.id }}').addClass('fadeIn');
-          $('.bg_hover_{{ product.id }}').css('opacity', '1');
+          if($('.form_{{ product.id }}').hasClass('fadeIn');){
+            $('.form_{{ product.id }}').removeClass('fadeIn');
+            $('.bg_hover_{{ product.id }}').css('opacity', '0');
+          } else {
+            $('.form_{{ product.id }}').addClass('fadeIn');
+            $('.bg_hover_{{ product.id }}').css('opacity', '1');
+          }
         })
       }
       {% unless page_toggle == true %}
