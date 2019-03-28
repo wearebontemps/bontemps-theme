@@ -1,8 +1,8 @@
 {% capture layout %}
     <div class="col-sm-10 d-flex flex-column align-items-start justify-content-center text-container">
         <div>
-            <h1>{{ section.settings.text_1 }}</h1>
-            <p>{{ section.settings.text_2 }}</p>
+            <h1 {% if section.settings.font_color %} style="color:{{ section.settings.font_color }} !important;"{% endif %}>{{ section.settings.text_1 }}</h1>
+            <p {% if section.settings.font_color %} style="color:{{ section.settings.font_color }} !important;"{% endif %}>{{ section.settings.text_2 }}</p>
         </div>
         <ul>
         {% for block in section.blocks %}
@@ -67,6 +67,22 @@
     "type": "image_picker",
     "id": "bg_image",
     "label": "Background Image"
+    },
+    {
+    "type": "select",
+    "id": "font_color",
+    "label": "Font Color",
+    "options": [
+        {
+            "value": "#ffffff",
+            "label": "white"
+        },
+        {
+            "value": "#3c3d4b",
+            "label": "gray"
+        }
+    ],
+    "default": "gray"
     },
     {
     "type": "select",
