@@ -1,0 +1,53 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="section-inner d-flex justify-content-center">
+  <div class="row contained">
+    <div class="col-sm-6 offset-sm-3 d-flex flex-column align-items-center justify-content-center text-center">
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.text }}
+        <a class="btn" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Subscription Flow CTA"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Give $20 Get $20"
+    },
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "text",
+    "default": "<p>Let's get started!</p>"
+    },
+    {
+    "type": "text",
+    "id": "cta_text",
+    "label": "Button Text",
+    "default": "Send Invite"
+    },
+    {
+    "type": "url",
+    "id": "cta_link",
+    "label": "Button Link"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Subscription Flow Start",
+    "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
