@@ -2,13 +2,10 @@
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
 <div class="section-inner gradient-bg">
-  <div class="row ">
-    <div class="d-flex flex-column align-items-center justify-content-center text-center">
-        <h2>{{ section.settings.title }}</h2>
-        {{ section.settings.text }}
-    </div>
-  </div>
   <div class="row">
+  <div class="col-12 row-80">
+    {{ serction.settings.text }}
+  </div>
     <div class="col-sm-4">
       <h3>{{ section.settings.col_1_title }}</h3>\
       <h4 class="text-center">{{ section.settings.col_1_content }}</h4>
@@ -31,16 +28,10 @@
   },
   "settings": [
     {
-    "type": "text",
-    "id": "title",
-    "label": "Section Title",
-    "default": "Give $20 Get $20"
-    },
-    {
     "type": "richtext",
     "id": "text",
     "label": "text",
-    "default": "<p>Let's get started!</p>"
+    "default": "Intro Content"
     },
     {
     "type": "text",
