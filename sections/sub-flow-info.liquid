@@ -6,9 +6,20 @@
     <div class="d-flex flex-column align-items-center justify-content-center text-center">
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
-        <a class="btn" href="#">
-        <span>{{ section.settings.cta_text }}</span>
-        </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>{{ section.settings.col_1_title }}</h3>\
+      <h4 class="text-center">{{ section.settings.col_1_content }}</h4>
+    </div>
+    <div class="col-sm-4">
+      <h3>{{ section.settings.col_2_title }}</h3>
+      <h4 class="text-center">{{ section.settings.col_2_content }}</h4>
+    </div>
+    <div class="col-sm-4">
+      <h3>{{ section.settings.col_3_title }}</h3>
+      <h4 class="text-center">{{ section.settings.col_3_content }}</h4>
     </div>
   </div>
 </div>
@@ -33,9 +44,33 @@
     },
     {
     "type": "text",
-    "id": "cta_text",
-    "label": "Button Text",
-    "default": "Send Invite"
+    "id": "col_1_title",
+    "label": "column 1 title",
+    },
+    {
+    "type": "richtext",
+    "id": "col_1_content",
+    "label": "column 1 text",
+    },
+    {
+    "type": "text",
+    "id": "col_2_title",
+    "label": "column 2 title",
+    },
+    {
+    "type": "richtext",
+    "id": "col_2_content",
+    "label": "column 2 text",
+    },
+    {
+    "type": "text",
+    "id": "col_3_title",
+    "label": "column 3 title",
+    },
+    {
+    "type": "richtext",
+    "id": "col_3_content",
+    "label": "column 3 text",
     }
   ],
     "presets": [
