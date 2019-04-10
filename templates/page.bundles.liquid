@@ -60,7 +60,7 @@ $(document).on("cart.requestComplete", function(event, cart) {
             product_id_3 = id;
             checkFull();
         }
-       $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
+        $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
 
     };
     function removeProduct(loc){
@@ -131,20 +131,20 @@ $(document).on("cart.requestComplete", function(event, cart) {
 </div>
 <div id="bundle_anchor" class="row" style="margin: 1em 0;">
     <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-    <p>Tea One</p>
-    <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
+        <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
+        <p>Tea One</p>
+        <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
+        </div>
+        <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+        <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
+        <p>Tea Two</p>
+        <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
+        </div>
+        <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+        <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
+        <p>Tea Three</p>
+        <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
     </div>
-    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-    <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
-    <p>Tea Two</p>
-    <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
-    </div>
-    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-    <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
-    <p>Tea Three</p>
-    <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
-  </div>
 </div>
 
 <ul class="grid grid--uniform  grid--view-items">

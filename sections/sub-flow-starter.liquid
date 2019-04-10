@@ -1,6 +1,115 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
+{% capture logic_script %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
+<script type="text/javascript">
+$(document).on("cart.requestStarted", function(event, cart) {
+    console.log("started");
+    });
+    $(document).on("cart.ready", function(event, cart) {
+    console.log("Cart Ready");
+    });
+$(document).on("cart.requestComplete", function(event, cart) {
+    });
+</script>
+<script>
+    var product_text_1 = $("#selected_product_1");
+    var product_text_2 = $("#selected_product_2");
+    var product_text_3 = $("#selected_product_3");
+    console.log(product_text_1)
+</script>
+<script>
+    var product_id_1 = null ;
+    var product_id_2 = null;
+    var product_id_3 = null;
+    var id_array = [];
+    function checkFull(){
+        if(product_id_1 != null && product_id_2 != null && product_id_3 != null){
+            $('#bundle-adder-btn').fadeIn(200);
+        } else {
+            $('#bundle-adder-btn').fadeOut(200);
+        }
+    }
+    function addProduct(id, title){
+        console.log(id, title);
+        var title = title;
+        if ($("#selected_product_1").text() == "" ){
+            $("#selected_product_1").text(title);
+            product_id_1 = id;
+            checkFull();
+        } else if ($("#selected_product_2").text() == ""){
+            $("#selected_product_2").text(title);
+            product_id_2 = id;
+            checkFull();
+        } else {
+            $("#selected_product_3").text(title);
+            product_id_3 = id;
+            checkFull();
+        }
+        $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
+
+    };
+    function removeProduct(loc){
+        if (loc == "1"){
+            $("#selected_product_1").text("");
+            product_id_1 = null;
+            checkFull();
+        } else if (loc == "2"){
+            $("#selected_product_2").text("");
+            product_id_2 = null;
+            checkFull();
+        } else if (loc == "3"){
+            $("#selected_product_3").text("");
+            product_id_3 = null;
+            checkFull();
+        }
+    };
+    function bundle() {
+        id_array = [];
+        if (product_id_1 != undefined && product_id_1 != null){
+            id_array.push(product_id_1);
+        }
+        if (product_id_2 != undefined && product_id_2 != null){
+            id_array.push(product_id_2);
+        }
+        if (product_id_3 != undefined && product_id_3 != null){
+            id_array.push(product_id_3);
+        }
+        console.log(id_array);
+        if(id_array.length == 3 ){
+            async.each(id_array, function(id, next){
+                CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
+                    "complete": function() {
+                        console.log("complete!");
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
+                    console.log("No Errors");
+                    window.location = "/checkout";
+                }
+            })
+        } else {
+            alert("Please add more items to your bundle");
+        }
+    };
+
+</script>
+
+{% endcapture %}
+
+
+
+
 <div class="section-inner d-flex justify-content-center">
   <div class="row ">
     <div class="d-flex flex-column align-items-center justify-content-center text-center">
@@ -17,9 +126,40 @@
     <div style="clear: both;" class="row d-flex">
       <div class="col-12">
         <h2>All the Subsciption Content.</h2>
+        <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
+          <button  id="bundle-adder-btn" style="display:none;" class="btn btn-large" type="button" onClick="bundle()">Add Bundle to Cart</button>
+          </div>
+          <div id="bundle_anchor" class="row" style="margin: 1em 0;">
+              <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                  <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
+                  <p>Tea One</p>
+                  <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
+                  </div>
+                  <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                  <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
+                  <p>Tea Two</p>
+                  <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
+                  </div>
+                  <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                  <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
+                  <p>Tea Three</p>
+                  <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
+              </div>
+          </div>
+          <ul class="grid grid--uniform  grid--view-items">
+          {%- assign max_height = 345 -%}
+          {%- assign grid_item_width = "one-half medium-up--one-third" -%}
+          {% for product in collections.samples.products %}
+              <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
+              {% include "product-card-grid-bundles", max_height: max_height %}
+              </li>
+          {% endfor %}
+          </ul>
+          </div>
       </div>
     </div>
 </div>
+{{ logic_script }}
 {{ 'subscription-flow-script.js' | asset_url | script_tag }}
 {% schema %}
 {
