@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    {% if page.url contains "threesome" %}
+    {% if page.url contains "threesome" or page.template_suffix contains "subscription-flow" %}
     {% assign page_toggle = true %}
     {% endif %}
     {% if page_toggle == true %}
