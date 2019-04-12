@@ -34,8 +34,9 @@ $(document).on("cart.requestComplete", function(event, cart) {
     function nextView(pos){
         if (pos < 4 && pos > 0){
             index = pos + 1;
-            $('.takeover_' + pos).fadeOut(200);
-            $('.takeover_' + index).fadeIn(200);
+            $('.takeover_' + pos).fadeOut(0);
+            $('.takeover_' + index).fadeIn(300);
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         } else {
             return
         }
@@ -43,8 +44,9 @@ $(document).on("cart.requestComplete", function(event, cart) {
     function prevView(pos){
         if (pos < 4 && pos > 0){
             index = pos - 1;
-            $('.takeover_' + pos).fadeOut(200);
-            $('.takeover_' + index).fadeIn(200);
+            $('.takeover_' + pos).fadeOut(0);
+            $('.takeover_' + index).fadeIn(300);
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         } else {
             return
         }
