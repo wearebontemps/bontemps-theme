@@ -31,26 +31,6 @@ $(document).on("cart.requestComplete", function(event, cart) {
             $('#bundle-adder-btn').fadeOut(200);
         }
     }
-    function nextView(pos){
-        if (pos < 4 && pos > 0){
-            index = pos + 1;
-            $('.takeover_' + pos).fadeOut(0);
-            $('.takeover_' + index).fadeIn(300);
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-        } else {
-            return
-        }
-    }
-    function prevView(pos){
-        if (pos < 4 && pos > 0){
-            index = pos - 1;
-            $('.takeover_' + pos).fadeOut(0);
-            $('.takeover_' + index).fadeIn(300);
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-        } else {
-            return
-        }
-    }
     function addProduct(id, title){
         console.log(id, title);
         var title = title;
@@ -122,7 +102,29 @@ $(document).on("cart.requestComplete", function(event, cart) {
             alert("Please add more items to your bundle");
         }
     };
+    function nextView(pos){
+        if (pos < 3 && pos > 0){
+            index = pos + 1;
+            $('.takeover_' + pos).fadeOut(0);
+            $('.takeover_' + index).fadeIn(300);
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        } else {
+            return
+        }
+    }
+    function prevView(pos){
+        if (pos < 3 && pos > 0){
+            index = pos - 1;
+            $('.takeover_' + pos).fadeOut(0);
+            $('.takeover_' + index).fadeIn(300);
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        } else {
+            return
+        }
+    }
+    function finalizeSub(){
 
+    }
 </script>
 
 {% endcapture %}
@@ -190,23 +192,42 @@ $(document).on("cart.requestComplete", function(event, cart) {
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
                     <p>Once a Week</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
-                    </div>
-                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                </div>
+                <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
                     <p>Twice a Day</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
-                    </div>
-                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                </div>
+                <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
                     <p>Thrice</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
                 </div>
             </div>
             </div>
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                 <button  id="bundle-adder-btn" style="" class="btn btn-large" type="button" onClick="prevView(2)">Go Back</button>
                 <button  id="bundle-adder-btn" style="" class="btn btn-large" type="button" onClick="nextView(2)">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="takeover takeover_3">
+    <a style="float: right; padding: 2em;" href="#" class="takeover_closer">X close</a>
+    <div style="clear: both;" class="row d-flex">
+        <div class="col-12">
+            <h2 class="text-orange text-center">Third Panel</h2>
+            <h4 class="text-orange text-center">Summary</h4>
+            <div id="bundle_anchor" class="row" style="margin: 1em 0;">
+                <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
+                    <p>Once a Week</p>
+                </div>
+                <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
+                    <p>Twice a Day</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
+                <button  id="bundle-adder-btn" style="" class="btn btn-large" type="button" onClick="prevView(3)">Go Back</button>
             </div>
         </div>
     </div>
