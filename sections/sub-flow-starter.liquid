@@ -113,7 +113,7 @@ $(document).on("cart.requestComplete", function(event, cart) {
         }
     }
     function prevView(pos){
-        if (pos < 3 && pos > 0){
+        if (pos < 4 && pos > 0){
             index = pos - 1;
             $('.takeover_' + pos).fadeOut(0);
             $('.takeover_' + index).fadeIn(300);
