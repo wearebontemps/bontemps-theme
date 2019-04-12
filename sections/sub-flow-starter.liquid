@@ -31,6 +31,24 @@ $(document).on("cart.requestComplete", function(event, cart) {
             $('#bundle-adder-btn').fadeOut(200);
         }
     }
+    function nextView(pos){
+        if (pos < 4 && pos > 0){
+            index = pos + 1;
+            $('.takeover_' + pos).fadeOut(200);
+            $('.takeover_' + index).fadeIn(200);
+        } else {
+            return
+        }
+    }
+    function prevView(pos){
+        if (pos < 4 && pos > 0){
+            index = pos - 1;
+            $('.takeover_' + pos).fadeOut(200);
+            $('.takeover_' + index).fadeIn(200);
+        } else {
+            return
+        }
+    }
     function addProduct(id, title){
         console.log(id, title);
         var title = title;
@@ -111,53 +129,82 @@ $(document).on("cart.requestComplete", function(event, cart) {
 
 
 <div class="section-inner d-flex justify-content-center">
-  <div class="row ">
-    <div class="d-flex flex-column align-items-center justify-content-center text-center">
-        <h2>{{ section.settings.title }}</h2>
-        {{ section.settings.text }}
-        <a id="subscription_start" class="btn" href="#">
-        <span>{{ section.settings.cta_text }}</span>
-        </a>
+    <div class="row ">
+        <div class="d-flex flex-column align-items-center justify-content-center text-center">
+            <h2>{{ section.settings.title }}</h2>
+            {{ section.settings.text }}
+            <a id="subscription_start" class="btn" href="#">
+            <span>{{ section.settings.cta_text }}</span>
+            </a>
+        </div>
     </div>
-  </div>
 </div>
-<div class="takeover">
+<div class="takeover takeover_1">
     <a style="float: right; padding: 2em;" href="#" id="takeover_closer">X close</a>
     <div style="clear: both;" class="row d-flex">
-      <div class="col-12">
-        <h2 class="text-orange text-center">Pick 3 Tea Blends</h2>
-        <h4 class="text-orange text-center">Select three tea blends for free</h4>
-          <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
-            <button  id="bundle-adder-btn" style="display:none;" class="btn btn-large" type="button" onClick="next_view()">Next</button>
-          </div>
-          <div id="bundle_anchor" class="row" style="margin: 1em 0;">
-              <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                  <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-                  <p>Tea One</p>
-                  <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
-                  </div>
-                  <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                  <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
-                  <p>Tea Two</p>
-                  <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
-                  </div>
-                  <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                  <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
-                  <p>Tea Three</p>
-                  <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
-              </div>
-          </div>
-          <ul class="grid grid--uniform  grid--view-items">
-          {%- assign max_height = 345 -%}
-          {%- assign grid_item_width = "one-half medium-up--one-third" -%}
-          {% for product in collections.samples.products %}
-              <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
-              {% include "product-card-grid-bundles", max_height: max_height %}
-              </li>
-          {% endfor %}
-          </ul>
-          </div>
-      </div>
+        <div class="col-12">
+            <h2 class="text-orange text-center">Don't commit unless you love it.</h2>
+            <h4 class="text-orange text-center">Select three tea blends for free</h4>
+            <div id="bundle_anchor" class="row" style="margin: 1em 0;">
+                <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
+                    <p>Tea One</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
+                    <p>Tea Two</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
+                    <p>Tea Three</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
+                </div>
+            </div>
+            <ul class="grid grid--uniform  grid--view-items">
+            {%- assign max_height = 345 -%}
+            {%- assign grid_item_width = "one-half medium-up--one-third" -%}
+            {% for product in collections.samples.products %}
+                <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
+                {% include "product-card-grid-bundles", max_height: max_height %}
+                </li>
+            {% endfor %}
+            </ul>
+            </div>
+            <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
+                <button  id="bundle-adder-btn" style="display:none;" class="btn btn-large" type="button" onClick="next_view(1)">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="takeover takeover_2">
+    <a style="float: right; padding: 2em;" href="#" id="takeover_closer">X close</a>
+    <div style="clear: both;" class="row d-flex">
+        <div class="col-12">
+            <h2 class="text-orange text-center">Second Panel</h2>
+            <h4 class="text-orange text-center">Select three tea blends for free</h4>
+            <div id="bundle_anchor" class="row" style="margin: 1em 0;">
+                <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
+                    <p>Once a Week</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
+                    <p>Twice a Day</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                    <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
+                    <p>Thrice</p>
+                    <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
+                </div>
+            </div>
+            </div>
+            <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
+                <button  id="bundle-adder-btn" style="display:none;" class="btn btn-large" type="button" onClick="next_view(2)">Next</button>
+            </div>
+        </div>
     </div>
 {{ logic_script }}
 {{ 'subscription-flow-script.js' | asset_url | script_tag }}
