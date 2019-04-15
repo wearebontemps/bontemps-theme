@@ -73,7 +73,7 @@
             id_array.push(product_id_3);
         }
         console.log(id_array);
-        buildOverview();
+        buildOverview(id_array;
     };
     function selectInterval(interval){
         if (interval == 1 ){
@@ -133,14 +133,13 @@
             });
         } );
     };
-    var buildOverview = function(cart){
+    var buildOverview = function(ids){
         var domSelector = $('#sub-flow-cart');
         domSelector.html('');
-        for (i = 0; i < cart.items.length; i++){
-            item = cart.items[i];
-            var indexPlus = i + 1;
-            var str = item.line_price.toString();
-            var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
+        for (i = 0; i < ids; i++){
+            {% assign item = i %}
+            console.log({{ item }})
+            {% comment %} var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
             console.log(item, priceFormatted);
             domSelector.append(
                 '<div class="row" style="margin: .25em auto;">'+
@@ -156,7 +155,7 @@
                 '</div>' +
                 '</div>' +
                 '</div>'
-                );
+                ); {% endcomment %}
         }
     };
 </script>
