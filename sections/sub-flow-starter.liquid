@@ -27,8 +27,8 @@
             $('#bundle-adder-btn').fadeOut(200);
         }
     }
-    function addProduct(id, title){
-        console.log(id, title);
+    function addProduct(id, title, tags){
+        console.log(id, title, tags);
         var title = title;
         if ($("#selected_product_1").text() == "" ){
             $("#selected_product_1").text(title);
@@ -44,7 +44,6 @@
             checkFull();
         }
         $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
-
     };
     function removeProduct(loc){
         if (loc == "1"){
@@ -173,9 +172,6 @@
         jQuery.getJSON('/cart.js', function(cart) {
             var sbt = cart.total_price.toString();
             var subtotalFormatted ='$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2);
-            // now have access to Shopify cart object
-            $('#cart_target').text(cart.item_count);
-            $('.cart__subtotal').text(subtotalFormatted);
             buildOverview(cart);
         } );
     };
