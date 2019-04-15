@@ -222,7 +222,7 @@
             {%- assign grid_item_width = "one-half medium-up--one-third" -%}
             {% for product in collections.samples.products %}
                 <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
-                {% include "product-card-grid-bundles", max_height: max_height %}
+                {% include "product-card-grid-samples", max_height: max_height %}
                 </li>
             {% endfor %}
             </ul>

@@ -1,4 +1,5 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
+{% include 'subscription-sample-helper' %}
 <div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -50,7 +51,7 @@
     {% if page_toggle == true %}
     <div class="form_{{product.id}}" style="display: none;">
     <div style="width: 100%; text-align: center;">
-      <button  style="margin: 1em auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}"), "{{ product.tags[0] }}";' id="bundle_adder_{{ product.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %}><span id="AddToCartText-{{ section.id }}">
+      <button  style="margin: 1em auto 1em; max-width: 180px;" type="button" class="btn" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}"), "{{ fullSizeID }}";' id="bundle_adder_{{ product.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %}><span id="AddToCartText-{{ section.id }}">
         {% unless current_variant.available %}
           {{ 'products.product.sold_out' | t }}
         {% else %}
