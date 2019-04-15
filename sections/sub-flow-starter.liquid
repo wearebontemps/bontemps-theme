@@ -119,7 +119,6 @@
         var domSelector = $('#sub-flow-cart');
         domSelector.html('');
         for (i = 0; i < cart.items.length ; i++){
-            console.log('js:', ids[i])
             item = cart.items[i];
             var str = item.line_price.toString();
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
@@ -148,7 +147,7 @@
             // now have access to Shopify cart object
             $('#cart_target').text(cart.item_count);
             $('.cart__subtotal').text(subtotalFormatted);
-            console.log('cart')
+            console.log(cart)
             buildOverview(cart);
         } );
     };
