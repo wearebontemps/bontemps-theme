@@ -30,13 +30,12 @@ Shopify.AjaxifyCart = (function($) {
     // 'belowForm' for below the add to cart form, and 
     // 'nextButton' for next to add to cart button.
     feedbackPosition:              'nextButton',
-    
     // What you will never need to change
     addToCartBtnSelector:          '[type="submit"]',
     addToCartFormSelector:         'form[action="/cart/add"]',
     shopifyAjaxAddURL:             '/cart/add.js',
     shopifyAjaxCartURL:            '/cart.js'
-  };
+    };
   // We need some feedback when adding an item to the cart.
   // Here it is.
     var buildCart = function(cart){
