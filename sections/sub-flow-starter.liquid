@@ -137,8 +137,7 @@
         var domSelector = $('#sub-flow-cart');
         domSelector.html('');
         for (i = 0; i < ids; i++){
-            {% assign item = i %}
-            console.log({{ item }})
+            console.log(id[i])
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
             console.log(item, priceFormatted);
             domSelector.append(
