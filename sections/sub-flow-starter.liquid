@@ -89,8 +89,11 @@
         }
         console.log('ids:', id_array, 'full-size:', full_size_array);
         if(id_array.length == 3 ){
+            var shipping_interval_frequency = "1";
+            var shipping_interval_unit_type = "Month";
+            var variant_id = "223"
             async.each(id_array, function(id, next){
-                function addItemToCart (id, 1, "1", "Month", "223") {
+                function addItemToCart (id, 1, shipping_interval_frequency, shipping_interval_unit_type, subscription_id) {
                 data = {
                     "quantity": quantity,
                     "id": variant_id,
