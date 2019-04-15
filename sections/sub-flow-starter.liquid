@@ -87,7 +87,7 @@
         if (product_full_3 != undefined && product_full_3 != null){
             full_size_array.push(product_full_3);
         }
-        console.log(id_array, full_size_array);
+        console.log('ids:', id_array, 'full-size:', full_size_array);
         if(id_array.length == 3 ){
             async.each(id_array, function(id, next){
                 CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
@@ -111,11 +111,11 @@
         } else {
             alert("Please add more items to your bundle (samples)");
         }
-        if(full_size_array.length == 3 ){
+        if (full_size_array.length == 3 ){
             async.each(full_size_array, function(id, next){
                 CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
                     "complete": function() {
-                        console.log("complete!");
+                        console.log("2 complete!");
                     },
                     "success": function(data, textStatus, jqXHR){
                         next();
