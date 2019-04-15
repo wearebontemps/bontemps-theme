@@ -136,7 +136,7 @@
     var buildOverview = function(ids){
         var domSelector = $('#sub-flow-cart');
         domSelector.html('');
-        for (i = 0; i < ids; i++){
+        for (i = 0; i < ids.length ; i++){
             console.log(ids[i])
             {% assign currentID = ids[i] %}
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
