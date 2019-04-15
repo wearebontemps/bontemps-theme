@@ -6,9 +6,7 @@
 {% for product in collections.singles.products %}
     {% for tag in product.tags %}
     {% if tag == product_tag and product.available %}
-    {% assign has_full_size = true %}
-    {% assign full_size = product %}
+    {% assign full_size = product.id %}
     {% endif %}
     {% endfor %}
 {% endfor %}
-{% assign fullSizeID = full_size.id %}
