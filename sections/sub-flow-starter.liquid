@@ -18,6 +18,7 @@
     var product_id_1 = null ;
     var product_id_2 = null;
     var product_id_3 = null;
+    var subscriptionInterval = null;
     var id_array = [];
     function checkFull(){
         if(product_id_1 != null && product_id_2 != null && product_id_3 != null){
@@ -97,6 +98,26 @@
             alert("Please add more items to your bundle");
         }
     };
+
+///SET INTERVALS
+    $('.interval-selector').click(e){
+        e.preventDefault();
+    }
+    function selectInterval(interval){
+        if (interval == 1 ){
+            subscriptionInterval = 1;
+            console.log(subscriptionInterval)
+        } else if ( interval == 2 ){
+            subscriptionInterval = 2;
+            console.log(subscriptionInterval)
+        } else if (interval == 3 ){
+            subscriptionInterval = 3;
+            console.log(subscriptionInterval)
+        } else {
+            alert('Please Select an Interval')
+        }
+    }
+
     function nextView(pos){
         if (pos < 3 && pos > 0){
             index = pos + 1;
@@ -185,22 +206,22 @@
             <h4 class="text-orange text-center">Select three tea blends for free</h4>
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                <a href="#" class="interval-selector interval_selector_1" onClick="selectInterval(1)">
                     <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-                    <div class="radio">
-                    <label><input type="radio" name="optradio" checked>Once a Week</label>
-                    </div>
+                    <p>Once a Week</p>
+                </a>
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                <a href="#" class="interval-selector interval_selector_2" onClick="selectInterval(2)">
                     <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
-                    <div class="radio">
-                    <label><input type="radio" name="optradio">Twice a Day</label>
-                    </div>
+                    <p>Twice a Day</p>
+                </a>
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
+                <a href="#" class="interval-selector interval_selector_2" onClick="selectInterval(3)">
                     <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
-                    <div class="radio">
-                    <label><input type="radio" name="optradio">Thrice</label>
-                    </div>
+                    <p>Thrice</p>
+                </a>
                 </div>
             </div>
             </div>
