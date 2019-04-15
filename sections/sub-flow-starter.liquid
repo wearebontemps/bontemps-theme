@@ -18,6 +18,9 @@
     var product_id_1 = null;
     var product_id_2 = null;
     var product_id_3 = null;
+    var product_full_1 = null;
+    var product_full_2 = null;
+    var product_full_3 = null;
     var subscriptionInterval = null;
     var id_array = [];
     function checkFull(){
@@ -27,20 +30,23 @@
             $('#bundle-adder-btn').fadeOut(200);
         }
     }
-    function addProduct(id, title, tags){
-        console.log(id, title, tags);
+    function addProduct(id, title, tag){
+        console.log(id, title, tag);
         var title = title;
         if ($("#selected_product_1").text() == "" ){
             $("#selected_product_1").text(title);
             product_id_1 = id;
+            product_full_1 = tag;
             checkFull();
         } else if ($("#selected_product_2").text() == ""){
             $("#selected_product_2").text(title);
             product_id_2 = id;
+            product_full_2 = tag;
             checkFull();
         } else {
             $("#selected_product_3").text(title);
             product_id_3 = id;
+            product_full_3 = tag;
             checkFull();
         }
         $("html, body").animate({ scrollTop: $("#bundle_anchor").offset().top -380}, 800);
@@ -62,6 +68,7 @@
     };
     function bundleOverview() {
         id_array = [];
+        full_size_array = [];
         if (product_id_1 != undefined && product_id_1 != null){
             id_array.push(product_id_1);
         }
@@ -71,7 +78,16 @@
         if (product_id_3 != undefined && product_id_3 != null){
             id_array.push(product_id_3);
         }
-        console.log(id_array);
+        if (product_full_1 != undefined && product_full_1 != null){
+            full_size_array.push(product_full_1);
+        }
+        if (product_full_2 != undefined && product_full_2 != null){
+            full_size_array.push(product_full_2);
+        }
+        if (product_full_3 != undefined && product_full_3 != null){
+            full_size_array.push(product_full_3);
+        }
+        console.log(id_array, full_size_aray);
         if(id_array.length == 3 ){
             async.each(id_array, function(id, next){
                 CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
@@ -89,12 +105,35 @@
             },
             function(error){
                 if (!error){
-                    console.log("No Errors");
+                    console.log("No Errors (1 of 2)");
+                }
+            })
+        } else {
+            alert("Please add more items to your bundle (samples)");
+        }
+        if(full_size_array.length == 3 ){
+            async.each(full_size_array, function(id, next){
+                CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
+                    "complete": function() {
+                        console.log("complete!");
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
+                    console.log("No Errors (2 of 2)");
                     subscriptionCart();
                 }
             })
         } else {
-            alert("Please add more items to your bundle");
+            alert("Please add more items to your bundle (full_size)");
         }
     };
     function selectInterval(interval){
