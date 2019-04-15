@@ -143,26 +143,30 @@
         domSelector.html('');
         console.log('cart:', cart);
         console.log('ids:', id_array)
-        for (i = 0; i < cart.items.length ; i++){
-            item = cart.items[i];
-            var str = item.line_price.toString();
-            var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
-            console.log(item);
-            domSelector.append(
-                '<div class="row" style="margin: .25em auto;">'+
-                '<div class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
-                '<img src="' + item.image + '" alt="' + item.title + '"/>'+
-                '</div>'+
-                '<div class="col-8 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">'+
-                '<div class="row" style="width:100%;">'+
-                '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
-                '<p>'+ item.title +'</span></p>'+
-                '<div>'+ priceFormatted + '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
-                );
+        for (j = 0; j < id_array.length; j ++ ){
+            for (i = 0; i < cart.items.length ; i++){
+            if ( cart.items[i].id == id_array[j] ){
+                item = cart.items[i];
+                var str = item.line_price.toString();
+                var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
+                console.log(item);
+                domSelector.append(
+                    '<div class="row" style="margin: .25em auto;">'+
+                    '<div class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
+                    '<img src="' + item.image + '" alt="' + item.title + '"/>'+
+                    '</div>'+
+                    '<div class="col-8 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">'+
+                    '<div class="row" style="width:100%;">'+
+                    '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
+                    '<p>'+ item.title +'</span></p>'+
+                    '<div>'+ priceFormatted + '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                    );
+                }
+            }
         }
     };
     var subscriptionCart = function(){
