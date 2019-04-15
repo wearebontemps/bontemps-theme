@@ -98,10 +98,6 @@
             alert("Please add more items to your bundle");
         }
     };
-
-    $('.interval-selector').click(e){
-        e.preventDefault();
-    }
     function selectInterval(interval){
         if (interval == 1 ){
             subscriptionInterval = 1;
@@ -116,7 +112,6 @@
             alert('Please Select an Interval')
         }
     }
-
     function nextView(pos){
         if (pos < 3 && pos > 0){
             index = pos + 1;
