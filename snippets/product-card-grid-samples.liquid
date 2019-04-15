@@ -1,5 +1,16 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
-{% include 'subscription-sample-helper' %}
+{% for tag in product.tags %}
+    {% if tag contains "sample" %}
+        {% assign product_tag = tag %}
+    {% endif %}
+{% endfor %}
+{% for product in collections.singles.products %}
+    {% for tag in product.tags %}
+        {% if tag == product_tag and product.available %}
+            {% assign full_size = product.title %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
 <div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
