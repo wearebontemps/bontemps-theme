@@ -141,6 +141,8 @@
     var buildOverview = function(cart){
         var domSelector = $('#sub-flow-cart');
         domSelector.html('');
+        console.log('cart:', cart);
+        console.log('ids:', id_array)
         for (i = 0; i < cart.items.length ; i++){
             item = cart.items[i];
             var str = item.line_price.toString();
@@ -170,7 +172,6 @@
             // now have access to Shopify cart object
             $('#cart_target').text(cart.item_count);
             $('.cart__subtotal').text(subtotalFormatted);
-            console.log(cart)
             buildOverview(cart);
         } );
     };
