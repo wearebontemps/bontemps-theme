@@ -4,22 +4,17 @@
 {% capture logic_script %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <script type="text/javascript">
-$(document).on("cart.requestStarted", function(event, cart) {
-    console.log("started");
+    $(document).on("cart.requestStarted", function(event, cart) {
+        console.log("started");
     });
     $(document).on("cart.ready", function(event, cart) {
-    console.log("Cart Ready");
+        console.log("Cart Ready");
     });
-$(document).on("cart.requestComplete", function(event, cart) {
+    $(document).on("cart.requestComplete", function(event, cart) {
     });
-</script>
-<script>
     var product_text_1 = $("#selected_product_1");
     var product_text_2 = $("#selected_product_2");
     var product_text_3 = $("#selected_product_3");
-    console.log(product_text_1)
-</script>
-<script>
     var product_id_1 = null ;
     var product_id_2 = null;
     var product_id_3 = null;
@@ -191,15 +186,21 @@ $(document).on("cart.requestComplete", function(event, cart) {
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-                    <p>Once a Week</p>
+                    <div class="radio">
+                    <label><input type="radio" name="optradio" checked>Once a Week</label>
+                    </div>
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
-                    <p>Twice a Day</p>
+                    <div class="radio">
+                    <label><input type="radio" name="optradio">Twice a Day</label>
+                    </div>
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
-                    <p>Thrice</p>
+                    <div class="radio">
+                    <label><input type="radio" name="optradio">Thrice</label>
+                    </div>
                 </div>
             </div>
             </div>
