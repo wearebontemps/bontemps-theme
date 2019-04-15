@@ -7,7 +7,7 @@
 {% for product in collections.blends.products %}
     {% for tag in product.tags %}
         {% if tag == product_tag and product.available %}
-            {% assign full_size = product.title %}
+            {% assign full_size = 'test' %}
         {% endif %}
     {% endfor %}
 {% endfor %}
