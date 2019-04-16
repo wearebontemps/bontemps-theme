@@ -119,9 +119,9 @@
             //// run full size
             async.each(full_size_array, function(id, next){
                 CartJS.addItem(id, 1, {
-                    "properties[shipping_interval_frequency]": shipping_interval_frequency,
-                    "properties[shipping_interval_unit_type]": shipping_interval_unit_type,
-                    "properties[subscription_id]": subscription_id
+                    "shipping_interval_frequency": shipping_interval_frequency,
+                    "shipping_interval_unit_type": shipping_interval_unit_type,
+                    "subscription_id": subscription_id
                     },{
                     "complete": function() {
                         console.log("2 complete!");
