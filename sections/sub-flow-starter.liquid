@@ -87,7 +87,7 @@
         if(id_array.length == 3 ){
             console.log('inside if', subscriptionInterval)
             var quantity = 1;
-            var shipping_interval_frequency = toString(subscriptionInterval);
+            var shipping_interval_frequency = subscriptionInterval.toString();
             var shipping_interval_unit_type = "Month";
             var subscription_id = "223"
             async.each(id_array, function(id, next){
@@ -187,6 +187,7 @@
         } else if (loc == 2 ){
             var domSelector = $('#sub-flow-cart-lower');
             var useArray = full_size_array;
+            $('.interval_target').text(subscriptionInterval.toString());
         }
         domSelector.html('');
         console.log('cart:', cart);
@@ -321,11 +322,13 @@
             <h4 class="text-orange text-center">Summary</h4>
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
-                    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-                    <p>Once a Week</p>
+                    <h3 id="selected_product_1" style="margin-top: 1em;">REVIEW</h3>
+                    <p>Lorem</p>
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
+                    <h4>These samples will be sent out immediately. Just pay Shipping</h4>
                     <div id="sub-flow-cart-upper"></div>
+                    <h4>You will be subscribed to these teas. And recieve a package very <span class="interval_target"></span> months. Enjoy.</h4>
                     <div id="sub-flow-cart-lower"></div>
                 </div>
             </div>
