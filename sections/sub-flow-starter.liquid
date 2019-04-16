@@ -94,7 +94,10 @@
             var shipping_interval_unit_type = "Month";
             var variant_id = "223"
             async.each(id_array, function(id, next){
-                CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
+                CartJS.addItem(id, 1, {
+                    "Part of a Bundle": "",
+                    "test": ""
+                    },{
                     "complete": function() {
                         console.log("2 complete!");
                     },
@@ -109,8 +112,32 @@
             },
             function(error){
                 if (!error){
+                    console.log("No Errors (1 of 2)");
+                }
+            });
+            //// run full size
+            async.each(full_size_array, function(id, next){
+                CartJS.addItem(id, 1, {
+                    "properties[shipping_interval_frequency]": shipping_interval_frequency,
+                    "properties[shipping_interval_unit_type]": shipping_interval_unit_type,
+                    "properties[subscription_id]": subscription_id
+                    },{
+                    "complete": function() {
+                        console.log("2 complete!");
+                        window.location('/checkout')
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
                     console.log("No Errors (2 of 2)");
-                    subscriptionCart();
                 }
             })
         } else {
