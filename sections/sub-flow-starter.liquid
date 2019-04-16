@@ -187,6 +187,8 @@
 
     }
     var buildOverview = function(cart, loc){
+        var useArray = [];
+        var loc = loc;
         if (loc == 1){
             var domSelector = $('#sub-flow-cart-upper');
             var useArray = id_array;
@@ -196,11 +198,10 @@
         }
         domSelector.html('');
         console.log('cart:', cart);
-        console.log('build_samples ids:', id_array)
-        console.log('build_fullsize ids:', full_size_array)
+        console.log('build_samples ids:', useArray)
         for (j = 0; j < useArray.length; j ++ ){
             for (i = 0; i < cart.items.length ; i++){
-            if ( cart.items[i].id == id_array[j] ){
+            if ( cart.items[i].id == useArray[j] ){
                 item = cart.items[i];
                 var str = item.line_price.toString();
                 var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
