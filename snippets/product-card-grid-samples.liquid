@@ -7,7 +7,7 @@
 {% for full_product in collections.singles.products %}
     {% for tag in full_product.tags %}
         {% if tag == product_tag and full_product.available %}
-            {% assign full_size = full_product.selected_or_first_available_variant %}
+            {% assign full_size = full_product.selected_or_first_available_variant.id %}
         {% endif %}
     {% endfor %}
 {% endfor %}
