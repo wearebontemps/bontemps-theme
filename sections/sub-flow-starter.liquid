@@ -22,7 +22,6 @@
     var product_full_2 = null;
     var product_full_3 = null;
     var subscriptionInterval = null;
-    var id_array = [];
     function checkFull(){
         if(product_id_1 != null && product_id_2 != null && product_id_3 != null){
             $('#bundle-adder-btn').fadeIn(200);
@@ -93,7 +92,7 @@
             var shipping_interval_frequency = "1";
             var shipping_interval_unit_type = "Month";
             var variant_id = "223"
-            async.each(id_array, function(id, next){
+            async.each(id_array, function(id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id, next){
                 function addItemToCart (id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id) {
                 data = {
                     "quantity": quantity,
@@ -110,13 +109,13 @@
                     success: function() {
                         console.log('loop')
                     }
-                })
+                });
             }
-            }
-            )
+        })
     } else {
-            alert("Please add more items to your bundle (samples)");
-        };
+        alert("Please add more items to your bundle (samples)");
+    };
+    }
     function selectInterval(interval){
         if (interval == 1 ){
             subscriptionInterval = 1;
