@@ -94,7 +94,7 @@
             var shipping_interval_unit_type = "Month";
             var variant_id = "223"
             async.each(id_array, function(id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id, next){
-                consoloe.log('inside async')
+                console.log('inside async')
                 function addItemToCart (id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id) {
                 data = {
                     "quantity": quantity,
