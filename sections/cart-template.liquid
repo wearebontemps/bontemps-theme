@@ -52,15 +52,8 @@
                   <div class="cart__meta-text">
                     {% for p in item.properties %}
                       {% unless p.last == blank %}
-                        {{ p.first }}:
-
-                        {% comment %}
-                          Check if there was an uploaded file associated
-                        {% endcomment %}
                         {% if p.last contains '/uploads/' %}
                           <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                        {% else %}
-                          {{ p.last }}
                         {% endif %}
                       {% endunless %}
                     {% endfor %}
