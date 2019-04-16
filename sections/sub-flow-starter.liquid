@@ -93,28 +93,27 @@
             var shipping_interval_frequency = "1";
             var shipping_interval_unit_type = "Month";
             var variant_id = "223"
-            async.each(id_array, function(id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id, next){
-                console.log('inside async')
-                function addItemToCart (id, quantity, shipping_interval_frequency, shipping_interval_unit_type, subscription_id) {
-                data = {
-                    "quantity": quantity,
-                    "id": variant_id,
-                    "properties[shipping_interval_frequency]": shipping_interval_frequency,
-                    "properties[shipping_interval_unit_type]": shipping_interval_unit_type,
-                    "properties[subscription_id]": subscription_id
-                    }
-                jQuery.ajax({
-                    type: 'POST',
-                    url: '/cart/add.js',
-                    data: data,
-                    dataType: 'json',
-                    success: function() {
-                        console.log('loop')
-                    }
-                });
-            }
-        })
-    } else {
+            async.each(full_size_array, function(id, next){
+                CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
+                    "complete": function() {
+                        console.log("2 complete!");
+                    },
+                    "success": function(data, textStatus, jqXHR){
+                        next();
+                    },
+                    "error": function(jqhXHR, textStatus, errorThrown){
+                        next(errorThrown);
+                    },
+                    async: true
+                })
+            },
+            function(error){
+                if (!error){
+                    console.log("No Errors (2 of 2)");
+                    subscriptionCart();
+                }
+            })
+        } else {
         alert("Please add more items to your bundle (samples)");
     };
     }
