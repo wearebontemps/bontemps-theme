@@ -196,7 +196,7 @@
             for (i = 0; i < cart.items.length ; i++){
             if ( cart.items[i].id == useArray[j] ){
                 item = cart.items[i];
-                var str = item.line_price.toString();
+                var str = item.price.toString();
                 var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
                 domSelector.append(
                     '<div class="row" style="margin: .25em auto;">'+
