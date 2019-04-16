@@ -93,7 +93,7 @@
             var shipping_interval_frequency = "1";
             var shipping_interval_unit_type = "Month";
             var variant_id = "223"
-            async.each(full_size_array, function(id, next){
+            async.each(id_array, function(id, next){
                 CartJS.addItem(id, 1, {"Part of a Bundle": ""},{
                     "complete": function() {
                         console.log("2 complete!");
