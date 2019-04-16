@@ -90,7 +90,7 @@
         if(id_array.length == 3 ){
             console.log('inside if')
             var quantity = 1;
-            var shipping_interval_frequency = "1";
+            var shipping_interval_frequency = toString(subscriptionInterval);
             var shipping_interval_unit_type = "Month";
             var subscription_id = "223"
             async.each(id_array, function(id, next){
@@ -138,6 +138,7 @@
             function(error){
                 if (!error){
                     console.log("No Errors (2 of 2)");
+                    subscriptionCart();
                 }
             })
         } else {
@@ -185,10 +186,11 @@
 
     }
     var buildOverview = function(cart){
-        var domSelector = $('#sub-flow-cart');
+        var domSelector = $('#sub-flow-cart-upper');
         domSelector.html('');
         console.log('cart:', cart);
-        console.log('ids:', id_array)
+        console.log('build_samples ids:', id_array)
+        console.log('build_fullsize ids:', full_size_array)
         for (j = 0; j < id_array.length; j ++ ){
             for (i = 0; i < cart.items.length ; i++){
             if ( cart.items[i].id == id_array[j] ){
@@ -324,7 +326,8 @@
                     <p>Once a Week</p>
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
-                    <div id="sub-flow-cart"></div>
+                    <div id="sub-flow-cart-upper"></div>
+                    <div id="sub-flow-cart-lower"></div>
                 </div>
             </div>
             </div>
