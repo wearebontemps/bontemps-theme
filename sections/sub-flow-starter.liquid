@@ -113,6 +113,7 @@
             function(error){
                 if (!error){
                     console.log("No Errors (1 of 2)");
+                    subscriptionCart(1);
                 }
             });
             //// run full size
@@ -138,7 +139,7 @@
             function(error){
                 if (!error){
                     console.log("No Errors (2 of 2)");
-                    subscriptionCart();
+                    subscriptionCart(2);
                 }
             })
         } else {
@@ -185,13 +186,19 @@
     function finalizeSub(){
 
     }
-    var buildOverview = function(cart){
-        var domSelector = $('#sub-flow-cart-upper');
+    var buildOverview = function(cart, loc){
+        if (loc == 1){
+            var domSelector = $('#sub-flow-cart-upper');
+            var useArray = id_array;
+        } else if (loc == 2 ){
+            var domSelector = $('#sub-flow-cart-lower');
+            var useArray = full_size_array;
+        }
         domSelector.html('');
         console.log('cart:', cart);
         console.log('build_samples ids:', id_array)
         console.log('build_fullsize ids:', full_size_array)
-        for (j = 0; j < id_array.length; j ++ ){
+        for (j = 0; j < useArray.length; j ++ ){
             for (i = 0; i < cart.items.length ; i++){
             if ( cart.items[i].id == id_array[j] ){
                 item = cart.items[i];
@@ -217,11 +224,11 @@
             }
         }
     };
-    var subscriptionCart = function(){
+    var subscriptionCart = function(loc){
         jQuery.getJSON('/cart.js', function(cart) {
             var sbt = cart.total_price.toString();
             var subtotalFormatted ='$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2);
-            buildOverview(cart);
+            buildOverview(cart, loc);
         } );
     };
 
