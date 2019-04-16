@@ -10,8 +10,6 @@
     $(document).on("cart.ready", function(event, cart) {
         console.log("Cart Ready");
     });
-    $(document).on("cart.requestComplete", function(event, cart) {
-    });
     var product_text_1 = $("#selected_product_1");
     var product_text_2 = $("#selected_product_2");
     var product_text_3 = $("#selected_product_3");
@@ -30,7 +28,6 @@
         }
     }
     function addProduct(id, title, tag){
-        console.log(id, title, tag);
         var title = title;
         if ($("#selected_product_1").text() == "" ){
             $("#selected_product_1").text(title);
@@ -88,7 +85,7 @@
         }
         console.log('ids:', id_array, 'full-size:', full_size_array);
         if(id_array.length == 3 ){
-            console.log('inside if')
+            console.log('inside if', toString(subscriptionInterval))
             var quantity = 1;
             var shipping_interval_frequency = toString(subscriptionInterval);
             var shipping_interval_unit_type = "Month";
@@ -143,8 +140,8 @@
                 }
             })
         } else {
-        alert("Please add more items to your bundle (samples)");
-    };
+            alert("Please add more items to your bundle (samples)");
+        };
     }
     function selectInterval(interval){
         if (interval == 1 ){
@@ -156,8 +153,6 @@
         } else if (interval == 3 ){
             subscriptionInterval = 3;
             console.log(subscriptionInterval)
-        } else {
-            alert('Please Select an Interval')
         }
     }
     function nextView(pos){
@@ -183,9 +178,6 @@
             return
         }
     }
-    function finalizeSub(){
-
-    }
     var buildOverview = function(cart, loc){
         var useArray = [];
         var loc = loc;
@@ -205,7 +197,6 @@
                 item = cart.items[i];
                 var str = item.line_price.toString();
                 var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
-                console.log(item);
                 domSelector.append(
                     '<div class="row" style="margin: .25em auto;">'+
                     '<div class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
