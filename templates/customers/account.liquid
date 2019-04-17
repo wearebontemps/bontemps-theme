@@ -1,6 +1,11 @@
 <div class="page-width">
   <div class="section-header text-center">
     <h1>{{ 'customer.account.title' | t }}</h1>
+    {% if customer.metafields.subscriptions.customer_string %}
+    <!--BeginRechargeCode-->
+    <p><a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/">Manage Subscriptions</a></p>
+    <!--EndRechargeCode-->
+    {% endif %}<br>
     {{ 'layout.customer.log_out' | t | customer_logout_link }}
   </div>
 
