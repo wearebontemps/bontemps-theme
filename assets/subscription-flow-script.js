@@ -23,8 +23,8 @@ function checkFull () {
     $('#bundle-adder-btn').fadeOut(200)
   }
 }
-function addProduct (id, title, tag) {
-  var element = this
+function addProduct (id, title, tag, event) {
+  var element = event.target.nodeName
   console.log(element)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
