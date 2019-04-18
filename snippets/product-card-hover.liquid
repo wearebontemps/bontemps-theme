@@ -1,6 +1,6 @@
 {% if page.url contains "threesome" %}
 <a href="#" {% if product.available %}onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");'{% endif %}>
-{% elseif page.template_suffix contains "flow" %}
+{% elsif page.template_suffix contains "flow" %}
 {% else %}
 <a id="mobile_toggle_{{product.id}}" href="{{ product.url | within: collection }}">
 {% endif %}
@@ -13,6 +13,6 @@
   <div class='2 product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center' style="background-image: url('{{ product.images.last | img_url: '1000', scale: 1 }}'); background-size: cover;"></div>
 {% endif %}
 {% endfor %}
-{% unless elsif page.template_suffix contains "flow" %}
+{% unless page.template_suffix contains "flow" %}
 </a>
 {% endunless %}
