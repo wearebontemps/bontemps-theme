@@ -214,6 +214,9 @@ var clearCart = function () {
   for (i = 0; i < idArray.length; i++) {
     CartJS.removeItemById(idArray[i])
   }
+  for (i = 0; i < fullSizeArray.length; i++) {
+    CartJS.removeItemById(fullSizeArray[i])
+  }
 }
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {

@@ -105,10 +105,38 @@
                     <p>Lorem</p>
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
-                    <h4>These samples will be sent out immediately. Just pay Shipping</h4>
-                    <div id="sub-flow-cart-upper"></div>
-                    <h4>You will be subscribed to these teas. And recieve a package very <span class="interval_target"></span> months. Enjoy.</h4>
-                    <div id="sub-flow-cart-lower"></div>
+                    <h2>Ships Today</h2>
+                    <div class="sub-details-upper"></div>
+                    <div class="accordion" id="accordion-upper">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Review
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion-upper">
+                            <div class="card-body">
+                                <div id="sub-flow-cart-upper"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Ships & Charges in 2 Weeks</h2>
+                    <div class="sub-details-lower"></div>
+                    <div class="accordion" id="accordion-lower">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                Review
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion-lower">
+                            <div class="card-body">
+                                <div id="sub-flow-cart-lower"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
