@@ -8150,10 +8150,12 @@ $toolbar-height-small: 46px;
   align-items: center;
   justify-content: space-between;
   padding: 1em;
+  height: 100%;
   &:hover{
     text-decoration: none;
   }
   &.active{
-    border: 1px solid orange;
+    outline: 1px solid orange;
+    box-sizing: border-box;
   }
 }
