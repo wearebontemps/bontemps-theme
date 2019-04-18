@@ -129,7 +129,7 @@ function bundleOverview () {
     function (error) {
       if (!error) {
         console.log('No Errors (2 of 2)')
-        subscriptionCart(2)
+        subscriptionCart(1)
       }
     })
   } else {
@@ -171,7 +171,6 @@ function prevView (pos) {
 }
 var buildOverview = function (cart, loc) {
   var useArray = []
-  var loc = loc
   if (loc == 1) {
     var domSelector = $('#sub-flow-cart-upper')
     useArray = idArray
