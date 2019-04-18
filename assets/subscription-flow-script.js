@@ -83,31 +83,31 @@ function bundleOverview () {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '203086'
-    async.each(idArray, function (id, next) {
-      CartJS.addItem(id, 1, {
-        'Part of a Bundle': '',
-        'test': ''
-      }, {
-        'complete': function () {
-          console.log('2 complete!')
-        },
-        'success': function (data, textStatus, jqXHR) {
-          next()
-        },
-        'error': function (jqhXHR, textStatus, errorThrown) {
-          next(errorThrown)
-        },
-        async: true
-      })
-    },
-    function (error) {
-      if (!error) {
-        console.log('No Errors (1 of 2)')
-        subscriptionCart(1)
-      }
-    })
+    // async.each(idArray, function (id, next) {
+    //   CartJS.addItem(id, 1, {
+    //     'Part of a Bundle': '',
+    //     'test': ''
+    //   }, {
+    //     'complete': function () {
+    //       console.log('2 complete!')
+    //     },
+    //     'success': function (data, textStatus, jqXHR) {
+    //       next()
+    //     },
+    //     'error': function (jqhXHR, textStatus, errorThrown) {
+    //       next(errorThrown)
+    //     },
+    //     async: true
+    //   })
+    // },
+    // function (error) {
+    //   if (!error) {
+    //     console.log('No Errors (1 of 2)')
+    //     subscriptionCart(1)
+    //   }
+    // })
     //  run full size
-    async.each(fullSizeArray, function (id, next) {
+    async.each(idArray, function (id, next) {
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
         'shipping_interval_unit_type': shippingIntervalUnitType,
