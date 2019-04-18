@@ -138,6 +138,7 @@ if(idArray.length == 3 ) {
 }
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
+  $('#interval_next').fadeIn(300)
   if (interval == 1) {
     subscriptionInterval = 1
     $('.interval_selector_1').addClass('active')
