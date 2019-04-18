@@ -1,4 +1,4 @@
-{% if page.url contains "threesome"  %}
+{% if page.url contains "threesome" or page.template_suffix contains "flow" %}
 <a href="#" {% if product.available %}onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}");'{% endif %}>
 {% else %}
 <a id="mobile_toggle_{{product.id}}" href="{{ product.url | within: collection }}">
