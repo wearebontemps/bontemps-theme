@@ -41,7 +41,7 @@ function addProduct (id, title, tag) {
     productFull3 = tag
     checkFull()
   }
-  $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
+  // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
 };
 function removeProduct (loc) {
   if (loc == '1') {
@@ -163,6 +163,9 @@ function nextView(pos) {
 }
 function prevView (pos) {
   if (pos < 4 && pos > 0) {
+    if (pos == 3) {
+      clearCart();
+    }
     var index = pos - 1
     $('.takeover_' + pos).fadeOut(0)
     $('.takeover_' + index).fadeIn(300)
@@ -207,10 +210,15 @@ var buildOverview = function (cart, loc) {
     }
   }
 }
+var clearCart = function () {
+  for (i = 0; i < idArray.length; i++) {
+    cartJs.removeItemById(idArray[i])
+  }
+}
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
     var sbt = cart.total_price.toString()
-    var subtotalFormatted = '$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2)
+    var subtotalFormatted = '$' + sbt.substring(0, sbt.length - 2) + '.' + sbt.substring(sbt.length - 2)
     buildOverview(cart, loc)
   })
 }
