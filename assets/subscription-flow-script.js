@@ -24,7 +24,8 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag) {
-  var title = title
+  var element = this
+  console.log(element)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
     productID1 = id
