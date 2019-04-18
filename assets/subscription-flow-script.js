@@ -24,7 +24,7 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag, event) {
-  var element = event.target.nodeName
+  var element = event.target
   console.log(element)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
