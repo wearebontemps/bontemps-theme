@@ -212,7 +212,7 @@ var buildOverview = function (cart, loc) {
 }
 var clearCart = function () {
   for (i = 0; i < idArray.length; i++) {
-    cartJs.removeItemById(idArray[i])
+    CartJS.removeItemById(idArray[i])
   }
 }
 var subscriptionCart = function (loc) {
