@@ -14,6 +14,8 @@ var productFull1 = null
 var productFull2 = null
 var productFull3 = null
 var subscriptionInterval = null
+var idArray = []
+var fullSizeArray = []
 function checkFull () {
   if (productID1 != null && productID2 != null && productID3 != null) {
     $('#bundle-adder-btn').fadeIn(200)
@@ -56,9 +58,7 @@ function removeProduct (loc) {
     checkFull()
   }
 };
-function bundleOverview() {
-  var idArray = []
-  var fullSizeArray = []
+function bundleOverview () {
   if (productID1 !== undefined && productID1 != null) {
     idArray.push(productID1)
   }
@@ -77,8 +77,8 @@ function bundleOverview() {
   if (productFull3 !== undefined && productFull3 != null) {
     fullSizeArray.push(productFull3)
   }
-  console.log('ids:', idArray, 'full-size:', fullSizeArray);
-if(idArray.length == 3 ) {
+  console.log('ids:', idArray, 'full-size:', fullSizeArray)
+  if (idArray.length == 3) {
     console.log('inside if', subscriptionInterval)
     var shippingIntervalFrequency = subscriptionInterval.toString()
     var shippingIntervalUnitType = 'Month'
@@ -102,10 +102,10 @@ if(idArray.length == 3 ) {
     },
     function (error) {
       if (!error) {
-        console.log('No Errors (1 of 2)');
-        subscriptionCart(1);
+        console.log('No Errors (1 of 2)')
+        subscriptionCart(1)
       }
-    });
+    })
     //  run full size
     async.each(fullSizeArray, function (id, next) {
       CartJS.addItem(id, 1, {
@@ -128,13 +128,13 @@ if(idArray.length == 3 ) {
     },
     function (error) {
       if (!error) {
-        console.log('No Errors (2 of 2)');
-        subscriptionCart(2);
+        console.log('No Errors (2 of 2)')
+        subscriptionCart(2)
       }
     })
   } else {
     alert('Please add more items to your bundle (samples)')
-};
+  }
 }
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
