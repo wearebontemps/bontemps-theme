@@ -34,8 +34,8 @@ function addChecks (id) {
     }
   })
 }
-function addProduct (id, title, tag, element) {
-  console.log(element)
+function addProduct (id, title, tag) {
+  console.log(id, idArray)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
     productID1 = id
