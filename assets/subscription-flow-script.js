@@ -65,7 +65,7 @@ function removeProduct (loc) {
   }
 };
 function pushIDs (id, idFull) {
-  if (idArray.length < 4) {
+  if (idArray.length < 3) {
     if (productID1 !== undefined && productID1 != null) {
       idArray.push(id)
     } else if (productID2 !== undefined && productID2 != null) {
@@ -74,7 +74,7 @@ function pushIDs (id, idFull) {
       idArray.push(id)
     }
   }
-  if (fullSizeArray.length < 4) {
+  if (fullSizeArray.length < 3) {
     if (productFull1 !== undefined && productFull1 != null) {
       fullSizeArray.push(idFull)
     } else if (productFull2 !== undefined && productFull2 != null) {
