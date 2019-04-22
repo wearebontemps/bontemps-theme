@@ -89,6 +89,7 @@ function pushIDs (id, idFull) {
     }
   }
 }
+
 function addChecks (id) {
   console.log('addCheck', id)
   $.each(idArray, function (index, value) {
@@ -96,11 +97,7 @@ function addChecks (id) {
     if (id === value) {
       if ($('#checkbox_' + id).hasClass('selected')) {
         $('.selected').removeClass('selected')
-        $.each(idArray, function (i, val) {
-          if (id === val ) {
-            idArray.splice(i, 1)
-          }
-        })
+        idArray.splice(index, 1)
       } else {
         $('#checkbox_' + id).addClass('selected')
       }
@@ -109,6 +106,7 @@ function addChecks (id) {
     }
   })
 }
+
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length == 3) {
