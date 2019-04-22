@@ -24,21 +24,21 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag) {
-  if (idArray.length == 0) {
+  if (idArray.length === 0) {
     $('#selected_product_1').text(title)
     productID1 = id
     productFull1 = tag
     pushIDs(productID1, productFull1)
     addChecks(id)
     checkFull()
-  } else if (idArray.length == 1) {
+  } else if (idArray.length === 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
     pushIDs(productID2, productFull2)
     addChecks(id)
     checkFull()
-  } else if (idArray.length == 2) {
+  } else if (idArray.length === 2) {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
@@ -56,7 +56,6 @@ function addProduct (id, title, tag) {
     checkFull()
   }
   console.log('array', idArray)
-  // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
 };
 function removeProduct (loc) {
   if (loc == '1') {
@@ -95,9 +94,10 @@ function pushIDs (id, idFull) {
 }
 function addChecks (id) {
   console.log('addCheck', id)
+  $('.selected').removeClass('selected')
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
-    if (id == value) {
+    if (id === value) {
       $('#checkbox_' + id).addClass('selected')
     } else {
       $('#checkbox_' + id).removeClass('selected')
