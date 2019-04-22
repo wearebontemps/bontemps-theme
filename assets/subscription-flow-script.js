@@ -65,23 +65,23 @@ function removeProduct (loc) {
   }
 };
 function pushIDs (id, idFull) {
-  if (productID1 !== undefined && productID1 != null) {
-    idArray.push(id)
+  if (idArray.length < 4) {
+    if (productID1 !== undefined && productID1 != null) {
+      idArray.push(id)
+    } else if (productID2 !== undefined && productID2 != null) {
+      idArray.push(id)
+    } else if (productID3 !== undefined && productID3 != null) {
+      idArray.push(id)
+    }
   }
-  if (productID2 !== undefined && productID2 != null) {
-    idArray.push(id)
-  }
-  if (productID3 !== undefined && productID3 != null) {
-    idArray.push(id)
-  }
-  if (productFull1 !== undefined && productFull1 != null) {
-    fullSizeArray.push(idFull)
-  }
-  if (productFull2 !== undefined && productFull2 != null) {
-    fullSizeArray.push(idFull)
-  }
-  if (productFull3 !== undefined && productFull3 != null) {
-    fullSizeArray.push(idFull)
+  if (fullSizeArray.length < 4) {
+    if (productFull1 !== undefined && productFull1 != null) {
+      fullSizeArray.push(idFull)
+    } else if (productFull2 !== undefined && productFull2 != null) {
+      fullSizeArray.push(idFull)
+    } else if (productFull3 !== undefined && productFull3 != null) {
+      fullSizeArray.push(idFull)
+    }
   }
 }
 function addChecks (id) {
