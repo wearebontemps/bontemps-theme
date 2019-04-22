@@ -96,7 +96,7 @@ function addChecks (id) {
     console.log('inside-each', value)
     if (id === value) {
       if ($('#checkbox_' + id).hasClass('selected')) {
-        $('.selected').removeClass('selected')
+        $('#checkbox_' + id).removeClass('selected')
         idArray.splice(index, 1)
       } else {
         $('#checkbox_' + id).addClass('selected')
