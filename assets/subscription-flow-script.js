@@ -98,6 +98,7 @@ function addChecks (id) {
       if ($('#checkbox_' + id).hasClass('selected')) {
         $('#checkbox_' + id).removeClass('selected')
         idArray.splice(index, 1)
+        console.log('splice pos:', index, 'result', idArray)
       } else {
         $('#checkbox_' + id).addClass('selected')
       }
