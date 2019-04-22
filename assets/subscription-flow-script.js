@@ -23,17 +23,6 @@ function checkFull () {
     $('#bundle-adder-btn').fadeOut(200)
   }
 }
-function addChecks (id) {
-  console.log(id)
-  $.each(idArray, function (index, value) {
-    console.log('inside-each', value)
-    if (id == value) {
-      $('#checkbox_' + id).addClass('selected')
-    } else {
-      $('#checkbox_' + id).removeClass('selected')
-    }
-  })
-}
 function addProduct (id, title, tag) {
   console.log(id, idArray)
   if ($('#selected_product_1').text() == '') {
@@ -41,6 +30,7 @@ function addProduct (id, title, tag) {
     productID1 = id
     productFull1 = tag
     checkFull()
+    pushIDs(productID1, productFull1)
     addChecks(id)
   } else if ($('#selected_product_2').text() == '') {
     $('#selected_product_2').text(title)
@@ -72,25 +62,38 @@ function removeProduct (loc) {
     checkFull()
   }
 };
-function bundleOverview () {
+function pushIDs (id, idFull) {
   if (productID1 !== undefined && productID1 != null) {
-    idArray.push(productID1)
+    idArray.push(id)
   }
   if (productID2 !== undefined && productID2 != null) {
-    idArray.push(productID2)
+    idArray.push(id)
   }
   if (productID3 !== undefined && productID3 != null) {
-    idArray.push(productID3)
+    idArray.push(id)
   }
   if (productFull1 !== undefined && productFull1 != null) {
-    fullSizeArray.push(productFull1)
+    fullSizeArray.push(idFull)
   }
   if (productFull2 !== undefined && productFull2 != null) {
-    fullSizeArray.push(productFull2)
+    fullSizeArray.push(idFull)
   }
   if (productFull3 !== undefined && productFull3 != null) {
-    fullSizeArray.push(productFull3)
+    fullSizeArray.push(idFull)
   }
+}
+function addChecks (id) {
+  console.log('addCheck', id)
+  $.each(idArray, function (index, value) {
+    console.log('inside-each', value)
+    if (id == value) {
+      $('#checkbox_' + id).addClass('selected')
+    } else {
+      $('#checkbox_' + id).removeClass('selected')
+    }
+  })
+}
+function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length == 3) {
     console.log('inside if', subscriptionInterval)
