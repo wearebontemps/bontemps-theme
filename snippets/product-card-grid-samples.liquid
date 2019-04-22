@@ -31,7 +31,7 @@
             data-sizes="auto"
             alt="">
     </div>
-    <div id="checkbox_{{product.id}}" class="flow-checkbox"><span class="checkmark">X</span></div>
+    <div id="checkbox_{{product.selected_or_first_available_variant.id}}" class="flow-checkbox"><span class="checkmark">X</span></div>
   </div>
 {% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
   <noscript>
