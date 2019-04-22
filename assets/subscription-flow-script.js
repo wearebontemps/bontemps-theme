@@ -23,23 +23,34 @@ function checkFull () {
     $('#bundle-adder-btn').fadeOut(200)
   }
 }
+function addChecks (id) {
+  idArray.each(index, value) {
+    console.log('inside-each', value)
+    if (id == value ){
+      $('#checkbox_' + id).addClass('selected')
+    }else{
+      $('#checkbox_' + id).removeClass('selected')
+    }
+  }
+}
 function addProduct (id, title, tag, element) {
   console.log(element)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
-    $('#checkbox_' + id).addClass('selected')
+    addChecks(id)
     productID1 = id
     productFull1 = tag
     checkFull();
   } else if ($('#selected_product_2').text() == '') {
     $('#selected_product_2').text(title)
-    $('#checkbox_' + id).addClass('selected')
+    addChecks(id)
     productID2 = id
     productFull2 = tag
     checkFull()
   } else {
     $('#selected_product_3').text(title)
     $('#checkbox_' + id + '.checkmark').addClass('selected')
+    addChecks(id)
     productID3 = id
     productFull3 = tag
     checkFull()
