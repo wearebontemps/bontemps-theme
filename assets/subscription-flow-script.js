@@ -28,21 +28,21 @@ function addProduct (id, title, tag) {
     $('#selected_product_1').text(title)
     productID1 = id
     productFull1 = tag
-    pushIDs(productID1, productFull1)
-    addChecks(id)
+    addChecks(id, tag)
     checkFull()
   } else if (idArray.length === 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
-    pushIDs(productID2, productFull2)
-    addChecks(id)
+    // pushIDs(productID2, productFull2)
+    addChecks(id,tag)
     checkFull()
   } else if (idArray.length === 2) {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
-    pushIDs(productID3, productFull3)
+    // pushIDs(productID3, productFull3)
+    addChecks(id,tag)
     checkFull()
   } else {
     $('#selected_product_3').text(title)
@@ -50,8 +50,8 @@ function addProduct (id, title, tag) {
     fullSizeArray.pop()
     productID3 = id
     productFull3 = tag
-    pushIDs(productID3, productFull3)
-    addChecks(id)
+    // pushIDs(productID3, productFull3)
+    addChecks(id, tag)
     checkFull()
   }
   console.log('array from ADD', idArray)
@@ -92,7 +92,7 @@ function pushIDs (id, idFull) {
   }
 }
 
-function addChecks (id) {
+function addChecks (id, tag) {
   console.log('addCheck', id)
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
@@ -102,6 +102,7 @@ function addChecks (id) {
       console.log('splice pos:', index, 'result', idArray)
     } else {
       $('#checkbox_' + id).addClass('selected')
+      pushIDs(id, tag)
     }
   })
 }
