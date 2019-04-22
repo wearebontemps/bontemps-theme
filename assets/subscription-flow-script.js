@@ -37,12 +37,14 @@ function addProduct (id, title, tag) {
     productID2 = id
     productFull2 = tag
     checkFull()
+    pushIDs(productID2, productFull2)
     addChecks(id)
   } else {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
     checkFull()
+    pushIDs(productID3, productFull3)
     addChecks(id)
   }
   // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
