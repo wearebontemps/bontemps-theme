@@ -24,7 +24,6 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag) {
-  console.log(id, idArray)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
     productID1 = id
@@ -47,6 +46,7 @@ function addProduct (id, title, tag) {
     pushIDs(productID3, productFull3)
     addChecks(id)
   }
+  console.log('array', idArray)
   // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
 };
 function removeProduct (loc) {
