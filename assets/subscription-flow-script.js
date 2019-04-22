@@ -39,7 +39,7 @@ function addProduct (id, title, tag, element) {
     checkFull()
   } else {
     $('#selected_product_3').text(title)
-    $('#checkbox_' + id).addClass('selected')
+    $('#checkbox_' + id + '.checkmark').addClass('selected')
     productID3 = id
     productFull3 = tag
     checkFull()
