@@ -93,6 +93,7 @@ function pushIDs (id, idFull) {
 }
 
 function addChecks (id, tag) {
+  pushIDs(id, tag)
   console.log('addCheck', id)
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
@@ -102,7 +103,6 @@ function addChecks (id, tag) {
       console.log('splice pos:', index, 'result', idArray)
     } else {
       $('#checkbox_' + id).addClass('selected')
-      pushIDs(id, tag)
     }
   })
 }
