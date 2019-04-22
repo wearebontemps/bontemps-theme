@@ -24,14 +24,14 @@ function checkFull () {
   }
 }
 function addChecks (id) {
-  idArray.each(index, value) {
+  $.each(idArray, function (index, value) {
     console.log('inside-each', value)
-    if (id == value ){
+    if (id == value ) {
       $('#checkbox_' + id).addClass('selected')
-    }else{
+    } else {
       $('#checkbox_' + id).removeClass('selected')
     }
-  }
+  })
 }
 function addProduct (id, title, tag, element) {
   console.log(element)
