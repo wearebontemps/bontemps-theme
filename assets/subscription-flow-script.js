@@ -38,22 +38,22 @@ function addProduct (id, title, tag, element) {
   console.log(element)
   if ($('#selected_product_1').text() == '') {
     $('#selected_product_1').text(title)
-    addChecks(id)
     productID1 = id
     productFull1 = tag
-    checkFull();
+    checkFull()
+    addChecks(id)
   } else if ($('#selected_product_2').text() == '') {
     $('#selected_product_2').text(title)
-    addChecks(id)
     productID2 = id
     productFull2 = tag
     checkFull()
+    addChecks(id)
   } else {
     $('#selected_product_3').text(title)
-    addChecks(id)
     productID3 = id
     productFull3 = tag
     checkFull()
+    addChecks(id)
   }
   // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
 };
