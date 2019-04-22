@@ -24,27 +24,36 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag) {
-  if ($('#selected_product_1').text() == '') {
+  if (idArray.length == 0) {
     $('#selected_product_1').text(title)
     productID1 = id
     productFull1 = tag
-    checkFull()
     pushIDs(productID1, productFull1)
     addChecks(id)
-  } else if ($('#selected_product_2').text() == '') {
+    checkFull()
+  } else if (idArray.length == 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
-    checkFull()
     pushIDs(productID2, productFull2)
     addChecks(id)
-  } else {
+    checkFull()
+  } else if (idArray.length == 2) {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
-    checkFull()
     pushIDs(productID3, productFull3)
     addChecks(id)
+    checkFull()
+  } else {
+    $('#selected_product_3').text(title)
+    idArray.pop()
+    fullSizeArray.pop()
+    productID3 = id
+    productFull3 = tag
+    pushIDs(productID3, productFull3)
+    addChecks(id)
+    checkFull()
   }
   console.log('array', idArray)
   // $('html, body').animate({scrollTop: $('#bundle_anchor').offset().top -380}, 800)
