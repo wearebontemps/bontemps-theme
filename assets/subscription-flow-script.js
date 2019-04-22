@@ -29,21 +29,18 @@ function addProduct (id, title, tag) {
     productID1 = id
     productFull1 = tag
     pushIDs(productID1, productFull1)
-    addChecks(id)
     checkFull()
   } else if (idArray.length === 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
     pushIDs(productID2, productFull2)
-    addChecks(id)
     checkFull()
   } else if (idArray.length === 2) {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
     pushIDs(productID3, productFull3)
-    addChecks(id)
     checkFull()
   } else {
     $('#selected_product_3').text(title)
@@ -52,9 +49,9 @@ function addProduct (id, title, tag) {
     productID3 = id
     productFull3 = tag
     pushIDs(productID3, productFull3)
-    addChecks(id)
     checkFull()
   }
+  addChecks(id)
   console.log('array', idArray)
 };
 function removeProduct (loc) {
@@ -94,11 +91,19 @@ function pushIDs (id, idFull) {
 }
 function addChecks (id) {
   console.log('addCheck', id)
-  $('.selected').removeClass('selected')
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
     if (id === value) {
-      $('#checkbox_' + id).addClass('selected')
+      if ($('#checkbox_' + id).hasClass('selected')) {
+        $('.selected').removeClass('selected')
+        $.each(idArray, function (i, val) {
+          if (id === val ) {
+            idArray.splice(i, 1)
+          }
+        })
+      } else {
+        $('#checkbox_' + id).addClass('selected')
+      }
     } else {
       $('#checkbox_' + id).removeClass('selected')
     }
