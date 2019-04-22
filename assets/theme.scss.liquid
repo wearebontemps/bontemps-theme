@@ -8189,7 +8189,10 @@ $toolbar-height-small: 46px;
   height: 15px;
   background-color: white;
   z-index: 1000;
-  &.selected{
-    background-color: orange;
+  .checkmark{
+    display: none;
+    &.selected{
+      display: unset;
+    }
   }
 }
