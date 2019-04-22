@@ -24,9 +24,10 @@ function checkFull () {
   }
 }
 function addChecks (id) {
+  console.log(id)
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
-    if (id == value ) {
+    if (id == value) {
       $('#checkbox_' + id).addClass('selected')
     } else {
       $('#checkbox_' + id).removeClass('selected')
@@ -49,7 +50,6 @@ function addProduct (id, title, tag, element) {
     checkFull()
   } else {
     $('#selected_product_3').text(title)
-    $('#checkbox_' + id + '.checkmark').addClass('selected')
     addChecks(id)
     productID3 = id
     productFull3 = tag
