@@ -29,12 +29,14 @@ function addProduct (id, title, tag) {
     productID1 = id
     productFull1 = tag
     pushIDs(productID1, productFull1)
+    addChecks(id)
     checkFull()
   } else if (idArray.length === 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
     pushIDs(productID2, productFull2)
+    addChecks(id)
     checkFull()
   } else if (idArray.length === 2) {
     $('#selected_product_3').text(title)
@@ -49,10 +51,10 @@ function addProduct (id, title, tag) {
     productID3 = id
     productFull3 = tag
     pushIDs(productID3, productFull3)
+    addChecks(id)
     checkFull()
   }
-  addChecks(id)
-  console.log('array', idArray)
+  console.log('array from ADD', idArray)
 };
 function removeProduct (loc) {
   if (loc == '1') {
