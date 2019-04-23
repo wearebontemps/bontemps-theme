@@ -82,7 +82,7 @@ function pushIDs (id, idFull) {
 
 function addChecks (id, tag) {
   pushIDs(id, tag)
-  console.log('addCheck', id)
+  console.log('addCheck', id, tag)
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
     if (id === value) {
