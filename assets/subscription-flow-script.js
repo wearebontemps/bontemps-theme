@@ -86,11 +86,11 @@ function addChecks (id, tag) {
   $.each(idArray, function (index, value) {
     console.log('inside-each', value)
     if (id === value) {
-      $('#checkbox_' + value).removeClass('selected')
+      $('#checkbox_' + id).removeClass('selected')
       idArray.splice(idArray.indexOf(value), 1)
       console.log('splice pos:', index, 'result', idArray)
     } else {
-      $('#checkbox_' + value).addClass('selected')
+      $('#checkbox_' + id).addClass('selected')
     }
   })
 }
