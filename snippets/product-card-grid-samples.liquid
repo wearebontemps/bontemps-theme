@@ -1,9 +1,10 @@
 {% for variant in product.variants %}
 {% if variant.title contains "Sample" %}
   {%- assign current_variant = variant -%}
+{% else %}
+{%- assign full_size = variant -%}
 {% endif %}
 {% endfor %}
-{%- assign full_size = product.first_available_variant -%}
 {% comment %} {% for tag in product.tags %}
     {% if tag contains "sample" %}
         {% assign product_tag = tag %}

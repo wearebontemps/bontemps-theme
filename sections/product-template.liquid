@@ -263,7 +263,7 @@
               {% endfor %}
             {% endunless %}
 
-            <select name="id" id="ProductSelect-{{ section.id }}" data-productid="{{product.id}}" class="product-form__variants no-js" id="product-select-{{ product.id }}">
+            {% comment %} <select name="id" id="ProductSelect-{{ section.id }}" data-productid="{{product.id}}" class="product-form__variants no-js" id="product-select-{{ product.id }}">
               {% for variant in product.variants %}
                 {% if variant.available %}
                   <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -273,7 +273,7 @@
                   <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
                 {% endif %}
               {% endfor %}
-            </select>
+            </select> {% endcomment %}
 
             <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
               {% if section.settings.show_quantity_selector %}
