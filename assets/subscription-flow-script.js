@@ -245,9 +245,9 @@ var subscriptionCart = function (loc) {
   })
 }
 var checkoutRedirect = function () {
-  for (i = 0; i < fullSizeArray.length; i++) {
-    CartJS.removeItemById(fullSizeArray[i])
-  }
+  // for (i = 0; i < fullSizeArray.length; i++) {
+  //   CartJS.removeItemById(fullSizeArray[i])
+  // }
   window.location.replace('/checkout')
 }
 $('#subscription_start').click(function (e) {
