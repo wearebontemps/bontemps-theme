@@ -1,5 +1,11 @@
-{%- assign current_variant = product.selected_or_first_available_variant -%}
-{% for tag in product.tags %}
+{% for variant in product.variants %}
+{% if variant.title includes "Sample" %}
+  {%- assign current_variant = variant -%}
+{% else %}
+{%- assign full_size = variant -%}
+{% endif %}
+{% endfor %}
+{% comment %} {% for tag in product.tags %}
     {% if tag contains "sample" %}
         {% assign product_tag = tag %}
     {% endif %}
@@ -10,8 +16,8 @@
             {% assign full_size = full_product.selected_or_first_available_variant.id %}
         {% endif %}
     {% endfor %}
-{% endfor %}
-<div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ product.selected_or_first_available_variant.id }}", "{{product.title | escape }}", "{{full_size}}", "{{ product.id }}");'>
+{% endfor %} {% endcomment %}
+<div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{ product.title | escape }}", "{{full_size.id}}", "{{ product.id }}");'>
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
