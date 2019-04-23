@@ -77,7 +77,7 @@
     {% endif %}
     {% unless page_toggle == true %}
     <div class="product__price price_hover_{{product.id}}">
-      {% include 'product-price', variant: product %}
+      {% include 'product-price', variant: product.first_available_variant %}
     </div>
   {% endunless %}
 
