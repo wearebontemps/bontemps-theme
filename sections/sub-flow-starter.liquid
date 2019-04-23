@@ -153,6 +153,7 @@
 {{ logic_script }}
 <script type="text/javascript">
     var reChargeProcessCart = function () {
+        console.log('inside process')
         function get_cookie(name){ return( document.cookie.match('(^|; )'+name+'=([^;]*)')||0 )[2] }
         do {
             token=get_cookie('cart');
