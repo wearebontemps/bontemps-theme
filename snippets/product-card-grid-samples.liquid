@@ -1,5 +1,5 @@
 {% for variant in product.variants %}
-{% if variant.title includes "Sample" %}
+{% if variant.title contains "Sample" %}
   {%- assign current_variant = variant -%}
 {% else %}
 {%- assign full_size = variant -%}
