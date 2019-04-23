@@ -256,7 +256,6 @@ $('#subscription_start').click(function (e) {
 })
 $('.takeover_closer').click(function (e) {
   e.preventDefault()
-
   $('.takeover').fadeOut(300)
   clearCart()
 })
