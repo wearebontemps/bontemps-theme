@@ -146,19 +146,20 @@
             </div>
             </div>
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
-                <button id="cart-checkout" style="" type="button" onClick="checkoutRedirect()" class="btn btn-large">Checkout</button>
+                <button id="cart-checkout" style="" type="button" onClick="reChargeProcessCart()" class="btn btn-large">Checkout</button>
             </div>
         </div>
     </div>
 {{ logic_script }}
 {{ 'subscription-flow-script.js' | asset_url | script_tag }}
 <script type="text/javascript">
-function reChargeProcessCart () {
-    function get_cookie (name) { return ( document.cookie.match('(^|; )' + name + '=([^;]*)') || 0)[2] }
-    do {
-        token = get_cookie('cart')
-    }
-    while (token == undefined)
+function reChargeProcessCart() {
+	function get_cookie(name){ return( document.cookie.match('(^|; )'+name+'=([^;]*)')||0 )[2] }
+	do {
+        token=get_cookie('cart');
+	}
+	while(token == undefined);
+
 	var myshopify_domain='{{ shop.permanent_domain }}'
 	try { var ga_linker = ga.getAll()[0].get('linkerParam') } catch(err) { var ga_linker ='' }
 	var customer_param = '{% if customer %}customer_id={{customer.id}}&customer_email={{customer.email}}{% endif %}'
