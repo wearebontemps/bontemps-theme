@@ -104,8 +104,9 @@ function bundleOverview () {
     var subscriptionID = '203086'
     async.each(idArray, function (id, next) {
       CartJS.addItem(id, 1, {
-        'Part of a Bundle': '',
-        'test': ''
+        'shipping_interval_frequency': shippingIntervalFrequency,
+        'shipping_interval_unit_type': shippingIntervalUnitType,
+        'subscription_id': subscriptionID
       }, {
         'complete': function () {
           console.log('2 complete!')
@@ -128,9 +129,7 @@ function bundleOverview () {
     //  run full size
     async.each(fullSizeArray, function (id, next) {
       CartJS.addItem(id, 1, {
-        'shipping_interval_frequency': shippingIntervalFrequency,
-        'shipping_interval_unit_type': shippingIntervalUnitType,
-        'subscription_id': subscriptionID
+        'shipping_interval_frequency': 'PH'
       }, {
         'complete': function () {
           console.log('2 complete!')
