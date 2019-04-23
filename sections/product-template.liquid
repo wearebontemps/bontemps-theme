@@ -114,7 +114,7 @@
           {%- endcapture %}
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate' %}
-          {% if product.available %}{% include 'subscription-product' %}{% endif %}
+          {% comment %} {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
@@ -129,9 +129,9 @@
                   <option></option>
                 </div>
               {% endfor %}
-            {% endunless %}
+            {% endunless %} {% endcomment %}
 
-            <select name="id" id="ProductSelect-{{ section.id }}" data-productid="{{product.id}}" class="product-form__variants no-js">
+            {% comment %} <select name="id" id="ProductSelect-{{ section.id }}" data-productid="{{product.id}}" class="product-form__variants no-js">
               {% for variant in product.variants %}
                 {% if variant.available %}
                   <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -141,7 +141,7 @@
                   <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
                 {% endif %}
               {% endfor %}
-            </select>
+            </select> {% endcomment %}
 
             <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
               {% if section.settings.show_quantity_selector %}
@@ -247,7 +247,7 @@
           {%- endcapture %}
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid:"{{product.id}}" %}
-          {% comment %} {% if product.available %}{% include 'subscription-product' %}{% endif %} {% endcomment %}
+          {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% comment %} {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
