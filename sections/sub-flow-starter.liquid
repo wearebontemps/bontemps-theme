@@ -165,7 +165,7 @@
     }
     var checkoutRedirect = function () {
         async.each(fullSizeArray, function (id, next) {
-            console.log(id)
+            console.log('remove these ids:', id)
             CartJS.removeItemById(id)
         },
         function (error) {
