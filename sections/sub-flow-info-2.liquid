@@ -2,11 +2,12 @@
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
 <div class="section-inner">
-  <div class="row contained d-flex align-items-center">
-  <div class="col-md-6" style="margin-bottom: 2em; padding: 0 4em;">
-    <h3 class="text-center">{{ section.settings.text }}</h3>
+  <div class="row contained">
+  <div class="col-md-6 d-flex align-items-center" style="padding: 0 4em;">
+    <h3 class="">{{ section.settings.text }}</h3>
+    <p class="">{{ section.settings.text_lower }}</p>
   </div>
-    <div class="col-md-6 col-6 text-center">
+    <div class="col-md-6 col-6 text-center d-flex align-items-center">
       <img src="{{ section.settings.image }}">
     </div>
   </div>
@@ -21,6 +22,11 @@
     {
     "type": "richtext",
     "id": "text",
+    "label": "text"
+    },
+    {
+    "type": "richtext",
+    "id": "text_lower",
     "label": "text"
     },
     {
