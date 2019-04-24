@@ -86,16 +86,20 @@ function addChecks (id, tag) {
   console.log('addCheck', id)
   $('.checkmark').each(function () {
     var element = $(this).attr('id')
-    $.each(idArray, function (index, value) {
-      console.log(element, 'checkbox_' + value)
-      if (element == 'checkbox_' + value) {
-        $('#' + element).addClass('selected')
-        console.log('added')
-      } else {
-        $('#' + element).removeClass('selected')
-        console.log('removed')
-      }
-    })
+    
+    if ($.inArray( id, idArray)) {
+      $('#' + element).addClass('selected')
+      console.log('added')
+    }
+    // $.each(idArray, function (index, value) {
+    //   console.log(element, 'checkbox_' + value)
+    //   if (element == 'checkbox_' + value) {
+    //     
+    //   } else {
+    //     $('#' + element).removeClass('selected')
+    //     console.log('removed')
+    //   }
+    // })
   })
 }
 
