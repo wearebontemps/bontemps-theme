@@ -178,7 +178,7 @@ var buildOverview = function (cart, loc) {
           '</div>' +
           '<div class="col-8 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">' +
           '<div class="row" style="width:100%;">' +
-          '<div class="col-6 d-flex flex-column align-items-start justify-content-between">' +
+          '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
           '<p>' + item.title + '</span></p>' +
           '<div>' + priceFormatted + '</div>' +
           '</div>' +
