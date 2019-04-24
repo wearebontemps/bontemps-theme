@@ -24,53 +24,54 @@ function checkFull () {
   }
 }
 function addProduct (id, title, tag) {
-  if (idArray.length === 0) {
-    $('#selected_product_1').text(title)
-    productID1 = id
-    productFull1 = tag
-    pushIDs(id, tag)
-    if (idArray.includes(id)) {
-      addChecks(id)
-    } else {
-      removeChecks(id)
-    }
-    checkFull()
-  } else if (idArray.length === 1) {
-    $('#selected_product_2').text(title)
-    productID2 = id
-    productFull2 = tag
-    pushIDs(id, tag)
-    if (idArray.includes(id)) {
-      addChecks(id)
-    } else {
-      removeChecks(id)
-    }
-    checkFull()
-  } else if (idArray.length === 2) {
-    $('#selected_product_3').text(title)
-    productID3 = id
-    productFull3 = tag
-    pushIDs(id, tag)
-    if (idArray.includes(id)) {
-      addChecks(id)
-    } else {
-      removeChecks(id)
-    }
-    checkFull()
-  } else {
-    $('#selected_product_3').text(title)
-    idArray.pop()
-    fullSizeArray.pop()
-    productID3 = id
-    productFull3 = tag
-    pushIDs(id, tag)
-    if (idArray.includes(id)) {
-      addChecks(id)
-    } else {
-      removeChecks(id)
-    }
-    checkFull()
-  }
+  // $('#selected_product_1').text(title)
+  productID1 = id
+  productFull1 = tag
+  idArrayUpdate(id)
+  addChecks(id)
+  checkFull()
+  // if (idArray.length === 0) {
+  //   $('#selected_product_1').text(title)
+  //   productID1 = id
+  //   productFull1 = tag
+  //   idArrayUpdate(id)
+  //   addChecks(id)
+  //   checkFull()
+  // } else if (idArray.length === 1) {
+  //   $('#selected_product_2').text(title)
+  //   productID2 = id
+  //   productFull2 = tag
+  //   pushIDs(id, tag)
+  //   if (idArray.includes(id)) {
+  //     addChecks(id)
+  //   } else {
+  //     removeChecks(id)
+  //   }
+  //   checkFull()
+  // } else if (idArray.length === 2) {
+  //   $('#selected_product_3').text(title)
+  //   productID3 = id
+  //   productFull3 = tag
+  //   pushIDs(id, tag)
+  //   if (idArray.includes(id)) {
+  //     addChecks(id)
+  //   } else {
+  //     removeChecks(id)
+  //   }
+  //   checkFull()
+  // } else {
+  //   $('#selected_product_3').text(title)
+  //   idArray.pop()
+  //   fullSizeArray.pop()
+  //   productID3 = id
+  //   productFull3 = tag
+  //   pushIDs(id, tag)
+  //   if (idArray.includes(id)) {
+  //     addChecks(id)
+  //   } else {
+  //     removeChecks(id)
+  //   }
+  // }
   console.log('array from ADD', idArray)
 };
 function removeProduct (loc) {
@@ -97,16 +98,20 @@ function pushIDs (id, idFull) {
     fullSizeArray.push(idFull)
   }
 }
-
+function idArrayUpdate (id) {
+  idArray = !idArray.includes(id) && idArray.length < 3
+    ? [...idArray, id]
+    : idArray.filter(el => el !== id)
+}
 function addChecks (id) {
-  console.log('addCheck', id)
-  $('#checkbox_' + id).addClass('selected')
+  if (idArray.includes(id)) {
+    console.log('addCheck', id)
+    $('#checkbox_' + id).addClass('selected')
+  } else {
+    console.log('removeCheck', id)
+    $('#checkbox_' + id).removeClass('selected')
+  }
 }
-function removeChecks (id) {
-  console.log('removeCheck', id)
-  $('#checkbox_' + id).removeClass('selected')
-}
-
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length == 3) {

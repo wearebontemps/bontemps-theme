@@ -17,7 +17,7 @@
         {% endif %}
     {% endfor %}
 {% endfor %} {% endcomment %}
-<div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{ current_variant.title | escape }}", "{{full_size.id}}", "{{ product.id }}");'>
+<div class="grid-view-item  hover_{{product.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{full_size.id}}", "{{ product.id }}");'>
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
