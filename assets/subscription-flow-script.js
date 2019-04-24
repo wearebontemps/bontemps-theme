@@ -28,21 +28,34 @@ function addProduct (id, title, tag) {
     $('#selected_product_1').text(title)
     productID1 = id
     productFull1 = tag
-    addChecks(id, tag)
+    pushIDs(id, tag)
+    if (idArray.includes(id)) {
+      addChecks(id)
+    } else {
+      removeChecks(id)
+    }
     checkFull()
   } else if (idArray.length === 1) {
     $('#selected_product_2').text(title)
     productID2 = id
     productFull2 = tag
-    // pushIDs(productID2, productFull2)
-    addChecks(id, tag)
+    pushIDs(id, tag)
+    if (idArray.includes(id)) {
+      addChecks(id)
+    } else {
+      removeChecks(id)
+    }
     checkFull()
   } else if (idArray.length === 2) {
     $('#selected_product_3').text(title)
     productID3 = id
     productFull3 = tag
-    // pushIDs(productID3, productFull3)
-    addChecks(id, tag)
+    pushIDs(id, tag)
+    if (idArray.includes(id)) {
+      addChecks(id)
+    } else {
+      removeChecks(id)
+    }
     checkFull()
   } else {
     $('#selected_product_3').text(title)
@@ -50,8 +63,12 @@ function addProduct (id, title, tag) {
     fullSizeArray.pop()
     productID3 = id
     productFull3 = tag
-    // pushIDs(productID3, productFull3)
-    addChecks(id, tag)
+    pushIDs(id, tag)
+    if (idArray.includes(id)) {
+      addChecks(id)
+    } else {
+      removeChecks(id)
+    }
     checkFull()
   }
   console.log('array from ADD', idArray)
@@ -81,25 +98,13 @@ function pushIDs (id, idFull) {
   }
 }
 
-function addChecks (id, tag) {
-  pushIDs(id, tag)
+function addChecks (id) {
   console.log('addCheck', id)
-  $('.checkmark').each(function () {
-    // var element = $(this).attr('id')
-    if (idArray.includes(id)) {
-      $('#checkbox_' + id).addClass('selected')
-      console.log('added')
-    }
-    // $.each(idArray, function (index, value) {
-    //   console.log(element, 'checkbox_' + value)
-    //   if (element == 'checkbox_' + value) {
-    //
-    //   } else {
-    //     $('#' + element).removeClass('selected')
-    //     console.log('removed')
-    //   }
-    // })
-  })
+  $('#checkbox_' + id).addClass('selected')
+}
+function removeChecks (id) {
+  console.log('removeCheck', id)
+  $('#checkbox_' + id).removeClass('selected')
 }
 
 function bundleOverview () {
