@@ -74,6 +74,7 @@ function removeProduct (loc) {
 function pushIDs (id, idFull) {
   if (idArray.length < 3) {
     idArray.push(id)
+    console.log('idArray:', idArray)
   }
   if (fullSizeArray.length < 3) {
     fullSizeArray.push(idFull)
