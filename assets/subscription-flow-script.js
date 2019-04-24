@@ -23,29 +23,14 @@ function checkFull () {
     $('#bundle-adder-btn').fadeOut(200)
   }
 }
-function addProduct (id, title, tag) {
+function addProduct (id, fullSize, tag) {
   productID1 = id
   productFull1 = tag
-  idArrayUpdate(id)
+  idArrayUpdate(id, fullSize)
   addChecks(id)
   checkFull()
   console.log('array from ADD', idArray)
 };
-// function removeProduct (loc) {
-//   if (loc == '1') {
-//     $('#selected_product_1').text('')
-//     productID1 = null
-//     checkFull()
-//   } else if (loc == '2') {
-//     $('#selected_product_2').text('')
-//     productID2 = null
-//     checkFull()
-//   } else if (loc == '3') {
-//     $('#selected_product_3').text('')
-//     productID3 = null
-//     checkFull()
-//   }
-// };
 function pushIDs (id, idFull) {
   if (idArray.length < 3) {
     idArray.push(id)
@@ -55,10 +40,13 @@ function pushIDs (id, idFull) {
     fullSizeArray.push(idFull)
   }
 }
-function idArrayUpdate (id) {
+function idArrayUpdate (id, fullSizeID) {
   idArray = !idArray.includes(id) && idArray.length < 3
     ? [...idArray, id]
     : idArray.filter(el => el !== id)
+  fullSizeArray = !fullSizeArray.includes(id) && fullSizeArray.length < 3
+    ? [...fullSizeArray, fullSizeID]
+    : fullSizeArray.filter(el => el !== fullSizeID)  
 }
 function addChecks (id) {
   if (idArray.includes(id)) {
