@@ -17,78 +17,35 @@ var subscriptionInterval = null
 var idArray = []
 var fullSizeArray = []
 function checkFull () {
-  if (productID1 != null && productID2 != null && productID3 != null) {
+  if (idArray.length === 3) {
     $('#bundle-adder-btn').fadeIn(200)
   } else {
     $('#bundle-adder-btn').fadeOut(200)
   }
 }
 function addProduct (id, title, tag) {
-  // $('#selected_product_1').text(title)
   productID1 = id
   productFull1 = tag
   idArrayUpdate(id)
   addChecks(id)
   checkFull()
-  // if (idArray.length === 0) {
-  //   $('#selected_product_1').text(title)
-  //   productID1 = id
-  //   productFull1 = tag
-  //   idArrayUpdate(id)
-  //   addChecks(id)
-  //   checkFull()
-  // } else if (idArray.length === 1) {
-  //   $('#selected_product_2').text(title)
-  //   productID2 = id
-  //   productFull2 = tag
-  //   pushIDs(id, tag)
-  //   if (idArray.includes(id)) {
-  //     addChecks(id)
-  //   } else {
-  //     removeChecks(id)
-  //   }
-  //   checkFull()
-  // } else if (idArray.length === 2) {
-  //   $('#selected_product_3').text(title)
-  //   productID3 = id
-  //   productFull3 = tag
-  //   pushIDs(id, tag)
-  //   if (idArray.includes(id)) {
-  //     addChecks(id)
-  //   } else {
-  //     removeChecks(id)
-  //   }
-  //   checkFull()
-  // } else {
-  //   $('#selected_product_3').text(title)
-  //   idArray.pop()
-  //   fullSizeArray.pop()
-  //   productID3 = id
-  //   productFull3 = tag
-  //   pushIDs(id, tag)
-  //   if (idArray.includes(id)) {
-  //     addChecks(id)
-  //   } else {
-  //     removeChecks(id)
-  //   }
-  // }
   console.log('array from ADD', idArray)
 };
-function removeProduct (loc) {
-  if (loc == '1') {
-    $('#selected_product_1').text('')
-    productID1 = null
-    checkFull()
-  } else if (loc == '2') {
-    $('#selected_product_2').text('')
-    productID2 = null
-    checkFull()
-  } else if (loc == '3') {
-    $('#selected_product_3').text('')
-    productID3 = null
-    checkFull()
-  }
-};
+// function removeProduct (loc) {
+//   if (loc == '1') {
+//     $('#selected_product_1').text('')
+//     productID1 = null
+//     checkFull()
+//   } else if (loc == '2') {
+//     $('#selected_product_2').text('')
+//     productID2 = null
+//     checkFull()
+//   } else if (loc == '3') {
+//     $('#selected_product_3').text('')
+//     productID3 = null
+//     checkFull()
+//   }
+// };
 function pushIDs (id, idFull) {
   if (idArray.length < 3) {
     idArray.push(id)

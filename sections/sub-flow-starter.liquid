@@ -22,7 +22,7 @@
         <div class="col-12">
             <h2 class="text-orange text-center">Don't commit unless you love it.</h2>
             <h4 class="text-orange text-center">Select three tea blends for free</h4>
-            <div id="bundle_anchor" class="row" style="margin: 1em 0;">
+            {% comment %} <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
                     <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
                     <p>Tea One</p>
@@ -38,7 +38,7 @@
                     <p>Tea Three</p>
                     <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
             {%- assign grid_item_width = "one-half medium-up--one-third" -%}
