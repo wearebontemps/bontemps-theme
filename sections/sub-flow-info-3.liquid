@@ -1,0 +1,93 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="section-inner">
+  <div class="row contained">
+  <div class="col-12 row-80" style="margin-bottom: 2em; padding: 0 4em;">
+    <h3 class="text-center">{{ section.settings.text }}</h3>
+    <p class="text-center">{{ section.settings.text_lower }}</p>
+  </div>
+    <div class="col-md-3 col-6 text-center">
+      <h3>{{ section.settings.col_1_title }}</h3>
+      <h4 class="text-center">{{ section.settings.col_1_content }}</h4>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <h3>{{ section.settings.col_2_title }}</h3>
+      <h4 class="text-center text-center">{{ section.settings.col_2_content }}</h4>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <h3>{{ section.settings.col_3_title }}</h3>
+      <h4 class="text-center">{{ section.settings.col_3_content }}</h4>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+      <h3>{{ section.settings.col_4_title }}</h3>
+      <h4 class="text-center">{{ section.settings.col_4_content }}</h4>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Subscription Flow Info 3"
+  },
+  "settings": [
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "text"
+    },
+    {
+    "type": "richtext",
+    "id": "text_lower",
+    "label": "text lower"
+    },
+    {
+    "type": "text",
+    "id": "col_1_title",
+    "label": "column 1 title"
+    },
+    {
+    "type": "richtext",
+    "id": "col_1_content",
+    "label": "column 1 text"
+    },
+    {
+    "type": "text",
+    "id": "col_2_title",
+    "label": "column 2 title"
+    },
+    {
+    "type": "richtext",
+    "id": "col_2_content",
+    "label": "column 2 text"
+    },
+    {
+    "type": "text",
+    "id": "col_3_title",
+    "label": "column 3 title"
+    },
+    {
+    "type": "richtext",
+    "id": "col_3_content",
+    "label": "column 3 text"
+    },
+    {
+    "type": "text",
+    "id": "col_4_title",
+    "label": "column 4 title"
+    },
+    {
+    "type": "richtext",
+    "id": "col_4_content",
+    "label": "column 4 text"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Subscription Flow Info",
+    "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
