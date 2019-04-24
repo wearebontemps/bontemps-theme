@@ -83,14 +83,14 @@ function pushIDs (id, idFull) {
 function addChecks (id, tag) {
   pushIDs(id, tag)
   console.log('addCheck', id)
-  $.each(idArray, function (index, value) {
-    $('.checkmark').each(function () {
+  $('.checkmark').each(function () {
+    $.each(idArray, function (index, value) {
       console.log($(this).attr('id'), 'checkbox_' + value)
       if ($(this).attr('id') == 'checkbox_' + value) {
-        $('#checkbox_' + value).addClass('selected')
+        $(this).addClass('selected')
         console.log('added')
       } else {
-        $('#checkbox_' + value).removeClass('selected')
+        // $('#checkbox_' + value).removeClass('selected')
         console.log('removed')
       }
     })
