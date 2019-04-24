@@ -91,7 +91,7 @@ function addChecks (id, tag) {
         $('#' + element).addClass('selected')
         console.log('added')
       } else {
-        // $('#checkbox_' + value).removeClass('selected')
+        $('#' + element).removeClass('selected')
         console.log('removed')
       }
     })
