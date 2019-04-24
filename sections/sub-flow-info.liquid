@@ -7,19 +7,19 @@
     <h3 class="text-center">{{ section.settings.text }}</h3>
   </div>
     <div class="col-md-3 col-6 text-center">
-      <img src="{{ section.settings.col_1_image }}">
+      <img src="{{ section.settings.col_1_image | asset_url }}">
       <h4 class="text-center">{{ section.settings.col_1_content }}</h4>
     </div>
     <div class="col-md-3 col-6 text-center">
-      <img src="{{ section.settings.col_2_image }}">
+      <img src="{{ section.settings.col_2_image | asset_url }}">
       <h4 class="text-center text-center">{{ section.settings.col_2_content }}</h4>
     </div>
     <div class="col-md-3 col-6 text-center">
-      <img src="{{ section.settings.col_3_image }}">
+      <img src="{{ section.settings.col_3_image | asset_url }}">
       <h4 class="text-center">{{ section.settings.col_3_content }}</h4>
     </div>
     <div class="col-md-3 col-6 text-center">
-      <img src="{{ section.settings.col_4_image }}">
+      <img src="{{ section.settings.col_4_image | asset_url }}">
       <h4 class="text-center">{{ section.settings.col_4_content }}</h4>
     </div>
   </div>
