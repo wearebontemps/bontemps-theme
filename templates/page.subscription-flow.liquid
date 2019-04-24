@@ -1,11 +1,9 @@
 {% layout 'subscription-flow' %}
-
-<div class="contained">
-  <div class="page-width section-inner">
-    <div class="section-header text-center limitcopywidth">
-      <h1>{{ page.title }}</h1>
-    </div>
-  </div>
+<div class="top-nav-box">
+  {% comment %} {% include "announcement-bar" %} {% endcomment %}
+  <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
+  {% include "header-nav" %}
+  </header>
 </div>
 {% section 'sub-flow-starter' %}
 {% section 'sub-flow-info' %}
