@@ -84,7 +84,7 @@ function addChecks (id, tag) {
   pushIDs(id, tag)
   console.log('addCheck', id)
   $('.checkmark').each(function () {
-    var element = console.log($(this).attr('id')
+    var element = console.log($(this).attr('id'))
     $.each(idArray, function (index, value) {
       console.log(element, 'checkbox_' + value)
       if (element == 'checkbox_' + value) {
