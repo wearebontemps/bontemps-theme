@@ -22,23 +22,6 @@
         <div class="col-12">
             <h2 class="text-orange text-center">Don't commit unless you love it.</h2>
             <h4 class="text-orange text-center">Select three tea blends for free</h4>
-            {% comment %} <div id="bundle_anchor" class="row" style="margin: 1em 0;">
-                <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                    <h3 id="selected_product_1" style="margin-top: 1em;"></h3>
-                    <p>Tea One</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_1" onClick="removeProduct('1')">Remove</button>
-                    </div>
-                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                    <h3 id="selected_product_2" style="margin-top: 1em;"></h3>
-                    <p>Tea Two</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_2" onClick="removeProduct('2')">Remove</button>
-                    </div>
-                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-between">
-                    <h3 id="selected_product_3" style="margin-top: 1em;"></h3>
-                    <p>Tea Three</p>
-                    <button class="btn btn-small btn--secondary" type="button" id="remove_3" onClick="removeProduct('3')">Remove</button>
-                </div>
-            </div> {% endcomment %}
             <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
             {%- assign grid_item_width = "one-half medium-up--one-third" -%}
@@ -98,19 +81,22 @@
             <h2 class="text-orange text-center">Third Panel</h2>
             <h4 class="text-orange text-center">Summary</h4>
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
-                <div class="col-sm-6 d-flex flex-column align-items-center justify-content-between">
-                    <h3 id="selected_product_1" style="margin-top: 1em;">REVIEW</h3>
-                    <p>Lorem</p>
+                <div class="col-sm-6 d-flex flex-column align-items-center justify-content-start">
+                    <h3 id="selected_product_1" style="margin-top: 1em;">Image here</h3>
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-left justify-content-between">
                 <div class="recap-card">
                     <h2>Ships Today</h2>
-                    <div class="sub-details-upper"></div>
+                    <div class="sub-details-upper row">
+                    <p class="text-blue col-6">Subtotal:</p><p class="text-blue col-6">FREE</p>
+                    <p class="text-blue col-6">Shipping:</p><p class="text-blue col-6">$3</p>
+                    <p class="text-blue col-6">Total Today:</p><p class="text-blue col-6">$3</p>
+                    </div>
                     <div class="subs-accordion" id="accordion-upper">
                         <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                                <a class="" type="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Review
+                                <a class="text-blue" type="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Your sample selection
                                 </a>
                             </h5>
                         </div>
@@ -123,12 +109,16 @@
                 </div>
                 <div class="recap-card">
                     <h2>Ships & Charges in 2 Weeks</h2>
-                    <div class="sub-details-lower"></div>
+                    <div class="sub-details-lower">
+                    <p class="text-blue col-6">Subtotal:</p><p class="text-blue col-6">$48/3 months</p>
+                    <p class="text-blue col-6">Shipping:</p><p class="text-blue col-6"><strike>$3</strike> FREE</p>
+                    <p class="text-blue col-6">Total Today:</p><p class="text-blue col-6">$0</p>
+                    </div>
                     <div class="subs-accordion" id="accordion-lower">
                         <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                                <a class="" type="" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                Review
+                                <a class="text-blue" type="" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                Your full size subscription
                                 </a>
                             </h5>
                         </div>
