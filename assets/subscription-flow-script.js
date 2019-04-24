@@ -87,9 +87,9 @@ function addChecks (id, tag) {
     $.each(idArray, function (index, value) {
       console.log('inside-each', value, id)
       if ($( ".checkmark[id*='" + value + "']")) {
-        $('#checkbox_' + id).addClass('selected')
+        $('#checkbox_' + value).addClass('selected')
       } else {
-        $('#checkbox_' + id).removeClass('selected')
+        $('#checkbox_' + value).removeClass('selected')
       }
     })
   })
