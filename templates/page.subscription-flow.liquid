@@ -1,10 +1,9 @@
 {% layout 'subscription-flow' %}
-<div class="top-nav-box">
-  {% comment %} {% include "announcement-bar" %} {% endcomment %}
+{% comment %} <div class="top-nav-box">
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
-</div>
+</div> {% endcomment %}
 {% section 'sub-flow-starter' %}
 {% section 'sub-flow-info' %}
 {% section 'about-subscription' %}
