@@ -27,7 +27,27 @@
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <h2 class="text-orange text-center">Don't commit unless you love it.</h2>
-            <h4 class="text-orange text-center">Select three tea blends for free</h4>
+            <h4 class="text-orange text-center">Select three free samples to try before your membership kicks in.</h4>
+            <div class="row contained">
+            <div class="col-12 row-80 text-center" style="margin-bottom: 2em; padding: 0 4em;">
+                <div class="col-md-3 col-6 text-center">
+                <img class="info-image-small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
+                <h4 class="text-center">{{ section.settings.col_1_content }}</h4>
+                </div>
+                <div class="col-md-3 col-6 text-center">
+                <img class="info-image-small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
+                <h4 class="text-center text-center">{{ section.settings.col_2_content }}</h4>
+                </div>
+                <div class="col-md-3 col-6 text-center">
+                <img class="info-image-small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
+                <h4 class="text-center">{{ section.settings.col_3_content }}</h4>
+                </div>
+                <div class="col-md-3 col-6 text-center">
+                <img class="info-image-small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
+                <h4 class="text-center">{{ section.settings.col_4_content }}</h4>
+                </div>
+            </div>
+            </div>
             <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
             {%- assign grid_item_width = "one-half medium-up--one-third" -%}
@@ -243,6 +263,46 @@
         "type": "image_picker",
         "id": "image",
         "label": "CTA Image"
+        },
+        {
+        "type": "image_picker",
+        "id": "col_1_image",
+        "label": "column 1 image (inside sub-flow)"
+        },
+        {
+        "type": "richtext",
+        "id": "col_1_content",
+        "label": "column 1 text"
+        },
+        {
+        "type": "image_picker",
+        "id": "col_2_image",
+        "label": "column 2 image"
+        },
+        {
+        "type": "richtext",
+        "id": "col_2_content",
+        "label": "column 2 text"
+        },
+        {
+        "type": "image_picker",
+        "id": "col_3_image",
+        "label": "column 3 image"
+        },
+        {
+        "type": "richtext",
+        "id": "col_3_content",
+        "label": "column 3 text"
+        },
+        {
+        "type": "image_picker",
+        "id": "col_4_image",
+        "label": "column 4 image"
+        },
+        {
+        "type": "richtext",
+        "id": "col_4_content",
+        "label": "column 4 text"
         }
         ],
         "presets": [
