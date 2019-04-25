@@ -4,15 +4,7 @@ $(document).on('cart.requestStarted', function (event, cart) {
 $(document).on('cart.ready', function (event, cart) {
   console.log('Cart Ready')
 })
-// var product_text_1 = $('#selected_product_1')
-// var product_text_2 = $('#selected_product_2')
-// var product_text_3 = $('#selected_product_3')
-var productID1 = null
-var productID2 = null
-var productID3 = null
-var productFull1 = null
-var productFull2 = null
-var productFull3 = null
+
 var subscriptionInterval = null
 var idArray = []
 var fullSizeArray = []
@@ -24,8 +16,6 @@ function checkFull () {
   }
 }
 function addProduct (id, fullSize, tag) {
-  productID1 = id
-  productFull1 = tag
   idArrayUpdate(id, fullSize)
   addChecks(id)
   checkFull()
