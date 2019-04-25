@@ -106,11 +106,9 @@
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(3)">Go Back</a>
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
-            <h2 class="text-orange text-center">Third Panel</h2>
-            <h4 class="text-orange text-center">Summary</h4>
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-start">
-                    <h3 id="selected_product_1" style="margin-top: 1em;">Image here</h3>
+                    <img src="{{ section.settings.summary_image | image_url: '600x' }}">
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-left justify-content-between">
                 <div class="recap-card">
@@ -121,7 +119,7 @@
                     <p class="text-blue col-6">Total Today:</p><p class="text-blue col-6">$3</p>
                     </div>
                     <div class="col-12 bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
-                        <button  style="" type="button flow-button" onClick="checkoutRedirect()" class="btn btn-large">Checkout</button>
+                        <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button">Checkout</button>
                     </div>
                     <div class="subs-accordion" id="accordion-upper">
                         <div class="card-header" id="headingOne">
@@ -305,6 +303,11 @@
         "type": "richtext",
         "id": "col_4_content",
         "label": "column 4 text"
+        },
+        {
+        "type": "image_picker",
+        "id": "summary_image",
+        "label": "Image for Summary"
         }
         ],
         "presets": [
