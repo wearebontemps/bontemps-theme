@@ -7,7 +7,7 @@
 
 <div class="section-inner d-flex justify-content-start bg-pastel has-bottom-curve" style="">
     <div class="d-flex align-items-center row-90 row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 small-hide">
         <p>MEMBERSHIPS BEGIN AT $16</p>
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
@@ -15,12 +15,26 @@
         <span>{{ section.settings.cta_text }}</span>
         </a>
     </div>
-    <div class="col-sm-6 small-hide">
+    <div class="col-sm-6">
     <img src="{{ section.settings.image | img_url: '1000x' }}">
     </div>
     </div>
-    {% assign bg_color = "bg-white" %}
+    {% assign bg_color = "bg-white small-hide" %}
     {% include "curved-svg" %}
+    {% assign bg_color = "bg-yellow small-show" %}
+    {% include "curved-svg" %}
+    <div class="d-flex align-items-center row-70 row small-show bg-yellow">
+    <div class="col-sm-12 small-hide">
+        <p>MEMBERSHIPS BEGIN AT $16</p>
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.text }}
+        <a id="subscription_start" class="btn flow-button" href="#">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+    </div>
+    {% assign bg_color = "bg-yellow" %}
+    {% include "curved-svg" %}
+    </div>
 </div>
 <div class="takeover takeover_1">
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer">X close</a>
