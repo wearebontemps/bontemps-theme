@@ -6,13 +6,18 @@
 {% endcapture %}
 
 <div class="section-inner d-flex justify-content-start bg-pastel has-bottom-curve" style="">
-    <div class="d-flex flex-column align-items-start justify-content-center row-90">
+    <div class="d-flex flex-column align-items-start row-90 row">
+    <div class="col-sm-6">
         <p>MEMBERSHIPS BEGIN AT $16</p>
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
         <a id="subscription_start" class="btn" href="#">
         <span>{{ section.settings.cta_text }}</span>
         </a>
+    </div>
+    <div class="col-sm-6 small-hide">
+    <img src="{{ section.settings.image | img_url: 1000x }}">
+    </div>
     </div>
     {% assign bg_color = "bg-white" %}
     {% include "curved-svg" %}
@@ -161,6 +166,7 @@
             </div>
         </div>
     </div>
+    </div>
 {{ logic_script }}
 <script type="text/javascript">
     var reChargeProcessCart = function () {
@@ -211,34 +217,39 @@
 
 {% schema %}
 {
-  "name": {
-    "en": "Subscription Flow CTA"
-  },
-  "settings": [
-    {
-    "type": "text",
-    "id": "title",
-    "label": "Section Title",
-    "default": "Give $20 Get $20"
+    "name": {
+        "en": "Subscription Flow CTA"
     },
-    {
-    "type": "richtext",
-    "id": "text",
-    "label": "text",
-    "default": "<p>Let's get started!</p>"
-    },
-    {
-    "type": "text",
-    "id": "cta_text",
-    "label": "Button Text",
-    "default": "Send Invite"
-    }
-  ],
-    "presets": [
-    {
-    "name": "Subscription Flow Start",
-    "category": "Custom"
-    }
-  ]
+    "settings": [
+        {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Give $20 Get $20"
+        },
+        {
+        "type": "richtext",
+        "id": "text",
+        "label": "text",
+        "default": "<p>Let's get started!</p>"
+        },
+        {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text",
+        "default": "Send Invite"
+        },
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "CTA Image"
+        }
+        ],
+        "presets": [
+        {
+        "name": "Subscription Flow Start",
+        "category": "Custom"
+        }
+    ]
 }
 {% endschema %}
