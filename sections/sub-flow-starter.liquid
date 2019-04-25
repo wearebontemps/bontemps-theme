@@ -24,7 +24,7 @@
     {% assign bg_color = "bg-yellow small-show" %}
     {% include "curved-svg" %}
     <div class="d-flex align-items-center row-70 row small-show bg-yellow">
-    <div class="col-sm-12 small-hide">
+    <div class="col-12 small-show">
         <p>MEMBERSHIPS BEGIN AT $16</p>
         <h2>{{ section.settings.title }}</h2>
         {{ section.settings.text }}
@@ -32,9 +32,9 @@
         <span>{{ section.settings.cta_text }}</span>
         </a>
     </div>
-    {% assign bg_color = "bg-yellow" %}
-    {% include "curved-svg" %}
     </div>
+    {% assign bg_color = "bg-white small-show" %}
+    {% include "curved-svg" %}
 </div>
 <div class="takeover takeover_1">
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer">X close</a>
