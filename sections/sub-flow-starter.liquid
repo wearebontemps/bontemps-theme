@@ -160,22 +160,22 @@
                     </div>
                     <div class="review-info">
                         <div class="row d-flex align-items-center justify-content-around">
-                            <div class="col-2">icon</div>
+                            <div class="col-2"><img src="{{ section.settings.summary_icon_1 | img_url: '50x50' }}"></div>
                             <div class="col-10">
                                 <strong>Email Reminders</strong>
                                 <p>We give you enough time to modify or cancel deliveries before each shipment.</p>
                             </div>
-                            <div class="col-2">icon</div>
+                            <div class="col-2"><img src="{{ section.settings.summary_icon_2 | img_url: '50x50' }}"></div>
                             <div class="col-10">
                                 <strong>Quality Guarantee</strong>
                                 <p>If you don't love your order, it's on us.</p>
                             </div>
-                            <div class="col-2">icon</div>
+                            <div class="col-2"><img src="{{ section.settings.summary_icon_3 | img_url: '50x50' }}"></div>
                             <div class="col-10">
                                 <strong>Email Reminders</strong>
                                 <p>We give you enough time to modify or cancel deliveries before each shipment.</p>
                             </div>
-                            <div class="col-2">icon</div>
+                            <div class="col-2"><img src="{{ section.settings.summary_icon_4 | img_url: '50x50' }}"></div>
                             <div class="col-10">
                                 <strong>Quality Guarantee</strong>
                                 <p>If you don't love your order, it's on us.
@@ -308,6 +308,26 @@
         "type": "image_picker",
         "id": "summary_image",
         "label": "Image for Summary"
+        },
+        {
+        "type": "image_picker",
+        "id": "summary_icon_1",
+        "label": "summary icons"
+        },
+        {
+        "type": "image_picker",
+        "id": "summary_icon_2",
+        "label": "summary icons"
+        },
+        {
+        "type": "image_picker",
+        "id": "summary_icon_3",
+        "label": "summary icons"
+        },
+        {
+        "type": "image_picker",
+        "id": "summary_icon_4",
+        "label": "summary icons"
         }
         ],
         "presets": [
