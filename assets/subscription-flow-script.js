@@ -173,10 +173,10 @@ var buildOverview = function (cart, loc) {
         var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
         domSelector.append(
           '<div class="row" style="margin: .25em auto;">' +
-          '<div class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">' +
+          '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
           '<img src="' + item.image + '" alt="' + item.title + '"/>' +
           '</div>' +
-          '<div class="col-8 d-flex align-items-center" style="background-color: #f5f5f5; padding: 1em">' +
+          '<div class="col-7 d-flex align-items-center" style="padding: .5em">' +
           '<div class="row" style="width:100%;">' +
           '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
           '<p>' + item.title + '</span></p>' +
