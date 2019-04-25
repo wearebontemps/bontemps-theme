@@ -1,7 +1,7 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
-<div class="section-inner">
+<div class="section-inner has-bottom-curve bg-pink">
   <div class="row contained">
   <div class="col-md-6 d-flex align-items-center" style="padding: 0 4em;">
     <h3 class="">{{ section.settings.text }}</h3>
@@ -11,6 +11,8 @@
       <img src="{{ section.settings.image | img_url: '800x800' }}">
     </div>
   </div>
+  {% assign bg_color = "bg-yellow" %}
+    {% include "curved-svg" %}
 </div>
 
 {% schema %}
