@@ -8258,3 +8258,14 @@ svg{
     padding: 10px 40px;
   }
 }
+.small-hide{
+  @media screen only and (max-width: 576px){
+    display: none;
+  }
+}
+.small-show{
+  display: none;
+  @media screen only and (max-width: 576px){
+    display: static;
+  }
+}
