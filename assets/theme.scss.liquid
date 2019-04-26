@@ -8188,9 +8188,9 @@ $toolbar-height-small: 46px;
   top: 10px;
   right: 10px;
   border-radius: 50%;
-  border: 1px solid grey;
-  width: 20px;
-  height: 20px;
+  border: 1px solid #a3a3a3;
+  width: 34px;
+  height: 34px;
   background-color: white;
   z-index: 1000;
   .checkmark{
@@ -8201,8 +8201,8 @@ $toolbar-height-small: 46px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url('{{ "check.png" | asset_url }}');
-    height: 13px;
-    width: 13px;
+    height: 20px;
+    width: 20px;
     background-size: contain;
     background-repeat: no-repeat;
     &.selected{
@@ -8261,7 +8261,7 @@ svg{
 .flow-button{
   background-color: #141462;
   &:hover{
-    background-color: lighten(#141462, 15%);
+    background-color: lighten(#141462, 15%) !important;
   }
   &.btn-large{
     padding: 10px 40px;
