@@ -1,9 +1,9 @@
 {
   "current": {
-    "color_text": "#3c3d4b",
-    "color_body_text": "#3c3d4b",
-    "color_sale_text": "#e0592a",
-    "color_borders": "#3c3d4b",
+    "color_text": "#141462",
+    "color_body_text": "#141462",
+    "color_sale_text": "#141462",
+    "color_borders": "#141462",
     "color_button": "#e0592a",
     "color_button_text": "#ffffff",
     "color_small_button_text_border": "#e0592a",
@@ -76,13 +76,13 @@
   },
   "presets": {
     "Default": {
-      "color_text": "#3c3d4b",
-      "color_body_text": "#3c3d4b",
+      "color_text": "#141462",
+      "color_body_text": "#141462",
       "color_sale_text": "#e0592a",
       "color_borders": "#e0592a",
       "color_button": "#e0592a",
       "color_button_text": "#fff",
-      "color_small_button_text_border": "#3c3d4b",
+      "color_small_button_text_border": "#141462",
       "color_text_field": "#fff",
       "color_text_field_text": "#000",
       "color_image_overlay_text": "#fff",
