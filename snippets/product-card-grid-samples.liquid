@@ -37,7 +37,7 @@
             data-sizes="auto"
             alt="">
     </div>
-    <div class="flow-checkbox"><span id="checkbox_{{current_variant.id}}" class="checkmark">X</span></div>
+    <div class="flow-checkbox"><span id="checkbox_{{current_variant.id}}" class="checkmark"></span></div>
   </div>
 {% comment %} <img src="{{product.featured_image | img_url }}"/> {% endcomment %}
   <noscript>
@@ -101,7 +101,7 @@
     })
     </script>
 </div>
-{% comment %} 
+{% comment %}
 
         if (full_size_array.length == 3 ){
             async.each(full_size_array, function(id, next){
