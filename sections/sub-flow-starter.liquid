@@ -44,27 +44,31 @@
         <div class="col-12">
             <h2 class="text-blue text-center">Don't commit unless you love it.</h2>
             <p class="text-blue text-center">Select three free samples to try before your membership kicks in.</p>
-            <div class="row contained">
-            <div class="col-12 row-80 text-center" style="margin-bottom: 2em; padding: 0 4em;">
-            <div class="row">
-                <div class="col-md-3 col-6 text-center">
-                <img class="info-image-small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
-                <p class="text-center">{{ section.settings.col_1_content }}</p>
+            <div class="row contained" style="margin-bottom: 4em;">
+              <div class="col-12 row-80 text-center" style="padding: 0 4em;">
+                <div class="row">
+                    <div class="col-md-3 col-6 text-center">
+                    <img class="info-image-small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
+                    <p class="text-center">{{ section.settings.col_1_content }}</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 text-center">
+                    <img class="info-image-small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
+                    <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 text-center">
+                    <img class="info-image-small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
+                    <p class="text-center">{{ section.settings.col_3_content }}</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 text-center">
+                    <img class="info-image-small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
+                    <p class="text-center">{{ section.settings.col_4_content }}</p>
+                    </div>
+
                 </div>
-                <div class="col-md-3 col-6 text-center">
-                <img class="info-image-small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
-                <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
-                </div>
-                <div class="col-md-3 col-6 text-center">
-                <img class="info-image-small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
-                <p class="text-center">{{ section.settings.col_3_content }}</p>
-                </div>
-                <div class="col-md-3 col-6 text-center">
-                <img class="info-image-small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
-                <p class="text-center">{{ section.settings.col_4_content }}</p>
-                </div>
-            </div>
-            </div>
+              </div>
             </div>
             <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
@@ -118,13 +122,13 @@
         </div>
     </div>
     <div class="takeover takeover_3">
-    <a style="float: right; padding: 2em;" href="#" class="takeover_closer">X close</a>
-    <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(3)">Go Back</a>
+    <a style="float: right; padding: 2em;" href="#" class="takeover_closer">X</a>
+    <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(3)">< BACK</a>
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <div id="bundle_anchor" class="row" style="margin: 1em 0;">
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-start small-hide">
-                    <img src="{{ section.settings.summary_image | img_url: '600x' }}">
+                    <img class="summary-img" src="{{ section.settings.summary_image | img_url: '600x' }}">
                 </div>
                 <div class="col-sm-6 d-flex flex-column align-items-left justify-content-between">
                 <div class="recap-card">
