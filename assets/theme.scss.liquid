@@ -8217,12 +8217,20 @@ $toolbar-height-small: 46px;
   margin-top: 5em;
 }
 .refresh-icon {
-  background-image: url('{{ "check.png" | asset_url }}');
+  background-image: url('{{ "refresh.png" | asset_url }}');
   height: 16px;
   width: 16px;
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
+}
+.close-icon {
+  background-image: url('{{ "close.png" | asset_url }}');
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
 }
 .summary-img {
   max-width: 400px;
