@@ -8174,6 +8174,7 @@ $toolbar-height-small: 46px;
   .card-header{
   background: transparent;
   padding-left: 0;
+  border-bottom: none;
   }
 }
 .takeover_3{
@@ -8228,6 +8229,14 @@ $toolbar-height-small: 46px;
   background-image: url('{{ "close.png" | asset_url }}');
   height: 20px;
   width: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+}
+.caret-down-icon {
+  background-image: url('{{ "caret-down.png" | asset_url }}');
+  height: 10px;
+  width: 18px;
   background-size: contain;
   background-repeat: no-repeat;
   display: block;
