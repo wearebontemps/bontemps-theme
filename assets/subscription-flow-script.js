@@ -99,7 +99,6 @@ function bundleOverview () {
     function (error) {
       if (!error) {
         console.log('No Errors (2 of 2)')
-        $('.interval_target').text(toString(shippingIntervalFrequency))
         subscriptionCart(2)
       }
     })
@@ -110,6 +109,7 @@ function bundleOverview () {
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
   $('#interval_next').fadeIn(300)
+  $('.interval_target').text(toString(interval))
   if (interval == 1) {
     subscriptionInterval = 1
     $('.interval_selector_1').addClass('active')
