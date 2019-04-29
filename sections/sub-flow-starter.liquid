@@ -4,8 +4,21 @@
 {% capture logic_script %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 {% endcapture %}
+{% capture header_logo %}
+<a href="/" class="logo-image">
+    {% if section.settings.logo != blank %}
+    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+    <img src="{{ section.settings.logo | img_url: image_size }}"
+    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+    alt="{{ section.settings.logo.alt | default: shop.name }}">
+    {% else %}
+    {{ shop.name }}
+    {% endif %}
+</a>
+{% endcapture %}
 <section>
 <div class="section-inner bg-pastel has-bottom-curve" style="">
+    <div class ="d-flex align-items-center jusify-content-center">{{ header_logo ß}}</div>
     <div class="d-flex align-items-center row-90 row">
     <div class="col-sm-6 small-hide">
         <p>MEMBERSHIPS BEGIN AT $16</p>
