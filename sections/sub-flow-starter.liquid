@@ -91,7 +91,7 @@
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <h2 class="text-blue text-center">Choose a schedule that suits your mood.</h2>
-            <p class="text-blue text-center">Your first delivery arrives DATE (not charged today). You can cancel anytime.</p>
+            <p class="text-blue text-center">Your first delivery arrives {{ "now" | date: "%s" | plus: 864000 | date: "%b %d, %Y" }} (not charged today). You can cancel anytime.</p>
             <div id="bundle_anchor" class="row" style="margin: 4em 0 1em;">
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(1)">
