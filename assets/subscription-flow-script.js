@@ -50,7 +50,6 @@ function addChecks (id) {
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length == 3) {
-    console.log('inside if', subscriptionInterval)
     var shippingIntervalFrequency = subscriptionInterval.toString()
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '203086'
@@ -74,7 +73,6 @@ function bundleOverview () {
     },
     function (error) {
       if (!error) {
-        console.log('No Errors (1 of 2)')
         subscriptionCart(1)
       }
     })
@@ -84,7 +82,6 @@ function bundleOverview () {
         'shipping_interval_frequency': 'PH'
       }, {
         'complete': function () {
-          console.log('2 complete!')
           window.location('/checkout')
         },
         'success': function (data, textStatus, jqXHR) {
@@ -98,7 +95,6 @@ function bundleOverview () {
     },
     function (error) {
       if (!error) {
-        console.log('No Errors (2 of 2)')
         subscriptionCart(2)
       }
     })
@@ -109,7 +105,6 @@ function bundleOverview () {
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
   $('#interval_next').fadeIn(300)
-  console.log(interval)
   $('.interval_target').text(interval)
   if (interval == 1) {
     subscriptionInterval = 1
