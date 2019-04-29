@@ -151,7 +151,6 @@ var buildOverview = function (cart, loc) {
   } else if (loc == 2 ) {
     var domSelector = $('#sub-flow-cart-lower')
     useArray = fullSizeArray;
-    $('.interval_target').text(subscriptionInterval.toString())
   }
   domSelector.html('')
   console.log('cart:', cart)
