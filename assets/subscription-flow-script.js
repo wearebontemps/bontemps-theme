@@ -99,6 +99,7 @@ function bundleOverview () {
     function (error) {
       if (!error) {
         console.log('No Errors (2 of 2)')
+        $('.interval_target').text(toString(shippingIntervalFrequency))
         subscriptionCart(2)
       }
     })
