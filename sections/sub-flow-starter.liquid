@@ -23,11 +23,10 @@
     {% include "curved-svg" %}
     {% assign bg_color = "bg-yellow small-show" %}
     {% include "curved-svg" %}
-    <div class="top-nav-box">
-  {% comment %} {% include "announcement-bar" %} {% endcomment %}
-  <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-  {% include "header-nav" %}
-  </header>
+    <div class="top-nav-box" style="left: 0">
+    <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
+    {% include "header-nav" %}
+    </header>
 </div>
 </div>
 <section>
