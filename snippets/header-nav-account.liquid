@@ -1,0 +1,130 @@
+<nav class="navbar navbar-expand-md navbar-light bg-clear contained row d-flex">
+  <div class="col-4 col-sm-4">
+  <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex">
+      {% for link in linklists[section.settings.menu].links %}
+      {% if link.links != blank %}
+      <li {% if forloop.first %}class="nav-item dropdown shop" {% else %} class="nav-item dropdown"{% endif %}>
+        <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
+          {{ link.title }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-shop d-flex">
+          {% for childlink in link.links %}
+            {% if forloop.index == 1 or forloop.index > 1 %}
+              <div class="dropdown-box">
+            {% endif %}
+            {% capture image_box %}
+            <div class="header-image-box">
+            {% assign handle = childlink.object.handle %}
+            {% assign custom = childlink.object.products_count %}
+            {% comment %} <p>Object title: {{ handle }}</p>
+            <p>Collection title: {{ custom }}</p> {% endcomment %}
+            {% if childlink.object.image != blank %}
+            <img src="{{ childlink.object.image | img_url: '300x' }}"/>
+            {% else %}
+            <img src="{{ section.settings.threesome_image | img_url: '300x' }}"/>
+            {% endif %}
+            </div>
+            {% endcapture %}
+              {% if link.links != blank %}
+                <a class="text-dark collection-category text-center" href="{{ childlink.url }}">{{ image_box }}<p>{{ childlink.title }}</p></a>
+                {% if childlink.links != blank %}
+                <ul class="dropdown-category-list">
+                {% for grandchildlink in childlink.links %}
+                <li class="dropdown-link"><a class="text-dark" href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+              {% else %}
+                <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title }}</a>
+              {% endif %}
+
+            {% if forloop.index >= 1 %}
+            </div>
+            {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a href="{{ link.url }}">
+          {{ link.title }}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  </div>
+  <div class="col-sm-4 col-4 order-sm-2 order-2 d-flex justify-content-center header-logo-box">
+  <a href="/" class="logo-image">
+    {% if section.settings.logo != blank %}
+    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+    <img src="{{ section.settings.logo | img_url: image_size }}"
+    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+    alt="{{ section.settings.logo.alt | default: shop.name }}">
+    {% else %}
+    <img src="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388" srcset="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388 1x, //cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x@2x.png?v=1556577388 2x" alt="Bon Temps Dev">    
+    {% endif %}
+  </a>
+  </div>
+  <div class="col-4 col-sm-4 order-sm-3 order-3  text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+    <div class="site-header__icons-wrapper d-flex justify-content-end">
+        {% comment %} <div class="site-header__search site-header__icon small--hide">
+          {% include 'search-form' %}
+        </div>
+      <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top medium-up--hide">
+        {% include 'icon-search' %}
+        <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+      </button> {% endcomment %}
+
+       {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a href="/account" class="site-header__icon site-header__account">
+            {% include 'icon-login' %}
+            <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+          </a>
+        {% else %}
+          <a href="/account/login" class="site-header__icon site-header__account">
+            {% include 'icon-login' %}
+            <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+          </a>
+        {% endif %}
+      {% endif %}
+
+      <a href="#" id="header-cart-opener" class="site-header__icon site-header__cart">
+
+        {% include 'icon-bag' %}
+        <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+        {% if cart.item_count > 0 %}
+          <div id="CartCount" class="site-header__cart-count">
+            <span id="cart_target">{{ cart.item_count }}</span>
+            <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+          </div>
+        {% endif %}
+      </a>
+    {% if template contains "product" %}
+    {% if product.available %}
+    <form class="header-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
+      <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
+      <input type="submit" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
+    </form>
+    {% endif %}
+    {% endif %}
+      {% unless linklists[section.settings.main_linklist] == blank %}
+        <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+          {% include 'icon-hamburger' %}
+          {% include 'icon-close' %}
+        </button>
+      {% endunless %}
+    </div>
+  </div>
+</nav>
