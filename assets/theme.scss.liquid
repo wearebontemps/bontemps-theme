@@ -1673,6 +1673,15 @@ $slick-opacity-not-active: 0.25;
   }
 }
 
+#ReCharge {
+  padding: 50px 55px 3em;
+  #ReCharge-Nav {
+    .nav {
+      flex-direction: column;
+      line-height: 2;
+    }
+  }
+}
 
 /*================ Hero and slideshow headers ================*/
 .mega-title,
@@ -1901,7 +1910,7 @@ a[href^="tel"] {
 }
 
 /*================ Buttons ================*/
-.btn, .yotpo-default-button {
+.btn, .yotpo-default-button, .rc_button {
   @include user-select();
   @include prefix(appearance, none, webkit moz spec);
   display: inline-block;
@@ -1970,13 +1979,13 @@ a[href^="tel"] {
   }
 }
 
-.btn--small {
+.btn--small, .rc_button {
   padding: 8px 10px;
   font-size: em(12);
   line-height: 1;
 }
 
-.btn--tertiary {
+.btn--tertiary, .rc_button {
   background-color: transparent;
   color: $color-small-button-text-border;
   border-color: $color-small-button-text-border;
