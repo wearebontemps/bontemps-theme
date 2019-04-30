@@ -1910,7 +1910,7 @@ a[href^="tel"] {
 }
 
 /*================ Buttons ================*/
-.btn, .yotpo-default-button, .rc_button {
+.btn, .yotpo-default-button, .rc_button, .rc_subscriptions__items__cancel {
   @include user-select();
   @include prefix(appearance, none, webkit moz spec);
   display: inline-block;
@@ -1979,10 +1979,15 @@ a[href^="tel"] {
   }
 }
 
-.btn--small, .rc_button {
+.btn--small, .rc_button, .rc_subscriptions__items__cancel {
   padding: 8px 10px;
   font-size: em(12);
   line-height: 1;
+}
+.rc_subscriptions__items__cancel {
+  background-color: red;
+  color: white;
+  border-color: red;
 }
 
 .btn--tertiary {
