@@ -1910,7 +1910,7 @@ a[href^="tel"] {
 }
 
 /*================ Buttons ================*/
-.btn, .yotpo-default-button, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__edit {
+.btn, .yotpo-default-button, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__cancel, .rc_subscriptions__subscription__item__edit {
   @include user-select();
   @include prefix(appearance, none, webkit moz spec);
   display: inline-block;
@@ -1953,7 +1953,7 @@ a[href^="tel"] {
   }
 }
 
-.btn--secondary, .rc_subscriptions__subscription__item__edit {
+.btn--secondary, .rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
   background-color: transparent;
   color: $color-btn-primary;
   border-color: $color-btn-primary;
@@ -1979,12 +1979,12 @@ a[href^="tel"] {
   }
 }
 
-.btn--small, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__edit {
+.btn--small, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
   padding: 8px 10px;
   font-size: em(12);
   line-height: 1;
 }
-.rc_subscriptions__items__cancel {
+.rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__cancel {
   background-color: red;
   color: white;
   border-color: red;
