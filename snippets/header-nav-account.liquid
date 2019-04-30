@@ -72,7 +72,7 @@
     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
     alt="{{ section.settings.logo.alt | default: shop.name }}">
     {% else %}
-    <img src="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388" srcset="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388 1x, //cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x@2x.png?v=1556577388 2x" alt="Bon Temps Dev">    
+    <img src="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388" srcset="//cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x.png?v=1556577388 1x, //cdn.shopify.com/s/files/1/0148/6985/6304/files/bontemps-logo_2x_e75fe359-6281-4c94-9498-f81ea68b4f51_160x@2x.png?v=1556577388 2x" alt="Bon Temps Dev">
     {% endif %}
   </a>
   </div>
@@ -89,12 +89,12 @@
        {% if shop.customer_accounts_enabled %}
         {% if customer %}
           <a href="/account" class="site-header__icon site-header__account">
-            {% include 'icon-login' %}
+            {% comment %}{% include 'icon-login' %}{% endcomment %}
             <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
           </a>
         {% else %}
           <a href="/account/login" class="site-header__icon site-header__account">
-            {% include 'icon-login' %}
+            {% comment %}{% include 'icon-login' %}{% endcomment %}
             <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
           </a>
         {% endif %}
