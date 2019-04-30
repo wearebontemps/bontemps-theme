@@ -1,4 +1,7 @@
-<div class="page-width">
+{% layout 'theme' %}
+{% section 'header-account' %}
+<div class="contained">
+<div class="page-width" style="margin-bottom:3em;">
   <div class="section-header text-center">
     <h1>{{ 'customer.account.title' | t }}</h1>
     <p><a href="/account">{{ 'customer.account.return' | t }}</a></p>
@@ -108,4 +111,5 @@
       {{ order.shipping_address | format_address }}
     </div>
   </div>
+</div>
 </div>
