@@ -1191,7 +1191,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6
+ {
   margin: 0 0 ($section-spacing-small / 2);
   font-family: $font-stack-header;
   font-family: 'Baskerville';
@@ -1209,6 +1210,12 @@ h6 {
   &.orange {
     color: #E0592A !important;
   }
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans';
 }
 
 h1 {
@@ -3580,6 +3587,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 //   font-family: 'Gotham', sans-serif;
 // }
 .text-gotham {
+  font-family: 'Baskerville', sans-serif;
+}
+
+.text-baskerville {
   font-family: 'Baskerville', sans-serif;
 }
 .password-page {
@@ -6616,6 +6627,7 @@ $toolbar-height-small: 46px;
   }
   h4 {
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
   }
   a {
     color: white;
