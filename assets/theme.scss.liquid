@@ -440,7 +440,7 @@ $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 /*================ Typography ================*/
 
 //@import url("https://use.typekit.net/eur2ksv.css");
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 
 {% assign header_font = settings.type_header_font %}
@@ -1063,7 +1063,7 @@ html {
 }
 .section-header h1{
   font-family: 'Baskerville';
-  font-size: 2.5em;
+  font-size: 2.75em;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.1;
@@ -1191,7 +1191,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6
+ {
   margin: 0 0 ($section-spacing-small / 2);
   font-family: $font-stack-header;
   font-family: 'Baskerville';
@@ -1211,6 +1212,12 @@ h6 {
   }
 }
 
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans';
+}
+
 h1 {
   font-size: em(floor($font-size-header * 1.35));
   text-transform: none;
@@ -1223,9 +1230,10 @@ h1 {
 
 h2, .h2 {
   //font-size: em(floor($font-size-header * 1.1));
-  font-size: 1.9em;
+  font-size: 2.25em;
+  color: #141462;
   @include media-query($small) {
-    font-size: calc(1.9em * 0.9);
+    font-size: calc(2em * 0.9);
   }
 }
 
@@ -1665,6 +1673,15 @@ $slick-opacity-not-active: 0.25;
   }
 }
 
+#ReCharge {
+  padding: 50px 55px 3em;
+  #ReCharge-Nav {
+    .nav {
+      flex-direction: column;
+      line-height: 2;
+    }
+  }
+}
 
 /*================ Hero and slideshow headers ================*/
 .mega-title,
@@ -1679,7 +1696,7 @@ $slick-opacity-not-active: 0.25;
   font-size: em($font-size-header + 8);
   margin-bottom: 1em;
   font-size: 3em !important;
-
+  line-height: 1;
   @include media-query($medium-up) {
     font-size: em(floor($font-size-header * 2.5));
   }
@@ -1893,7 +1910,7 @@ a[href^="tel"] {
 }
 
 /*================ Buttons ================*/
-.btn, .yotpo-default-button {
+.btn, .yotpo-default-button, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__cancel, .rc_subscriptions__subscription__item__edit {
   @include user-select();
   @include prefix(appearance, none, webkit moz spec);
   display: inline-block;
@@ -1936,7 +1953,7 @@ a[href^="tel"] {
   }
 }
 
-.btn--secondary {
+.btn--secondary, .rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
   background-color: transparent;
   color: $color-btn-primary;
   border-color: $color-btn-primary;
@@ -1946,6 +1963,15 @@ a[href^="tel"] {
     background-color: transparent;
     color: $color-btn-primary-focus;
     border-color: $color-btn-primary-focus;
+  }
+  a {
+    color: white;
+  }
+}
+
+.rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
+  a {
+    color: white;
   }
 }
 
@@ -1962,10 +1988,23 @@ a[href^="tel"] {
   }
 }
 
-.btn--small {
+.btn--small, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
   padding: 8px 10px;
   font-size: em(12);
   line-height: 1;
+}
+.rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__cancel {
+  background-color: #e0592a;
+  color: white;
+  //border-color: red;
+  a {
+    color: white;
+  }
+}
+.rc_button--fa-plus-circle {
+  &::before {
+    margin-right: 3px;
+  }
 }
 
 .btn--tertiary {
@@ -3580,6 +3619,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 //   font-family: 'Gotham', sans-serif;
 // }
 .text-gotham {
+  font-family: 'Baskerville', sans-serif;
+}
+
+.text-baskerville {
   font-family: 'Baskerville', sans-serif;
 }
 .password-page {
@@ -6616,6 +6659,7 @@ $toolbar-height-small: 46px;
   }
   h4 {
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
   }
   a {
     color: white;
@@ -7100,7 +7144,7 @@ $toolbar-height-small: 46px;
   background: none;
   background-color: transparent;
   border-color: transparent;
-  font-family: 'Roboto';
+  font-family: 'Open Sans';
   font-size: 12px;
   font-weight: normal;
   letter-spacing: 0.4px;
@@ -7756,15 +7800,15 @@ $toolbar-height-small: 46px;
 }
 .campaign-application-form {
   h1 {
-    font-family: 'Roboto';
-    font-weight: bold;
+    //font-family: 'Open Sans';
+    //font-weight: bold;
   }
   p.subtitle {
     max-width: 550px;
     margin: 0 auto 4em !important;
   }
   .form-instructions {
-    font-family: 'Roboto';
+    font-family: 'Open Sans';
     font-size: 18px;
     font-weight: bold;
     font-style: normal;
@@ -7794,7 +7838,7 @@ $toolbar-height-small: 46px;
       background-color: #141462 !important;
       color: white !important;
       color: #fff !important;
-      font-family: 'Roboto',sans-serif !important;
+      font-family: 'Open Sans',sans-serif !important;
       font-style: normal !important;
       font-weight: 700 !important;
       height: 38px;
