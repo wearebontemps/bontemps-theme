@@ -104,7 +104,7 @@ function bundleOverview () {
 }
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
-  $('#interval_next').fadeIn(300)
+  $('#interval_next').attr('disabled', false)
   $('.interval_target').text(interval)
   if (interval == 1) {
     subscriptionInterval = 1
