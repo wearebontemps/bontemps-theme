@@ -48,15 +48,9 @@
     <div class="details_{{product.id}}">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details ">
-        
           <p class="sachet-count">
-            {% for tag in product.tags %}
-            {% if tag contains 'sachets' %}
-            {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-            {% for word in tag_mod %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            <span class="sachet-info"></span>
+            {% assign words = product.description | split: "<!--info-->" %}
+            Notes: {{ words[0] }}
           </p>
           {% include 'caffeine' %}
         </div>
