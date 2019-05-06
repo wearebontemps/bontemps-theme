@@ -10,9 +10,9 @@ var idArray = []
 var fullSizeArray = []
 function checkFull () {
   if (idArray.length === 3) {
-    $('#bundle-adder-btn').attr('disabled', 'false')
+    $('#bundle-adder-btn').attr('disabled', false)
   } else {
-    $('#bundle-adder-btn').attr('disabled', 'true')
+    $('#bundle-adder-btn').attr('disabled', true)
   }
 }
 function addProduct (id, fullSize, tag) {
