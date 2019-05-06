@@ -106,9 +106,11 @@
     <div class ="d-flex align-items-center justify-content-center takeover-logo">{{ header_logo }}</div>
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(2)">< BACK</a>
     <div style="clear: both;" class="row d-flex">
-        <div class="col-12">
+            <div class="col-12" style="padding: 2em 4em;">
             <h2 class="text-blue text-center">Choose a schedule that suits your mood.</h2>
             <p class="text-blue text-center">Your first delivery arrives {{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }} (not charged today). You can cancel anytime.</p>
+            </div>
+            <div class="col-12">
             <div id="bundle_anchor" class="row" style="margin: 4em 0 1em;">
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(1)">
@@ -134,8 +136,8 @@
             </div>
             </div>
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
-                <button  id="interval_next" disabled class="btn btn-large flow-button" type="button" onClick="nextView(2)">Next</button>
-                <p>There are 20 organic tea sachets in every box.</p>
+                <button id="interval_next" disabled class="btn btn-large flow-button" type="button" onClick="nextView(2)">Next</button>
+                <p style="padding-top: 2em;">There are 20 organic tea sachets in every box.</p>
             </div>
         </div>
     </div>
