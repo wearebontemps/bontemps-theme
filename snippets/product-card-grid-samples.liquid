@@ -49,7 +49,7 @@
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details row">
         <div class="col-sm-6 text-left"  style="padding: 0;">
-          <p class="sachet-count">
+          <p class="">
             {% assign words = product.description | split: "<!--info-->" %}
             Notes: {{ words[1] }}
           </p>
