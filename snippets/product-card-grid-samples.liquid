@@ -46,6 +46,9 @@
   </noscript>
     <div class="product-meta">
     <div class="details_{{product.id}}">
+    <div class=" text-right" style="float: right;">
+          {% include 'caffeine' %}
+          </div>
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details row">
         <div class="col-12 text-left"  style="padding: 0;">
@@ -55,9 +58,6 @@
           </p>
           </div>
         </div>
-        <div class=" text-right" style="float: right;">
-          {% include 'caffeine' %}
-          </div>
       </div>
     </div>
     {% if page.url contains "threesome" or page.template_suffix contains "subscription-flow" %}
