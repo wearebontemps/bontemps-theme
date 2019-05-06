@@ -50,7 +50,7 @@
         <div class="variant-details ">
           <p class="sachet-count">
             {% assign words = product.description | split: "<!--info-->" %}
-            Notes: {{ words[0] }}
+            Notes: {{ words[1] }}
           </p>
           {% include 'caffeine' %}
         </div>
