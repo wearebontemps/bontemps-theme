@@ -66,7 +66,7 @@
             <p class="text-blue text-center">Select three free samples to try before your membership kicks in.</p>
             <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
-            {%- assign grid_item_width = "one-half small-up--one-third medium-up--one-quarter" -%}
+            {%- assign grid_item_width = "one-half large-up--one-quarter" -%}
             {% for product in collections.singles.products %}
                 <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
                 {% include "product-card-grid-samples", max_height: max_height %}
