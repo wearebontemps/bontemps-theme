@@ -18,7 +18,7 @@
 {% endcapture %}
 <section>
 <div class="section-inner bg-pastel has-bottom-curve" style="">
-    <div class="d-flex align-items-center row-90 row">
+    <div class="d-flex align-items-center row-90 flow-header-row row">
     <div class="col-sm-6 small-hide">
         <p>MEMBERSHIPS BEGIN AT $16</p>
         <h2>{{ section.settings.title }}</h2>
@@ -28,7 +28,7 @@
         </a>
     </div>
     <div class="col-sm-6 text-center">
-    <img src="{{ section.settings.image | img_url: '1000x' }}">
+    <img src="{{ section.settings.image | img_url: '1000x' }}" style="max-width: 350px;">
     </div>
     </div>
     {% assign bg_color = "bg-white small-hide" %}
