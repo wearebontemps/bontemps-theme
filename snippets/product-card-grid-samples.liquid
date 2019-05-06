@@ -48,7 +48,7 @@
     <div class="details_{{product.id}}">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details ">
-        {% include 'product-tags' %}
+        
           <p class="sachet-count">
             {% for tag in product.tags %}
             {% if tag contains 'sachets' %}
@@ -58,6 +58,7 @@
             {% endfor %}
             <span class="sachet-info"></span>
           </p>
+          {% include 'caffeine' %}
         </div>
       </div>
     </div>
