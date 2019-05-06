@@ -50,11 +50,11 @@
           {% include 'caffeine' %}
           </div>
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-        <div class="variant-details row">
+        <div class="variant-details row" style="margin-bottom: .25em;">
         <div class="col-12 text-left"  style="padding: 0;">
           <p class="">
             {% assign words = product.description | split: "<!--info-->" %}
-            Notes: {{ words[1] }}
+            <strong>Notes:</strong> {{ words[1] }}
           </p>
           </div>
         </div>
