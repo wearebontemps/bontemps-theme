@@ -48,16 +48,16 @@
     <div class="details_{{product.id}}">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
         <div class="variant-details row">
-        <div class="col-sm-6 text-left"  style="padding: 0;">
+        <div class="col-12 text-left"  style="padding: 0;">
           <p class="">
             {% assign words = product.description | split: "<!--info-->" %}
             Notes: {{ words[1] }}
           </p>
           </div>
-          <div class="col-sm-6 text-right" style="padding: 0;">
+        </div>
+        <div class=" text-right" style="float: right;">
           {% include 'caffeine' %}
           </div>
-        </div>
       </div>
     </div>
     {% if page.url contains "threesome" or page.template_suffix contains "subscription-flow" %}
