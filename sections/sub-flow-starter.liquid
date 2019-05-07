@@ -67,7 +67,7 @@
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                 <button  id="bundle-adder-btn" class="btn btn-large flow-button" disabled type="button" onClick="nextView(1)">Next</button>
             </div>
-            <ul class="grid grid--uniform  grid--view-items">
+            {% comment %} <ul class="grid grid--uniform  grid--view-items">
             {%- assign max_height = 345 -%}
             {%- assign grid_item_width = "one-half medium-up--one-quarter" -%}
             {% for product in collections.singles.products %}
@@ -75,7 +75,16 @@
                 {% include "product-card-grid-samples", max_height: max_height %}
                 </li>
             {% endfor %}
-            </ul>
+            </ul> {% endcomment %}
+            <div class="row ">
+            {%- assign max_height = 345 -%}
+            {%- assign grid_item_width = "col-6 col-lg-3" -%}
+            {% for product in collections.singles.products %}
+                <li class="{{ grid_item_width }}">
+                {% include "product-card-grid-samples", max_height: max_height %}
+                </li>
+            {% endfor %}
+            </div>
             </div>
             <div class="row contained" style="margin-bottom: 4em;">
                 <div class="col-12 row-80 text-center" style="padding: 0 4em;">
