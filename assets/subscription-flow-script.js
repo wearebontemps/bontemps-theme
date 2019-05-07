@@ -15,7 +15,7 @@ function checkFull () {
     $('#bundle-adder-btn').attr('disabled', true)
   }
 }
-function addProduct (id, fullSize, tag) {
+function addProduct (id, fullSize) {
   idArrayUpdate(id, fullSize)
   addChecks(id)
   checkFull()
@@ -36,15 +36,15 @@ function idArrayUpdate (id, fullSizeID) {
     : idArray.filter(el => el !== id)
   fullSizeArray = !fullSizeArray.includes(id) && fullSizeArray.length < 3
     ? [...fullSizeArray, fullSizeID]
-    : fullSizeArray.filter(el => el !== fullSizeID)  
+    : fullSizeArray.filter(el => el !== fullSizeID)
 }
 function addChecks (id) {
   if (idArray.includes(id)) {
     console.log('addCheck', id)
-    $('#checkbox_' + id).addClass('selected')
+    $('.hover_' + id).addClass('selected')
   } else {
     console.log('removeCheck', id)
-    $('#checkbox_' + id).removeClass('selected')
+    $('.hover_' + id).removeClass('selected')
   }
 }
 function bundleOverview () {
