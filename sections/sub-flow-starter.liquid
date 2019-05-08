@@ -63,8 +63,9 @@
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <div class="selection-intro">
-                <h2 class=" text-center">Don't commit unless you love it.</h2>
+                <h1 class=" text-center">Don't commit unless you love it.</h1>
                 <p class=" text-center">Select three free samples to try before your membership kicks in.</p>
+                <br/>
                 <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                     <button  id="bundle-adder-btn" class="btn btn-large flow-button" disabled type="button" onClick="nextView(1)">Next</button>
                 </div>
@@ -92,19 +93,19 @@
                 <div class="col-12 row-80 text-center" style="padding: 4em;">
                     <div class="row">
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_1_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
                         <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_3_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_4_content }}</p>
                         </div>
                     </div>
@@ -118,7 +119,7 @@
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(2)">< BACK</a>
     <div style="clear: both;" class="row d-flex">
             <div class="col-12" style="padding: 2em 4em;">
-            <h2 class=" text-center">Choose a schedule that suits your mood.</h2>
+            <h1 class=" text-center">Choose a schedule that suits your mood.</h1>
             <p class=" text-center">Your first delivery arrives {{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }} (not charged today). You can cancel anytime.</p>
             </div>
             <div class="col-12">
@@ -151,7 +152,7 @@
             </div>
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                 <button id="interval_next" disabled class="btn btn-large flow-button" type="button" onClick="nextView(2)">Next</button>
-                <p style="padding-top: 2em;">There are 20 organic tea sachets in every box.</p>
+                <p style="padding-top: 2em;" class="small">There are 20 organic tea sachets in every box.</p>
             </div>
         </div>
     </div>
