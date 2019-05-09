@@ -1,7 +1,7 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
-<div class="section-inner d-flex justify-content-center has-bottom-curve">
+<div class="section-inner d-flex justify-content-center">
   <div class="row contained">
     <div class="col-12 d-flex align-items-center justify-content-center">
       <h2>{{ section.settings.title }}</h2>
@@ -10,8 +10,7 @@
       <p>{{ section.settings.text }}</p>
     </div>
   </div>
-  {% assign bg_color = "bg-pink" %}
-  {% include "curved-svg" %}
+  
 </div>
 {% schema %}
 {
