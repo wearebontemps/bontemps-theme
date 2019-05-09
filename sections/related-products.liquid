@@ -100,7 +100,6 @@
   {% unless same_type and current_product.type != product.type %}
   <div class="grid__item {{ grid_item_width }}">
     {% include 'product-card-related', max_height: max_height %}
-
   </div>
   {% assign counter = counter | plus: 1 %}
   {% if counter == break_at %}

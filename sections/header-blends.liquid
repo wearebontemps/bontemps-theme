@@ -53,9 +53,9 @@ Theme Store optional settings
                   <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                     {{ block.settings.custom_title | escape }}
                   </h2>
-                  <h4 class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
-                    {{ block.settings.custom_subtitle | escape }}
-                  </h4>
+                  <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                    {{ block.settings.subheading | escape }}
+                  </p>
                 {% endunless %}
                 {% if block.type == 'video' %}
                   {% unless block.settings.video_type == 'background' %}
