@@ -1073,7 +1073,8 @@ html {
 }
 /*================= Subscription takeover=================*/
 .takeover{
-  background-color: white;
+  //background-color: white;
+  background-color: #ffcac6;
   position: absolute;
   z-index: 10000;
   top: 0;
@@ -1217,7 +1218,11 @@ h2{
   font-family: $font-stack-header;
   font-family: 'Baskerville';
 }
-h3,
+h3 {
+  font-family: $font-stack-header;
+  font-family: 'Baskerville';
+}
+
 h4,
 h5,
 h6 {
@@ -2670,7 +2675,8 @@ textarea {
   }
 }
 .top-nav-box > header > nav, .top-nav-box > header > nav a {
-    color: #bc451b !important;
+    //color: #bc451b !important;
+    color: #ff9f2d !important;
 }
 .navbar-nav {
   align-items: center;
@@ -2744,8 +2750,8 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  background: #e0592a;
-  color: white;
+  background: #ff9f2d;
+  color: #141462;
   padding: 2px 0;
   position: fixed;
   z-index: 101;
@@ -3585,7 +3591,12 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   max-width: 1125px;
   margin: 0 auto;
   padding: 0 1em;
+  &.smaller {
+    max-width: 800px;
+
+  }
 }
+
 /*================ TEMPLATES ================*/
 /*============= Templates | Password =============*/
 @font-face {
@@ -4751,7 +4762,7 @@ h1.section-header{
 }
 input.cart_updater:hover{
   text-decoration: underline;
-  text-decoration-color: #bc451b;
+  //text-decoration-color: #bc451b;
 }
 .cart__meta-text {
   padding: 5px 0;
@@ -5806,7 +5817,8 @@ $nav-button-padding: 15px;
   }
 
   .mobile-nav__sublist-header--main-nav-parent {
-    color: $color-body-text;
+    //color: $color-body-text;
+    color: #ff9f2d;
   }
 }
 
@@ -8255,11 +8267,12 @@ $toolbar-height-small: 46px;
   background-color: #ffcac6;
 }
 .recap-card{
-  padding: 1em 2em;
+  padding: 2.5em 2em;
   background-color: white;
   border-radius: 8px;
   box-shadow: 5px 10px 15px 2px rgba(0,0,0,0.1);
   margin-bottom: 2em;
+  max-width: 500px;
 }
 .sub-details-upper, .sub-details-lower{
   p{
@@ -8350,9 +8363,12 @@ $toolbar-height-small: 46px;
     padding: 40px 2em 100px !important;
   }
 }
-.info-image-small {
-  max-width: 50px;
-  margin-bottom: 1.5em;
+.info-image {
+  max-width: 70px;
+  margin-bottom: -.5em;
+  &.small {
+    max-width: 50px;
+  }
 }
 .bg-pastel{
   background-color: #ffe9e8;

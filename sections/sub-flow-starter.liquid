@@ -21,7 +21,7 @@
     <div class="d-flex align-items-center row-90 flow-header-row row">
     <div class="col-sm-6 small-hide">
         <p>MEMBERSHIPS BEGIN AT $16</p>
-        <h2>{{ section.settings.title }}</h2>
+        <h1>{{ section.settings.title }}</h1>
         {{ section.settings.text }}
         <a id="subscription_start" class="btn flow-button" href="#">
         <span>{{ section.settings.cta_text }}</span>
@@ -47,7 +47,7 @@
     <div class="d-flex align-items-center row-70 row">
     <div class="col-12 text-center">
         <p>MEMBERSHIPS BEGIN AT $16</p>
-        <h2>{{ section.settings.title }}</h2>
+        <h1>{{ section.settings.title }}</h1>
         {{ section.settings.text }}
         <a id="subscription_start_2" class="btn flow-button" href="#">
         <span>{{ section.settings.cta_text }}</span>
@@ -63,8 +63,9 @@
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <div class="selection-intro">
-                <h2 class=" text-center">Don't commit unless you love it.</h2>
+                <h1 class=" text-center">Don't commit unless you love it.</h1>
                 <p class=" text-center">Select three free samples to try before your membership kicks in.</p>
+                <br/>
                 <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                     <button  id="bundle-adder-btn" class="btn btn-large flow-button" disabled type="button" onClick="nextView(1)">Next</button>
                 </div>
@@ -88,23 +89,23 @@
             {% endfor %}
             </div>
             </div>
-            <div class="row contained">
+            <div class="row contained smaller">
                 <div class="col-12 row-80 text-center" style="padding: 4em;">
                     <div class="row">
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_1_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_2_image | img_url: '300x300' }}">
                         <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_3_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_3_content }}</p>
                         </div>
                         <div class="col-md-3 col-6 text-center" style="margin-bottom: 2em;">
-                        <img class="info-image-small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
+                        <img class="info-image small" src="{{ section.settings.col_4_image | img_url: '300x300' }}">
                         <p class="text-center">{{ section.settings.col_4_content }}</p>
                         </div>
                     </div>
@@ -118,7 +119,7 @@
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(2)">< BACK</a>
     <div style="clear: both;" class="row d-flex">
             <div class="col-12" style="padding: 2em 4em;">
-            <h2 class=" text-center">Choose a schedule that suits your mood.</h2>
+            <h1 class=" text-center">Choose a schedule that suits your mood.</h1>
             <p class=" text-center">Your first delivery arrives {{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }} (not charged today). You can cancel anytime.</p>
             </div>
             <div class="col-12">
@@ -151,7 +152,7 @@
             </div>
             <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                 <button id="interval_next" disabled class="btn btn-large flow-button" type="button" onClick="nextView(2)">Next</button>
-                <p style="padding-top: 2em;">There are 20 organic tea sachets in every box.</p>
+                <p style="padding-top: 2em;" class="small">There are 20 organic tea sachets in every box.</p>
             </div>
         </div>
     </div>
@@ -166,7 +167,7 @@
                 <div class="col-sm-6 d-flex flex-column align-items-center justify-content-start small-hide">
                     <img class="summary-img" src="{{ section.settings.summary_image | img_url: '600x' }}">
                 </div>
-                <div class="col-sm-6 d-flex flex-column align-items-left justify-content-between">
+                <div class="col-sm-6 d-flex flex-column align-items-left justify-content-between" style="max-width:500px;">
                 <div class="recap-card">
                     <div class="sub-details-upper row">
                     <h3 class="col-12">Ships Today</h3>
@@ -174,7 +175,7 @@
                     <p class=" col-6">Shipping:</p><p class=" col-6">$3</p>
                     <p class=" col-6">Total Today:</p><p class=" col-6">$3</p>
                     </div>
-                    <div class="col-12 bundle-complete-btn" style="height: 39px;">
+                    <div class="col-12 bundle-complete-btn" style="height: 39px;margin: 1em 0;">
                         <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button">Checkout</button>
                     </div>
                     <div class="subs-accordion col-12" id="accordion-upper">
@@ -216,23 +217,23 @@
                     </div>
                     <div class="review-info">
                         <div class="row d-flex align-items-center justify-content-around review-row">
-                            <div class="col-2"><img src="{{ section.settings.summary_icon_1 | img_url: '50x50' }}"></div>
-                            <div class="col-10">
+                            <div class="col-3"><img src="{{ section.settings.summary_icon_1 | img_url: '50x50' }}"></div>
+                            <div class="col-9 small">
                                 <strong>Email Reminders</strong>
                                 <p>We give you enough time to modify or cancel deliveries before each shipment.</p>
                             </div>
-                            <div class="col-2"><img src="{{ section.settings.summary_icon_2 | img_url: '50x50' }}"></div>
-                            <div class="col-10">
+                            <div class="col-3"><img src="{{ section.settings.summary_icon_2 | img_url: '50x50' }}"></div>
+                            <div class="col-9 small">
                                 <strong>Quality Guarantee</strong>
                                 <p>If you don't love your order, it's on us.</p>
                             </div>
-                            <div class="col-2"><img src="{{ section.settings.summary_icon_3 | img_url: '50x50' }}"></div>
-                            <div class="col-10">
+                            <div class="col-3"><img src="{{ section.settings.summary_icon_3 | img_url: '50x50' }}"></div>
+                            <div class="col-9 small">
                                 <strong>Email Reminders</strong>
                                 <p>We give you enough time to modify or cancel deliveries before each shipment.</p>
                             </div>
-                            <div class="col-2"><img src="{{ section.settings.summary_icon_4 | img_url: '50x50' }}"></div>
-                            <div class="col-10">
+                            <div class="col-3"><img src="{{ section.settings.summary_icon_4 | img_url: '50x50' }}"></div>
+                            <div class="col-9 small">
                                 <strong>Quality Guarantee</strong>
                                 <p>If you don't love your order, it's on us.
                         </div>
