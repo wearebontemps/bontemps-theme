@@ -62,22 +62,13 @@
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <div class="selection-intro">
-                <h1 class=" text-center">Don't commit unless you love it.</h1>
+                <h1 class=" text-center">{{ section.settings.selection_header }}</h1>
                 <p class=" text-center">Select three free samples to try before your membership kicks in.</p>
                 <br/>
                 <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
                     <button  id="bundle-adder-btn" class="btn btn-large flow-button" disabled type="button" onClick="nextView(1)">Next</button>
                 </div>
             </div>
-            {% comment %} <ul class="grid grid--uniform  grid--view-items">
-            {%- assign max_height = 345 -%}
-            {%- assign grid_item_width = "one-half medium-up--one-quarter" -%}
-            {% for product in collections.singles.products %}
-                <li class="grid__item grid__item--{{forloop.index}} {{ grid_item_width }}">
-                {% include "product-card-grid-samples", max_height: max_height %}
-                </li>
-            {% endfor %}
-            </ul> {% endcomment %}
             <div class="row ">
             {%- assign max_height = 345 -%}
             {%- assign grid_item_width = "col-12 col-sm-6 col-lg-4 col-xl-3" -%}
@@ -387,6 +378,39 @@
         "label": "column 4 text"
         },
         {
+        "type": "text",
+        "id": "selection_header",
+        "label": "selection panel header (inside sub-flow)",
+        "default": "Don't commit unless you love it."
+        },
+        {
+        "type": "text",
+        "id": "selection_subheader",
+        "label": "selection panel subheader (inside sub-flow)",
+        "default": "Select three free samples to try before your membership kicks in."
+        },
+        {
+        "type": "text",
+        "id": "interval_header",
+        "label": "interval panel header (inside sub-flow)",
+        "default": "Choose a schedule that suits your mood."
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_1",
+        "label": "interval 1 image (inside sub-flow)"
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_2",
+        "label": "interval 2 image (inside sub-flow)"
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_3",
+        "label": "interval 3 image (inside sub-flow)"
+        },
+        {
         "type": "image_picker",
         "id": "summary_image",
         "label": "Image for Summary"
@@ -410,21 +434,6 @@
         "type": "image_picker",
         "id": "summary_icon_4",
         "label": "summary icons"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_1",
-        "label": "interval 1 image (inside sub-flow)"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_2",
-        "label": "interval 2 image (inside sub-flow)"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_3",
-        "label": "interval 3 image (inside sub-flow)"
         }
         ],
         "presets": [
