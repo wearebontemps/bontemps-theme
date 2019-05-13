@@ -10,10 +10,10 @@ Theme Store required settings
 Theme Store optional settings
 - Home page only: only shows on the home page
 {%- endcomment -%}
-<section data-section-id="{{ section.id }}" data-section-type="" class="has-bottom-curve {% if section.settings.header-slider %}header-slider{% endif %}{% if page.url contains '/pages/' %} small-page-header{% elsif page.url contains '/collections/' %} small-page-header{% endif %}">
+<section data-section-id="{{ section.id }}" data-section-type="" class="{% if section.settings.header-slider %}header-slider{% endif %}{% if page.url contains '/pages/' %} small-page-header{% elsif page.url contains '/collections/' %} small-page-header{% endif %}">
 
 {% if section.settings.header-slider %}
-  <div class="slideshow-wrapper slider single-item">
+  <div class="slideshow-wrapper slider single-item has-bottom-curve ">
     <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">
       <span class="slideshow__pause-stop">
         {% include 'icon-pause' %}
@@ -91,9 +91,10 @@ Theme Store optional settings
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
-</div>
-{% assign bg_color = "bg-white" %}
+  {% assign bg_color = "bg-white" %}
     {% include "curved-svg" %}
+</div>
+
 </section>
 
 {% if section.settings.logo != blank %}
