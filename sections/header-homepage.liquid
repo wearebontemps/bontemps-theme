@@ -78,6 +78,8 @@ Theme Store optional settings
         </div>
       {% endfor %}
     </div>
+     {% assign bg_color = "bg-white" %}
+    {% include "curved-svg" %}
   </div>
 {% endif %}
 {% if section.blocks.size == 0 %}
@@ -91,8 +93,6 @@ Theme Store optional settings
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
-  {% assign bg_color = "bg-white" %}
-    {% include "curved-svg" %}
 </div>
 
 </section>
