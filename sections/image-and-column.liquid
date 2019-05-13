@@ -12,7 +12,7 @@
     </div>
 {% endcapture %}
 
-  <div class="image-and-text-box background-section-target has-top-curve" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
+  <div class="image-and-text-box background-section-target" style="background-image: url('{{ section.settings.bg_image | img_url: '1200x' }}'); background-position: center; background-size: cover; width: 100%; height: {{ section.settings.section_height | times: 10 }}px;">
     <div class="row contained d-flex align-items-center section-inner" style="height: {{ section.settings.section_height | times: 10 }}px">
         {% if section.settings.layout == 'left' %}
             {{ layout }}
@@ -21,8 +21,6 @@
             {{ layout }}
         {% endif %}
     </div>
-    {% assign bg_color = "bg-white" %}
-    {% include "curved-svg" %}
   </div>
 {% if section.settings.bg_image_mobile != blank  %}
     <script type="text/javascript">

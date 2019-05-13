@@ -43,9 +43,7 @@ Theme Store optional settings
             </div>
           <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
             <div class="overlay-box" style="background-color: {{ block.settings.color_image_overlay }}; opacity: {{ block.settings.color_image_opacity | times: 0.01 }};">
-
             </div>
-
             <div class="slideshow__text-content {% if forloop.first %}slick-active{% endif %}">
               <div class="page-width  slideshow-inner-text {% if block.settings.justification == 'left' %}left{% elsif block.settings.justification == 'right' %}right{% endif %}">
                 {% unless block.settings.title_1 == blank %}
@@ -76,7 +74,7 @@ Theme Store optional settings
           </div>
           {% include 'header-image-helper' %}
           {% assign bg_color = "bg-white" %}
-    {% include "curved-svg" %}
+          {% include "curved-svg" %}
         </div>
       {% endfor %}
     </div>
