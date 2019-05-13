@@ -41,7 +41,7 @@ Theme Store optional settings
                 data-parent-fit="cover"
                 style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '2000x2000' }});{% endif %}">
             </div>
-          <div class="slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
+          <div class="small-hide slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
             <div class="overlay-box" style="background-color: {{ block.settings.color_image_overlay }}; opacity: {{ block.settings.color_image_opacity | times: 0.01 }};">
             </div>
             <div class="slideshow__text-content {% if forloop.first %}slick-active{% endif %}">
@@ -73,7 +73,9 @@ Theme Store optional settings
             </div>
           </div>
           {% include 'header-image-helper' %}
-          {% assign bg_color = "bg-white" %}
+          {% assign bg_color = "bg-white small-hide" %}
+          {% include "curved-svg" %}
+          {% assign bg_color = "bg-yellow small-show" %}
           {% include "curved-svg" %}
         </div>
       {% endfor %}
