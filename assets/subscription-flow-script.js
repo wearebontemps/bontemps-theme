@@ -141,13 +141,14 @@ function prevView (pos) {
   }
 }
 var buildOverview = function (cart, loc) {
+  clearCart()
   var useArray = []
   if (loc == 1) {
     var domSelector = $('#sub-flow-cart-upper')
     useArray = idArray
   } else if (loc == 2 ) {
     var domSelector = $('#sub-flow-cart-lower')
-    useArray = fullSizeArray;
+    useArray = fullSizeArray
   }
   domSelector.html('')
   console.log('cart:', cart)
