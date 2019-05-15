@@ -179,6 +179,7 @@ var buildOverview = function (cart, loc) {
   }
 }
 var clearCart = function () {
+  console.log('empty cart based on IDs')
   for (i = 0; i < idArray.length; i++) {
     CartJS.removeItemById(idArray[i])
   }
