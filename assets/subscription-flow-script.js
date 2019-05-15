@@ -141,7 +141,7 @@ function prevView (pos) {
   }
 }
 var buildOverview = function (cart, loc) {
-  clearCart()
+  
   var useArray = []
   if (loc == 1) {
     var domSelector = $('#sub-flow-cart-upper')
