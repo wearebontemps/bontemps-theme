@@ -80,6 +80,8 @@ function bundleOverview () {
     //  run full size
     async.each(fullSizeArray, function (id, next) {
       CartJS.addItem(id, 1, {
+        'shipping_interval_frequency': shippingIntervalFrequency
+      }, {
         'complete': function () {
           window.location('/checkout')
         },
