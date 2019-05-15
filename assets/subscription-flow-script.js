@@ -51,6 +51,7 @@ function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length == 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
+    console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '203086'
     async.each(idArray, function (id, next) {
