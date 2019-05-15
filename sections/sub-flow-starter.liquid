@@ -265,7 +265,7 @@
         },
         function (error) {
             if (!error) {
-            console.log('inside process')
+            console.log('inside process error')
                 function get_cookie(name){ return( document.cookie.match('(^|; )'+name+'=([^;]*)')||0 )[2] }
                 do {token=get_cookie('cart');}
                 while(token == undefined);
