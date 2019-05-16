@@ -148,7 +148,7 @@ var buildOverview = function (cart, loc) {
     console.log('outer j:', j)
     for (i = 0; i < cart.items.length; i++) {
       console.log('inner i:', i, 'id in cart:', cart.items[i].id, 'id in array:', useArray[j])
-      if (cart.items[i].id === useArray[j]) {
+      if (cart.items[i].id == useArray[j]) {
         console.log('matched')
         var item = cart.items[i]
         var str = item.price.toString()
