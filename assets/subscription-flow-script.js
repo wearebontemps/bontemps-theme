@@ -151,6 +151,8 @@ var buildLower = function () {
         console.log('Checkout this JSON! ', out)
         var fullItem = out.product
         console.log('parsed item', fullItem)
+        var str = fullItem.variants[0].price.toString()
+        var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
         domSelector.append(
           '<div class="row" style="margin: .25em auto;">' +
           '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
@@ -160,7 +162,7 @@ var buildLower = function () {
           '<div class="row" style="width:100%;">' +
           '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
           '<p>' + fullItem.title + '</span></p>' +
-          // '<div>' + priceFormatted + '</div>' +
+          '<div>' + priceFormatted + '</div>' +
           '</div>' +
           '</div>' +
           '</div>' +
