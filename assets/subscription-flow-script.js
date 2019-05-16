@@ -96,29 +96,29 @@ function bundleOverview () {
     function (error) {
       if (!error) {
         subscriptionCart(1)
+        async.each(fullSizeArray, function (id, next) {
+          CartJS.addItem(id, 1, {
+            'delete': 'true'
+          }, {
+            'complete': function () {
+            },
+            'success': function (data, textStatus, jqXHR) {
+              next()
+            },
+            'error': function (jqhXHR, textStatus, errorThrown) {
+              next(errorThrown)
+            },
+            async: false
+          })
+        },
+        function (error) {
+          if (!error) {
+            subscriptionCart(2)
+          }
+        })
       }
     })
     //  run full size
-    // async.each(fullSizeArray, function (id, next) {
-    //   CartJS.addItem(id, 1, {
-    //     'delete': 'true'
-    //   }, {
-    //     'complete': function () {
-    //     },
-    //     'success': function (data, textStatus, jqXHR) {
-    //       next()
-    //     },
-    //     'error': function (jqhXHR, textStatus, errorThrown) {
-    //       next(errorThrown)
-    //     },
-    //     async: false
-    //   })
-    // },
-    // function (error) {
-    //   if (!error) {
-    //     subscriptionCart(2)
-    //   }
-    // })
   } else {
     alert('Please add more items to your bundle (samples)')
   }
