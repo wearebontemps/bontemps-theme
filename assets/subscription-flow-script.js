@@ -49,12 +49,12 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
-  if (idArray.length == 3) {
+  if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '10167'
-    var z = 0
+    var z
     for (z = 0; z < idArray.length; z++) {
       var id = idArray[z]
       console.log('inside forloop', z, id)
@@ -71,7 +71,7 @@ function bundleOverview () {
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
         },
-        async: false
+        async: true
       })
     }
     subscriptionCart(1)
@@ -143,13 +143,13 @@ var buildOverview = function (cart, loc) {
   domSelector.html('')
   console.log('cart:', cart)
   console.log('useArray:', loc, useArray)
-  var j = null
-  var i = null
-  for (j=0; j<useArray.length; j++) {
+  var j
+  var i
+  for (j = 0; j < useArray.length; j++) {
     console.log('outer j:', j)
-    for (i=0; i<cart.items.length; i++) {
+    for (i = 0; i < cart.items.length; i++) {
       console.log('inner i:', i, 'id in cart:', cart.items[i].id, 'id in array:', useArray[j])
-      if (cart.items[i].id == useArray[j]) {
+      if (cart.items[i].id === useArray[j]) {
         var item = cart.items[i]
         var str = item.price.toString()
         var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
