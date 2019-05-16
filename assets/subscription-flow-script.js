@@ -20,7 +20,7 @@ function addProduct (id, fullSize, handle) {
   idArrayUpdate(id, fullSize, handle)
   addChecks(id)
   checkFull()
-  console.log('array from ADD', idArray, handleArray)
+  console.log('idArray', idArray, 'handleArray', handleArray)
 };
 function pushIDs (id, idFull) {
   if (idArray.length < 3) {
