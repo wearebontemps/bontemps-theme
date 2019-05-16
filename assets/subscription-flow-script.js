@@ -91,17 +91,7 @@ var subscriptionCart = function (loc) {
       clearCart()
       bundleOverview()
     } else {
-      for (j = 0; j < idArray.length; j++) {
-        for (i = 0; i < cart.items.length; i++) {
-          if (cart.items[i].id == idArray[j] && cart.items.length >= 3) {
-            buildOverview(cart, loc)
-          } else {
-            console.log('failed. run again')
-            clearCart()
-            bundleOverview()
-          }
-        }
-      }
+      buildOverview(cart, loc)
     }
   })
 }
