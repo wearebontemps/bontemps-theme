@@ -8,6 +8,7 @@ $(document).on('cart.ready', function (event, cart) {
 var subscriptionInterval = null
 var idArray = []
 var fullSizeArray = []
+var handleArray = []
 function checkFull () {
   if (idArray.length === 3) {
     $('#bundle-adder-btn').attr('disabled', false)
@@ -15,11 +16,11 @@ function checkFull () {
     $('#bundle-adder-btn').attr('disabled', true)
   }
 }
-function addProduct (id, fullSize) {
+function addProduct (id, fullSize, handle) {
   idArrayUpdate(id, fullSize)
   addChecks(id)
   checkFull()
-  console.log('array from ADD', idArray)
+  console.log('array from ADD', idArray, handleArray)
 };
 function pushIDs (id, idFull) {
   if (idArray.length < 3) {
@@ -30,13 +31,16 @@ function pushIDs (id, idFull) {
     fullSizeArray.push(idFull)
   }
 }
-function idArrayUpdate (id, fullSizeID) {
+function idArrayUpdate (id, fullSizeID, handleID) {
   idArray = !idArray.includes(id) && idArray.length < 3
     ? [...idArray, id]
     : idArray.filter(el => el !== id)
   fullSizeArray = !fullSizeArray.includes(id) && fullSizeArray.length < 3
     ? [...fullSizeArray, fullSizeID]
     : fullSizeArray.filter(el => el !== fullSizeID)
+  handleArray = !handleArray.includes(id) && handleArray.length < 3
+    ? [...handleArray, handleID]
+    : handleArray.filter(el => el !== handleID)
 }
 function addChecks (id) {
   if (idArray.includes(id)) {
@@ -93,7 +97,7 @@ var subscriptionCart = function (loc) {
     //     cartCheck.push(cart.items[l].id)
     //   }
     // }
-    if (cart.items.length< 3) {
+    if (cart.items.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
@@ -134,6 +138,27 @@ var buildOverview = function (cart, loc) {
         )
       }
     }
+  }
+}
+var buildLower = function () {
+  var domSelector = $('#sub-flow-cart-lower')
+  domSelector.html('')
+  for (j = 0; j < fullSizeArray.length; j++) {
+    domSelector.append(
+      '<div class="row" style="margin: .25em auto;">' +
+      '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
+      '<img src="' + item.image + '" alt="' + item.title + '"/>' +
+      '</div>' +
+      '<div class="col-7 d-flex align-items-center" style="padding: .5em">' +
+      '<div class="row" style="width:100%;">' +
+      '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
+      '<p>' + item.title + '</span></p>' +
+      '<div>' + priceFormatted + '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+    )
   }
 }
 
