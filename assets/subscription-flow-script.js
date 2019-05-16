@@ -54,26 +54,6 @@ function bundleOverview () {
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '10167'
-    var z
-    // for (z = 0; z < idArray.length; z++) {
-    //   var id = idArray[z]
-    //   console.log('inside forloop', z, id)
-    //   CartJS.addItem(id, 1, {
-    //     'shipping_interval_frequency': shippingIntervalFrequency,
-    //     'shipping_interval_unit_type': shippingIntervalUnitType,
-    //     'subscription_id': subscriptionID
-    //   }, {
-    //     'complete': function () {
-    //       console.log('2 complete!')
-    //     },
-    //     'success': function (data, textStatus, jqXHR) {
-    //       console.log('success', id)
-    //     },
-    //     'error': function (jqhXHR, textStatus, errorThrown) {
-    //     },
-    //     async: true
-    //   })
-    // }
     async.each(idArray, function (id, next) {
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
@@ -99,26 +79,6 @@ function bundleOverview () {
       }
     })
     //  run full size
-    // async.each(fullSizeArray, function (id, next) {
-    //   CartJS.addItem(id, 1, {
-    //     'delete': 'true'
-    //   }, {
-    //     'complete': function () {
-    //     },
-    //     'success': function (data, textStatus, jqXHR) {
-    //       next()
-    //     },
-    //     'error': function (jqhXHR, textStatus, errorThrown) {
-    //       next(errorThrown)
-    //     },
-    //     async: true
-    //   })
-    // },
-    // function (error) {
-    //   if (!error) {
-    //     subscriptionCart(2)
-    //   }
-    // })
   } else {
     alert('Please add more items to your bundle (samples)')
   }
@@ -137,25 +97,16 @@ var subscriptionCart = function (loc) {
 }
 
 var buildOverview = function (cart, loc) {
-  var useArray = []
-  if (loc == 1) {
-    var domSelector = $('#sub-flow-cart-upper')
-    useArray = idArray
-  } else if (loc == 2) {
-    var domSelector = $('#sub-flow-cart-lower')
-    useArray = fullSizeArray
-  }
+  var useArray = idArray
+  var domSelector = $('#sub-flow-cart-upper')
   domSelector.html('')
   console.log('cart:', cart)
   console.log('useArray:', loc, useArray)
   var j
   var i
   for (j = 0; j < useArray.length; j++) {
-    console.log('outer j:', j)
     for (i = 0; i < cart.items.length; i++) {
-      console.log('inner i:', i, 'id in cart:', cart.items[i].id, 'id in array:', useArray[j])
       if (cart.items[i].id == useArray[j]) {
-        console.log('matched')
         var item = cart.items[i]
         var str = item.price.toString()
         var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
