@@ -58,7 +58,8 @@ function bundleOverview () {
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
         'shipping_interval_unit_type': shippingIntervalUnitType,
-        'subscription_id': subscriptionID
+        'subscription_id': subscriptionID,
+        'sample_attr': true
       }, {
         'complete': function () {
           console.log('2 complete!')
@@ -86,7 +87,13 @@ function bundleOverview () {
 
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
-    if (cart.items.length < 3) {
+    var cartCheck = []
+    for (l = 0; l <= cart.items.length; l++) {
+      if (cart.items[l].properties.sample_attr) {
+        cartCheck.push(cart.items[l].id)
+      }
+    }
+    if (cartCheck.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
