@@ -17,7 +17,7 @@ function checkFull () {
   }
 }
 function addProduct (id, fullSize, handle) {
-  idArrayUpdate(id, fullSize)
+  idArrayUpdate(id, fullSize, handle)
   addChecks(id)
   checkFull()
   console.log('array from ADD', idArray, handleArray)
