@@ -125,7 +125,9 @@ var buildOverview = function (cart, loc) {
   var j = null
   var i = null
   for (j=0; j<useArray.length; j++) {
+    console.log('outer j:', j)
     for (i=0; i<cart.items.length; i++) {
+      console.log('inner i:', i, 'id in cart:', cart.items[i].id, 'id in array:', useArray[j])
       if (cart.items[i].id == useArray[j]) {
         var item = cart.items[i]
         var str = item.price.toString()
