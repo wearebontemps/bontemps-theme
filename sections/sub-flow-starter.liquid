@@ -109,15 +109,15 @@
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(2)">< BACK</a>
     <div style="clear: both;" class="row d-flex">
             <div class="col-12" style="padding: 2em 4em;">
-            <h1 class=" text-center">Choose a schedule that suits your mood.</h1>
-            <p class=" text-center">Your first delivery arrives {{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }} (not charged today). You can cancel anytime.</p>
+            <h1 class=" text-center">{{section.settings.interval_header}}</h1>
+            <p class=" text-center">{{section.settings.interval_subheader_pre_date}} {{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }} {{section.settings.interval_subheader_post_date}}</p>
             </div>
             <div class="col-12">
             <div id="bundle_anchor" class="row" style="margin: 4em 0 1em;">
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(1)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">
-                    <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">I drink tea a few times per week.</h3>
+                    <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>
                     <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> 3 months</p>
                     <p>$16/month</p>
                 </a>
@@ -125,7 +125,7 @@
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_2" onClick="selectInterval(2)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">
-                    <h3 id="selected_product_2" style="margin-top: 1em;font-size:1.6em;">I drink tea at least once a day.</h3>
+                    <h3 id="selected_product_2" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>
                     <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> 2 months</p>
                     <p>$24/month</p>
                 </a>
@@ -133,7 +133,7 @@
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_3" onClick="selectInterval(3)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">
-                    <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">I'll need enough for me + company.</h3>
+                    <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>
                     <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> 1 month</p>
                     <p>$48/month</p>
                 </a>
@@ -209,13 +209,13 @@
                         <div class="row d-flex align-items-center justify-content-around review-row">
                             <div class="col-3"><img src="{{ section.settings.summary_icon_1 | img_url: '50x50' }}"></div>
                             <div class="col-9 small">
-                                <strong>Email Reminders</strong>
-                                <p>We give you enough time to modify or cancel deliveries before each shipment.</p>
+                                <strong>{{section.settings.summary_icon_1_title}}</strong>
+                                <p>{{section.settings.summary_icon_1_text}}</p>
                             </div>
                             <div class="col-3"><img src="{{ section.settings.summary_icon_2 | img_url: '50x50' }}"></div>
                             <div class="col-9 small">
-                                <strong>Quality Guarantee</strong>
-                                <p>If you don't love your order, it's on us.</p>
+                                <strong>{{section.settings.summary_icon_2_title}}</strong>
+                                <p>{{section.settings.summary_icon_2_text}}</p>
                             </div>
                             {% comment %} <div class="col-3"><img src="{{ section.settings.summary_icon_3 | img_url: '50x50' }}"></div>
                             <div class="col-9 small">
@@ -385,6 +385,36 @@
         "default": "Choose a schedule that suits your mood."
         },
         {
+        "type": "text",
+        "id": "interval_subheader_pre_date",
+        "label": "text before ship date",
+        "default": "Your first delivery arrives"
+        },
+        {
+        "type": "text",
+        "id": "interval_subheader_post_date",
+        "label": "text after ship date",
+        "default": "(not charged today). You can cancel anytime."
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_1",
+        "label": "interval 1 copy (under illustration)",
+        "default": "I drink tea at least once a day."
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_2",
+        "label": "interval 2 copy (under illustration)",
+        "default": "I drink tea a few times per week."
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_3",
+        "label": "interval 3 copy (under illustration)",
+        "default": "I'll need enough for me + company."
+        },
+        {
         "type": "image_picker",
         "id": "interval_img_1",
         "label": "interval 1 image (inside sub-flow)"
@@ -410,19 +440,33 @@
         "label": "summary icons"
         },
         {
+        "type": "text",
+        "id": "summary_icon_1_title",
+        "label": "summary icon title text 1",
+        "default": "Email Reminders"
+        },
+        {
+        "type": "text",
+        "id": "summary_icon_1_text",
+        "label": "summary icon text 1",
+        "default": "We give you enough time to modify or cancel deliveries before each shipment."
+        },
+        {
         "type": "image_picker",
         "id": "summary_icon_2",
         "label": "summary icons"
         },
         {
-        "type": "image_picker",
-        "id": "summary_icon_3",
-        "label": "summary icons"
+        "type": "text",
+        "id": "summary_icon_2_title",
+        "label": "summary icon title text 2",
+        "default": "Quality Guarantee"
         },
         {
-        "type": "image_picker",
-        "id": "summary_icon_4",
-        "label": "summary icons"
+        "type": "text",
+        "id": "summary_icon_2_text",
+        "label": "summary icon text 2",
+        "default": "If you don't love your order, it's on us."
         }
         ],
         "presets": [
