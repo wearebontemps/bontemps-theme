@@ -55,7 +55,7 @@ function bundleOverview () {
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '10167'
     var z = 0
-    for (z = 0; z <= idArray.length; z++) {
+    for (z = 0; z < idArray.length; z++) {
       var id = idArray[z]
       console.log('inside forloop', z, id)
       CartJS.addItem(id, 1, {
