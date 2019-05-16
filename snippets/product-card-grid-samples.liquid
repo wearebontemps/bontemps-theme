@@ -5,7 +5,7 @@
 {%- assign full_size = variant -%}
 {% endif %}
 {% endfor %}
-<div class="grid-view-item  hover_{{current_variant.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{full_size.id}}", "{{ product.id }}");'>
+<div class="grid-view-item  hover_{{current_variant.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{full_size.id}}", "{{ product.handle }}");'>
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = current_variant.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
