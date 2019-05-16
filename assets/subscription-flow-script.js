@@ -71,7 +71,7 @@ function bundleOverview () {
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
         },
-        async: true
+        async: false
       })
     }
     subscriptionCart(1)
