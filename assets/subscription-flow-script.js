@@ -57,7 +57,7 @@ function bundleOverview () {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
-    var subscriptionID = '10167'
+    var subscriptionID = '206077'
     async.each(idArray, function (id, next) {
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
