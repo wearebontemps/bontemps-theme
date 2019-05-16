@@ -57,6 +57,7 @@ function bundleOverview () {
     var z = 0
     for (z = 0; z <= idArray.length; z++) {
       var id = idArray[z]
+      console.log(id)
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
         'shipping_interval_unit_type': shippingIntervalUnitType,
