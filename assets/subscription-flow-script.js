@@ -71,7 +71,7 @@ function bundleOverview () {
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
         },
-        async: true
+        async: false
       })
     }
     subscriptionCart(1)
@@ -133,10 +133,10 @@ var subscriptionCart = function (loc) {
 
 var buildOverview = function (cart, loc) {
   var useArray = []
-  if (loc == 1) {
+  if (loc === 1) {
     var domSelector = $('#sub-flow-cart-upper')
     useArray = idArray
-  } else if (loc == 2 ) {
+  } else if (loc === 2 ) {
     var domSelector = $('#sub-flow-cart-lower')
     useArray = fullSizeArray
   }
