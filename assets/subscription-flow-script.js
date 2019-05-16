@@ -149,6 +149,7 @@ var buildOverview = function (cart, loc) {
     for (i = 0; i < cart.items.length; i++) {
       console.log('inner i:', i, 'id in cart:', cart.items[i].id, 'id in array:', useArray[j])
       if (cart.items[i].id === useArray[j]) {
+        console.log('matched')
         var item = cart.items[i]
         var str = item.price.toString()
         var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
