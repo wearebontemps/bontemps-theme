@@ -74,6 +74,7 @@ function bundleOverview () {
         async: true
       })
     }
+    subscriptionCart(1)
     // async.each(idArray, function (id, next) {
     //   CartJS.addItem(id, 1, {
     //     'shipping_interval_frequency': shippingIntervalFrequency,
