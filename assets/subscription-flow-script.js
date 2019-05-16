@@ -56,6 +56,7 @@ function bundleOverview () {
     var subscriptionID = '10167'
     var z = 0
     for (z = 0; z <= idArray.length; z++) {
+      var id = idArray[z]
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
         'shipping_interval_unit_type': shippingIntervalUnitType,
@@ -66,10 +67,8 @@ function bundleOverview () {
         },
         'success': function (data, textStatus, jqXHR) {
           console.log('success', id)
-          next()
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
-          next(errorThrown)
         },
         async: true
       })
