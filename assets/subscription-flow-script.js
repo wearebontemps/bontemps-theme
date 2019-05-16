@@ -145,14 +145,7 @@ var buildLower = function () {
   var domSelector = $('#sub-flow-cart-lower')
   domSelector.html('')
   for (j = 0; j < handleArray.length; j++) {
-    getJSON('https://shopbontemps.com/collections/all/products/' + handleArray[j] + '.json',
-      function (err, data) {
-        if (err !== null) {
-          alert('Something went wrong: ' + err)
-        } else {
-          alert('Your query count: ' + data.query.count)
-        }
-      })
+    var item = getJSON('https://shopbontemps.com/collections/all/products/' + handleArray[j] + '.json')
     domSelector.append(
       '<div class="row" style="margin: .25em auto;">' +
       '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
@@ -162,7 +155,7 @@ var buildLower = function () {
       '<div class="row" style="width:100%;">' +
       '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
       '<p>' + item.title + '</span></p>' +
-      '<div>' + priceFormatted + '</div>' +
+      // '<div>' + priceFormatted + '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -170,19 +163,14 @@ var buildLower = function () {
     )
   }
 }
-var getJSON = function (url, callback) {
-  var xhr = new XMLHttpRequest()
-  xhr.open('GET', url, true)
-  xhr.responseType = 'json'
-  xhr.onload = function() {
-    var status = xhr.status
-    if (status === 200) {
-      callback(null, xhr.response)
-    } else {
-      callback(status, xhr.response)
-    }
-  }
-  xhr.send()
+var getJSON = function (url) {
+  fetch(url)
+  .then(res => res.json())
+  .then((out) => {
+    console.log('Checkout this JSON! ', out);
+    return out
+  })
+.catch(err => { throw err });
 }
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
