@@ -31,16 +31,16 @@ function pushIDs (id, idFull) {
     fullSizeArray.push(idFull)
   }
 }
-function idArrayUpdate (id, fullSizeID, handleID) {
+function idArrayUpdate (id, fullSizeID, handle) {
   idArray = !idArray.includes(id) && idArray.length < 3
     ? [...idArray, id]
     : idArray.filter(el => el !== id)
   fullSizeArray = !fullSizeArray.includes(id) && fullSizeArray.length < 3
     ? [...fullSizeArray, fullSizeID]
     : fullSizeArray.filter(el => el !== fullSizeID)
-  handleArray = !handleArray.includes(id) && handleArray.length < 3
-    ? [...handleArray, handleID]
-    : handleArray.filter(el => el !== handleID)
+  handleArray = !handleArray.includes(handle) && handleArray.length < 3
+    ? [...handleArray, handle]
+    : handleArray.filter(el => el !== handle)
 }
 function addChecks (id) {
   if (idArray.includes(id)) {

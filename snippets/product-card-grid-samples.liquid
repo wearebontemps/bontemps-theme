@@ -8,19 +8,19 @@
 <div class="grid-view-item  hover_{{current_variant.id}} {% unless product.available %} grid-view-item--sold-out{% endunless %} product-card" onClick='addProduct("{{ current_variant.id }}", "{{full_size.id}}", "{{ product.id }}");'>
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
-  {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-  {% unless product.featured_image == blank %}
-    {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+  {%- assign img_url = current_variant.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+  {% unless current_variant.image == blank %}
+    {% include 'image-style' with image: current_variant.image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
   <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
     {% include 'product-card-hover' %}
-    <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+    <div style="position:relative; padding-top:{% unless current_variant.image == blank %}{{ 1 | divided_by: current_variant.image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
             class="grid-view-item__image lazyload"
-            src="{{ product.featured_image | img_url: '300x300' }}"
+            src="{{ current_variant.image | img_url: '300x300' }}"
             data-src="{{ img_url }}"
             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-            data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+            data-aspectratio="{{ current_variant.image.aspect_ratio }}"
             data-sizes="auto"
             alt="">
     </div>
@@ -28,7 +28,7 @@
   </div>
   <noscript>
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
-    <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
+    <img class="grid-view-item__image" src="{{ current_variant.image.src | img_url: image_size, scale: 2 }}" alt="{{ current_variant.image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
     <div class="product-meta">
     <div class="details_{{product.id}}">
