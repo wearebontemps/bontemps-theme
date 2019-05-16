@@ -139,11 +139,20 @@ var buildOverview = function (cart, loc) {
       }
     }
   }
+  buildLower()
 }
 var buildLower = function () {
   var domSelector = $('#sub-flow-cart-lower')
   domSelector.html('')
-  for (j = 0; j < fullSizeArray.length; j++) {
+  for (j = 0; j < handleArray.length; j++) {
+    getJSON('https://shopbontemps.com/collections/all/products/' + handleArray[j] + '.json',
+      function (err, data) {
+        if (err !== null) {
+          alert('Something went wrong: ' + err)
+        } else {
+          alert('Your query count: ' + data.query.count)
+        }
+      })
     domSelector.append(
       '<div class="row" style="margin: .25em auto;">' +
       '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
@@ -161,7 +170,20 @@ var buildLower = function () {
     )
   }
 }
-
+var getJSON = function (url, callback) {
+  var xhr = new XMLHttpRequest()
+  xhr.open('GET', url, true)
+  xhr.responseType = 'json'
+  xhr.onload = function() {
+    var status = xhr.status
+    if (status === 200) {
+      callback(null, xhr.response)
+    } else {
+      callback(status, xhr.response)
+    }
+  }
+  xhr.send()
+}
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
   $('#interval_next').attr('disabled', false)
