@@ -141,7 +141,6 @@ function prevView (pos) {
   }
 }
 var buildOverview = function (cart, loc) {
-  
   var useArray = []
   if (loc == 1) {
     var domSelector = $('#sub-flow-cart-upper')
@@ -153,6 +152,8 @@ var buildOverview = function (cart, loc) {
   domSelector.html('')
   console.log('cart:', cart)
   console.log('build_samples ids:', useArray)
+  var j = null
+  var i = null
   for (j=0; j<useArray.length; j++) {
     for (i=0; i<cart.items.length; i++) {
       if (cart.items[i].id == useArray[j]) {
@@ -186,11 +187,10 @@ var clearCart = function () {
   for (i = 0; i < fullSizeArray.length; i++) {
     CartJS.removeItemById(fullSizeArray[i])
   }
+  console.log('cart after empty:', cart)
 }
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
-    var sbt = cart.total_price.toString()
-    var subtotalFormatted = '$' + sbt.substring(0, sbt.length - 2) + '.' + sbt.substring(sbt.length - 2)
     buildOverview(cart, loc)
   })
 }
