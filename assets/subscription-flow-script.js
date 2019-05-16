@@ -55,27 +55,9 @@ function bundleOverview () {
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '10167'
     var z
-    for (z = 0; z < idArray.length; z++) {
-      var id = idArray[z]
-      console.log('inside forloop', z, id)
-      CartJS.addItem(id, 1, {
-        'shipping_interval_frequency': shippingIntervalFrequency,
-        'shipping_interval_unit_type': shippingIntervalUnitType,
-        'subscription_id': subscriptionID
-      }, {
-        'complete': function () {
-          console.log('2 complete!')
-        },
-        'success': function (data, textStatus, jqXHR) {
-          console.log('success', id)
-        },
-        'error': function (jqhXHR, textStatus, errorThrown) {
-        },
-        async: false
-      })
-    }
-    subscriptionCart(1)
-    // async.each(idArray, function (id, next) {
+    // for (z = 0; z < idArray.length; z++) {
+    //   var id = idArray[z]
+    //   console.log('inside forloop', z, id)
     //   CartJS.addItem(id, 1, {
     //     'shipping_interval_frequency': shippingIntervalFrequency,
     //     'shipping_interval_unit_type': shippingIntervalUnitType,
@@ -86,19 +68,36 @@ function bundleOverview () {
     //     },
     //     'success': function (data, textStatus, jqXHR) {
     //       console.log('success', id)
-    //       next()
     //     },
     //     'error': function (jqhXHR, textStatus, errorThrown) {
-    //       next(errorThrown)
     //     },
-    //     async: false
+    //     async: true
     //   })
-    // },
-    // function (error) {
-    //   if (!error) {
-    //     subscriptionCart(1)
-    //   }
-    // })
+    // }
+    async.each(idArray, function (id, next) {
+      CartJS.addItem(id, 1, {
+        'shipping_interval_frequency': shippingIntervalFrequency,
+        'shipping_interval_unit_type': shippingIntervalUnitType,
+        'subscription_id': subscriptionID
+      }, {
+        'complete': function () {
+          console.log('2 complete!')
+        },
+        'success': function (data, textStatus, jqXHR) {
+          console.log('success', id)
+          next()
+        },
+        'error': function (jqhXHR, textStatus, errorThrown) {
+          next(errorThrown)
+        },
+        async: false
+      })
+    },
+    function (error) {
+      if (!error) {
+        subscriptionCart(1)
+      }
+    })
     //  run full size
     // async.each(fullSizeArray, function (id, next) {
     //   CartJS.addItem(id, 1, {
