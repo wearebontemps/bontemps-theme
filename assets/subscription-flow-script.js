@@ -64,6 +64,7 @@ function bundleOverview () {
           console.log('2 complete!')
         },
         'success': function (data, textStatus, jqXHR) {
+          console.log('success', id)
           next()
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
