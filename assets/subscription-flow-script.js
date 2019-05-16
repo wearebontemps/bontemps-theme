@@ -93,7 +93,7 @@ var subscriptionCart = function (loc) {
     //     cartCheck.push(cart.items[l].id)
     //   }
     // }
-    if (cartCheck.length < 3) {
+    if (cart.items.length< 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
