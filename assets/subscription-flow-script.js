@@ -146,10 +146,11 @@ var buildLower = function () {
   domSelector.html('')
   for (j = 0; j < handleArray.length; j++) {
     var item = getJSON('https://shopbontemps.com/collections/all/products/' + handleArray[j] + '.json')
+    console.log('parsed item', item)
     domSelector.append(
       '<div class="row" style="margin: .25em auto;">' +
       '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
-      '<img src="' + item.image + '" alt="' + item.title + '"/>' +
+      '<img src="' + item.image.src + '" alt="' + item.title + '"/>' +
       '</div>' +
       '<div class="col-7 d-flex align-items-center" style="padding: .5em">' +
       '<div class="row" style="width:100%;">' +
