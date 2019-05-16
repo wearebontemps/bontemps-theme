@@ -70,7 +70,7 @@ function bundleOverview () {
         'error': function (jqhXHR, textStatus, errorThrown) {
           next(errorThrown)
         },
-        async: true
+        async: false
       })
     },
     function (error) {
