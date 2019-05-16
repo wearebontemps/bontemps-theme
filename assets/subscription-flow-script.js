@@ -54,7 +54,8 @@ function bundleOverview () {
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '10167'
-    async.each(idArray, function (id, next) {
+    var z = 0
+    for (z = 0; z <= idArray.length; z++) {
       CartJS.addItem(id, 1, {
         'shipping_interval_frequency': shippingIntervalFrequency,
         'shipping_interval_unit_type': shippingIntervalUnitType,
@@ -70,36 +71,54 @@ function bundleOverview () {
         'error': function (jqhXHR, textStatus, errorThrown) {
           next(errorThrown)
         },
-        async: false
+        async: true
       })
-    },
-    function (error) {
-      if (!error) {
-        subscriptionCart(1)
-      }
-    })
+    }
+    // async.each(idArray, function (id, next) {
+    //   CartJS.addItem(id, 1, {
+    //     'shipping_interval_frequency': shippingIntervalFrequency,
+    //     'shipping_interval_unit_type': shippingIntervalUnitType,
+    //     'subscription_id': subscriptionID
+    //   }, {
+    //     'complete': function () {
+    //       console.log('2 complete!')
+    //     },
+    //     'success': function (data, textStatus, jqXHR) {
+    //       console.log('success', id)
+    //       next()
+    //     },
+    //     'error': function (jqhXHR, textStatus, errorThrown) {
+    //       next(errorThrown)
+    //     },
+    //     async: false
+    //   })
+    // },
+    // function (error) {
+    //   if (!error) {
+    //     subscriptionCart(1)
+    //   }
+    // })
     //  run full size
-    async.each(fullSizeArray, function (id, next) {
-      CartJS.addItem(id, 1, {
-        'delete': 'true'
-      }, {
-        'complete': function () {
-          window.location('/checkout')
-        },
-        'success': function (data, textStatus, jqXHR) {
-          next()
-        },
-        'error': function (jqhXHR, textStatus, errorThrown) {
-          next(errorThrown)
-        },
-        async: false
-      })
-    },
-    function (error) {
-      if (!error) {
-        subscriptionCart(2)
-      }
-    })
+    // async.each(fullSizeArray, function (id, next) {
+    //   CartJS.addItem(id, 1, {
+    //     'delete': 'true'
+    //   }, {
+    //     'complete': function () {
+    //     },
+    //     'success': function (data, textStatus, jqXHR) {
+    //       next()
+    //     },
+    //     'error': function (jqhXHR, textStatus, errorThrown) {
+    //       next(errorThrown)
+    //     },
+    //     async: false
+    //   })
+    // },
+    // function (error) {
+    //   if (!error) {
+    //     subscriptionCart(2)
+    //   }
+    // })
   } else {
     alert('Please add more items to your bundle (samples)')
   }
