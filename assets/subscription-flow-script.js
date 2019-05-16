@@ -149,7 +149,7 @@ var buildLower = function () {
       .then(res => res.json())
       .then((out) => {
         console.log('Checkout this JSON! ', out)
-        var fullItem = out
+        var fullItem = out.product
         console.log('parsed item', fullItem)
         domSelector.append(
           '<div class="row" style="margin: .25em auto;">' +
