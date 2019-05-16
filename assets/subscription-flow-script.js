@@ -187,7 +187,6 @@ var clearCart = function () {
   for (i = 0; i < fullSizeArray.length; i++) {
     CartJS.removeItemById(fullSizeArray[i])
   }
-  console.log('cart after empty:', cart)
 }
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
