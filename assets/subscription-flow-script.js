@@ -127,6 +127,7 @@ function bundleOverview () {
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length < 3) {
+      console.log('failed. run again')
       clearCart()
       bundleOverview()
     } else {
