@@ -144,42 +144,33 @@ var buildOverview = function (cart, loc) {
 var buildLower = function () {
   var domSelector = $('#sub-flow-cart-lower')
   domSelector.html('')
-  var fullItem = null
   for (j = 0; j < handleArray.length; j++) {
     fetch('https://shopbontemps.com/collections/all/products/' + handleArray[j] + '.json')
       .then(res => res.json())
       .then((out) => {
         console.log('Checkout this JSON! ', out)
-        fullItem = out
+        var fullItem = out
+        console.log('parsed item', fullItem)
+        domSelector.append(
+          '<div class="row" style="margin: .25em auto;">' +
+          '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
+          '<img src="' + fullItem.image.src + '" alt="' + fullItem.title + '"/>' +
+          '</div>' +
+          '<div class="col-7 d-flex align-items-center" style="padding: .5em">' +
+          '<div class="row" style="width:100%;">' +
+          '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
+          '<p>' + fullItem.title + '</span></p>' +
+          // '<div>' + priceFormatted + '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>'
+        )
       })
       .catch(err => { throw err });
-    console.log('parsed item', fullItem)
-    domSelector.append(
-      '<div class="row" style="margin: .25em auto;">' +
-      '<div class="col-5 d-flex align-items-center" style="padding:0;">' +
-      '<img src="' + fullItem.image.src + '" alt="' + fullItem.title + '"/>' +
-      '</div>' +
-      '<div class="col-7 d-flex align-items-center" style="padding: .5em">' +
-      '<div class="row" style="width:100%;">' +
-      '<div class="col-12 d-flex flex-column align-items-start justify-content-between">' +
-      '<p>' + fullItem.title + '</span></p>' +
-      // '<div>' + priceFormatted + '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>'
-    )
   }
 }
-var getJSON = function (url) {
-  fetch(url)
-  .then(res => res.json())
-  .then((out) => {
-    console.log('Checkout this JSON! ', out);
-    return out
-  })
-.catch(err => { throw err });
-}
+
 function selectInterval (interval) {
   $('.flow-card').removeClass('active')
   $('#interval_next').attr('disabled', false)
