@@ -225,6 +225,7 @@ var clearDuplicates = function () {
           CartJS.removeItemById(cart.items[i].id)
         }
       }
+      console.log('after dupes:', cart)
     }
   })
 }
