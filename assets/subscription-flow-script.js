@@ -215,7 +215,7 @@ var clearCart = function () {
 var clearDuplicates = function() {
   jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length > 0) {
-      for (i = 0; i <= cart.items.length; i++) {
+      for (var i = 0; i <= cart.items.length; i++) {
         console.log(cart.items)
         if (cart.items[i].properties.sample_attr) {
           CartJS.removeItemById(cart.items[i].id)
