@@ -91,7 +91,7 @@ var subscriptionCart = function (loc) {
     var checkArray = []
     for (var i = 0; i < cart.items.length; i++) {
       console.log(cart.items[i])
-      if (cart.items[i].properties.sample_attr) {
+      if (cart.items[i].properties !== null && cart.items[i].properties.sample_attr) {
         checkArray.push(cart.items[i].id)
         console.log('checkArray', checkArray)
       }
