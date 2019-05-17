@@ -92,16 +92,16 @@ function bundleOverview () {
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
     var checkArray = []
-    for (n = 0; n <= cart.items.length; n++ ) {
-      if (cart.items[n].properties.sample_attr) {
-        checkArray.push(cart.items[n].id)
-      }
-    }
-    if (checkArray.length < 3) {
+    if (cart.items.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
     } else {
+      // for (n = 0; n <= cart.items.length; n++ ) {
+      //   if (cart.items[n].properties.sample_attr) {
+      //     checkArray.push(cart.items[n].id)
+      //   }
+      // }
       buildOverview(cart, loc)
     }
   })
