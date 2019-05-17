@@ -53,6 +53,7 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
+  clearCart();
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
@@ -83,7 +84,6 @@ function bundleOverview () {
         subscriptionCart(1)
       }
     })
-    //  run full size
   } else {
     alert('Please add more items to your bundle (samples)')
   }
@@ -97,11 +97,6 @@ var subscriptionCart = function (loc) {
       clearCart()
       bundleOverview()
     } else {
-      // for (n = 0; n <= cart.items.length; n++ ) {
-      //   if (cart.items[n].properties.sample_attr) {
-      //     checkArray.push(cart.items[n].id)
-      //   }
-      // }
       buildOverview(cart, loc)
     }
   })
@@ -212,11 +207,15 @@ function prevView (pos) {
 }
 var clearCart = function () {
   console.log('empty cart based on IDs')
+  jQuery.getJSON('/cart.js', function (cart) {
+    for (i = 0; i <= cart.items.length; i++) {
+      var item = cart.items[i]
+      if (item.properties.sample_attr) {
+        CartJS.removeItemById(item.id)
+      }
+    }
   for (i = 0; i < idArray.length; i++) {
     CartJS.removeItemById(idArray[i])
-  }
-  for (i = 0; i < fullSizeArray.length; i++) {
-    CartJS.removeItemById(fullSizeArray[i])
   }
 }
 
