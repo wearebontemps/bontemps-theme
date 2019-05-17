@@ -91,7 +91,6 @@ function bundleOverview () {
 
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
-    var checkArray = []
     if (cart.items.length < 3) {
       console.log('failed. run again')
       clearCart()
@@ -208,10 +207,12 @@ function prevView (pos) {
 var clearCart = function () {
   console.log('empty cart based on IDs')
   jQuery.getJSON('/cart.js', function (cart) {
-    for (i = 0; i <= cart.items.length; i++) {
-      console.log(cart.items)
-      if (cart.items[i].properties.sample_attr) {
-        CartJS.removeItemById(cart.items[i].id)
+    if (cart.items.length > 0) {
+      for (i = 0; i <= cart.items.length; i++) {
+        console.log(cart.items)
+        if (cart.items[i].properties.sample_attr) {
+          CartJS.removeItemById(cart.items[i].id)
+        }
       }
     }
     for (i = 0; i < idArray.length; i++) {
