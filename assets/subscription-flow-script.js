@@ -53,7 +53,7 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
-  clearCart();
+  clearCart()
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
@@ -214,9 +214,10 @@ var clearCart = function () {
         CartJS.removeItemById(item.id)
       }
     }
-  for (i = 0; i < idArray.length; i++) {
-    CartJS.removeItemById(idArray[i])
-  }
+    for (i = 0; i < idArray.length; i++) {
+      CartJS.removeItemById(idArray[i])
+    }
+  })
 }
 
 $('#subscription_start').click(function (e) {
