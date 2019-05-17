@@ -92,11 +92,11 @@ var subscriptionCart = function (loc) {
     for (var i = 0; i < cart.items.length; i++) {
       console.log(cart.items[i])
       if (cart.items[i].properties.sample_attr) {
-        checkArray.push(cart.items[i].properties.id)
+        checkArray.push(cart.items[i].id)
         console.log('checkArray', checkArray)
       }
     }
-    if (checkArray < 3) {
+    if (checkArray.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
