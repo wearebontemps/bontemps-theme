@@ -55,7 +55,6 @@ function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
-    console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '206077'
     async.each(idArray, function (id, next) {
@@ -69,7 +68,6 @@ function bundleOverview () {
           console.log('2 complete!')
         },
         'success': function (data, textStatus, jqXHR) {
-          console.log('success', id)
           next()
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
@@ -90,7 +88,15 @@ function bundleOverview () {
 
 var subscriptionCart = function (loc) {
   jQuery.getJSON('/cart.js', function (cart) {
-    if (cart.items.length < 3) {
+    var checkArray = []
+    for (var i = 0; i < cart.items.length; i++) {
+      console.log(cart.items[i])
+      if (cart.items[i].properties.sample_attr) {
+        checkArray.push(cart.items[i].properties.id)
+        console.log('checkArray', checkArray)
+      }
+    }
+    if (checkArray < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
