@@ -35,21 +35,15 @@
             {%- endcapture -%}
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
             <div class="cart__submit-controls">
-              <!-- <a href="collections/all" class="btn btn--secondary cart__continue small--hide cart__submit-control" >
-                {{ 'cart.general.continue_shopping' | t }}
-              </a> -->
               <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a>
-              {% comment %} <input type="submit" name="update"
-                class="btn btn--secondary small--hide cart__submit-control"
-                value="{{ 'cart.general.update' | t }}"> {% endcomment %}
               <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
                 value="{{ 'cart.general.checkout' | t }}">
+                <div class="col-12 bundle-complete-btn" style="height: 39px;margin: 1em 0;">
+                    <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button">Place Order - $3</button>
+                </div>
             </div>
             <p style="margin-top: 2.5em;" class="text-orange text-center">Free shipping when you order 3+ teas.</p>
-            {% comment %} {% if additional_checkout_buttons %}
-              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
-            {% endif %} {% endcomment %}
           </div>
         </div>
       </div>

@@ -203,7 +203,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
   });
 </script>
-    {% include 'ajax-cart-template' %}
+{{ 'checkout-redirect-helper.js' | asset_url | script_tag }}
+{% include 'ajax-cart-template' %}
 {% if template.name == 'product' or template.name == 'index' %}
       <script>
         // Override default values of shop.strings for each template.
