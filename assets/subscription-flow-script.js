@@ -111,8 +111,7 @@ var buildOverview = function (cart, loc) {
   var i
   for (j = 0; j < useArray.length; j++) {
     for (i = 0; i < cart.items.length; i++) {
-      if (cart.items[i].id == useArray[j]) {
-        console.log(cart.items[i].properties.sample_attr)
+      if (cart.items[i].id == useArray[j] && cart.items[i].properties.sample_attr) {
         var item = cart.items[i]
         var str = item.price.toString()
         var priceFormatted = '$' + str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2)
