@@ -53,7 +53,7 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
-  clearCart()
+  clearDuplicates()
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
@@ -207,6 +207,13 @@ function prevView (pos) {
 var clearCart = function () {
   console.log('empty cart based on IDs')
   jQuery.getJSON('/cart.js', function (cart) {
+    for (i = 0; i < idArray.length; i++) {
+      CartJS.removeItemById(idArray[i])
+    }
+  })
+}
+var clearDuplicates = function() {
+  jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length > 0) {
       for (i = 0; i <= cart.items.length; i++) {
         console.log(cart.items)
@@ -215,12 +222,8 @@ var clearCart = function () {
         }
       }
     }
-    for (i = 0; i < idArray.length; i++) {
-      CartJS.removeItemById(idArray[i])
-    }
   })
 }
-
 $('#subscription_start').click(function (e) {
   e.preventDefault()
   $('.takeover_1').fadeIn(300)
