@@ -223,7 +223,7 @@ var clearDuplicates = function () {
     if (cart.items.length > 0) {
       for (var i = 0; i < cart.items.length; i++) {
         console.log(cart.items[i])
-        if (cart.items[i].properties.sample_attr) {
+        if (cart.items[i].properties !== null && cart.items[i].properties.sample_attr) {
           CartJS.removeItemById(cart.items[i].id)
         }
       }
