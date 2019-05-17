@@ -17,7 +17,7 @@
     <div style="position:relative; padding-top:{% unless current_variant.image == blank %}{{ 1 | divided_by: current_variant.image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
             class="grid-view-item__image lazyload"
-            src="{{ current_variant.image | img_url: '300x300' }}"
+            src="{{ current_variant.image | img_url: 'large' }}"
             data-src="{{ img_url }}"
             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
             data-aspectratio="{{ current_variant.image.aspect_ratio }}"
@@ -86,4 +86,3 @@
     })
     </script>
 </div>
-
