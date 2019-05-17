@@ -212,7 +212,7 @@ var clearCart = function () {
     }
   })
 }
-var clearDuplicates = function() {
+var clearDuplicates = function () {
   jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length > 0) {
       for (var i = 0; i <= cart.items.length; i++) {
@@ -226,6 +226,7 @@ var clearDuplicates = function() {
 }
 $('#subscription_start').click(function (e) {
   e.preventDefault()
+  clearDuplicates()
   $('.takeover_1').fadeIn(300)
 })
 $('#subscription_start_2').click(function (e) {
