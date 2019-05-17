@@ -210,6 +210,7 @@ var clearCart = function () {
   jQuery.getJSON('/cart.js', function (cart) {
     for (i = 0; i <= cart.items.length; i++) {
       var item = cart.items[i]
+      console.log(item)
       if (item.properties.sample_attr) {
         CartJS.removeItemById(item.id)
       }
