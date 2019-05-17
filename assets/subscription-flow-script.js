@@ -138,6 +138,7 @@ var buildOverview = function (cart, loc) {
       }
     }
   }
+  console.log('final CART:', cart)
   buildLower()
 }
 var buildLower = function () {
@@ -189,7 +190,7 @@ function selectInterval (interval) {
 }
 function nextView(pos) {
   if (pos < 3 && pos > 0) {
-    var index = pos + 1;
+    var index = pos + 1
     $('.takeover_' + pos).fadeOut(0)
     $('.takeover_' + index).fadeIn(300)
     $('html, body').animate({ scrollTop: 0 }, 'slow')
@@ -201,7 +202,7 @@ function nextView(pos) {
 function prevView (pos) {
   if (pos < 4 && pos > 0) {
     if (pos == 3) {
-      clearCart();
+      clearCart()
     }
     var index = pos - 1
     $('.takeover_' + pos).fadeOut(0)
