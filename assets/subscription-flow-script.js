@@ -53,7 +53,7 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
-  clearDuplicates()
+  // clearDuplicates()
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
