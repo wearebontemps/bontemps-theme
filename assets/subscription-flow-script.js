@@ -138,7 +138,6 @@ var buildOverview = function (cart, loc) {
       }
     }
   }
-  console.log('final CART:', cart)
   buildLower()
 }
 var buildLower = function () {
@@ -212,11 +211,9 @@ function prevView (pos) {
 }
 var clearCart = function () {
   console.log('empty cart based on IDs')
-  jQuery.getJSON('/cart.js', function (cart) {
-    for (i = 0; i < idArray.length; i++) {
-      CartJS.removeItemById(idArray[i])
-    }
-  })
+  for (i = 0; i < idArray.length; i++) {
+    CartJS.removeItemById(idArray[i])
+  }
 }
 var clearDuplicates = function () {
   console.log('clear dupes')
