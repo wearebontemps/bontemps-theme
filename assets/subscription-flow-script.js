@@ -97,7 +97,7 @@ var subscriptionCart = function (loc) {
         checkArray.push(cart.items[i].id)
       }
     }
-    if (checkArray.length <= 3) {
+    if (checkArray.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
