@@ -56,7 +56,7 @@
     {% assign bg_color = "bg-white small-show" %}
     {% include "curved-svg" %}
 </div>
-<div class="takeover takeover_1">
+<div class="takeover takeover_1" {% if section.settings.takeover_1_bg %}style="background-color: {{section.settings.takeover_1_bg}};" {% endif %}>
     <div class ="d-flex align-items-center justify-content-center  takeover-logo">{{ header_logo }}</div>
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
     <div style="clear: both;" class="row d-flex">
@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="takeover takeover_2">
+    <div class="takeover takeover_2" {% if section.settings.takeover_2_bg %}style="background-color: {{section.settings.takeover_2_bg}};" {% endif %}>
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
     <div class ="d-flex align-items-center justify-content-center takeover-logo">{{ header_logo }}</div>
     <a style="float: left; padding: 2em;" href="#" class="" type="" onClick="prevView(2)">< BACK</a>
@@ -146,7 +146,7 @@
             </div>
         </div>
     </div>
-    <div class="takeover takeover_3">
+    <div class="takeover takeover_3" {% if section.settings.takeover_3_bg %}style="background-color: {{section.settings.takeover_3_bg}};" {% endif %}>
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
         <div class ="d-flex align-items-center justify-content-center takeover-logo">{{ header_logo }}</div>
 
@@ -249,6 +249,12 @@
         "label": "Logo image"
         },
         {
+          "type": "color",
+          "id": "takeover_1_bg",
+          "label": "bg color 1",
+          "default": "#ffcac6"
+        },
+        {
         "type": "range",
         "id": "logo_max_width",
         "min": 50,
@@ -333,6 +339,12 @@
         "label": "column 4 text"
         },
         {
+          "type": "color",
+          "id": "takeover_2_bg",
+          "label": "bg color 2",
+          "default": "#ffcac6"
+        },
+        {
         "type": "text",
         "id": "selection_header",
         "label": "selection panel header (inside sub-flow)",
@@ -394,6 +406,12 @@
         "type": "image_picker",
         "id": "interval_img_3",
         "label": "interval 3 image (inside sub-flow)"
+        },
+        {
+          "type": "color",
+          "id": "takeover_3_bg",
+          "label": "bg color 3",
+          "default": "#ffcac6"
         },
         {
         "type": "image_picker",
