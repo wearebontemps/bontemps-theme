@@ -203,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
   });
 </script>
-{{ 'checkout-redirect-helper.js' | asset_url | script_tag }}
+{% include 'checkout-redirect-helper' %}
 {% include 'ajax-cart-template' %}
 {% if template.name == 'product' or template.name == 'index' %}
       <script>
