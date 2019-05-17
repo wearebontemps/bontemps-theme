@@ -53,7 +53,6 @@ function addChecks (id) {
 }
 function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
-  // clearDuplicates()
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
     console.log('shippingIntervalFrequency', shippingIntervalFrequency)
@@ -213,10 +212,11 @@ var clearCart = function () {
   })
 }
 var clearDuplicates = function () {
+  console.log('clear dupes')
   jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length > 0) {
       for (var i = 0; i <= cart.items.length; i++) {
-        console.log(cart.items)
+        console.log(cart.items[i])
         if (cart.items[i].properties.sample_attr) {
           CartJS.removeItemById(cart.items[i].id)
         }
