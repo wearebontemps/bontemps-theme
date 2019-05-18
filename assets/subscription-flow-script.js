@@ -87,6 +87,7 @@ function bundleOverview () {
 }
 
 var subscriptionCart = function (loc) {
+  runLoader()
   jQuery.getJSON('/cart.js', function (cart) {
     var checkArray = []
     for (var i = 0; i < cart.items.length; i++) {
@@ -98,7 +99,6 @@ var subscriptionCart = function (loc) {
     }
     if (checkArray.length < 3) {
       console.log('failed. run again')
-      runLoader()
       clearCart()
       bundleOverview()
     } else {
