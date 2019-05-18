@@ -103,6 +103,7 @@ var subscriptionCart = function (loc) {
       bundleOverview()
     } else {
       buildOverview(cart, loc)
+      buildLower()
     }
   })
 }
@@ -139,7 +140,6 @@ var buildOverview = function (cart, loc) {
       }
     }
   }
-  buildLower()
 }
 var buildLower = function () {
   var domSelector = $('#sub-flow-cart-lower')
