@@ -240,7 +240,7 @@ var runLoader = function () {
   var domSelector = $('#sub-flow-cart-upper')
   domSelector.html('')
   domSelector.append(
-    'Updating with new selections.'
+    'Updating with new selections. This may take a moment.'
   )
 }
 $('#subscription_start').click(function (e) {
