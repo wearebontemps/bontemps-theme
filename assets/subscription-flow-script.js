@@ -98,6 +98,7 @@ var subscriptionCart = function (loc) {
     }
     if (checkArray.length < 3) {
       console.log('failed. run again')
+      runLoader()
       clearCart()
       bundleOverview()
     } else {
@@ -234,6 +235,13 @@ var clearDuplicates = function () {
       console.log('after dupes:', cart)
     }
   })
+}
+var runLoader = function () {
+  var domSelector = $('#sub-flow-cart-upper')
+  domSelector.html('')
+  domSelector.append(
+    'Updating with new selections.'
+  )
 }
 $('#subscription_start').click(function (e) {
   e.preventDefault()
