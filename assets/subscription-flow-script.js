@@ -211,11 +211,15 @@ function prevView (pos) {
 }
 var clearCart = function () {
   for (i = 0; i < idArray.length; i++) {
-    CartJS.removeItemById(idArray[i])
+    CartJS.removeItemById(idArray[i], {
+      'complete': function () {
+        jQuery.getJSON('/cart.js', function (cart) {
+          console.log('empty cart based on IDs', cart)
+        })
+      },
+      async: true
+    })
   }
-  jQuery.getJSON('/cart.js', function (cart) {
-    console.log('empty cart based on IDs', cart)
-  })
 }
 var clearDuplicates = function () {
   console.log('clear dupes')
