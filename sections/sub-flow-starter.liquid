@@ -16,32 +16,33 @@
     {% endif %}
 </a>
 {% endcapture %}
-<section>
-<div class="section-inner bg-pastel has-bottom-curve flow-header-wrap" style="">
-    <div class="d-flex align-items-center row-90 flow-header-row row">
-    <div class="col-sm-6 small-hide">
-        <p>MEMBERSHIPS BEGIN AT $16</p>
-        <h1>{{ section.settings.title }}</h1>
-        {{ section.settings.text }}
-        <a id="subscription_start" class="btn flow-button" href="#">
-        <span>{{ section.settings.cta_text }}</span>
-        </a>
+{% comment %} <section>
+    <div class="section-inner bg-pastel has-bottom-curve flow-header-wrap" style="">
+        <div class="d-flex align-items-center row-90 flow-header-row row">
+        <div class="col-sm-6 small-hide">
+            <p>MEMBERSHIPS BEGIN AT $16</p>
+            <h1>{{ section.settings.title }}</h1>
+            {{ section.settings.text }}
+            <a id="subscription_start" class="btn flow-button" href="#">
+            <span>{{ section.settings.cta_text }}</span>
+            </a>
+        </div>
+        <div class="col-sm-6 text-center">
+        <img class="flow-header-image" src="{{ section.settings.image | img_url: '1000x' }}">
+        </div>
+        </div>
+        {% assign bg_color = "bg-white small-hide" %}
+        {% include "curved-svg" %}
+        {% assign bg_color = "bg-yellow small-show" %}
+        {% include "curved-svg" %}
+        <div class="top-nav-box no-bar" style="left: 0">
+        <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
+        {% include "header-nav" %}
+        </header>
+        </div>
     </div>
-    <div class="col-sm-6 text-center">
-    <img class="flow-header-image" src="{{ section.settings.image | img_url: '1000x' }}">
-    </div>
-    </div>
-    {% assign bg_color = "bg-white small-hide" %}
-    {% include "curved-svg" %}
-    {% assign bg_color = "bg-yellow small-show" %}
-    {% include "curved-svg" %}
-    <div class="top-nav-box no-bar" style="left: 0">
-    <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-    {% include "header-nav" %}
-    </header>
-</div>
-</div>
-<section>
+<section> {% endcomment %}
+{% section 'header-sub-flow' %}
 <div class="section-inner bg-yellow has-both-curve small-show" style="">
     <div class="d-flex align-items-center row-70 row">
     <div class="col-12 text-center">
@@ -249,10 +250,10 @@
         "label": "Logo image"
         },
         {
-          "type": "color",
-          "id": "takeover_1_bg",
-          "label": "bg color 1",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_1_bg",
+        "label": "bg color 1",
+        "default": "#ffcac6"
         },
         {
         "type": "range",
@@ -339,10 +340,10 @@
         "label": "column 4 text"
         },
         {
-          "type": "color",
-          "id": "takeover_2_bg",
-          "label": "bg color 2",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_2_bg",
+        "label": "bg color 2",
+        "default": "#ffcac6"
         },
         {
         "type": "text",
@@ -408,10 +409,10 @@
         "label": "interval 3 image (inside sub-flow)"
         },
         {
-          "type": "color",
-          "id": "takeover_3_bg",
-          "label": "bg color 3",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_3_bg",
+        "label": "bg color 3",
+        "default": "#ffcac6"
         },
         {
         "type": "image_picker",
