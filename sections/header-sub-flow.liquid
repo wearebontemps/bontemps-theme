@@ -74,6 +74,7 @@ Theme Store optional settings
     <div class="d-flex align-items-center row-70 row">
     <div class="col-12 text-center">
     {% for block in section.blocks limit:1 %}
+        <p>MEMBERSHIPS BEGIN AT $16</p>
         {% unless block.settings.title_1 == blank %}
           <h1 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
             {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 %}{{ block.settings.title_2 | escape }}{% endif %}
