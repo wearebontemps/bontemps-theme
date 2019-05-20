@@ -179,13 +179,13 @@ function selectInterval (interval) {
   $('.interval_target').text(interval)
   if (interval == 1) {
     subscriptionInterval = 1
-    $('.interval_selector_1').addClass('active')
+    $('.interval_selector_3').addClass('active')
   } else if (interval == 2) {
     subscriptionInterval = 2
     $('.interval_selector_2').addClass('active')
   } else if (interval == 3) {
     subscriptionInterval = 3
-    $('.interval_selector_3').addClass('active')
+    $('.interval_selector_1').addClass('active')
   }
 }
 function nextView(pos) {
