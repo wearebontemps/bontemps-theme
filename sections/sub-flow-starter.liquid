@@ -42,7 +42,7 @@
         </div>
     </div>
 <section> {% endcomment %}
-<div class="section-inner bg-yellow has-both-curve small-show" style="">
+{% comment %} <div class="section-inner bg-yellow has-both-curve small-show" style="">
     <div class="d-flex align-items-center row-70 row">
     <div class="col-12 text-center">
         <p>MEMBERSHIPS BEGIN AT $16</p>
@@ -55,7 +55,7 @@
     </div>
     {% assign bg_color = "bg-white small-show" %}
     {% include "curved-svg" %}
-</div>
+</div> {% endcomment %}
 <div class="takeover takeover_1" {% if section.settings.takeover_1_bg %}style="background-color: {{section.settings.takeover_1_bg}};" {% endif %}>
     <div class ="d-flex align-items-center justify-content-center  takeover-logo">{{ header_logo }}</div>
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
