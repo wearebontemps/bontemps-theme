@@ -247,6 +247,7 @@ $('.subscription_start').on('touchstart click', function (e) {
   e.preventDefault()
   clearDuplicates()
   $('.takeover_1').fadeIn(300)
+  window.scrollTo(0, 0)
 })
 $('#subscription_start_2').on('touchstart click', function (e) {
   e.preventDefault()
