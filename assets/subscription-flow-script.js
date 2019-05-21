@@ -111,6 +111,7 @@ var subscriptionCart = function (loc) {
 var buildOverview = function (cart, loc) {
   var useArray = idArray
   var domSelector = $('#sub-flow-cart-upper')
+  $('#loader-gif').hide()
   domSelector.html('')
   console.log('cart:', cart)
   console.log('useArray:', loc, useArray)
@@ -239,9 +240,10 @@ var clearDuplicates = function () {
 var runLoader = function () {
   var domSelector = $('#sub-flow-cart-upper')
   domSelector.html('')
-  domSelector.append(
-    'Updating with new selections. This may take a moment.'
-  )
+  // domSelector.append(
+  //   'Updating with new selections. This may take a moment.'
+  // )
+  $('#loader-gif').show()
 }
 $('.subscription_start').on('touchstart click', function (e) {
   e.preventDefault()
