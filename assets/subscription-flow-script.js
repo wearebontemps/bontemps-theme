@@ -243,7 +243,7 @@ var runLoader = function () {
     'Updating with new selections. This may take a moment.'
   )
 }
-$('#subscription_start').on('touchstart click', function (e) {
+$('.subscription_start').on('touchstart click', function (e) {
   e.preventDefault()
   clearDuplicates()
   $('.takeover_1').fadeIn(300)
