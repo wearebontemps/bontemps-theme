@@ -55,7 +55,6 @@ function bundleOverview () {
   console.log('ids:', idArray, 'full-size:', fullSizeArray)
   if (idArray.length === 3) {
     var shippingIntervalFrequency = subscriptionInterval.toString()
-    console.log('shippingIntervalFrequency', shippingIntervalFrequency)
     var shippingIntervalUnitType = 'Month'
     var subscriptionID = '206077'
     async.each(idArray, function (id, next) {
@@ -69,7 +68,6 @@ function bundleOverview () {
           console.log('2 complete!')
         },
         'success': function (data, textStatus, jqXHR) {
-          console.log('success', id)
           next()
         },
         'error': function (jqhXHR, textStatus, errorThrown) {
@@ -89,13 +87,23 @@ function bundleOverview () {
 }
 
 var subscriptionCart = function (loc) {
+  runLoader()
   jQuery.getJSON('/cart.js', function (cart) {
-    if (cart.items.length < 3) {
+    var checkArray = []
+    for (var i = 0; i < cart.items.length; i++) {
+      console.log(cart.items[i])
+      if (cart.items[i].properties !== null && cart.items[i].properties.sample_attr) {
+        checkArray.push(cart.items[i].id)
+        console.log('checkArray', checkArray)
+      }
+    }
+    if (checkArray.length < 3) {
       console.log('failed. run again')
       clearCart()
       bundleOverview()
     } else {
       buildOverview(cart, loc)
+      buildLower()
     }
   })
 }
@@ -103,6 +111,7 @@ var subscriptionCart = function (loc) {
 var buildOverview = function (cart, loc) {
   var useArray = idArray
   var domSelector = $('#sub-flow-cart-upper')
+  $('#loader-gif').hide()
   domSelector.html('')
   console.log('cart:', cart)
   console.log('useArray:', loc, useArray)
@@ -132,7 +141,6 @@ var buildOverview = function (cart, loc) {
       }
     }
   }
-  buildLower()
 }
 var buildLower = function () {
   var domSelector = $('#sub-flow-cart-lower')
@@ -172,18 +180,18 @@ function selectInterval (interval) {
   $('.interval_target').text(interval)
   if (interval == 1) {
     subscriptionInterval = 1
-    $('.interval_selector_1').addClass('active')
+    $('.interval_selector_3').addClass('active')
   } else if (interval == 2) {
     subscriptionInterval = 2
     $('.interval_selector_2').addClass('active')
   } else if (interval == 3) {
     subscriptionInterval = 3
-    $('.interval_selector_3').addClass('active')
+    $('.interval_selector_1').addClass('active')
   }
 }
 function nextView(pos) {
   if (pos < 3 && pos > 0) {
-    var index = pos + 1;
+    var index = pos + 1
     $('.takeover_' + pos).fadeOut(0)
     $('.takeover_' + index).fadeIn(300)
     $('html, body').animate({ scrollTop: 0 }, 'slow')
@@ -195,7 +203,7 @@ function nextView(pos) {
 function prevView (pos) {
   if (pos < 4 && pos > 0) {
     if (pos == 3) {
-      clearCart();
+      clearCart()
     }
     var index = pos - 1
     $('.takeover_' + pos).fadeOut(0)
@@ -204,36 +212,50 @@ function prevView (pos) {
   }
 }
 var clearCart = function () {
-  console.log('empty cart based on IDs')
-  jQuery.getJSON('/cart.js', function (cart) {
-    for (i = 0; i < idArray.length; i++) {
-      CartJS.removeItemById(idArray[i])
-    }
-  })
+  for (i = 0; i < idArray.length; i++) {
+    CartJS.removeItemById(idArray[i], {
+      'complete': function () {
+        jQuery.getJSON('/cart.js', function (cart) {
+          console.log('empty cart based on IDs', cart)
+        })
+      },
+      async: true
+    })
+  }
 }
 var clearDuplicates = function () {
   console.log('clear dupes')
   jQuery.getJSON('/cart.js', function (cart) {
     if (cart.items.length > 0) {
-      for (var i = 0; i <= cart.items.length; i++) {
+      for (var i = 0; i < cart.items.length; i++) {
         console.log(cart.items[i])
-        if (cart.items[i].properties.sample_attr) {
+        if (cart.items[i].properties !== null && cart.items[i].properties.sample_attr) {
           CartJS.removeItemById(cart.items[i].id)
         }
       }
+      console.log('after dupes:', cart)
     }
   })
 }
-$('#subscription_start').click(function (e) {
+var runLoader = function () {
+  var domSelector = $('#sub-flow-cart-upper')
+  domSelector.html('')
+  // domSelector.append(
+  //   'Updating with new selections. This may take a moment.'
+  // )
+  $('#loader-gif').show()
+}
+$('.subscription_start').on('touchstart click', function (e) {
   e.preventDefault()
   clearDuplicates()
   $('.takeover_1').fadeIn(300)
+  window.scrollTo(0, 0)
 })
-$('#subscription_start_2').click(function (e) {
+$('#subscription_start_2').on('touchstart click', function (e) {
   e.preventDefault()
   $('.takeover_1').fadeIn(300)
 })
-$('.takeover_closer').click(function (e) {
+$('.takeover_closer').on('touchstart click', function (e) {
   e.preventDefault()
   $('.takeover').fadeOut(300)
   clearCart()

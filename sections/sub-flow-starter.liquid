@@ -16,46 +16,6 @@
     {% endif %}
 </a>
 {% endcapture %}
-<section>
-<div class="section-inner bg-pastel has-bottom-curve flow-header-wrap" style="">
-    <div class="d-flex align-items-center row-90 flow-header-row row">
-    <div class="col-sm-6 small-hide">
-        <p>{{ section.settings.intro_text }}</p>
-        <h1>{{ section.settings.title }}</h1>
-        {{ section.settings.text }}
-        <a id="subscription_start" class="btn flow-button" href="#">
-        <span>{{ section.settings.cta_text }}</span>
-        </a>
-    </div>
-    <div class="col-sm-6 text-center">
-    <img class="flow-header-image" src="{{ section.settings.image | img_url: '1000x' }}">
-    </div>
-    </div>
-    {% assign bg_color = "bg-white small-hide" %}
-    {% include "curved-svg" %}
-    {% assign bg_color = "bg-yellow small-show" %}
-    {% include "curved-svg" %}
-    <div class="top-nav-box no-bar" style="left: 0">
-    <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-    {% include "header-nav" %}
-    </header>
-</div>
-</div>
-<section>
-<div class="section-inner bg-yellow has-both-curve small-show" style="">
-    <div class="d-flex align-items-center row-70 row">
-    <div class="col-12 text-center">
-        <p>{{ section.settings.intro_text }}</p>
-        <h1>{{ section.settings.title }}</h1>
-        {{ section.settings.text }}
-        <a id="subscription_start_2" class="btn flow-button" href="#">
-        <span>{{ section.settings.cta_text }}</span>
-        </a>
-    </div>
-    </div>
-    {% assign bg_color = "bg-white small-show" %}
-    {% include "curved-svg" %}
-</div>
 <div class="takeover takeover_1" {% if section.settings.takeover_1_bg %}style="background-color: {{section.settings.takeover_1_bg}};" {% endif %}>
     <div class ="d-flex align-items-center justify-content-center  takeover-logo">{{ header_logo }}</div>
     <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
@@ -115,7 +75,7 @@
             <div class="col-12">
             <div id="bundle_anchor" class="row" style="margin: 4em 0 1em;">
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(1)">
+                <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(3)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">
                     <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>
                     <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> 3 months</p>
@@ -131,7 +91,7 @@
                 </a>
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                <a href="#" class="product-card flow-card interval-selector interval_selector_3" onClick="selectInterval(3)">
+                <a href="#" class="product-card flow-card interval-selector interval_selector_3" onClick="selectInterval(1)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">
                     <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>
                     <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> 1 month</p>
@@ -178,6 +138,7 @@
                         </div>
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion-upper">
                             <div class="card-body">
+                                <img id="loader-gif" src="{{ 'loader.gif' | asset_url }}"/>
                                 <div id="sub-flow-cart-upper"></div>
                             </div>
                         </div>
@@ -249,10 +210,10 @@
         "label": "Logo image"
         },
         {
-          "type": "color",
-          "id": "takeover_1_bg",
-          "label": "bg color 1",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_1_bg",
+        "label": "bg color 1",
+        "default": "#ffcac6"
         },
         {
         "type": "range",
@@ -345,10 +306,10 @@
         "label": "column 4 text"
         },
         {
-          "type": "color",
-          "id": "takeover_2_bg",
-          "label": "bg color 2",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_2_bg",
+        "label": "bg color 2",
+        "default": "#ffcac6"
         },
         {
         "type": "text",
@@ -414,10 +375,10 @@
         "label": "interval 3 image (inside sub-flow)"
         },
         {
-          "type": "color",
-          "id": "takeover_3_bg",
-          "label": "bg color 3",
-          "default": "#ffcac6"
+        "type": "color",
+        "id": "takeover_3_bg",
+        "label": "bg color 3",
+        "default": "#ffcac6"
         },
         {
         "type": "image_picker",
