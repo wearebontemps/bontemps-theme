@@ -243,16 +243,16 @@ var runLoader = function () {
     'Updating with new selections. This may take a moment.'
   )
 }
-$('#subscription_start').click(function (e) {
+$('#subscription_start').on('touchstart click', function (e) {
   e.preventDefault()
   clearDuplicates()
   $('.takeover_1').fadeIn(300)
 })
-$('#subscription_start_2').click(function (e) {
+$('#subscription_start_2').on('touchstart click', function (e) {
   e.preventDefault()
   $('.takeover_1').fadeIn(300)
 })
-$('.takeover_closer').click(function (e) {
+$('.takeover_closer').on('touchstart click', function (e) {
   e.preventDefault()
   $('.takeover').fadeOut(300)
   clearCart()
