@@ -18,7 +18,7 @@
 {% endcapture %}
 <div class="takeover takeover_1" {% if section.settings.takeover_1_bg %}style="background-color: {{section.settings.takeover_1_bg}};" {% endif %}>
     <div class ="d-flex align-items-center justify-content-center  takeover-logo">{{ header_logo }}</div>
-    <a style="float: right; padding: 2em;" href="#" class="takeover_closer"><span class="close-icon"></span></a>
+    <a style="float: right; padding: 2em;" href="#" class="takeover_closer" onclick="dataLayer.push({'event': 'close_subflow'});"><span class="close-icon"></span></a>
     <div style="clear: both;" class="row d-flex">
         <div class="col-12">
             <div class="selection-intro">
