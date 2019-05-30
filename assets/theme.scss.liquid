@@ -8532,15 +8532,18 @@ svg{
 }
 select.rc_select{
   @media screen and (max-width: 974px){
-    display: block;
+    display: block !important;
   }
 }
 .fb_iframe_widget{
   span{
-    width: 100%;
+    width: 100% !important;
     @media screen and (max-width: 890px){
       margin-left: -80px;
       overflow: visible;
+      iframe{
+        width: 100% !important;
+      }
     }
   }
 }
