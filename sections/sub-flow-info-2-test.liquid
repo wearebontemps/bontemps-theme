@@ -1,11 +1,8 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
-<div class="section-inner has-bottom-curve small-show bg-pink" style="background-image: url('{{ section.settings.image_full | img_url: '2000x2000' }});">
-  {% assign bg_color = "bg-white" %}
-    {% include "curved-svg" %}
-</div>
-<div class="section-inner has-bottom-curve flow-info-2-text small-hide">
+<div class="section-inner has-bottom-curve small-hide" style="background-image: url('{{ section.settings.image_full | img_url: '2000x2000' }}'); background-size: cover; background-repeat: no-repeat;">
+<div class="flow-info-2-text small-hide">
   <div class="row">
   <div class="col-sm-6 d-flex flex-column justify-content-center">
     <h2 class="">{{ section.settings.text }}</h2>
@@ -15,16 +12,21 @@
   {% assign bg_color = "bg-yellow" %}
     {% include "curved-svg" %}
 </div>
-<div class="section-inner bg-white has-both-curve small-show" style="background-image: url('{{ section.settings.image_mobile | img_url: '2000x2000' }});">
-    <div class="row">
-  <div class="col-sm-6 d-flex flex-column justify-content-center">
-    <h2 class="">{{ section.settings.text }}</h2>
-    <p class="">{{ section.settings.text_lower }}</p>
-  </div>
-  </div>
-    {% assign bg_color = "bg-yellow small-show" %}
+  {% assign bg_color = "bg-white" %}
     {% include "curved-svg" %}
-  </div>
+</div>
+<div class="section-inner has-bottom-curve small-show" style="background-image: url('{{ section.settings.image_mobile | img_url: '2000x2000' }}'); background-size: cover; background-repeat: no-repeat;">
+</div>
+<div class="section-inner bg-white has-both-curve small-show">
+    <div class="row">
+      <div class="col-sm-6 d-flex flex-column justify-content-center">
+        <h2 class="">{{ section.settings.text }}</h2>
+        <p class="">{{ section.settings.text_lower }}</p>
+      </div>
+    </div>
+  {% assign bg_color = "bg-yellow small-show" %}
+  {% include "curved-svg" %}
+</div>
 {% schema %}
 {
   "name": {
