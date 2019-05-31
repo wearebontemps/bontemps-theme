@@ -1,66 +1,21 @@
-{% comment %} {%- comment -%} {% endcomment %}
-alt header.
-It is available in the "Header" section in the theme editor.
-
-Theme Store required settings
-- Show announcement
-- Text: message to announce
-- Link: link of the announcement bar
-
-Theme Store optional settings
-- Home page only: only shows on the home page
+{%- comment -%}
+ this is a template for the section and schema. update functions here
 {%- endcomment -%}
-<section data-section-id="{{ section.id }}" data-section-type="" class="{% if section.settings.header-slider %}header-slider{% endif %}{% if page.url contains '/pages/' %} small-page-header{% elsif page.url contains '/collections/' %} small-page-header{% endif %}">
-
-{% if section.settings.header-slider %}
-  <div class="slideshow-wrapper slider single-item">
-
-    <div class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
-
-    {% for block in section.blocks %}
-        <div class=" slideshow__slide slideshow__slide--{{ block.id }} {% if forloop.first %}slick-active{% endif %}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
-                  {%- assign is_background_video = false -%}
-                  {% if block.type == 'video' %}
-                    {% if block.settings.video_type == 'background' or block.settings.video_type =='background-chrome' %}
-                      {%- assign is_background_video = true -%}
-                    {% endif %}
-                  {% endif %}
-            <div class="background-target-{{forloop.index}} slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
-                data-sizes="auto"
-                data-parent-fit="cover"
-                style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '2000x2000' }});{% endif %}">
-            </div>
-          <div class="small-hide slideshow__text-wrap{% if block.settings.title != blank or block.settings.subheading != blank %} slideshow__overlay{% endif %} " style="">
-            <div class="overlay-box" style="background-color: {{ block.settings.color_image_overlay }}; opacity: {{ block.settings.color_image_opacity | times: 0.01 }};">
-            </div>
-            <div class="slideshow__text-content {% if forloop.first %}slick-active{% endif %}">
-              <div class="page-width  slideshow-inner-text {% if block.settings.justification == 'left' %}left{% elsif block.settings.justification == 'right' %}right{% endif %}">
-                <p>MEMBERSHIPS BEGIN AT $16</p>
-                {% unless block.settings.title_1 == blank %}
-                  <h1 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
-                    {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 %}{{ block.settings.title_2 | escape }}{% endif %}
-                  </h1>
-                {% endunless %}
-                {% unless block.settings.subheading == blank %}
-                  <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
-                    {{ block.settings.subheading | escape }}
-                  </p>
-                {% endunless %}
-                <a id="" class="btn flow-button subscription_start" href="#">
-                  <span>{{ block.settings.cta_text }}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          {% include 'header-image-helper' %}
-          {% assign bg_color = "bg-yellow small-hide" %}
-          {% include "curved-svg" %}
-          {% assign bg_color = "bg-white small-show" %}
-          {% include "curved-svg" %}
-        </div>
-      {% endfor %}
-    </div>
-    <div class="section-inner bg-white has-both-curve small-show" style="">
+<div class="section-inner has-bottom-curve small-show bg-pink" style="background-image: url('{{ section.settings.image_full | img_url: '2000x2000' }});">
+  {% assign bg_color = "bg-white" %}
+    {% include "curved-svg" %}
+</div>
+<div class="section-inner has-bottom-curve flow-info-2-text small-hide">
+  <div class="row">
+  <div class="col-sm-6 d-flex flex-column justify-content-center">
+    <h2 class="">{{ section.settings.text }}</h2>
+    <p class="">{{ section.settings.text_lower }}</p>
+  </div>
+  </div>
+  {% assign bg_color = "bg-yellow" %}
+    {% include "curved-svg" %}
+</div>
+<div class="section-inner bg-white has-both-curve small-show" style="background-image: url('{{ section.settings.image_mobile | img_url: '2000x2000' }});">
     <div class="d-flex align-items-center row-70 row">
     <div class="col-12 text-center">
     {% for block in section.blocks limit:1 %}
@@ -84,239 +39,38 @@ Theme Store optional settings
     {% assign bg_color = "bg-yellow small-show" %}
     {% include "curved-svg" %}
   </div>
-  </div>
-{% endif %}
-</section>
-
-{% if section.settings.logo != blank %}
-<style>
-.logo-image {
-  display: block;
-  max-width: {{ section.settings.logo_max_width }}px;
-}
-</style>
-{% endif %}
-
 {% schema %}
 {
-  "name": "Header - Subscribe",
+  "name": {
+    "en": "Subscription Flow Info 2"
+  },
   "settings": [
-      {
-      "type": "checkbox",
-      "id": "announcement_bar_enabled",
-      "label": "Show announcement",
-      "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "header-slider",
-        "label": "Has slideshow?",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "slideshow_height",
-        "label": "Section height",
-        "default": "small",
-        "options": [
-          {
-            "label": "Small",
-            "value": "small"
-          },
-          {
-            "label": "Medium",
-            "value": "medium"
-          },
-          {
-            "label": "Large",
-            "value": "large"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "id": "announcement_bar_text",
-        "label": "Announcement text",
-        "default": "Announce something here"
-      },
-      {
-        "type": "url",
-        "id": "announcement_bar_link",
-        "label": "Announcement link",
-        "info": "Optional"
-      },
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo image"
-      },
-      {
-        "type": "range",
-        "id": "logo_max_width",
-        "min": 50,
-        "max": 450,
-        "step": 10,
-        "unit": "px",
-        "label": "Custom logo width",
-        "default": 170
-      },
-      {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Menu",
-        "default": "main-menu"
-      },
-      {
-        "type": "text",
-        "id": "tea_type",
-        "label": "Type of Tea featured in image"
-      },
-      {
-        "type": "image_picker",
-        "id": "threesome_image",
-        "label": "Image for make a bundle in Nav"
-      }
-    ],
-        "blocks": [
-          {
-            "type": "image",
-            "name": "Image slide",
-            "settings": [
-              {
-                "type": "image_picker",
-                "id": "image",
-                "label": "Image"
-              },
-              {
-                "type": "image_picker",
-                "id": "image_mobile",
-                "label": "Image (Mobile View)"
-              },
-              {
-                "type": "select",
-                "id": "alignment",
-                "label": "Image alignment",
-                "default": "top",
-                "options": [
-                  {
-                    "value": "top",
-                    "label": "Top"
-                  },
-                  {
-                    "value": "center",
-                    "label": "Middle"
-                  },
-                  {
-                    "value": "bottom",
-                    "label": "Bottom"
-                  }
-                ]
-              },
-              {
-                "type": "select",
-                "id": "justification",
-                "label": "Text justification",
-                "default": "center",
-                "options": [
-                  {
-                    "value": "left",
-                    "label": "Left"
-                  },
-                  {
-                    "value": "center",
-                    "label": "Center"
-                  },
-                  {
-                    "value": "right",
-                    "label": "Right"
-                  }
-                ]
-              },
-              {
-                "type": "color",
-                "id": "color_image_overlay",
-                "label": "Image Overlay",
-                "default": "#fff"
-              },
-              {
-                "type": "range",
-                "id": "color_image_opacity",
-                "label": "Image Overlay Opacity",
-                "default": 20,
-                "min": 1,
-                "max": 100
-              },
-              {
-                "type": "text",
-                "id": "title_1",
-                "label": "Heading part 1",
-                "default": "Image slide"
-              },
-              {
-                "type": "text",
-                "id": "title_2",
-                "label": "Heading part 2"
-              },
-              {
-                "type": "text",
-                "id": "subheading",
-                "label": "Subheading",
-                "default": "Tell your brand's story through video and images"
-              },
-              {
-                "type": "text",
-                "id": "cta_text",
-                "label": "Slide CTA text"
-              }
-            ]
-          }
-          ],
-          "presets": [
-          {
-            "name": "header-home-page",
-            "category": "Headers"
-          }
-          ]
-          }
-
-
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "text"
+    },
+    {
+    "type": "richtext",
+    "id": "text_lower",
+    "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_fullsize",
+      "label": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "image"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Subscription Flow Info 2",
+    "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
-
-                <script type="application/ld+json">
-                {
-                  "@context": "http://schema.org",
-                  "@type": "Organization",
-                  "name": "{{ shop.name }}",
-                  {% if section.settings.logo %}
-                  {% assign image_size = section.settings.logo.width | append:'x' %}
-                  "logo": "https:{{ section.settings.logo | img_url: image_size }}",
-                  {% endif %}
-                  "sameAs": [
-                  "{{ settings.social_twitter_link }}",
-                  "{{ settings.social_facebook_link }}",
-                  "{{ settings.social_pinterest_link }}",
-                  "{{ settings.social_instagram_link }}",
-                  "{{ settings.social_tumblr_link }}",
-                  "{{ settings.social_snapchat_link }}",
-                  "{{ settings.social_youtube_link }}",
-                  "{{ settings.social_vimeo_link }}"
-                  ],
-                  "url": "{{ shop.url }}{{ page.url }}"
-                }
-                </script>
-
-                {% if template.name == 'index' %}
-                <script type="application/ld+json">
-                {
-                  "@context": "http://schema.org",
-                  "@type": "WebSite",
-                  "name": "{{ shop.name }}",
-                  "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "{{ shop.url }}/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                    },
-                    "url": "{{ shop.url }}{{ page.url }}"
-                  }
-                  </script>
-                  {% endif %}
