@@ -14,16 +14,6 @@ Theme Store optional settings
 
 {% if section.settings.header-slider %}
   <div class="slideshow-wrapper slider single-item">
-    <button type="button" class="visually-hidden slideshow__pause" data-id="{{ section.id }}" aria-live="polite">
-      <span class="slideshow__pause-stop">
-        {% include 'icon-pause' %}
-        <span class="icon__fallback-text">{{ 'sections.slideshow.pause_slideshow' | t }}</span>
-      </span>
-      <span class="slideshow__pause-play">
-        {% include 'icon-play' %}
-        <span class="icon__fallback-text">{{ 'sections.slideshow.play_slideshow' | t }}</span>
-      </span>
-    </button>
 
     <div class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
 
@@ -102,13 +92,6 @@ Theme Store optional settings
   </div>
 {% endif %}
 </div>
-<div class="top-nav-box no-bar">
-  {% comment %} {% include "announcement-bar" %} {% endcomment %}
-  <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
-  {% include "header-nav" %}
-  </header>
-</div>
-
 </section>
 
 {% if section.settings.logo != blank %}
