@@ -8254,10 +8254,18 @@ $toolbar-height-small: 46px;
   float: right;
   width: 50%;
   white-space: nowrap;
+  @media screen and (max-width: 991px){
+    float: unset;
+    width: 100%;
+  }
 }
 .flow-info{
   float: left;
   width: 50%;
+  @media screen and (max-width: 991px){
+    float: unset;
+    width: 100%;
+  }
 }
 .product-meta:hover{
   cursor: pointer;
