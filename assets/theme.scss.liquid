@@ -4279,7 +4279,9 @@ h1.section-header{
   p, span {
     color: #141462;
   }
-  .caffeine-level {
+  .caffeine-level, p.caffeine-level {
+    font-size: .8em;
+    //p {margin-bottom: 0;}
     .dot {
       border: 1px solid #141462;
       &.fill {
@@ -7957,7 +7959,8 @@ $toolbar-height-small: 46px;
     margin: 0 0 0;
     font-size: .8em;
     p {margin-bottom: 0;}
-    .caffeine-level {
+    .caffeine-level, p.caffeine-level {
+      font-size: .8em;
       .dot {
         height: 8px;
         width: 8px;
@@ -8215,6 +8218,7 @@ $toolbar-height-small: 46px;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
+
   }
   .product-icon-bar .section-inner {
     padding-top: 0;
