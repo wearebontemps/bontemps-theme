@@ -6006,13 +6006,12 @@ $color-slideshow-close-text: #000;
       height: $slideshow-height-large;
     }
   }
-  @media only screen and (min-width: 749px and max-width: 577px) {
+  //inbetween query for slider height
+  @media only screen and (min-width: 749px) and (max-width: 577px) {
     height: 350px;
-
     &.slideshow--medium {
       height: 350px;
     }
-
     &.slideshow--large {
       height: 350px;
     }
