@@ -696,13 +696,11 @@ $grid-breakpoints: (
   float: left;
   padding-left: $grid-gutter;
   width: 100%;
-
-  @include media-query($small) {
-    padding-left: $grid-gutter-mobile;
-  }
-
   &[class*="--push"] {
     position: relative;
+  }
+  @include media-query($small) {
+    padding-left: $grid-gutter-mobile;
   }
 }
 
@@ -6011,7 +6009,7 @@ $color-slideshow-close-text: #000;
     }
   }
   //inbetween query for slider height
-  @media only screen and (min-width: 749px) and (max-width: 577px) {
+  @media screen and (min-width: 749px) and (max-width: 577px) {
     height: 350px;
     &.slideshow--medium {
       height: 350px;
