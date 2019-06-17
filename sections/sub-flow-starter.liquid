@@ -78,24 +78,24 @@
                 <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(3)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">
                     <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>
-                    <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span> {{section.settings.interval_copy_1a}}</p>
-                    <p> {{section.settings.interval_copy_1b}}</p>
+                    <p style="margin-bottom:0;">{{section.settings.interval_copy_1a}}</span> {{section.settings.interval_copy_1b}}</p>
+                    <p> {{section.settings.interval_copy_1c}}</p>
                 </a>
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_2" onClick="selectInterval(2)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">
                     <h3 id="selected_product_2" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>
-                    <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span>  {{section.settings.interval_copy_2a}}</p>
-                    <p> {{section.settings.interval_copy_2b}}</p>
+                    <p style="margin-bottom:0;">{{section.settings.interval_copy_2a}}</span>  {{section.settings.interval_copy_2b}}</p>
+                    <p> {{section.settings.interval_copy_2c}}</p>
                 </a>
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <a href="#" class="product-card flow-card interval-selector interval_selector_3" onClick="selectInterval(1)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">
                     <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>
-                    <p style="margin-bottom:0;">3 boxes <span class="refresh-icon"></span>  {{section.settings.interval_copy_3a}}</p>
-                    <p> {{section.settings.interval_copy_3b}}</p>
+                    <p style="margin-bottom:0;">{{section.settings.interval_copy_3a}}</span>  {{section.settings.interval_copy_3b}}</p>
+                    <p> {{section.settings.interval_copy_3c}}</p>
                 </a>
                 </div>
             </div>
@@ -351,12 +351,18 @@
         "type": "text",
         "id": "interval_copy_1a",
         "label": "interval 1a copy (under illustration)",
-        "default": "3 months"
+        "default": "3 boxes every"
         },
         {
         "type": "text",
         "id": "interval_copy_1b",
         "label": "interval 1b copy (under illustration)",
+        "default": "3 months"
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_1c",
+        "label": "interval 1c copy (under illustration)",
         "default": "$16/month."
         },
         {
@@ -369,12 +375,18 @@
         "type": "text",
         "id": "interval_copy_2a",
         "label": "interval 2a copy (under illustration)",
-        "default": "2 months"
+        "default": "3 boxes every"
         },
         {
         "type": "text",
         "id": "interval_copy_2b",
         "label": "interval 2b copy (under illustration)",
+        "default": "2 months"
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_2c",
+        "label": "interval 2c copy (under illustration)",
         "default": "$24/month"
         },
         {
@@ -387,12 +399,18 @@
         "type": "text",
         "id": "interval_copy_3a",
         "label": "interval 3a copy (under illustration)",
-        "default": "1 month"
+        "default": "3 Boxes every"
         },
         {
         "type": "text",
         "id": "interval_copy_3b",
         "label": "interval 3b copy (under illustration)",
+        "default": "1 month"
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_3c",
+        "label": "interval 3c copy (under illustration)",
         "default": "$48/month"
         },
         {
