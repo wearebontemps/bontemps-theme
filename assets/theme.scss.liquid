@@ -123,9 +123,7 @@
     @if $media-query == $name and $declaration {
       $breakpoint-found: true;
 
-      @media only screen and #{$declaration} {
-        @content;
-      }
+      media-query
     }
   }
 
@@ -6006,6 +6004,17 @@ $color-slideshow-close-text: #000;
 
     &.slideshow--large {
       height: $slideshow-height-large;
+    }
+  }
+  @media only screen and (min-width: 749px and max-width: 577px) {
+    height: 350px;
+
+    &.slideshow--medium {
+      height: 350px;
+    }
+
+    &.slideshow--large {
+      height: 350px;
     }
   }
   @include media-query($small) {
