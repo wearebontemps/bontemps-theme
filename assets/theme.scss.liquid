@@ -122,6 +122,10 @@
 
     @if $media-query == $name and $declaration {
       $breakpoint-found: true;
+
+      @media only screen and #{$declaration} {
+        @content;
+      }
     }
   }
 
@@ -129,6 +133,7 @@
     @warn 'Breakpoint "#{$media-query}" does not exist';
   }
 }
+
 
 /*================ Responsive Show/Hide Helper ================*/
 @mixin responsive-display-helper($grid-breakpoint-type: '') {
@@ -696,11 +701,13 @@ $grid-breakpoints: (
   float: left;
   padding-left: $grid-gutter;
   width: 100%;
-  &[class*="--push"] {
-    position: relative;
-  }
+
   @include media-query($small) {
     padding-left: $grid-gutter-mobile;
+  }
+
+  &[class*="--push"] {
+    position: relative;
   }
 }
 
