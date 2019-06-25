@@ -26,24 +26,22 @@
         <p class="text-center">{{ section.settings.col_4_content }}</p>
       </div>
     </div>
-    <div class="small-hide">
-      <div class="page-width">
-        <a id="" class="btn flow-button subscription_start" href="#">
-          <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
+  </div>
+  <div class="small-hide">
+    <div class="page-width">
+      <a id="" class="btn flow-button subscription_start" href="#">
+        <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
+      </a>
+    </div>
+  </div>
+  <div class="small-show" style="">
+    <div class="d-flex align-items-center row-70 row">
+      <div class="col-12 text-center">
+        <a id="" class="btn flow-button larger subscription_start" href="#">
+        <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
         </a>
       </div>
     </div>
-    <div class="small-show" style="">
-      <div class="d-flex align-items-center row-70 row">
-        <div class="col-12 text-center">
-          <a id="" class="btn flow-button larger subscription_start" href="#">
-          <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-
   </div>
   <div class="row" style="height: 40px;"></div>
 </div>
@@ -108,7 +106,8 @@
   {
     "type": "text",
     "id": "cta_text",
-    "label": "CTA text"
+    "label": "CTA text",
+    "default": "Sign Up"
   }
   ],
     "presets": [
