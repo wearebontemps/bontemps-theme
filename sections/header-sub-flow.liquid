@@ -57,7 +57,7 @@ Theme Store optional settings
                   </p>
                 {% endunless %}
                 <a id="" class="btn flow-button subscription_start" href="#">
-                  <span>{{ block.settings.cta_text }}</span>
+                  <span>{{ block.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
                 </a>
               </div>
             </div>
@@ -84,8 +84,8 @@ Theme Store optional settings
             {{ block.settings.subheading | escape }}
           </p>
         {% endunless %}
-        <a id="" class="btn flow-button subscription_start" href="#">
-        <span>{{ block.settings.cta_text }}</span>
+        <a id="" class="btn flow-button larger subscription_start" href="#">
+        <span>{{ block.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
         </a>
       {% endfor %}
     </div>
