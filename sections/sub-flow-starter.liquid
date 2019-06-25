@@ -1,9 +1,7 @@
 {%- comment -%}
  this is a template for the section and schema. update functions here
 {%- endcomment -%}
-{% capture logic_script %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
-{% endcapture %}
+
 {% capture header_logo %}
 <a href="/" class="logo-image">
     {% if section.settings.logo != blank %}
@@ -195,9 +193,6 @@
         </div>
     </div>
     </div>
-{{ logic_script }}
-{{ 'subscription-flow-script.js' | asset_url | script_tag }}
-
 {% schema %}
 {
     "name": {

@@ -5,3 +5,8 @@
 {% comment %} {% section 'sub-flow-info-2' %} {% endcomment %}
 {% section 'sub-flow-info-2-test' %}
 {% section 'sub-flow-info-3' %}
+{% capture logic_script %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
+{% endcapture %}
+{{ logic_script }}
+{{ 'subscription-flow-script.js' | asset_url | script_tag }}
