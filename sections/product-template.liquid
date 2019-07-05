@@ -211,6 +211,7 @@
         <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
           {% include 'caffeine' %}
+          <div class="text-right">
             <p class="sachet-count">
               {% for tag in product.tags %}
               {% if tag contains 'sachets' %}
@@ -222,6 +223,7 @@
             </p>
             <br/>
             <p><small>80c per serving</small></p>
+            </div>
           </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
