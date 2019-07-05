@@ -6017,16 +6017,7 @@ $color-slideshow-close-text: #000;
       height: $slideshow-height-large;
     }
   }
-  //inbetween query for slider height
-  @media only screen and (min-width: 578px) and (max-width: 748px) {
-    height: 350px;
-    &.slideshow--medium {
-      height: 350px;
-    }
-    &.slideshow--large {
-      height: 350px;
-    }
-  }
+
   @include media-query($small) {
     height: 300px;
 
@@ -6036,6 +6027,16 @@ $color-slideshow-close-text: #000;
 
     &.slideshow--large {
       height: 300px;
+    }
+  }
+  //inbetween query for slider height
+  @media only screen and (min-width: 578px) and (max-width: 748px) {
+    height: 450px;
+    &.slideshow--medium {
+      height: 450px;
+    }
+    &.slideshow--large {
+      height: 450px;
     }
   }
 
