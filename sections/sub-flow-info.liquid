@@ -10,10 +10,10 @@
     <div class="section-inner about-content" style="padding-top: 0;">
       <div class="text-center limitcopywidth">
         <div class="row d-flex align-items-center" style='padding: 0em 0;'>
-          <div class="col-sm-5 about-image-wrap order-1 order-sm-2 order-md-2" style='padding: .5em;'>
+          <div class="col-sm-5 about-image-wrap order-2 order-sm-1" style='padding: .5em;'>
             <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
           </div>
-          <div class="text-left col-sm-7 order-2 order-sm-1 order-md-1">
+          <div class="text-left col-sm-7 order-1 order-sm-2">
             <h2 class="about-subtitle">{{ section.settings.heading}}</h2>
             <p>{{ section.settings.text_content }}</p>
           </div>
@@ -75,7 +75,7 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "section heading",
+      "label": "Diff. heading",
       "default": {
         "en": "It’s 2018, your teas should be clean."
       }
@@ -83,13 +83,13 @@
     {
       "type": "text",
       "id": "text_content",
-      "label": "Text Content",
+      "label": "Diff. content",
       "default": "lorem"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Diff. Image"
     },
     {
     "type": "text",
