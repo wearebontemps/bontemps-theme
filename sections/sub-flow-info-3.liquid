@@ -6,22 +6,22 @@
     <p>{{ section.settings.text_lower }}</p>
   </div>
     <div class="row contained smaller">
-      <div class="col-md-3 col-6 text-center">
+      <div class="col-6 text-center">
         <img class="info-image " src="{{ section.settings.col_1_image | img_url: '300x300' }}">
         <p class="text-center">{{ section.settings.col_1_content }}</p>
       </div>
-      <div class="col-md-3 col-6 text-center">
+      <div class="col-6 text-center">
         <img class="info-image " src="{{ section.settings.col_2_image | img_url: '300x300' }}">
         <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
       </div>
-      <div class="col-md-3 col-6 text-center">
+      {% comment %} <div class="col-md-3 col-6 text-center">
         <img class="info-image " src="{{ section.settings.col_3_image | img_url: '300x300' }}">
         <p class="text-center">{{ section.settings.col_3_content }}</p>
       </div>
       <div class="col-md-3 col-6 text-center">
         <img class="info-image " src="{{ section.settings.col_4_image | img_url: '300x300' }}">
         <p class="text-center">{{ section.settings.col_4_content }}</p>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
   <div class="small-hide" style="margin-top:1em;">
