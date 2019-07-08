@@ -6,7 +6,22 @@
   <div class="col-12 row-80" style="margin-bottom: 2em; padding: 0 4em;">
     <h2 class="text-center" style="max-width: 550px;
       margin: 0 auto 20px;">{{ section.settings.text }}</h2>
-      <p style=" text-align: center; margin: 3em auto 3em; ">{{ section.settings.subtext }}</p>
+
+    <div class="section-inner about-content" style="padding-top: 0;">
+      <div class="text-center limitcopywidth">
+        <div class="row d-flex align-items-center" style='padding: 0em 0;'>
+          <div class="col-sm-5 about-image-wrap order-1 order-sm-2 order-md-2" style='padding: .5em;'>
+            <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
+          </div>
+          <div class="text-left col-sm-7 order-2 order-sm-1 order-md-1">
+            <h2 class="about-subtitle">{{ section.settings.heading}}</h2>
+            <p>{{ section.settings.text_content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style=" text-align: center; margin: 3em auto 3em; ">{{ section.settings.subtext }}</p>
   </div>
     <div class="row contained smaller">
       <div class="col-md-3 col-6 text-center">
@@ -56,6 +71,25 @@
     "type": "richtext",
     "id": "text",
     "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "section heading",
+      "default": {
+        "en": "It’s 2018, your teas should be clean."
+      }
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Text Content",
+      "default": "lorem"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
     },
     {
     "type": "text",
