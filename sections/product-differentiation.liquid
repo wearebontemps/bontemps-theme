@@ -1,12 +1,12 @@
 <div class="section-inner no-pad about-content" style="padding-top: 0;">
   <div class="text-center limitcopywidth">
     <div class="row d-flex align-items-center" style='padding: 0em 0;'>
-      <div class="col-sm-5 about-image-wrap order-1 order-sm-2 order-md-2" style='padding: .5em;'>
-        <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
-      </div>
-      <div class="text-left col-sm-7 order-2 order-sm-1 order-md-1">
+    <div class="text-left col-sm-7 order-2 order-sm-1 order-md-1">
         <h2 class="about-subtitle">{{ section.settings.heading}}</h2>
         <p>{{ section.settings.text_content }}</p>
+      </div>
+      <div class="col-sm-5 about-image-wrap order-1 order-sm-2 order-md-2" style='padding: .5em;'>
+        <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
       </div>
     </div>
     <p style=" text-align: center;">{{ section.settings.subtext }}</p>
