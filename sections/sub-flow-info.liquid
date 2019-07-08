@@ -3,7 +3,7 @@
 {%- endcomment -%}
 <div class="section-inner">
   <div class="row contained">
-  <div class="col-12 row-80" style="margin-bottom: 2em; padding: 0 4em;">
+  {% comment %} <div class="col-12 row-80" style="margin-bottom: 2em; padding: 0 4em;">
     <h2 class="text-center" style="max-width: 550px; margin: 0 auto 20px;">{{ section.settings.text }}</h2>
     <div class="about-content" style="padding-top: 0;">
       <div class="">
@@ -19,7 +19,7 @@
       </div>
     </div>
     {% comment %} <p style=" text-align: center; margin: 3em auto 3em; ">{{ section.settings.subtext }}</p> {% endcomment %}
-  </div>
+  </div> {% endcomment %}
     <div class="row contained smaller">
       <div class="col-md-3 col-6 text-center">
         <img class="info-image" src="{{ section.settings.col_1_image | img_url: '300x300' }}">
@@ -64,36 +64,6 @@
     "en": "Subscription Flow Info"
   },
   "settings": [
-    {
-    "type": "richtext",
-    "id": "text",
-    "label": "text"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Diff. heading",
-      "default": {
-        "en": "It’s 2018, your teas should be clean."
-      }
-    },
-    {
-      "type": "text",
-      "id": "text_content",
-      "label": "Diff. content",
-      "default": "lorem"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Diff. Image"
-    },
-    {
-    "type": "text",
-    "id": "subtext",
-    "label": "subtext",
-    "default": "HOW THE MEMBERSHIP WORKS"
-    },
     {
     "type": "image_picker",
     "id": "col_1_image",
