@@ -15,7 +15,7 @@
     <div class="row d-flex align-items-center" style='padding: 0em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
-      <h3 class="about-subtitle">{{ block.settings.heading}}</h3>
+      <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
       <p>{{ block.settings.text_content }}</p>
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
@@ -76,14 +76,14 @@
             "id": "heading",
             "label": "section heading",
             "default": {
-              "en": "Our promise: poison-free, epic flavors."
+              "en": "It’s 2018, your teas should be clean."
             }
           },
           {
             "type": "text",
             "id": "text_content",
             "label": "Text Content",
-            "default": "Brighten your life with better-made tea blends. Your body will thank you."
+            "default": "lorem"
           },
           {
             "type": "image_picker",

@@ -1123,6 +1123,9 @@ html {
   margin: 0 auto;
   &.wider {
     max-width: 1024px;
+    @include media-query($small) {
+      max-width: 550px;
+    }
   }
   @include media-query($small) {
     max-width: 550px;
