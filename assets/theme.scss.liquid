@@ -1121,6 +1121,12 @@ html {
 .limitcopywidth {
   max-width: 700px;
   margin: 0 auto;
+  &.wider {
+    max-width: 1024px;
+    @include media-query($small) {
+      max-width: 550px;
+    }
+  }
   @include media-query($small) {
     max-width: 550px;
   }
@@ -7880,6 +7886,15 @@ $toolbar-height-small: 46px;
     }
   }
 }
+.differentiation-content {
+  background-color: #ffc551;
+  .text-left.col-md-7 {
+    padding: 0 1em 0 3.5em;
+    @include media-query($small) {
+      padding: 3em;
+    }
+  }
+}
 .campaign-application-form {
   h1 {
     //font-family: 'Open Sans';
@@ -8480,9 +8495,15 @@ $toolbar-height-small: 46px;
 }
 .info-image {
   max-width: 70px;
+  width: 100%;
   margin-bottom: -.5em;
   &.small {
     max-width: 50px;
+  }
+  &.large {
+    max-width: 170px;
+    width: 100%;
+    margin: 2em 0;
   }
 }
 .flow-info-2-text{
