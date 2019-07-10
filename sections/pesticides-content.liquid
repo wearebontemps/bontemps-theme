@@ -3,6 +3,7 @@
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
+  {% if section.blocks.size > 0 %}
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
@@ -20,6 +21,7 @@
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
     </div>
   {% endfor %}
+  {% endif %}
   <div class="d-flex align-items-center justify-content-center" style="padding: 2em">
     <a class="btn flow-button" href="{{ section.settings.cta-link }}">{{ section.settings.cta-text }}</a>
   </div>
