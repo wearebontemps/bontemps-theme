@@ -1121,6 +1121,9 @@ html {
 .limitcopywidth {
   max-width: 700px;
   margin: 0 auto;
+  &.wider {
+    max-width: 1024px;
+  }
   @include media-query($small) {
     max-width: 550px;
   }
@@ -7877,6 +7880,15 @@ $toolbar-height-small: 46px;
     padding: 0 3.5em;
     @include media-query($small) {
       padding: 1em 2em;
+    }
+  }
+}
+.differentiation-content {
+  background-color: #ffc551;
+  .text-left.col-md-7 {
+    padding: 0 1em 0 3.5em;
+    @include media-query($small) {
+      padding: 3em 0;
     }
   }
 }

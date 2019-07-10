@@ -1,5 +1,5 @@
-<div class="section-inner about-content" style="padding-top: 0;">
-  <div class="text-center limitcopywidth">
+<div class="section-inner differentiation-content bg-yellow" style="padding-top: 0;">
+  <div class="text-center limitcopywidth wider">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
@@ -15,7 +15,7 @@
     <div class="row d-flex align-items-center" style='padding: 0em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
-      <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
+      <h3 class="about-subtitle">{{ block.settings.heading}}</h3>
       <p>{{ block.settings.text_content }}</p>
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
@@ -76,14 +76,14 @@
             "id": "heading",
             "label": "section heading",
             "default": {
-              "en": "It’s 2018, your teas should be clean."
+              "en": "We're different. When we say no pesticides, we mean it."
             }
           },
           {
             "type": "text",
             "id": "text_content",
             "label": "Text Content",
-            "default": "lorem"
+            "default": "Popular tea brands still use dangerous pesticides on their teas and tea bags. Our sachets are made of corn (yes, corn!), so we can avoid pesticides from leaf to sachet. Learn more about all the pesticides we promise to avoid."
           },
           {
             "type": "image_picker",
