@@ -1,17 +1,17 @@
 
 <div class="section-inner bg-yellow">
   <div class="row">
-    <div class="col-sm-8 offset-sm-2 text-center" style="margin: 1em 0;">
+    <div class="col-sm-8 offset-sm-2 text-center" style="">
       <h2>{{ section.settings.text }}</h2>
       <p>{{ section.settings.text_lower }}</p>
     </div>
-    <div class="col-12 row contained smaller">
-      <div class="col-xs-6 text-center">
-        <img class="info-image " src="{{ section.settings.col_1_image | img_url: '600x600' }}">
+    <div class="col-10 offset-1 row contained smaller">
+      <div class="col-6 text-center">
+        <img class="info-image large" src="{{ section.settings.col_1_image | img_url: '600x600' }}">
         <p class="text-center">{{ section.settings.col_1_content }}</p>
       </div>
-      <div class="col-xs-6 text-center">
-        <img class="info-image " src="{{ section.settings.col_2_image | img_url: '600x600' }}">
+      <div class="col-6 text-center">
+        <img class="info-image large" src="{{ section.settings.col_2_image | img_url: '600x600' }}">
         <p class="text-center text-center">{{ section.settings.col_2_content }}</p>
       </div>
       {% comment %} <div class="col-md-3 col-6 text-center">
