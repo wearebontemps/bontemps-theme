@@ -23,7 +23,7 @@
   {% endfor %}
   {% endif %}
   <div class="d-flex align-items-center justify-content-center" style="padding: 2em">
-    <a class="btn flow-button" href="{{ section.settings.cta-link }}">{{ section.settings.cta-text }}</a>
+    <a class="btn flow-button" href="{{ section.settings.cta-link }}">{{ section.settings.cta-copy }}</a>
   </div>
 </div>
 {% if section.blocks.size == 0 %}
@@ -63,7 +63,7 @@
         "label": "CTA Copy"
       },
       {
-        "type": "link_list",
+        "type": "page",
         "id": "cta-link",
         "label": "CTA Link"
       }
