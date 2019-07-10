@@ -2,6 +2,7 @@
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
+  <p>{{ sections.settings.copy }}</p>
   </div>
   {% if section.blocks.size > 0 %}
   {% for block in section.blocks %}
@@ -50,6 +51,16 @@
         "id": "subtitle",
         "label": {
           "en": "Section subeading"
+        },
+        "default": {
+          "en": "Pesticides Lorem"
+        }
+      },
+      {
+        "type": "richtext",
+        "id": "copy",
+        "label": {
+          "en": "Section Copy"
         },
         "default": {
           "en": "Pesticides Lorem"
