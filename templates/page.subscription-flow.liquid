@@ -12,3 +12,14 @@
 {% endcapture %}
 {{ logic_script }}
 {{ 'subscription-flow-script.js' | asset_url | script_tag }}
+<script type="text/javascript">
+$(document).ready(function () {
+  var rdr = sessionStorage.getItem("home-redirect");
+  if (rdr == true) {
+    console.log('redirected from homepage')
+    sessionStorage.removeItem("home-redirect");
+    $('.takeover_1').fadeIn(300)
+    window.scrollTo(0, 0)
+  }
+})
+</script>

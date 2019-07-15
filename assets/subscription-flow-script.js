@@ -253,13 +253,3 @@ $('.takeover_closer').on('touchstart click', function (e) {
   $('.takeover').fadeOut(300)
   clearCart()
 })
-$(document).ready(function (e) {
-  e.preventDefault()
-  var rdr = sessionStorage.getItem("home-redirect");
-  if (rdr == true) {
-    console.log('redirected from homepage')
-    sessionStorage.removeItem("home-redirect");
-    $('.takeover_1').fadeIn(300)
-    window.scrollTo(0, 0)
-  }
-})
