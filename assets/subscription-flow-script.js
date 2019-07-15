@@ -1,9 +1,5 @@
-$(document).on('cart.requestStarted', function (event, cart) {
-  console.log('started')
-})
-$(document).on('cart.ready', function (event, cart) {
-  console.log('Cart Ready')
-})
+
+
 
 var subscriptionInterval = null
 var idArray = []
@@ -257,3 +253,13 @@ $('.takeover_closer').on('touchstart click', function (e) {
   $('.takeover').fadeOut(300)
   clearCart()
 })
+$(document).ready(){
+  var rdr = sessionStorage.getItem("home-redirect");
+  console.log('redirected from homepage')
+  if(rdr == true) {
+    console.log('redirected from homepage')
+    e.preventDefault()
+    $('.takeover_1').fadeIn(300)
+    window.scrollTo(0, 0)
+  }
+};
