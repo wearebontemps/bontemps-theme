@@ -240,9 +240,6 @@ var clearDuplicates = function () {
 var runLoader = function () {
   var domSelector = $('#sub-flow-cart-upper')
   domSelector.html('')
-  // domSelector.append(
-  //   'Updating with new selections. This may take a moment.'
-  // )
   $('#loader-gif').show()
 }
 $('.subscription_start').on('touchstart click', function (e) {

@@ -257,6 +257,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 </script>
+// Set a cookie to determine if the samples link has been used and open the subs flow from the other side when loaded.
+<script type="text/javascript">
+
+var anch = document.querySelectorAll("a[href*='pages/subscribe']");
+$(anch).click(function(){
+  sessionStorage.setItem("home-redirect", "true");
+});
+}
+
+</script>
 {% include 'subscription-theme-footer' %}
 </body>
 </html>
