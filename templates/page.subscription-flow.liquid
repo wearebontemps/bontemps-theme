@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
   var rdr = sessionStorage.getItem("home-redirect");
-  if (rdr == true) {
+  if (rdr == "true") {
     console.log('redirected from homepage')
     sessionStorage.removeItem("home-redirect");
     $('.takeover_1').fadeIn(300)
