@@ -6,8 +6,8 @@
   </div>
   {% if section.blocks.size > 0 %}
   {% for block in section.blocks %}
-    <div class="text-left col-sm-7 order-2 order-sm-1 order-md-1">
-      <h4 class="about-subtitle">{{ block.settings.heading}}</h2>
+    <div class="text-center order-2 order-sm-1 order-md-1">
+      <h4 class="about-subtitle"><strong>{{ block.settings.heading}}</strong></h4>
       <p>{{ block.settings.text_content }}</p>
     </div>
   {% endfor %}
