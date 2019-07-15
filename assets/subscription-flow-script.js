@@ -253,14 +253,14 @@ $('.takeover_closer').on('touchstart click', function (e) {
   $('.takeover').fadeOut(300)
   clearCart()
 })
-$(document).ready(){
+$(document).ready(function () {
   var rdr = sessionStorage.getItem("home-redirect");
   console.log('redirected from homepage')
-  if(rdr == true) {
+  if (rdr == true) {
     console.log('redirected from homepage')
     sessionStorage.removeItem("home-redirect");
     e.preventDefault()
     $('.takeover_1').fadeIn(300)
     window.scrollTo(0, 0)
   }
-};
+})
