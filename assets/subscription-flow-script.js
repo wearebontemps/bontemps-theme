@@ -258,6 +258,7 @@ $(document).ready(){
   console.log('redirected from homepage')
   if(rdr == true) {
     console.log('redirected from homepage')
+    sessionStorage.removeItem("home-redirect");
     e.preventDefault()
     $('.takeover_1').fadeIn(300)
     window.scrollTo(0, 0)
