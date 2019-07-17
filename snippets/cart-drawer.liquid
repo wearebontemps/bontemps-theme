@@ -41,7 +41,7 @@
                 value="{{ 'cart.general.checkout' | t }}"> {% endcomment %}
                 <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.checkout' | t }}</button>
                 <br/>
-                <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.continue_shopping' | t }}</button>
+                {% comment %} <a href=""><button  style="" type="button" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.continue_shopping' | t }}</button></a> {% endcomment %}
             </div>
             <p style="margin-top: 2.5em;" class="text-orange text-center">Free shipping when you order 3+ teas.</p>
           </div>
