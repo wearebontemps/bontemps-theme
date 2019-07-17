@@ -4288,7 +4288,7 @@ h1.section-header{
 }
 .sachet-count {
   @include media-query($small){
-    text-align: right;
+    // text-align: right;
   }
   span.sachet-info:after{
     content: "tea sachets";
@@ -4304,7 +4304,7 @@ h1.section-header{
     color: #141462;
   }
   .caffeine-level, p.caffeine-level {
-    font-size: .9em;
+    // font-size: .9em;
     //p {margin-bottom: 0;}
     .dot {
       border: 1px solid #141462;
@@ -4362,7 +4362,9 @@ h1.section-header{
     margin-bottom: .5em;
   }
 }
-
+.section-inner.collection-intro{
+  min-height: unset;
+}
 .product-single__title {
   margin-bottom: 2rem;
 }
