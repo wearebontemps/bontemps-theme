@@ -222,7 +222,15 @@
               {% endfor %}
               tea sachets
             </p>
-            <p>80c per serving</p>
+            <p>
+            {% for tag in product.tags %}
+            {% if tag contains 'serving' %}
+            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
+            {% for word in tag_serving %}{{ word }} {% endfor %}
+            {% endif %}
+            {% endfor %}
+            per serving
+            </p>
             </div>
           </div>
           <div class="product__price">
