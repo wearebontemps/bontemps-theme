@@ -114,7 +114,7 @@
             product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}{% if section.settings.enable_payment_button and product.has_only_default_variant%} product-form--payment-button-no-variants{% endif %}
           {%- endcapture %}
 
-          {% form 'product', product, class:form_classes, novalidate: 'novalidate' %}
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate',  data-productid:"{{product.id}}" %}
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
