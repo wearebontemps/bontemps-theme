@@ -160,9 +160,9 @@
                   {% endunless %}
                 </span>
               </button>
-              {% unless product.url contains "sample" %}
+              {% comment %} {% unless product.url contains "sample" %}
               <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span>
-              {% endunless %}
+              {% endunless %} {% endcomment %}
               {% if section.settings.enable_payment_button %}
                 {{ form | payment_button }}
               {% endif %}
