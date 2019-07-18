@@ -55,7 +55,7 @@
       <!-- <a href="{{ collection.url }}" class="btn btn--secondary" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
         {{ 'collections.general.view_all' | t }}
       </a> -->
-      <a href="/collections/all" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">Meet The Family</a>
+      <a href="/collections/all" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">{{ section.settings.cta_text }}</a>
 
     </div>
   {% endif %}
@@ -171,6 +171,12 @@
           "pt-BR": "Exibir botão 'Visualizar tudo'"
         },
         "default": false
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Button text",
+        "default": "Meet the Family"
       }
     ],
     "presets": [
