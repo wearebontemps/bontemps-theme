@@ -35,7 +35,7 @@
             {%- endcapture -%}
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
             <div class="cart__submit-controls">
-            {% for link in linklists.peak-cart-button.links | limit: 1 %}
+            {% for link in linklists.peek-cart-button.links | limit: 1 %}
               <a id="continue-shopping" href="{{link}}" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a>
             {% endfor %}
               {% comment %} <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a> {% endcomment %}
@@ -46,7 +46,7 @@
                 <br/>
                 <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--show cart__submit-control"><button  style="" type="button" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.continue_shopping' | t }}</button></a>
             </div>
-            {% for link in linklists.peak-cart-button.links | limit: 1 %}
+            {% for link in linklists.peek-cart-button.links | limit: 1 %}
               <a id="continue-shopping" href="{{link}}" title="Continue shopping" class="btn btn--secondary cart__continue small--show cart__submit-control" >Continue Shopping</a>
             {% endfor %}
             </div>
