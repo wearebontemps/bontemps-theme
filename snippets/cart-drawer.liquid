@@ -46,8 +46,10 @@
                 <br/>
                 <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--show cart__submit-control"><button  style="" type="button" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.continue_shopping' | t }}</button></a>
             </div>
-            <p style="margin-top: 2.5em;" class="text-orange text-center">Free shipping when you order 3+ teas.</p>
-          </div>
+            {% for link in linklists.peak-cart-button.links | limit: 1 %}
+              <a id="continue-shopping" href="{{link}}" title="Continue shopping" class="btn btn--secondary cart__continue small--show cart__submit-control" >Continue Shopping</a>
+            {% endfor %}
+            </div>
         </div>
       </div>
     </form>
