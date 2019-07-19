@@ -113,8 +113,11 @@
           {% capture "form_classes" -%}
             product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}{% if section.settings.enable_payment_button and product.has_only_default_variant%} product-form--payment-button-no-variants{% endif %}
           {%- endcapture %}
-
-          {% form 'product', product, class:form_classes, novalidate: 'novalidate',  data-productid:"{{product.id}}" %}
+          {% capture product_id %}
+          {{ product.id }}
+          {% endcapture %}
+  {% comment %} Desktop cart form {% endcomment %}
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate',  data-productid: product_id %}
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
@@ -208,7 +211,7 @@
           {% capture product_image_size %}{{ height }}x{% endcapture %}
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
         </noscript>
-
+  
         <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
           {% include 'caffeine' %}
@@ -259,8 +262,11 @@
           {% capture "form_classes" -%}
             product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}{% if section.settings.enable_payment_button and product.has_only_default_variant%} product-form--payment-button-no-variants{% endif %}
           {%- endcapture %}
-
-          {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid:"{{product.id}}" %}
+          {% capture product_id %}
+          {{ product.id }}
+          {% endcapture %}
+  {% comment %} Mobile cart form {% endcomment %}
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid: product_id %}
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
