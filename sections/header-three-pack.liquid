@@ -25,7 +25,7 @@ Theme Store optional settings
       </span>
     </button>
 
-    <div class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }}" id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+    <div {% if section.settings.announcement_bar_enabled %} class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }} has-announcement"{% else %} class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }}"{% endif %} id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
 
                 {% for block in section.blocks %}
 
@@ -100,8 +100,8 @@ Theme Store optional settings
   </div>
 {% endif %}
 </div>
-<div class="top-nav-box">
-  {% comment %} {% include "announcement-bar" %} {% endcomment %}
+<div {% if section.settings.announcement_bar_enabled %} class="top-nav-box has-announcement"{% else %} class="top-nav-box"{% endif %} >
+  {% include "announcement-bar" %}
   <header role="banner" class="header-menus {% if section.settings.header-slider %}has-slider{% endif %}">
   {% include "header-nav" %}
   </header>
