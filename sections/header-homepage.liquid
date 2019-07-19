@@ -26,9 +26,7 @@ Theme Store optional settings
     </button>
 
     <div {% if section.settings.announcement_bar_enabled %} class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }} has-announcement"{% else %} class="slideshow header-slideshow slideshow--{{ section.settings.slideshow_height }}"{% endif %} id="Slideshow-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
-
-                {% for block in section.blocks %}
-
+        {% for block in section.blocks %}
         <div class=" slideshow__slide slideshow__slide--{{ block.id }} {% if forloop.first %}slick-active{% endif %}{% if is_background_video %} slideshow__slide--background-video{% endif %}" {{ block.shopify_attributes }}>
                   {%- assign is_background_video = false -%}
                   {% if block.type == 'video' %}
