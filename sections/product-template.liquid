@@ -266,7 +266,57 @@
           {{ product.id }}
           {% endcapture %}
   {% comment %} Mobile cart form {% endcomment %}
-          
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid: product_id %}
+          {% if product.available %}{% include 'subscription-product' %}{% endif %}
+            {% unless product.has_only_default_variant %}
+              {% for option in product.options_with_values %}
+                <div class="selector-wrapper js product-form__item" style="visibility: hidden; height: 0;">
+                  <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
+                    {{ option.name }}
+                  </label>
+                  <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                    {% for value in option.values %}
+                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endfor %}
+            {% endunless %} <select name="id" id="ProductSelect-{{ section.id }}" data-productid="{{product.id}}" class="product-form__variants no-js" id="product-select-{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                    {{ variant.title }}
+                  </option>
+                {% else %}
+                  <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+              {% if section.settings.show_quantity_selector %}
+                <div class="product-form__item product-form__item--quantity">
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+                </div>
+              {% endif %}
+              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+              </button>
+              {% comment %} {% unless product.url contains "sample" %}
+              <span class="three-pack-link"><a href="/pages/make-it-a-threesome">Make it a 3 Pack</a></span>
+              {% endunless %} {% endcomment %}
+              {% if section.settings.enable_payment_button %}
+                {{ form | payment_button }}
+              {% endif %}
+            </div>
+          {% endform %}
         </div>
       </div>
     </div>
