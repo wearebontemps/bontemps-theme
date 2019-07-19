@@ -26,7 +26,7 @@
   <div class="small-show" style="margin-top:1em;">
     <div class="d-flex align-items-center row-70 row">
       <div class="col-12 text-center">
-        <a id="" class="btn flow-button larger subscription_start" href="#">
+        <a id="" class="btn flow-button larger subscription_start" href="{{ section.settings.cta_link }}">
         <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
         </a>
       </div>
@@ -72,6 +72,11 @@
         "id": "cta_text",
         "label": "CTA text",
         "default": "Sign Up"
+      },
+      {
+        "type": "page",
+        "id": "cta_link",
+        "label": "CTA link"
       }
     ],
     "presets": [
