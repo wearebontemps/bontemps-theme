@@ -39,10 +39,10 @@
               <a id="continue-shopping" href="{{link.url}}" title="Continue shopping" class="btn cart__continue small-hide cart__submit-control" >Continue Shopping</a>
             {% endfor %}
               {% comment %} <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--hide cart__submit-control" >Continue Shopping</a> {% endcomment %}
-              {% comment %} <input type="submit" name="checkout"
+              <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
-                value="{{ 'cart.general.checkout' | t }}"> {% endcomment %}
-                <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.checkout' | t }}</button>
+                value="{{ 'cart.general.checkout' | t }}">
+                {% comment %} <button  style="" type="button" onClick="checkoutRedirect()" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.checkout' | t }}</button> {% endcomment %}
                 <br/>
                 {% comment %} <a id="continue-shopping" href="/collections/all" title="Continue shopping" class="btn btn--secondary cart__continue small--show cart__submit-control"><button  style="" type="button" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control">{{ 'cart.general.continue_shopping' | t }}</button></a> {% endcomment %}
                 {% for link in linklists.peek-cart-button.links | limit: 1 %}
