@@ -266,3 +266,12 @@ $(anch).click(function(){
 {% include 'subscription-theme-footer' %}
 </body>
 </html>
+<script type="text/javascript">
+$(window).load(function(){
+  $('.lazy-quotes').each(function() {
+    var lazy = $(this);
+    var src = lazy.attr('data-src');
+    lazy.css('background-image', 'url("'+src+'")');
+  });
+});
+</script>
