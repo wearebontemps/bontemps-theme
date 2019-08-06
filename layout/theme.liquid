@@ -267,7 +267,8 @@ $(anch).click(function(){
 </body>
 </html>
 <script type="text/javascript" defer>
-$(window).load(function(){
+$(document).ready(function(e){
+  e.preventDefault();
   $('.lazy-quotes').each(function() {
     var lazy = $(this);
     var src = lazy.attr('data-src');
