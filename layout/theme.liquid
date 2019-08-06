@@ -234,18 +234,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  _learnq.push(['track', 'Viewed Product', item]);
 
- _learnq.push(['trackViewedItem', {
-   Title: item.Name,
-   ItemId: item.ProductID,
-   Categories: item.Categories,
-   ImageUrl: item.ImageURL,
-   Url: item.URL,
-   Metadata: {
-     Brand: item.Brand,
-     Price: item.Price,
-     CompareAtPrice: item.CompareAtPrice
-   }
- }]);
+_learnq.push(['trackViewedItem', {
+  Title: item.Name,
+  ItemId: item.ProductID,
+  Categories: item.Categories,
+  ImageUrl: item.ImageURL,
+  Url: item.URL,
+  Metadata: {
+    Brand: item.Brand,
+    Price: item.Price,
+    CompareAtPrice: item.CompareAtPrice
+  }
+}]);
 
    // Add slideDown animation to Bootstrap dropdown when expanding.
   $('.dropdown').on('show.bs.dropdown', function() {
