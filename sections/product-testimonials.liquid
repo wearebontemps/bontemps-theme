@@ -31,7 +31,7 @@
               {% endfor %}
             </blockquote>
             {%- if block.settings.featured_image -%}
-            <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
+            <img data-src="{{ block.settings.featured_image | img_url: '200x' }}" class="testimonial-product-img lazyload" style="max-width: 100px;">
             {% endif %}
             </div>
           </div>

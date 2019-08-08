@@ -13,7 +13,7 @@
             <div class="row quote-row d-flex align-items-center">
             {% assign featured_image = block.settings.image %}
             <div class="col-sm-4 d-flex align-items-center" style="overflow: hidden;">
-            <img class="lazyload"  data-src="{{featured_image | img_url: '800x' }}"  style="width: 100%; position:absolute;"/>
+              <img class="lazyload"  data-src="{{featured_image | img_url: '800x' }}"  style="width: 100%; position:absolute;"/>
             </div>
             <div class="col-sm-8">
             <blockquote class="quotes-slider__text text-left">
@@ -28,7 +28,7 @@
               {% endif %}
             </blockquote>
             {%- if block.settings.featured_image -%}
-            <img src="{{ block.settings.featured_image | img_url: '400x' }}" class="testimonial-product-img" style="max-width: 100px;">
+            <img data-src="{{ block.settings.featured_image | img_url: '200x' }}" class="testimonial-product-img lazyload" style="max-width: 100px;">
             {% endif %}
             </div>
           </div>
