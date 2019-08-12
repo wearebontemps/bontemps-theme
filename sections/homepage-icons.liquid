@@ -1,31 +1,33 @@
 <div style="clear: both;" class="row d-flex">
-          <div class="col-12">
+        {% if section.settings.interval_header %}
+        <div class="col-12">
             <h1 class=" text-center">{{section.settings.interval_header}}</h1>
             <p class=" text-center">{{section.settings.interval_subheader_pre_date}} <strong>{{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }}</strong> {{section.settings.interval_subheader_post_date}}</p>
-          </div>
-            <div class="col-12">
-            <div class="row">
-                <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                    <img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">
-                    <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>
-                    <p style="margin-bottom:0;">{{section.settings.interval_copy_1a}}<br/>  {{section.settings.interval_copy_1b}}</p>
-                    <p> {{section.settings.interval_copy_1c}}</p>
-                </div>
-                <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                    <img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">
-                    <h3 id="selected_product_2" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>
-                    <p style="margin-bottom:0;">{{section.settings.interval_copy_2a}}<br/>   {{section.settings.interval_copy_2b}}</p>
-                    <p> {{section.settings.interval_copy_2c}}</p>
-                </div>
-                <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                    <img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">
-                    <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>
-                    <p style="margin-bottom:0;">{{section.settings.interval_copy_3a}}<br/>   {{section.settings.interval_copy_3b}}</p>
-                    <p> {{section.settings.interval_copy_3c}}</p>
-                </div>
+        </div>
+        {% endif %}
+        <div class="col-12">
+        <div class="row">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
+                {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.interval_copy_1 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>{% endif %}
+                {% if section.settings.interval_copy_1a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_1a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
+                {% if section.settings.interval_copy_1c %}<p> {{section.settings.interval_copy_1c}}</p>{% endif %}
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
+                {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.interval_copy_2 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>{% endif %}
+                {% if section.settings.interval_copy_2a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_2a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
+                {% if section.settings.interval_copy_2c %}<p> {{section.settings.interval_copy_2c}}</p>{% endif %}
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
+                {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.interval_copy_3 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>{% endif %}
+                {% if section.settings.interval_copy_3a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_3a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
+                {% if section.settings.interval_copy_3c %}<p> {{section.settings.interval_copy_3c}}</p>{% endif %}
             </div>
         </div>
     </div>
+</div>
 
 {% schema %}
 {
@@ -33,7 +35,7 @@
         "en": "Homepage Icons"
     },
     "settings": [
-      {
+    {
         "type": "text",
         "id": "interval_header",
         "label": "interval panel header (inside sub-flow)",
