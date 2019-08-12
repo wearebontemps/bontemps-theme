@@ -1,40 +1,27 @@
 <div style="clear: both;" class="row d-flex">
-            <div class="col-12" style="padding: 2em 4em;">
+          <div class="col-12">
             <h1 class=" text-center">{{section.settings.interval_header}}</h1>
             <p class=" text-center">{{section.settings.interval_subheader_pre_date}} <strong>{{ "now" | date: "%s" | plus: 1209600  | date: "%b %d" }}</strong> {{section.settings.interval_subheader_post_date}}</p>
-            </div>
+          </div>
             <div class="col-12">
-            <div id="bundle_anchor" class="row" style="margin: 4em 0 1em;">
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                <a href="#" class="product-card flow-card interval-selector interval_selector_1" onClick="selectInterval(3)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">
                     <h3 id="selected_product_1" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>
                     <p style="margin-bottom:0;">{{section.settings.interval_copy_1a}}<br/>  {{section.settings.interval_copy_1b}}</p>
                     <p> {{section.settings.interval_copy_1c}}</p>
-                </a>
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                <a href="#" class="product-card flow-card interval-selector interval_selector_2" onClick="selectInterval(2)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">
                     <h3 id="selected_product_2" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>
                     <p style="margin-bottom:0;">{{section.settings.interval_copy_2a}}<br/>   {{section.settings.interval_copy_2b}}</p>
                     <p> {{section.settings.interval_copy_2c}}</p>
-                </a>
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center justify-content-between">
-                <a href="#" class="product-card flow-card interval-selector interval_selector_3" onClick="selectInterval(1)">
                     <img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">
                     <h3 id="selected_product_3" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>
                     <p style="margin-bottom:0;">{{section.settings.interval_copy_3a}}<br/>   {{section.settings.interval_copy_3b}}</p>
                     <p> {{section.settings.interval_copy_3c}}</p>
-                </a>
                 </div>
-            </div>
-            </div>
-            <div class="col-12 text-center bundle-complete-btn" style="margin: 0 0 2em; height: 39px;">
-                <button id="interval_next" disabled class="btn btn-large flow-button" type="button" onClick="nextView(2)">Next</button>
-                {% comment %} <p style="padding-top: 2em;" class="small">There are 20 organic tea sachets in every box.</p> {% endcomment %}
-                <p style="padding-top: 2em; text-decoration: underline;" class="small"><a href="/shop">I'd prefer to shop a la carte</a></p>
             </div>
         </div>
     </div>
