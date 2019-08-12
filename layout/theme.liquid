@@ -181,31 +181,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         CartJS.init({{ cart | json }});
     });
 </script>
-<script type="text/javascript">
-  $(".header-add-to-cart").hide();
-  $( document ).ready(function(){
-      var offset = $(window).scrollTop();
-      if (offset >= 150) {
-          $(".top-nav-box").addClass("shrink");
-      }
-      if (offset > 700) {
-        $(".header-add-to-cart").fadeIn();
-      }
-  });
-  $(window).scroll(function() {
-      var scroll = $(window).scrollTop();
-      if (scroll >= 150) {
-          $(".top-nav-box").addClass("shrink");
-      } else {
-          $(".top-nav-box").removeClass("shrink");
-      };
-      if (scroll > 700) {
-        $(".header-add-to-cart").fadeIn();
-      } else {
-        $(".header-add-to-cart").fadeOut();
-      }
-  });
-</script>
 {% include 'checkout-redirect-helper' %}
 {% include 'ajax-cart-template' %}
 {% if template.name == 'product' or template.name == 'index' %}
