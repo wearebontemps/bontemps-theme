@@ -323,7 +323,7 @@
                 {{ form | payment_button }}
               {% endif %}
             </div>
-            <p class="text-center" style="width: 100%; padding: 5px;"><sup>**</sup> Satisfaction Gauranteed</p>
+            <div class="text-center" style="width: 100%; padding: 3px 0 7px">{{ section.settings.subtext }}</div>
           {% endform %}
         </div>
       </div>
@@ -371,6 +371,12 @@ $("#review-upper").click(function(e){
       "pt-BR": "Páginas de produtos"
     },
     "settings": [
+      {
+        "type": "html",
+        "id": "subtext",
+        "label": "Gaurantee subtext",
+        "default": "<p><sup>**</sup> Satisfaction Gauranteed</p>"
+      },
       {
         "type": "select",
         "id": "image_size",
