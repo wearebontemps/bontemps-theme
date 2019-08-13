@@ -6198,11 +6198,20 @@ $color-slideshow-close-text: #000;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2em;
-    padding: 0 50px;
+    padding: 0 30px;
     &.carousel-indicators{
       margin-left: 0% !important;
       margin-right: 0% !important;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      width: 20px;
+      height: 20px;
+    }
+    .carousel-control-prev-icon {
+      background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
+    }
+    .carousel-control-next-icon {
+      background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
     }
     .product-image-indicator{
       flex: 1;
