@@ -40,10 +40,11 @@
         </div>
       </div>
     {% else %}
+    {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
       <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image" >
         <img id="{{ img_id }}"
           class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
-          data-src="{{ image }}"
+          data-src="{{ image_url }}"
           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
           data-aspectratio="{{ image.aspect_ratio }}"
           data-sizes="auto"
