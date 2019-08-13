@@ -224,12 +224,10 @@ _learnq.push(['trackViewedItem', {
     CompareAtPrice: item.CompareAtPrice
   }
 }]);
-
    // Add slideDown animation to Bootstrap dropdown when expanding.
   $('.dropdown').on('show.bs.dropdown', function() {
     $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
   });
-
   // Add slideUp animation to Bootstrap dropdown when collapsing.
   $('.dropdown').on('hide.bs.dropdown', function() {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
@@ -253,3 +251,4 @@ $(document).ready(function(){
   });
 });
 </script>
+  {{ "bcSwipe.min.js" | asset_url | script_tag }}
