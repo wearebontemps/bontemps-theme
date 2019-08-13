@@ -2,8 +2,22 @@
   <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
     {% for image in product.images %}
-    {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
       <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image" >
+      {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_class %}product-featured-img{% endcapture %}
+          {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
+          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
+
+          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image">
+            <div
+            id="{{ zoom_img_id }}"
+            style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
+            class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}"
+            data-image-id="{{ image.id }}"
+            {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
         <img id="{{ img_id }}"
           class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
           data-src="{{ img_url }}"
