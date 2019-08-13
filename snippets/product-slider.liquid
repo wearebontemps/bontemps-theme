@@ -41,23 +41,14 @@
       </div>
     {% else %}
       <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image" >
-      <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image">
-            <div
-            id="{{ zoom_img_id }}"
-            style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
-            class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}"
-            data-image-id="{{ image.id }}"
-            {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-              <img id="{{ img_id }}"
-                class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
-                data-src="{{ image }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ image.aspect_ratio }}"
-                data-sizes="auto"
-                tabindex="-1"
-                alt="{{ image.alt | escape }}">
-            </div>
-          </div>
+        <img id="{{ img_id }}"
+          class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+          data-src="{{ image }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ image.aspect_ratio }}"
+          data-sizes="auto"
+          tabindex="-1"
+          alt="{{ image.alt | escape }}">
       </div>
       {% endif %}
     {% endfor %}
