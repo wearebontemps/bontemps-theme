@@ -1,0 +1,83 @@
+{% if product.images.size > 1 %}
+  <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
+    <div class="carousel-inner">
+    {% for image in product.images %}
+    {% if image.alt contains 'vimeo' %}
+      <div class="carousel-item lazyload video-slide d-flex align-items-center {% if forloop.first %}active{% endif %} product-image">
+      <div class="header-vid-wrapper" style="width: 100%; height: 100%;">
+        {% comment %} <div class="hover-disabler"></div> {% endcomment %}
+          <iframe src="{{ image.alt }}?byline=false&playsinline=true&loop=true" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+          <script>
+          var iframe = document.querySelector('iframe');
+          var player = new Vimeo.Player(iframe);
+
+          player.on('play', function() {
+            console.log('Played the video');
+          });
+
+          player.getVideoTitle().then(function(title) {
+            console.log('title:', title);
+          });
+          (function(){
+          var originalAddClassMethod = jQuery.fn.addClass;
+          jQuery.fn.addClass = function(){
+              var result = originalAddClassMethod.apply( this, arguments );
+              jQuery(this).trigger('cssClassChanged');
+              return result;
+                }
+            })();
+            // document ready function
+            $(function(){
+                $(".video-slide").bind('cssClassChanged', function(){
+                    player.play()
+                  $(".video-slide.active").bind('cssClassChanged', function(){
+                    player.pause()
+                  });
+                });
+            });
+          </script>
+        </div>
+      </div>
+    {% else %}
+      <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image" style="background-image: url('{{ image | img_url: '1024x1024' }}')">
+      </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+    <div class="product-carousel-control-box">
+      <ol class="product-carousel-indicators carousel-indicators">
+        {% for image in product.images %}
+          <li data-target="#product-image-carousel"
+          data-slide-to="{{ forloop.index0 }}"
+          class="{% if forloop.first %}active{% endif %} product-image-indicator" style="background-image: url('{{ image | img_url: '600x600' }}')">
+        </li>
+        {% endfor %}
+          <a class="carousel-control-prev" href="#product-image-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#product-image-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      </ol>
+   </div>
+  </div>
+  {% else %}
+  {% for image in product.images %}
+    {% capture wrapper_class %}
+      {%- unless featured_image == image -%}
+        hide
+      {%- endunless -%}
+    {% endcapture %}
+    {% include 'responsive-image' with
+      image: image,
+      max_width: 700,
+      max_height: 650,
+      image_attributes: "data-product-featured-image",
+      wrapper_class: wrapper_class,
+      wrapper_attributes: "data-product-image-wrapper",
+    %}
+  {% endfor %}
+  {% endif %}
