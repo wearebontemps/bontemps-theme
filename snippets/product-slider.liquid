@@ -2,15 +2,14 @@
   <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
     {% for image in product.images %}
+    {% unless forloop.last %}
       <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image">
       {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
           {% capture img_class %}product-featured-img{% endcapture %}
           {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
           {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
           {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
           {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
-
           <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image" style="height: 100%;">
         <img id="{{ img_id }}"
           class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
@@ -21,6 +20,7 @@
           alt="{{ image.alt | escape }}">
           </div>
       </div>
+      {% endunless %}
     {% endfor %}
     </div>
     <div class="product-carousel-control-box">
