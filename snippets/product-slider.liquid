@@ -2,7 +2,7 @@
   <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
     {% for image in product.images %}
-      <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image" >
+      <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image">
       {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
           {% capture img_class %}product-featured-img{% endcapture %}
           {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -11,11 +11,11 @@
 
           {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
 
-          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image">
+          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image" style="height: 100%;">
         <img id="{{ img_id }}"
           class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
           data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          style="height: 100%;"
           data-aspectratio="{{ image.aspect_ratio }}"
           data-sizes="auto"
           tabindex="-1"
