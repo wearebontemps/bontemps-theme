@@ -18,7 +18,7 @@
   </div>
   <div class="small-hide" style="margin-top:1em;">
     <div class="page-width text-center">
-      <a id="" class="btn flow-button subscription_start" href="#">
+      <a id="" class="btn flow-button subscription_start" href="{{ section.settings.cta_url }}">
         <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
       </a>
     </div>
@@ -26,7 +26,7 @@
   <div class="small-show" style="margin-top:1em;">
     <div class="d-flex align-items-center row-70 row">
       <div class="col-12 text-center">
-        <a id="" class="btn flow-button larger subscription_start" href="{{ section.settings.cta_link }}">
+        <a class="btn flow-button larger subscription_start" href="{{ section.settings.cta_url }}">
         <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
         </a>
       </div>
@@ -74,8 +74,8 @@
         "default": "Sign Up"
       },
       {
-        "type": "collection",
-        "id": "cta_link",
+        "type": "url",
+        "id": "cta_url",
         "label": "CTA link"
       }
     ],
