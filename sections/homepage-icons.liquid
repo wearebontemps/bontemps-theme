@@ -1,24 +1,24 @@
-<div style="padding: 2em 0; background-color: {{ sections.settins.section_bg }}">
+<div style="padding: 2em 0; background-color: {{ sections.settings.section_bg }}">
 <div style="clear: both;" class="row d-flex">
         {% if section.settings.interval_header %}
         <div class="col-12">
-            <h1 class=" text-center">{{section.settings.interval_header}}</h1>
-            <p class=" text-center">{{section.settings.interval_subheader_pre_date}}</p>
+            <h1 class=" text-center" {% if section.settings.section_font %} style="color: {{ sections.settings.section_bg }} !important" {% endif %}>{{section.settings.interval_header}}</h1>
+            <p class=" text-center" {% if section.settings.section_font %} style="color: {{ sections.settings.section_bg }} !important" {% endif %}>{{section.settings.interval_subheader_pre_date}}</p>
         </div>
         {% endif %}
         <div class="col-12">
         <div class="row" style="padding-top: 1.5em;">
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_1 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>{% endif %}
+                {% if section.settings.interval_copy_1 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;"  {% if section.settings.section_font %} style="color: {{ sections.settings.section_bg }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_1}}</h3>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_2 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>{% endif %}
+                {% if section.settings.interval_copy_2 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;" {% if section.settings.section_font %} style="color: {{ sections.settings.section_bg }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_2}}</h3>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_3 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>{% endif %}
+                {% if section.settings.interval_copy_3 %}<h3 id=""{% if section.settings.section_font %} style="color: {{ sections.settings.section_bg }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_3}}</h3>{% endif %}
             </div>
         </div>
     </div>
@@ -79,6 +79,11 @@
         "type": "color",
         "id": "section_bg",
         "label": "Section Background"
+        },
+        {
+        "type": "color",
+        "id": "section_font",
+        "label": "Section Font Color"
         }
         ],
         "presets": [
