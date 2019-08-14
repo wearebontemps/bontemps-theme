@@ -1,4 +1,4 @@
-<div style="padding: 2em 0">
+<div style="padding: 2em 0; background-color: {{ sections.settins.section_bg }}">
 <div style="clear: both;" class="row d-flex">
         {% if section.settings.interval_header %}
         <div class="col-12">
@@ -74,6 +74,11 @@
         "type": "image_picker",
         "id": "interval_img_3",
         "label": "Icon 2"
+        },
+        {
+        "type": "color_picker",
+        "id": "section_bg",
+        "label": "Section Background"
         }
         ],
         "presets": [
