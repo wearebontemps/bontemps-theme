@@ -11,20 +11,14 @@
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_1 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_1}}</h3>{% endif %}
-                {% if section.settings.interval_copy_1a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_1a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
-                {% if section.settings.interval_copy_1c %}<p> {{section.settings.interval_copy_1c}}</p>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_2 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_2}}</h3>{% endif %}
-                {% if section.settings.interval_copy_2a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_2a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
-                {% if section.settings.interval_copy_2c %}<p> {{section.settings.interval_copy_2c}}</p>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_3 %}<h3 id="" style="margin-top: 1em;font-size:1.6em;">{{section.settings.interval_copy_3}}</h3>{% endif %}
-                {% if section.settings.interval_copy_3a %}<p style="margin-bottom:0;">{{section.settings.interval_copy_3a}}<br/>   {{section.settings.interval_copy_2b}}</p>{% endif %}
-                {% if section.settings.interval_copy_3c %}<p> {{section.settings.interval_copy_3c}}</p>{% endif %}
             </div>
         </div>
     </div>
@@ -50,33 +44,9 @@
         },
         {
         "type": "text",
-        "id": "interval_subheader_post_date",
-        "label": "text after ship date",
-        "default": "(not charged today). You can cancel anytime."
-        },
-        {
-        "type": "text",
         "id": "interval_copy_1",
         "label": "interval 1 copy (under illustration)",
         "default": "I drink tea at least once a day."
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_1a",
-        "label": "interval 1a copy (under illustration)",
-        "default": "3 boxes every"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_1b",
-        "label": "interval 1b copy (under illustration)",
-        "default": "3 months"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_1c",
-        "label": "interval 1c copy (under illustration)",
-        "default": "$16/month."
         },
         {
         "type": "text",
@@ -86,60 +56,24 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_2a",
-        "label": "interval 2a copy (under illustration)",
-        "default": "3 boxes every"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_2b",
-        "label": "interval 2b copy (under illustration)",
-        "default": "2 months"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_2c",
-        "label": "interval 2c copy (under illustration)",
-        "default": "$24/month"
-        },
-        {
-        "type": "text",
         "id": "interval_copy_3",
         "label": "interval 3 copy (under illustration)",
         "default": "I'll need enough for me + company."
         },
         {
-        "type": "text",
-        "id": "interval_copy_3a",
-        "label": "interval 3a copy (under illustration)",
-        "default": "3 Boxes every"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_3b",
-        "label": "interval 3b copy (under illustration)",
-        "default": "1 month"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_3c",
-        "label": "interval 3c copy (under illustration)",
-        "default": "$48/month"
-        },
-        {
         "type": "image_picker",
         "id": "interval_img_1",
-        "label": "interval 1 image (inside sub-flow)"
+        "label": "Icon 1"
         },
         {
         "type": "image_picker",
         "id": "interval_img_2",
-        "label": "interval 2 image (inside sub-flow)"
+        "label": "Icon 2"
         },
         {
         "type": "image_picker",
         "id": "interval_img_3",
-        "label": "interval 3 image (inside sub-flow)"
+        "label": "Icon 2"
         }
         ],
         "presets": [
