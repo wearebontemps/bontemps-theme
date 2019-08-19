@@ -10,15 +10,18 @@
         <div class="row" style="padding-top: 1.5em;">
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_1 %}<h3 id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_1}}</h3>{% endif %}
+                {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}><strong>{{section.settings.interval_copy_1}}</strong></p>{% endif %}
+                {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}>{{section.settings.interval_subcopy_1}}</p>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_2 %}<h3 id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_2}}</h3>{% endif %}
+                {% if section.settings.interval_copy_2 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}><strong>{{section.settings.interval_copy_2}}</strong></p>{% endif %}
+                {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}>{{section.settings.interval_subcopy_2}}</p>{% endif %}
             </div>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-between text-center">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_3 %}<h3 id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;font-size:1.6em;"{% else %}style="margin-top: 1em;font-size:1.6em;" {% endif %}>{{section.settings.interval_copy_3}}</h3>{% endif %}
+                {% if section.settings.interval_copy_3 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}><strong>{{section.settings.interval_copy_3}}</strong></p>{% endif %}
+                {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 1em;"{% else %}style="margin-top: 1em;" {% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
             </div>
         </div>
     </div>
@@ -43,10 +46,26 @@
         "default": "This is a section subheader"
         },
         {
+        "type": "image_picker",
+        "id": "interval_img_1",
+        "label": "Icon 1"
+        },
+        {
         "type": "text",
         "id": "interval_copy_1",
         "label": "copy 1(under illustration)",
         "default": "Modeled content."
+        },
+        {
+        "type": "text",
+        "id": "interval_subcopy_1",
+        "label": "subcopy 1",
+        "default": "Modeled content."
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_2",
+        "label": "Icon 2"
         },
         {
         "type": "text",
@@ -56,24 +75,26 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_3",
-        "label": "copy 3(under illustration)",
-        "default": "Modeled content."
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_1",
-        "label": "Icon 1"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_2",
-        "label": "Icon 2"
+        "id": "interval_subcopy_2",
+        "label": "subcopy 2",
+        "default": "Fresh, organic ingredients and corn-based tea bags -- to avoid pesticides, bleaches, artificial and “natural” flavors and GMOs."
         },
         {
         "type": "image_picker",
         "id": "interval_img_3",
         "label": "Icon 2"
+        },
+        {
+        "type": "text",
+        "id": "interval_copy_3",
+        "label": "copy 3(under illustration)",
+        "default": "Modeled content."
+        },
+        {
+        "type": "text",
+        "id": "interval_subcopy_3",
+        "label": "subcopy 3",
+        "default": "Modeled content."
         },
         {
         "type": "color",
