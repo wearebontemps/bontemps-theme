@@ -1,17 +1,16 @@
 <div class="section-inner about-content" style="padding-top: 0;">
-{% if section.settings.section_title != 'blank' %}
-  <div class="text-center limitcopywidth">
-  <h1 class="section-header">{{ section.settings.section_title }}</h1>
-  <p class="subtitle">{{ section.settings.subtitle }}</p>
-  </div>
+  {% if section.settings.section_title != blank %}
+    <div class="text-center limitcopywidth">
+    <h1 class="section-header">{{ section.settings.section_title }}</h1>
+    <p class="subtitle">{{ section.settings.subtitle }}</p>
+    </div>
   {% endif %}
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
-   <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5em;'>
-   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
-    {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
-   </div>
+    <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5em;'>
+    <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
+    </div>
   {% endcapture %}
     <div class="row d-flex align-items-center" style='padding: 0em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
