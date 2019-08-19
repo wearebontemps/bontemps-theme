@@ -25,6 +25,13 @@
             </div>
         </div>
     </div>
+    {% if section.settings.cta_link %}
+    <div class="col-12">
+        <a class="btn" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+    </div>
+    {% endif %}
 </div>
 </div>
 {% schema %}
@@ -105,6 +112,17 @@
         "type": "color",
         "id": "section_font",
         "label": "Section Font Color"
+        },
+        {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text",
+        "default": "Send Invite"
+        },
+        {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Button Link"
         }
         ],
         "presets": [
