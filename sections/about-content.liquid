@@ -1,8 +1,10 @@
 <div class="section-inner about-content" style="padding-top: 0;">
+{% if section.settings.section_title %}
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
+  {% endif %}
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
