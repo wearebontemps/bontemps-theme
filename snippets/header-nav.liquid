@@ -92,7 +92,7 @@
     {% if template contains "product" %}
       {% if product.available %}
         <div class="header-add-to-cart">
-          <button id="mobile-adder" class="btn btn--small"  style="margin: 6px 0 6px 10px;">Add To Cart</button>
+          <button id="mobile-adder" class="btn btn--small" onclick="progClick()" style="margin: 6px 0 6px 10px;">Add To Cart</button>
         </div>
       {% endif %}
     {% endif %}
@@ -106,11 +106,9 @@
   </div>
 </nav>
 <script>
-  
   // 2. Get a reference to our preferred element (link/button, see below) and
-  //    add an event listener for the "click" event.
-  document.getElementById("mobile-adder").click(function () {
+  var progClick = function(){
     var button = document.getElementById("AddToCart-product-template");
     button.click();
-  });
+  }  //    add an event listener for the "click" event.
 </script>
