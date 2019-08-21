@@ -91,15 +91,19 @@
       </a>
     {% if template contains "product" %}
     {% if product.available %}
-              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
-                <span id="AddToCartText-{{ section.id }}">
-                  {% unless current_variant.available %}
-                    {{ 'products.product.sold_out' | t }}
-                  {% else %}
-                    {{ 'products.product.add_to_cart' | t }}
-                  {% endunless %}
-                </span>
-              </button>    {% endif %}
+    {% form 'product', product, class:form_classes, novalidate: 'novalidate',  data-productid: product.id %}
+          {% if product.available %}{% include 'subscription-product' %}{% endif %}
+        <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+          <span id="AddToCartText-{{ section.id }}">
+            {% unless current_variant.available %}
+              {{ 'products.product.sold_out' | t }}
+            {% else %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% endunless %}
+          </span>
+        </button>
+        {% endform %}
+        {% endif %}
     {% endif %}
       {% unless linklists[section.settings.main_linklist] == blank %}
         <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
