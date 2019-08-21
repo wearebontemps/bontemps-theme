@@ -109,7 +109,7 @@
   
   // 2. Get a reference to our preferred element (link/button, see below) and
   //    add an event listener for the "click" event.
-  document.getElementById("mobile-adder").addEventListener("click", function () {
+  document.getElementById("mobile-adder").onClick(function () {
     var button = document.getElementById("AddToCart-product-template");
     button.click();
   });
