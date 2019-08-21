@@ -91,9 +91,8 @@
       </a>
     {% if template contains "product" %}
     {% if product.available %}
-    <form class="header-add-to-cart" data-productid="{{product.id}}">
-      <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-      <input id="mobile-adder" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
+    <form class="header-add-to-cart">
+      <button id="mobile-adder" value="" class="btn btn--small"  style="margin: 6px 0 6px 10px;">Add To Cart</button>
     </form>
     {% endif %}
     {% endif %}
