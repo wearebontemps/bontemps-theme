@@ -91,19 +91,10 @@
       </a>
     {% if template contains "product" %}
     {% if product.available %}
-    {% form 'product', product, class:form_classes, novalidate: 'novalidate',  data-productid: product.id %}
-          {% if product.available %}{% include 'subscription-product' %}{% endif %}
-        <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
-          <span id="AddToCartText-{{ section.id }}">
-            {% unless current_variant.available %}
-              {{ 'products.product.sold_out' | t }}
-            {% else %}
-              {{ 'products.product.add_to_cart' | t }}
-            {% endunless %}
-          </span>
-        </button>
-        {% endform %}
-        {% endif %}
+    <form class="header-add-to-cart">
+      <input id="mobile-adder" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
+    </form>
+    {% endif %}
     {% endif %}
       {% unless linklists[section.settings.main_linklist] == blank %}
         <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
@@ -115,9 +106,11 @@
   </div>
 </nav>
 <script>
-  var form = document.getElementById("product_form_{{ product.id }}");
-  
+  var button = document.getElementById("AddToCart-product-template");
+  // 2. Get a reference to our preferred element (link/button, see below) and
+  //    add an event listener for the "click" event.
   document.getElementById("mobile-adder").addEventListener("click", function () {
-    form.submit();
+    event.preventDefault();
+    button.click();
   });
 </script>
