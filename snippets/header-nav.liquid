@@ -104,9 +104,8 @@
   </div>
 </nav>
 <script>
-  var form = document.getElementById("product_form_" + {{ product.id }});
-  // 2. Get a reference to our preferred element (link/button, see below) and
-  //    add an event listener for the "click" event.
+  var form = document.getElementById("product_form_{{ product.id }}");
+  
   document.getElementById("mobile-adder").addEventListener("click", function () {
     form.submit();
   });
