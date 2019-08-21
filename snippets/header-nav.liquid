@@ -91,9 +91,9 @@
       </a>
     {% if template contains "product" %}
     {% if product.available %}
-    <form class="header-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
+    <form class="header-add-to-cart" data-productid="{{product.id}}">
       <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-      <input type="submit" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
+      <input id="mobile-adder" type="submit" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
     </form>
     {% endif %}
     {% endif %}
@@ -106,3 +106,11 @@
     </div>
   </div>
 </nav>
+<script>
+  var form = document.getElementById("product_form_" + {{ product.id }});
+  // 2. Get a reference to our preferred element (link/button, see below) and
+  //    add an event listener for the "click" event.
+  document.getElementById("mobile-adder").addEventListener("click", function () {
+    form.submit();
+  });
+</script>
