@@ -91,8 +91,15 @@
       </a>
     {% if template contains "product" %}
     {% if product.available %}
-    <button id="mobile-adder" value="" class="btn btn--small product-form__cart-submit"  style="margin: 6px 0 6px 10px;">Add To Cart</button>
-    {% endif %}
+              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+                <span id="AddToCartText-{{ section.id }}">
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+              </button>    {% endif %}
     {% endif %}
       {% unless linklists[section.settings.main_linklist] == blank %}
         <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">

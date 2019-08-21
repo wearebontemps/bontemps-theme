@@ -187,34 +187,6 @@
     <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
         <div class="d-block d-sm-none">{% include 'product-collnav' %}</div>
-        {% comment %} {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
-        {% for image in product.images %}
-          {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
-          {% capture img_class %}product-featured-img{% endcapture %}
-          {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
-          {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
-          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-          {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
-
-          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image">
-            <div
-            id="{{ zoom_img_id }}"
-            style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"
-            class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}"
-            data-image-id="{{ image.id }}"
-            {% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-              <img id="{{ img_id }}"
-                class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
-                data-src="{{ img_url }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ image.aspect_ratio }}"
-                data-sizes="auto"
-                tabindex="-1"
-                alt="{{ image.alt | escape }}">
-            </div>
-          </div>
-        {% endfor %} {% endcomment %}
         {% include 'product-slider' %}
         <noscript>
           {% capture product_image_size %}{{ height }}x{% endcapture %}
