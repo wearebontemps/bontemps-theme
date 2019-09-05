@@ -90,12 +90,11 @@
         {% endif %}
       </a>
     {% if template contains "product" %}
-    {% if product.available %}
-    <form class="header-add-to-cart" action="/cart/add" data-productid="{{product.id}}"  method="post">
-      <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-      <input type="submit" value="Add To Cart" class="btn btn--small"  style="margin: 6px 0 6px 10px;"/>
-    </form>
-    {% endif %}
+      {% if product.available %}
+        <div class="header-add-to-cart">
+          <button id="mobile-adder" class="btn btn--small" onclick="progClick()" style="margin: 6px 0 6px 10px;">Add To Cart</button>
+        </div>
+      {% endif %}
     {% endif %}
       {% unless linklists[section.settings.main_linklist] == blank %}
         <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="navigation"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
@@ -106,3 +105,10 @@
     </div>
   </div>
 </nav>
+<script>
+  // 2. Get a reference to our preferred element (link/button, see below) and
+  var progClick = function(){
+    var button = document.getElementById("AddToCart-product-template");
+    button.click();
+  }  //    add an event listener for the "click" event.
+</script>
