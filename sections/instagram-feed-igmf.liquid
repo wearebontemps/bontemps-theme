@@ -1,0 +1,54 @@
+{% comment %} <div id="evm-instagram-feed"></div><script src="https://expertvillagemedia.com/instagramfeed/embed.js" data-shop-id="pangea-dev.myshopify.com"></script> {% endcomment %}
+
+<div class="section-inner">
+  <div class="instafeed-copy text-center" style="padding: 0 35px;">
+    <div class="content-copy">
+      <h2 class="">{{section.settings.first_section_header}}</h2>
+      {{section.settings.first_section_copy}}
+      <p>&nbsp;</p>
+   </div>
+  </div>
+ <div id="feed-86834000-cff0-11e9-97c3-3589a8bc9d89" class="instafeed-wrapper"></div>
+</div>
+
+<!-- to use, set the userid and access token for your instagram account -->
+
+{% schema %}
+{
+ "name": "Bon Temps Instagram",
+ "settings": [
+     {
+       "type": "color",
+       "id": "background_color",
+       "label": "Section Background"
+     },
+     {
+       "type": "text",
+       "label": "First Section Header",
+       "id": "first_section_header",
+       "default": "#timewellspent"
+     },
+     {
+       "type": "richtext",
+       "label": "First Section Copy",
+       "id": "first_section_copy",
+       "default": "<p>Discover those that have mastered the art @bontemps</p>"
+     },
+     {
+     "type": "text",
+     "id": "filter_handle",
+     "label": "the hashtag you filter with on IG, which cannot be changed here. Check the IGMF app to update.",
+     "default": "bettertea"
+     }
+ ],
+ "presets": [
+   {
+     "name": "Instagram Feed",
+     "category": "Features"
+   }
+ ]
+}
+{% endschema %}
+
+
+<!-- to use, set the userid and access token for your instagram account -->
