@@ -26,7 +26,7 @@
   <div class="small-show" style="margin-top:1em;">
     <div class="d-flex align-items-center row-70 row">
       <div class="col-12 text-center">
-        <a id="" class="btn flow-button larger subscription_start" href="#">
+        <a id="" class="btn flow-button larger" href="{{ section.settings.cta_link }}">
         <span>{{ section.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span>
         </a>
       </div>
@@ -49,12 +49,14 @@
     {
     "type": "text",
     "id": "text",
-    "label": "text"
+    "label": "text",
+    "default": "Our promise: poison-free, epic flavors."
     },
     {
     "type": "text",
     "id": "text_lower",
-    "label": "text lower"
+    "label": "text lower",
+    "default": "Brighten your life with better-made tea blends. Your body will thank you."
     },
     {
     "type": "image_picker",
@@ -101,6 +103,11 @@
     "id": "cta_text",
     "label": "CTA text",
     "default": "Sign Up"
+  },
+  {
+    "type": "url",
+    "id": "cta_link",
+    "label": "CTA Link"
   }
   ],
     "presets": [
