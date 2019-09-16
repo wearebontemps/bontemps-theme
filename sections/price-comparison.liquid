@@ -1,5 +1,5 @@
 
-<div class="section-inner bg-yellow">
+<div class="section-inner" style="background-color: {{ section.settings.bg_color }}">
   <div class="row">
     <div class="col-sm-8 offset-sm-2 text-center" style="">
       <h2>{{ section.settings.text }}</h2>
@@ -41,6 +41,11 @@
     "en": "Price Comparison"
   },
   "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color"
+    },
     {
     "type": "text",
     "id": "text",
