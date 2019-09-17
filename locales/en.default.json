@@ -140,7 +140,9 @@
       "cookies_required": "Enable cookies to use the shopping cart",
       "edit": "Edit",
       "cancel": "Cancel",
-      "continue_shopping": "Continue shopping"
+      "continue_shopping": "Continue shopping",
+      "free_shipping_copy": "Free Shipping on Orders over $20",
+      "cart_guarantee": "Satisfaction Guaranteed"
     },
     "label": {
       "product": "Product",
