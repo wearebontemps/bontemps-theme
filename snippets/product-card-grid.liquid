@@ -57,10 +57,9 @@
         <div class="variant-details row" style="margin-top: .25em;">
         <div class="col-12 text-left"  style="padding: 0;">
           <div class="text-left flow-info">
-            {% assign words = product.description | split: "<!--info-->" %}
-            {{ words[1] }}
+            {% assign words = product.description | split: "<!--info-->" %}{{ words[1] }}
           </div>
-          <div class=" flow-caffeine">
+          <div class="flow-caffeine">
           {% include 'caffeine' %}
           </div>
         </div>
@@ -68,7 +67,7 @@
       </div>
     <div class="details_{{product.id}} variant-details">
         <div class="col-12 text-left"  style="padding: 0;">
-          <div class="text-left flow-info">
+          <div class="text-left">
             <p class="sachet-count">
               {% for tag in product.tags %}
               {% if tag contains 'sachets' %}
