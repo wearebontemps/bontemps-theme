@@ -63,11 +63,12 @@
           <div class=" flow-caffeine">
           {% include 'caffeine' %}
           </div>
-          </div>
+        </div>
         </div>
       </div>
-    <div class="details_{{product.id}}">
-        <p class="variant-details">
+    <div class="details_{{product.id}} variant-details">
+        <div class="col-12 text-left"  style="padding: 0;">
+          <div class="text-left flow-info">
             <p class="sachet-count">
               {% for tag in product.tags %}
               {% if tag contains 'sachets' %}
@@ -77,7 +78,8 @@
               {% endfor %}
               <span class="sachet-info"></span>
             </p>
-
+          </div>
+          <div class=" flow-caffeine">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
@@ -87,14 +89,14 @@
             {% if tag_serving.size > 0 %}
             per serving
             {% endif %}
-            </p>
           </div>
+          </div>
+        </div>
         {% if product.template_suffix contains "samples" %}
         <div class="sample-meta"  style="display:none">
         {{ sample_info }}
         </div>
         {% endif %}
-      <!-- </div> -->
       {{ hover_button }}
     </div>
     {% endcapture %}
