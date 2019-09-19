@@ -62,7 +62,7 @@
           </p>
         </div>
         <div>
-        <p>
+        <p class="variant-details">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
