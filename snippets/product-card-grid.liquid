@@ -65,6 +65,9 @@
           </div>
           </div>
         </div>
+      </div> 
+    <div class="details_{{product.id}}">
+        <div>
         <p class="variant-details">
             <p class="sachet-count">
               {% for tag in product.tags %}
@@ -85,9 +88,8 @@
             {% if tag_serving.size > 0 %}
             per serving
             {% endif %}
-          </p>
-      </div>
-
+            </p>
+          </div>
         {% if product.template_suffix contains "samples" %}
         <div class="sample-meta"  style="display:none">
         {{ sample_info }}
