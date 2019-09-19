@@ -46,7 +46,28 @@
     <img class="grid-view-item__image" data-src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
   {% capture product_meta %}
-    <div class="product-meta" style="position: relative">
+  <div class="product-meta">
+  <div class="details_{{product.id}}">
+    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+    <div class="yotpo-star-box yotpo">
+      <div class="yotpo bottomLine"
+        data-product-id="{{ product.id }}">
+      </div>
+    </div>
+      <div class="variant-details row" style="margin-top: .25em;">
+      <div class="col-12 text-left"  style="padding: 0;">
+        <div class="text-left flow-info">
+          {% assign words = product.description | split: "<!--info-->" %}
+          {{ words[1] }}
+        </div>
+        <div class=" flow-caffeine">
+        {% include 'caffeine' %}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-meta" style="position: relative">
     <div class="details_{{product.id}}">
         <div>
         <p class="variant-details">
@@ -78,27 +99,6 @@
         {% endif %}
       </div>
       {{ hover_button }}
-    </div>
-    <div class="product-meta">
-    <div class="details_{{product.id}}">
-      <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-      <div class="yotpo-star-box yotpo">
-        <div class="yotpo bottomLine"
-          data-product-id="{{ product.id }}">
-        </div>
-      </div>
-        <div class="variant-details row" style="margin-top: .25em;">
-        <div class="col-12 text-left"  style="padding: 0;">
-          <div class="text-left flow-info">
-            {% assign words = product.description | split: "<!--info-->" %}
-            {{ words[1] }}
-          </div>
-          <div class=" flow-caffeine">
-          {% include 'caffeine' %}
-          </div>
-          </div>
-        </div>
-      </div>
     </div>
     {% endcapture %}
     {{ product_meta }}
