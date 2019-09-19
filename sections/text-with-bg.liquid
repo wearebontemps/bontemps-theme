@@ -1,0 +1,58 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div class="section-inner has-bottom-curve large-pad small-hide" style="background-image: url('{{ section.settings.image_fullsize | img_url: '2000x2000' }}'); background-size: cover; background-repeat: no-repeat;">
+<div class="flow-info-2-text small-hide">
+  <div class="row">
+  <div class="col-sm-6 d-flex flex-column justify-content-center">
+    <h2 class="">{{ section.settings.text }}</h2>
+    <p class="">{{ section.settings.text_lower }}</p>
+  </div>
+  </div>
+</div>
+</div>
+<div class="section-inner has-bottom-curve small-show" style="background-image: url('{{ section.settings.image_mobile | img_url: '2000x2000' }}'); background-size: cover; background-repeat: no-repeat;">
+</div>
+<div class="section-inner bg-white has-both-curve small-show">
+    <div class="row">
+      <div class="col-sm-6 d-flex flex-column justify-content-center">
+        <h2 class="">{{ section.settings.text }}</h2>
+        <p class="">{{ section.settings.text_lower }}</p>
+      </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": {
+    "en": "Text with image BG"
+  },
+  "settings": [
+    {
+    "type": "richtext",
+    "id": "text",
+    "label": "text"
+    },
+    {
+    "type": "richtext",
+    "id": "text_lower",
+    "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_fullsize",
+      "label": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "image"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Text with Image BG",
+    "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
