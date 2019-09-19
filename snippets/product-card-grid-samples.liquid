@@ -37,7 +37,7 @@
         <div class="col-12 text-left"  style="padding: 0;">
           <div class="text-left flow-info">
             {% assign words = product.description | split: "<!--info-->" %}
-            <strong>Notes:</strong> {{ words[1] }}
+            {{ words[1] }}
           </div>
           <div class=" flow-caffeine">
           {% include 'caffeine' %}
