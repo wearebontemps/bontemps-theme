@@ -46,30 +46,25 @@
     <img class="grid-view-item__image" data-src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
   {% capture product_meta %}
-  <div class="product-meta">
-  <div class="details_{{product.id}}">
-    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-    <div class="yotpo-star-box yotpo">
-      <div class="yotpo bottomLine"
-        data-product-id="{{ product.id }}">
-      </div>
-    </div>
-      <div class="variant-details row" style="margin-top: .25em;">
-      <div class="col-12 text-left"  style="padding: 0;">
-        <div class="text-left flow-info">
-          {% assign words = product.description | split: "<!--info-->" %}
-          {{ words[1] }}
-        </div>
-        <div class=" flow-caffeine">
-        {% include 'caffeine' %}
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="product-meta" style="position: relative">
     <div class="details_{{product.id}}">
-        <div>
+      <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+      <div class="yotpo-star-box yotpo">
+        <div class="yotpo bottomLine"
+          data-product-id="{{ product.id }}">
+        </div>
+      </div>
+        <div class="variant-details row" style="margin-top: .25em;">
+        <div class="col-12 text-left"  style="padding: 0;">
+          <div class="text-left flow-info">
+            {% assign words = product.description | split: "<!--info-->" %}
+            {{ words[1] }}
+          </div>
+          <div class=" flow-caffeine">
+          {% include 'caffeine' %}
+          </div>
+          </div>
+        </div>
         <p class="variant-details">
             <p class="sachet-count">
               {% for tag in product.tags %}
@@ -90,8 +85,9 @@
             {% if tag_serving.size > 0 %}
             per serving
             {% endif %}
-            </p>
-          </div>
+          </p>
+      </div>
+
         {% if product.template_suffix contains "samples" %}
         <div class="sample-meta"  style="display:none">
         {{ sample_info }}
