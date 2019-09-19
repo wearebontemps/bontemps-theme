@@ -48,21 +48,18 @@
   {% capture product_meta %}
     <div class="product-meta" style="position: relative">
     <div class="details_{{product.id}}">
-        <div class="variant-details">
-        {% include 'product-tags' %}
-          <p class="sachet-count">
-            {% for tag in product.tags %}
-            {% if tag contains 'sachets' %}
-            {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-            {% for word in tag_mod %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            <span class="sachet-info"></span>
-          </p>
-        </div>
         <div>
         <p class="variant-details">
-          {% include 'product-tags' %}
+            <p class="sachet-count">
+              {% for tag in product.tags %}
+              {% if tag contains 'sachets' %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endif %}
+              {% endfor %}
+              <span class="sachet-info"></span>
+            </p>
+
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
