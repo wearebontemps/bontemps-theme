@@ -7258,6 +7258,12 @@ $toolbar-height-small: 46px;
   color: #fec600;
 }
 // yotpo Ratings
+.yotpo-star-box{
+  @include media-query($small) {
+    display: flex;
+    justify-content: center;
+  }
+}
 .yotpo.bottomLine {
   margin: -30px 0 20px;
   .yotpo-stars {
