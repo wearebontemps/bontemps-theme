@@ -41,15 +41,15 @@
   <div class="row product-single">
     <div class="col col-sm-6 col-md-6 order-md-1 order-sm-1 order-2">
       <div class="product-single__meta">
-        <p class="tasting-notes">
-          {% comment %} <span class="collection-title">{{ collection.title }}</span> {% endcomment %}
+        {% comment %} <p class="tasting-notes">
+          <span class="collection-title">{{ collection.title }}</span>
           {% for tag in product.tags %}
           {% if tag contains 'effect' %}
           {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
           <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
           {% endif %}
           {% endfor %}
-        </p>
+        </p> {% endcomment %}
         <h1 class="product-single__title">{{ product.title }}</h1>
         {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
       </div>
