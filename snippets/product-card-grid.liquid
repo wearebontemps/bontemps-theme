@@ -46,8 +46,8 @@
     <img class="grid-view-item__image" data-src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
   {% capture product_meta %}
-  <div class="product-meta" style="position: relative">
-    <div class="details_{{product.id}}">
+  <div class="product-meta text-center" style="position: relative">
+    <div class="details_{{product.id}} text-center">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
       <div class="text-center flow-info">
         <strong><em>
