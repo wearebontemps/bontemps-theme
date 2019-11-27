@@ -42,7 +42,7 @@
     <div class="col col-sm-6 col-md-6 order-md-1 order-sm-1 order-2">
       <div class="product-single__meta">
         <p class="tasting-notes">
-          <span class="collection-title">{{ collection.title }}</span>
+          {% comment %} <span class="collection-title">{{ collection.title }}</span> {% endcomment %}
           {% for tag in product.tags %}
           {% if tag contains 'effect' %}
           {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
@@ -56,7 +56,7 @@
       {% if product.url contains "sample" %}
       <p>&nbsp;</p>
       {% else %}
-      <div class="yotpo-star-box yotpo">
+      <div class="yotpo-star-box yotpo d-flex justify-content-center">
         <div class="yotpo bottomLine"
           data-product-id="{{ product.id }}">
         </div>
@@ -70,10 +70,7 @@
           role="status"
         ></p>
 
-        <div class="product-single__description rte">
-          <!-- <strong>Description: </strong> -->
-          {{ product.description }}
-        </div>
+        
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
           <div class="variant-details">
@@ -180,13 +177,16 @@
                 {{ form | payment_button }}
               {% endif %}
             </div>
+            <div class="product-single__description rte">
+              {{ product.description }}
+            </div>
           {% endform %}
         </div>
     </div>
 
     <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
-        <div class="d-block d-sm-none">{% include 'product-collnav' %}</div>
+        {% comment %} <div class="d-block d-sm-none">{% include 'product-collnav' %}</div> {% endcomment %}
         {% include 'product-slider' %}
         <noscript>
           {% capture product_image_size %}{{ height }}x{% endcapture %}
