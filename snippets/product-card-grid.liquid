@@ -57,7 +57,9 @@
         <div class="variant-details row" style="margin-top: .25em;">
         <div class="col-12 text-left"  style="padding: 0;">
           <div class="text-left flow-info">
+          <strong><em>
             {% assign words = product.description | split: "<!--info-->" %}{{ words[1] }}
+          </em></strong>
           </div>
           <div class="flow-caffeine">
           {% include 'caffeine' %}
