@@ -645,10 +645,7 @@ $z-index-announcement-bar: 10;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
 
 /*================ SVG ================*/
-$svg-select-icon: #{'{{ "ico-select.svg" | asset_url }
-}
-
-'};
+$svg-select-icon: #{'{{ "ico-select.svg" | asset_url }}'};
 
 /*================ Drawers ================*/
 $transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
@@ -9630,12 +9627,7 @@ $toolbar-height-small: 46px;
 }
 
 .flow-caffeine {
-  width: 50%;
-  white-space: nowrap;
-
-  @media screen and (max-width: 991px) {
     width: 100%;
-  }
 }
 
 .flow-info {
