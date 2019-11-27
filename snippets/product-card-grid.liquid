@@ -63,7 +63,7 @@
         </div>
         </div>
       </div>
-    <div class="details_{{product.id}} variant-details text-center">
+    {% comment %} <div class="details_{{product.id}} variant-details text-center">
         <div class="text-center variant-sub">
           <p class="sachet-count text-center">
             {% for tag in product.tags %}
@@ -74,7 +74,7 @@
             {% endfor %}
             <span class="sachet-info"></span>
           </p>
-          {% comment %} <div class="flow-caffeine">
+          <div class="flow-caffeine">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
@@ -84,9 +84,9 @@
             {% if tag_serving.size > 0 %}
             per serving
             {% endif %}
-          </div> {% endcomment %}
           </div>
-        </div>
+          </div>
+        </div> {% endcomment %}
         <div class="yotpo-star-box yotpo">
         <div class="yotpo bottomLine yotpo-card"
           data-product-id="{{ product.id }}">
