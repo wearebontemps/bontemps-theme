@@ -30,7 +30,7 @@
     <div class="sample-meta-mobile sample-meta-mobile_{{ product.id }}" style="display:none">
       {{ sample_info }}
     </div>
-    {% include 'product-card-hover' %}
+    {% comment %} {% include 'product-card-hover' %} {% endcomment %}
     <div style="position:relative; padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
       <img id="{{ img_id }}"
         class="grid-view-item__image lazyload"
