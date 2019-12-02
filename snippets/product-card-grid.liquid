@@ -3,7 +3,7 @@
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
   {% capture sample_info %}
-  {% include 'caffeine' %}
+  {% comment %} {% include 'caffeine' %} {% endcomment %}
   {% assign words = product.description | split: "<!--notes-->" %}
   {{ words[1] }}
   {% endcapture %}
@@ -100,7 +100,7 @@
       {% comment %} {{ hover_button }} {% endcomment %}
        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column; margin-top: 8px;">
           <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
-          <input type="submit" value="Add To Cart" class="btn cart_updater"/>
+          <input type="submit" value="+ Quick Add" class="btn cart_updater"/>
         </form>
     </div>
     {% endcapture %}
