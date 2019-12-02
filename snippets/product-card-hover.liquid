@@ -17,9 +17,9 @@
   </div>
 {% endif %}
 {% endfor %} {% endcomment %}
-<div class='1 product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center'>
+{% comment %} <div class='1 product-card-hover bg_hover_{{ product.id }} d-flex flex-column align-items-center justify-content-center'>
       <img class="lazyload"  data-src="{{ image | img_url: '500', scale: 1 }}"  style="width: 100%; position:absolute;"/>
-  </div>
+  </div> {% endcomment %}
 {% unless page.template_suffix contains "flow" %}
 </a>
 {% endunless %}
