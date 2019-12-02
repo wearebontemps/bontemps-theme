@@ -54,7 +54,6 @@
           {% assign words = product.description | split: "<!--info-->" %}{{ words[1] }}
         </em></strong>
       </div>
-      
         <div class="variant-details row text-center" style="margin-top: .25em;">
         <div class="col-12 text-center"  style="padding: 0;">
           <div class="flow-caffeine">
@@ -63,40 +62,16 @@
         </div>
         </div>
       </div>
-    {% comment %} <div class="details_{{product.id}} variant-details text-center">
-        <div class="text-center variant-sub">
-          <p class="sachet-count text-center">
-            {% for tag in product.tags %}
-            {% if tag contains 'sachets' %}
-            {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-            {% for word in tag_mod %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            <span class="sachet-info"></span>
-          </p>
-          <div class="flow-caffeine">
-            {% for tag in product.tags %}
-            {% if tag contains 'serving' %}
-            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
-            {% for word in tag_serving %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            {% if tag_serving.size > 0 %}
-            per serving
-            {% endif %}
-          </div>
-          </div>
-        </div> {% endcomment %}
         <div class="yotpo-star-box yotpo">
         <div class="yotpo bottomLine yotpo-card"
           data-product-id="{{ product.id }}">
         </div>
       </div>
-        {% if product.template_suffix contains "samples" %}
+        {% comment %} {% if product.template_suffix contains "samples" %}
         <div class="sample-meta"  style="display:none">
         {{ sample_info }}
         </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
       {% comment %} {{ hover_button }} {% endcomment %}
        <form class="card-add-to-cart add_{{product.id}}" action="/cart/add" data-productid="{{product.id}}"  method="post" style="display: flex; flex-direction: column; margin-top: 8px;">
           <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
