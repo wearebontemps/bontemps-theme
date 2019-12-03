@@ -1,0 +1,53 @@
+    {% assign titles_list = '' %}
+    {% assign key-benefits = product.description | split: '<!--key-benefits-->' %}
+    {% if product.description contains "<!--details-->" %}
+    {% assign details = product.description | split: '<!--details-->'%}
+    {% endif %}
+    {% if product.description contains "<!--how-to-use-->" %}
+    {% assign how-to-use = product.description | split: '<!--how-to-use-->'%}
+    {% endif %}
+    {% if product.description contains "<!--ingredients-->" %}
+    {% assign ingredients = product.description | split: '<!--ingredients-->'%}
+    {% endif %}
+    {% if product.description contains "<!--story-->" %}
+    {% assign story = product.description | split: '<!--story-->'%}
+    {% endif %}
+    {% if details %}
+      {% assign titles_list = titles_list | append: 'details' | append: ',' %}
+    {% endif %}
+    {% if how-to-use %}
+      {% assign titles_list = titles_list | append: 'how to use' | append: ',' %}
+    {% endif %}
+    {% if ingredients %}
+      {% assign titles_list = titles_list | append: 'ingredients' | append: ',' %}
+    {% endif %}
+    {% if story %}
+      {% assign titles_list = titles_list | append: 'story' | append: ',' %}
+    {% endif %}
+    {% assign tab-titles = titles_list | remove_last: ',' | split: "," %}
+
+  <div class="col-md-6 order-3 order-md-4">
+    <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
+    {% for title in tab-titles %}
+      <li class="nav-item col-sm-3 col-6">
+        <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{title | replace: ' ', '' }}-tab" data-toggle="tab" href="#{{title | replace: ' ', '' }}-content" role="tab" aria-controls="home" aria-selected="true">
+        {{ title | upcase }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+    <div class="tab-content" id="product-tab">
+    {% for title in tab-titles %}
+      <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ tab-titles[forloop.index0]  | replace: ' ', '' }}-content" role="tabpanel" aria-labelledby="{{ tab-titles[forloop.index0]  | replace: ' ', ''  }}-tab">
+      {% if title contains "details" %}
+      {{ details[1] }}
+      {% elsif title contains "use" %}
+      {{ how-to-use[1] }}
+      {% elsif title contains "ingredients" %}
+      {{ ingredients[1] }}
+      {% elsif title contains "story" %}
+      {{ story[1] }}
+      {% endif %}
+      </div>
+    {% endfor %}
+    </div>
