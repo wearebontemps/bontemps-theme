@@ -26,7 +26,7 @@
     {% endif %}
     {% assign tab-titles = titles_list | remove_last: ',' | split: "," %}
 
-  <div class="col-md-6 order-3 order-md-4">
+  <div>
     <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
     {% for title in tab-titles %}
       <li class="nav-item col-sm-3 col-6">
