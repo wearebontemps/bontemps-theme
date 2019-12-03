@@ -57,7 +57,7 @@
       <p>&nbsp;</p>
       {% else %}
       <div class="yotpo-star-box yotpo d-flex justify-content-center">
-        <div class="yotpo bottomLine {% if product.template == 'product' %}productYotpo{% endif %}"
+        <div  {% if product.template == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
           data-product-id="{{ product.id }}">
         </div>
       </div>
