@@ -1,29 +1,19 @@
     {% assign titles_list = '' %}
-    {% assign key-benefits = product.description | split: '<!--key-benefits-->' %}
-    {% if product.description contains "<!--details-->" %}
-    {% assign details = product.description | split: '<!--details-->'%}
+    {% assign titlesArray = '' | split: ',' %}
+    {% if product.description contains "<!--collapse-title-->" %}
+      {% assign titlesArray = product.description | split: '<!--collapse-title-->'| append: ',' %}
     {% endif %}
-    {% if product.description contains "<!--how-to-use-->" %}
-    {% assign how-to-use = product.description | split: '<!--how-to-use-->'%}
+    {% if product.description contains "<!--collapse-title-->" %}
+      {% assign how-to-use = product.description | split: '<!--collapse-title-->'%}
     {% endif %}
-    {% if product.description contains "<!--ingredients-->" %}
-    {% assign ingredients = product.description | split: '<!--ingredients-->'%}
+
+
+    {% if titles %}
+    {% for collapseTitle in titles %}
+      {% assign titles_list = titles_list | append: collapseTitle %}
+    {% endfor %}
     {% endif %}
-    {% if product.description contains "<!--story-->" %}
-    {% assign story = product.description | split: '<!--story-->'%}
-    {% endif %}
-    {% if details %}
-      {% assign titles_list = titles_list | append: 'details' | append: ',' %}
-    {% endif %}
-    {% if how-to-use %}
-      {% assign titles_list = titles_list | append: 'how to use' | append: ',' %}
-    {% endif %}
-    {% if ingredients %}
-      {% assign titles_list = titles_list | append: 'ingredients' | append: ',' %}
-    {% endif %}
-    {% if story %}
-      {% assign titles_list = titles_list | append: 'story' | append: ',' %}
-    {% endif %}
+
     {% assign tab-titles = titles_list | remove_last: ',' | split: "," %}
 
   <div>
