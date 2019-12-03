@@ -72,6 +72,7 @@
 
         <div class="product-single__description rte small-hide">
           {{ product.description }}
+          {% include 'product-accordion' %}
         </div>
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
@@ -180,6 +181,7 @@
               {% endif %}
             </div>
             <div class="rte small-show">
+              {% include 'product-accordion' %}
               {{ product.description }}
             </div>
           {% endform %}
@@ -298,7 +300,6 @@
                 {{ form | payment_button }}
               {% endif %}
             </div>
-            {% include 'product-accordion' %}
             <div class="text-center small" style="width: 100%; padding: 3px 0 7px">{{ section.settings.subtext }}</div>
           {% endform %}
         </div>
