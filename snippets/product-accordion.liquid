@@ -14,7 +14,7 @@
     {% endfor %}
     {% endif %}
 
-    {% assign tab-titles = titles_list | remove_last: ',' | split: "," %}
+    {% assign tab-titles = titles_list | remove_last: ',' | split: "," | uniq %}
 
   <div>
     <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">

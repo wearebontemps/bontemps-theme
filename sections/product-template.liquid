@@ -71,7 +71,9 @@
         ></p>
 
         <div class="product-single__description rte small-hide">
-          {{ product.description }}
+        {% assign descriptionNoTitle = product.description | split: "<!--collapse-titles-->" | first %}
+        {% assign descriptionNoDesc = descriptionNoTitle | split: "<!--collapse-descriptions-->" | first %}
+          {{ descriptionNoDesc }}
           {% include 'product-accordion' %}
         </div>
         {% include "sample-helper" %}
