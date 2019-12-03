@@ -7276,10 +7276,12 @@ $toolbar-height-small: 46px;
   }
 }
 .star-clickable{
-  justify-content: center;
   &.pull-left{
     float: unset !important;
     text-align: unset !important;
+    @include media-query($small) {
+      justify-content: center;
+    }
   }
 }
 
