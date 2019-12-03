@@ -56,7 +56,7 @@
       {% if product.url contains "sample" %}
       <p>&nbsp;</p>
       {% else %}
-      <div class="yotpo-star-box yotpo d-flex justify-content-center">
+      <div class="yotpo-star-box yotpo">
         <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
           data-product-id="{{ product.id }}">
         </div>
