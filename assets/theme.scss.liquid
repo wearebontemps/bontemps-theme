@@ -7292,8 +7292,10 @@ $toolbar-height-small: 46px;
         text-align: center !important;
       }
       .yotpo-stars{
+        @include media-query($small) {
         display: flex;
         justify-content: center;
+        }
       }
     }
   }
