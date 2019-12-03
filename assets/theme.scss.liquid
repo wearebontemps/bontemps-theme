@@ -7284,7 +7284,15 @@ $toolbar-height-small: 46px;
     }
   }
 }
-
+.productYotpo{
+  .star-clickable{
+    &.pull-left{
+      @include media-query($small) {
+        justify-content: center;
+      }
+    }
+  }
+}
 .yotpo-card{
   margin-bottom: 0 !important;
   margin-top: 6px !important;
