@@ -308,7 +308,7 @@
     - Do not change the variable names
     - $grid-narrowscreen is based on a Shopify breakpoint for checkout buttons
 ==============================================================================*/
-$grid-narrowscreen: 500px;
+$grid-narrowscreen: 500px /*577px*/;
 $grid-medium: 750px;
 $grid-large: 990px;
 $grid-widescreen: 1400px;
@@ -4428,7 +4428,10 @@ h1.section-header{
 
 .product-form__item--submit {
   @include flex(1 1 300px);
-  @include media-query($narrowscreen) {
+  @media only screen and (min-width: 578px) and (max-width: 748px) {
+    margin-bottom: 1.5em;
+  }
+  @include media-query($small) {
     margin-bottom: 1.5em;
   }
 }
@@ -4456,8 +4459,11 @@ h1.section-header{
 }
 
 .selector-wrapper.js.product-form__item {
-  @include media-query($narrowscreen) {
+  @media only screen and (min-width: 578px) and (max-width: 748px) {
     display: none;
+  }
+  @include media-query($small) {
+    //display: none;
   }
 }
 
@@ -7268,8 +7274,11 @@ $toolbar-height-small: 46px;
 }
 // yotpo Ratings
 .yotpo-star-box{
-  @include media-query($narrowscreen) {
+  @media only screen and (min-width: 578px) and (max-width: 748px) {
   text-align:center;
+  }
+  @include media-query($small) {
+    text-align:center;
   }
 }
 .yotpo.bottomLine {
