@@ -39,17 +39,17 @@
       <div class="accordion" id="accordionExample">
       {% for i in (1..counter) %}
         <div class="card">
-          <div class="card-header"  id="{{tab-titles[forloop.index0] | replace: ' ', '' }}-tab">
+          <div class="card-header"  id="{{tab-titles[forloop.index] | replace: ' ', '' }}-tab">
             <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOnetab-titles[forloop.index0]" aria-expanded="true" aria-controls="collapseOnetab-titles[forloop.index0]">
-                {{ tab-titles[forloop.index0] | upcase }}
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{tab-titles[forloop.index]}}" aria-expanded="true" aria-controls="collapseOne{{tab-titles[forloop.index]}}">
+                {{ tab-titles[forloop.index] | upcase }}
               </button>
             </h2>
           </div>
 
-          <div id="collapseOnetab-titles[forloop.index0]" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne{{tab-titles[forloop.index]}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              {{ tab-descs[forloop.index0] | upcase }}
+              {{ tab-descs[forloop.index] | upcase }}
             </div>
           </div>
         </div>
