@@ -9,11 +9,7 @@
     {% endif %}
 
 
-    {% if titlesArray != blank %}
-      {% for collapseTitle in titlesArray %}
-        {% assign titles_list = titles_list | append: collapseTitle %}
-      {% endfor %}
-    {% endif %}
+    {% assign titles_list = titlesArray[1] %}
 
     {% if descs != blank %}
       {% for desc in descs %}
