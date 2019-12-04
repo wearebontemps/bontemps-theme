@@ -4428,6 +4428,9 @@ h1.section-header{
 
 .product-form__item--submit {
   @include flex(1 1 300px);
+  @include media-query($narrowscreen) {
+    margin-bottom: 1.5em;
+  }
 }
 
 .product-form__item--no-variants {
@@ -4449,6 +4452,12 @@ h1.section-header{
   &.product-form__item--no-variants {
     @include flex-direction(column);
     @include align-items(stretch);
+  }
+}
+
+.selector-wrapper.js.product-form__item {
+  @include media-query($narrowscreen) {
+    display: none;
   }
 }
 
@@ -7259,7 +7268,7 @@ $toolbar-height-small: 46px;
 }
 // yotpo Ratings
 .yotpo-star-box{
-  @include media-query($small) {
+  @include media-query($narrowscreen) {
   text-align:center;
   }
 }
