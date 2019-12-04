@@ -16,20 +16,20 @@
     {% assign tab-descs = descArray | remove_last: '*' | split: "*" %}
 
   <div>
-    <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
-    {% for title in tab-titles %}
-      <li class="nav-item col-sm-3 col-6">
-        <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{title | replace: ' ', '' }}-tab" data-toggle="tab" href="#{{title | replace: ' ', '' }}-content" role="tab" aria-controls="home" aria-selected="true">
-        {{ title | upcase }}
-        </a>
-      </li>
-    {% endfor %}
-    </ul>
-    <div class="tab-content" id="product-tab">
-    {% for desc in tab-descs %}
-      <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ tab-titles[forloop.index0]  | replace: ' ', '' }}-content" role="tabpanel" aria-labelledby="{{ tab-titles[forloop.index0]  | replace: ' ', ''  }}-tab">
-      {{desc}}
+      <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
+      {% for title in tab-titles %}
+        <li class="nav-item col-sm-3 col-6">
+          <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{title | replace: ' ', '' }}-tab" data-toggle="tab" href="#{{title | replace: ' ', '' }}-content" role="tab" aria-controls="home" aria-selected="true">
+          {{ title | upcase }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+      <div class="tab-content" id="product-tab">
+        {% for desc in tab-descs %}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ tab-titles[forloop.index0]  | replace: ' ', '' }}-content" role="tabpanel" aria-labelledby="{{ tab-titles[forloop.index0]  | replace: ' ', ''  }}-tab">
+          {{desc}}
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
-    </div>
     </div>
