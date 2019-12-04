@@ -15,8 +15,11 @@
     {% assign tab-titles = titles_list | remove_last: '*' | split: "*" %}
     {% assign tab-descs = descs_list | remove_last: '*' | split: "*" %}
 
+    {% assign counter = tab-titles.size %}
+
+
   <div>
-      <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
+      {% comment %} <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
       {% for title in tab-titles %}
         <li class="nav-item col-sm-3 col-6">
           <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{title | replace: ' ', '' }}-tab" data-toggle="tab" href="#{{title | replace: ' ', '' }}-content" role="tab" aria-controls="home" aria-selected="true">
@@ -31,5 +34,27 @@
           {{desc}}
           </div>
         {% endfor %}
+      </div> {% endcomment %}
+
+      <div class="accordion" id="accordionExample">
+      {% for i in (1..counter) %}
+        <div class="card">
+          <div class="card-header"  id="{{tab-titles[forloop.index0] | replace: ' ', '' }}-tab">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOnetab-titles[forloop.index0]" aria-expanded="true" aria-controls="collapseOnetab-titles[forloop.index0]">
+                {{ tab-titles[forloop.index0] | upcase }}
+              </button>
+            </h2>
+          </div>
+
+          <div id="collapseOnetab-titles[forloop.index0]" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              {{ tab-descs[forloop.index0] | upcase }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
+    </div>
+
     </div>
