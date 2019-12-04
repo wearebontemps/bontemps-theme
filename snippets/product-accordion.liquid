@@ -5,17 +5,24 @@
       {% assign titlesArray = product.description | split: '<!--collapse-titles-->' %}
     {% endif %}
     {% if product.description contains "<!--collapse-descriptions-->" %}
-      {% assign how-to-use = product.description | split: '<!--collapse-descriptions-->'%}
+      {% assign descs= product.description | split: '<!--collapse-descriptions-->'%}
     {% endif %}
 
 
     {% if titles %}
-    {% for collapseTitle in titles %}
-      {% assign titles_list = titles_list | append: collapseTitle %}
-    {% endfor %}
+      {% for collapseTitle in titles %}
+        {% assign titles_list = titles_list | append: collapseTitle %}
+      {% endfor %}
     {% endif %}
 
-    {% assign tab-titles = titles_list | remove_last: '*' | split: "*" | uniq %}
+    {% if descs %}
+      {% for desc in descs %}
+        {% assign descs_list = descArray | append: desc %}
+      {% endfor %}
+    {% endif %}
+
+    {% assign tab-titles = titles_list | remove_last: '*' | split: "*" %}
+    {% assign tab-descs = descArray | remove_last: '*' | split: "*" %}
 
   <div>
     <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
@@ -28,17 +35,9 @@
     {% endfor %}
     </ul>
     <div class="tab-content" id="product-tab">
-    {% for desc in tab-titles %}
+    {% for desc in descArray %}
       <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ tab-titles[forloop.index0]  | replace: ' ', '' }}-content" role="tabpanel" aria-labelledby="{{ tab-titles[forloop.index0]  | replace: ' ', ''  }}-tab">
-      {% if title contains "details" %}
-      {{ details[1] }}
-      {% elsif title contains "use" %}
-      {{ how-to-use[1] }}
-      {% elsif title contains "ingredients" %}
-      {{ ingredients[1] }}
-      {% elsif title contains "story" %}
-      {{ story[1] }}
-      {% endif %}
+      {{desc}}
       </div>
     {% endfor %}
     </div>
