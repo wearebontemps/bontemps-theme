@@ -40,16 +40,16 @@
       {% for i in (1..counter) %}
         <div class="card">
           <div class="card-header"  id="{{tab-titles[forloop.index0] | replace: ' ', '' }}-tab">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{tab-titles[forloop.index0]}}" aria-expanded="true" aria-controls="collapseOne{{tab-titles[forloop.index0]}}">
+            <div class="mb-0">
+              <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{tab-titles[forloop.index0]}}" aria-expanded="true" aria-controls="collapseOne{{tab-titles[forloop.index0]}}">
                 {{ tab-titles[forloop.index0] | upcase }}
               </button>
-            </h2>
+            </div>
           </div>
 
           <div id="collapseOne{{tab-titles[forloop.index0]}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              {{ tab-descs[forloop.index] | upcase }}
+              <p>{{ tab-descs[forloop.index0] }}</p>
             </div>
           </div>
         </div>
