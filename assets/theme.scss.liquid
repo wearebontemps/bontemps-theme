@@ -316,6 +316,7 @@ $grid-gutter: 30px;
 $grid-gutter-mobile: 22px;
 
 $narrowscreen: 'narrowscreen';
+$x-small: 'x-small';
 $small: 'small';
 $medium: 'medium';
 $medium-down: 'medium-down';
@@ -7285,14 +7286,14 @@ $toolbar-height-small: 46px;
 .productYotpo{
   .star-clickable{
     &.pull-left{
-      @include media-query($small) {
+      @media screen and (max-width: 576px) {
         justify-content: center;
         text-align: center !important;
       }
       .yotpo-stars{
-        @include media-query($small) {
-        display: flex;
-        justify-content: center;
+        @media screen and (max-width: 576px) {
+          display: flex;
+          justify-content: center;
         }
       }
     }
