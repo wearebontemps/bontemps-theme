@@ -3039,6 +3039,10 @@ padding: 0;
     padding-left: $gutter-site-mobile;
     padding-right: $gutter-site-mobile;
   }
+  @media screen and (max-width: 576px){
+    padding-left: unset;
+    padding-right: unset;
+  }
 }
 
 .page-container {
@@ -7223,6 +7227,12 @@ $toolbar-height-small: 46px;
       height: 60px;
       left: -40px;
       bottom: 25%;
+    }
+    @media screen and (max-width: 576px){
+      width: 90px;
+      height: 90px;
+      left: 95%;
+      bottom: 95%;
     }
   }
   @include media-query($small) {
