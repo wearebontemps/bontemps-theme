@@ -130,7 +130,8 @@ var _setText = function($button, label) {
             _showFeedback('success','Added to cart! <a href="/cart">View cart</a>.',$addToCartForm);
             window.setTimeout(function(){
                 $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
-                _setText($addToCartBtn,_config.addToCartBtnLabel);
+                //_setText($addToCartBtn,_config.addToCartBtnLabel);
+                _setText('+ Quick Add');
             }, _config.howLongTillBtnReturnsToNormal);
             // Update cart count and show cart link.
             $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
