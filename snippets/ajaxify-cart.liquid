@@ -115,8 +115,8 @@ var _setText = function($button, label) {
         e.preventDefault();
         var $addToCartForm = $(this);
         var $addToCartBtn = $addToCartForm.find(_config.addToCartBtnSelector);
-        //_setText($addToCartBtn, _config.addingToCartBtnLabel);
-        _setText('+ Quick Add');
+        _setText($addToCartBtn, _config.addingToCartBtnLabel);
+        //_setText('+ Quick Add');
         $addToCartBtn.addClass('disabled').prop('disabled', true);
         // Add to cart.
         $.ajax({
