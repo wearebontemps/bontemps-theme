@@ -8811,20 +8811,21 @@ select.rc_select{
   width: 100%;
   text-align: left;
   padding-left: 0;
-  color: #141462;
+  color: $color-text;
 }
 .accordion{
   margin-bottom: 1em;
   .card{
     border: none;
-    border-top: 1px solid $color-border;
+    border-top: 1px solid $color-text;
+    border-bottom: none;
   }
   .card-header{
     background: unset;
     padding-left: 0;
   }
   .expander{
-    color: $color-border;
+    color: $color-text;
     float: right;
     font-size: 120%;
   }
