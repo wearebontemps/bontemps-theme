@@ -1965,7 +1965,9 @@ a[href^="tel"] {
   @include media-query($medium-up) {
     padding: $input-padding-top-bottom $input-padding-left-right;
   }
-
+  @include media-query($small) {
+    font-size: 13px;
+  }
   &:not([disabled]):hover,
   &:focus {
     color: $color-btn-primary-text;
@@ -1981,6 +1983,7 @@ a[href^="tel"] {
     cursor: default;
     opacity: 0.5;
   }
+  
 }
 .rc_popup{
   font-size: .7em;
