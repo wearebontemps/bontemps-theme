@@ -183,10 +183,8 @@
               {% endif %}
             </div>
             <div class="rte small-show" style="width: 100%">
+              {{ descriptionNoDesc }}
               {% include 'product-accordion' %}
-              {% unless descriptionNoDesc.size > 0 %}
-              {{ product.description }}
-              {% endunless %}
             </div>
           {% endform %}
         </div>
