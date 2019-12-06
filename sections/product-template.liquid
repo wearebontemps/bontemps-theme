@@ -184,7 +184,9 @@
             </div>
             <div class="rte small-show" style="width: 100%">
               {% include 'product-accordion' %}
-              {% comment %} {{ product.description }} {% endcomment %}
+              {% unless descriptionNoDesc.size > 0 %}
+              {{ product.description }}
+              {% endunless %}
             </div>
           {% endform %}
         </div>
