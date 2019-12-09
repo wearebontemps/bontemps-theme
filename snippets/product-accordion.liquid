@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <div id="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' -}}" class="collapse" aria-labelledby="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}" data-parent="#accordionExample">
+          <div id="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}" class="collapse" aria-labelledby="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}" data-parent="#accordionExample">
             <div class="card-body">
               <p>{{ tab-descs[forloop.index0] }}</p>
             </div>
