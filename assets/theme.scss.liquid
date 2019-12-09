@@ -8817,11 +8817,13 @@ select.rc_select{
   text-align: left;
   padding-left: 0;
   color: $color-text;
-  .expander{
-    content: '-'
+  .expander:after {
+    content: '-';
   }
   &.collapsed{
-    content: '+'
+    .expander:after {
+      content: '+';
+    }
   }
 }
 .accordion{
