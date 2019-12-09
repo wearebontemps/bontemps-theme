@@ -73,12 +73,13 @@
         <div class="product-single__description rte small-hide">
         {% assign descriptionNoTitle = product.description | split: "<!--collapse-titles-->" | first %}
         {% assign descriptionNoDesc = descriptionNoTitle | split: "<!--collapse-descriptions-->" | first %}
-          {{ descriptionNoDesc }}
+          {% comment %} {{ descriptionNoDesc }} {% endcomment %}
           {% include 'product-accordion' %}
         </div>
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
           <div class="variant-details">
+          {{ descriptionNoDesc }}
           {% include 'caffeine' %}
             <p class="sachet-count">
               {% for tag in product.tags %}
@@ -87,7 +88,7 @@
               {% for word in tag_mod %}{{ word }} {% endfor %}
               {% endif %}
               {% endfor %}
-              tea sachets
+              servings
             </p>
             <p>
             {% for tag in product.tags %}
@@ -97,7 +98,7 @@
             {% endif %}
             {% endfor %}
             {% if tag_serving.size > 0 %}
-            per serving
+            per cup
             {% endif %}
             </p>
           </div>
@@ -183,7 +184,6 @@
               {% endif %}
             </div>
             <div class="rte small-show" style="width: 100%">
-              {{ descriptionNoDesc }}
               {% include 'product-accordion' %}
             </div>
           {% endform %}
