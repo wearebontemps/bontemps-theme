@@ -1,0 +1,59 @@
+    {% assign titles_list = '' %}
+    {% assign titlesArray = '' | split: '*' %}
+    {% assign descArray = '' | split: '*' %}
+    {% if product.description contains "<!--collapse-titles-->" %}
+      {% assign titlesArray = product.description | split: '<!--collapse-titles-->' %}
+    {% endif %}
+    {% if product.description contains "<!--collapse-descriptions-->" %}
+      {% assign descArray = product.description | split: '<!--collapse-descriptions-->'%}
+    {% endif %}
+
+
+    {% assign titles_list = titlesArray[1] %}
+    {% assign descs_list = descArray[1] %}
+
+    {% assign tab-titles = titles_list | remove_last: '*' | split: "*" %}
+    {% assign tab-descs = descs_list | remove_last: '*' | split: "*" %}
+
+    {% assign counter = tab-titles.size %}
+
+
+  <div>
+      {% comment %} <ul class="nav nav-tabs product-tabs row" id="product-tab-control" role="tablist">
+      {% for title in tab-titles %}
+        <li class="nav-item col-sm-3 col-6">
+          <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{title | replace: ' ', '' }}-tab" data-toggle="tab" href="#{{title | replace: ' ', '' }}-content" role="tab" aria-controls="home" aria-selected="true">
+          {{ title | upcase }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+      <div class="tab-content" id="product-tab">
+        {% for desc in tab-descs %}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ tab-titles[forloop.index0]  | replace: ' ', '' }}-content" role="tabpanel" aria-labelledby="{{ tab-titles[forloop.index0]  | replace: ' ', ''  }}-tab">
+          {{desc}}
+          </div>
+        {% endfor %}
+      </div> {% endcomment %}
+
+      <div class="accordion" id="accordionExample">
+      {% for i in (1..counter) %}
+        <div class="card">
+          <div class="card-header"  id="u-{{tab-titles[forloop.index0] | replace: ' ', '' }}-tab">
+            <div class="mb-0">
+              <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#u-{{- forloop.index0 -}}" aria-expanded="false" aria-controls="u-{{- forloop.index0 -}}">
+                {{ tab-titles[forloop.index0] | upcase }} <span class="expander"></span>
+              </button>
+            </div>
+          </div>
+
+          <div id="u-{{- forloop.index0 -}}" class="collapse" aria-labelledby="{{- forloop.index0 -}}" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>{{ tab-descs[forloop.index0] }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% comment %} {{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}} {% endcomment %}
