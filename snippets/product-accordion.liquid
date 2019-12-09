@@ -41,13 +41,13 @@
         <div class="card">
           <div class="card-header"  id="{{tab-titles[forloop.index0] | replace: ' ', '' }}-tab">
             <div class="mb-0">
-              <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | lowercase -}}" aria-expanded="false" aria-controls="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | lowercase -}}">
+              <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}" aria-expanded="false" aria-controls="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}">
                 {{ tab-titles[forloop.index0] | upcase }} <span class="expander"></span>
               </button>
             </div>
           </div>
 
-          <div id="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' -}}" class="collapse" aria-labelledby="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | lowercase -}}" data-parent="#accordionExample">
+          <div id="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' -}}" class="collapse" aria-labelledby="{{- tab-titles[forloop.index0] | strip | replace: ' ', '' | downcase -}}" data-parent="#accordionExample">
             <div class="card-body">
               <p>{{ tab-descs[forloop.index0] }}</p>
             </div>
