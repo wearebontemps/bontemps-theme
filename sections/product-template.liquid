@@ -71,7 +71,9 @@
           aria-live="polite"
           role="status"
         ></p>
-
+         <div class="small-hide">
+            {{ descriptionNoDesc }}
+          </div>
         <div class="product-single__description rte small-hide">
           {% comment %} {{ descriptionNoDesc }} {% endcomment %}
           {% include 'product-accordion' %}
@@ -79,9 +81,6 @@
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
           <div class="variant-details">
-          <div class="">
-            {{ descriptionNoDesc }}
-          </div>
           {% include 'caffeine' %}
             <p class="sachet-count">
               {% for tag in product.tags %}
