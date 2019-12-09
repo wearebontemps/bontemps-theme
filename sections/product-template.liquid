@@ -4,6 +4,8 @@
   data-section-type="product"
   data-enable-history-state="true"
 >
+        {% assign descriptionNoTitle = product.description | split: "<!--collapse-titles-->" | first %}
+        {% assign descriptionNoDesc = descriptionNoTitle | split: "<!--collapse-descriptions-->" | first %}
   {% comment %}
     Get first variant, or deep linked one
   {% endcomment %}
@@ -71,15 +73,13 @@
         ></p>
 
         <div class="product-single__description rte small-hide">
-        {% assign descriptionNoTitle = product.description | split: "<!--collapse-titles-->" | first %}
-        {% assign descriptionNoDesc = descriptionNoTitle | split: "<!--collapse-descriptions-->" | first %}
           {% comment %} {{ descriptionNoDesc }} {% endcomment %}
           {% include 'product-accordion' %}
         </div>
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
           <div class="variant-details">
-          <div class="small-hide">
+          <div class="small-show">
             {{ descriptionNoDesc }}
           </div>
           {% include 'caffeine' %}
@@ -202,6 +202,9 @@
         </noscript>
         <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
+          <div class="small-show">
+            {{ descriptionNoDesc }}
+          </div>
           {% include 'caffeine' %}
           <div class="">
             <p class="sachet-count">
