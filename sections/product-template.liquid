@@ -80,6 +80,9 @@
         </div>
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
+          <div class="">
+            {{ descriptionNoDesc }}
+          </div>
           <div class="variant-details">
           {% include 'caffeine' %}
             <p class="sachet-count">
@@ -201,9 +204,6 @@
         </noscript>
         <div class="product-meta d-none d-sm-block">
           <div class="variant-details">
-          <div class="">
-            {{ descriptionNoDesc }}
-          </div>
           {% include 'caffeine' %}
           <div class="">
             <p class="sachet-count">
