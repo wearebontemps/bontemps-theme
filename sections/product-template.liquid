@@ -195,6 +195,9 @@
 
     <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
+      <div class="product__price d-sm-none d-block">
+            {% include 'product-price', variant: current_variant %}
+          </div>
         {% comment %} <div class="d-block d-sm-none">{% include 'product-collnav' %}</div> {% endcomment %}
         {% include 'product-slider' %}
         <noscript>
