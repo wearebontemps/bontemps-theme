@@ -104,30 +104,7 @@
             </div>
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
-          <div class="variant-details">
-            <p>{{ descriptionNoDesc }}</p>
-          {% include 'caffeine' %}
-            <p class="sachet-count">
-              {% for tag in product.tags %}
-              {% if tag contains 'sachets' %}
-              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-              {% for word in tag_mod %}{{ word }} {% endfor %}
-              {% endif %}
-              {% endfor %}
-              servings
-            </p>
-            <p>
-            {% for tag in product.tags %}
-            {% if tag contains 'serving' %}
-            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
-            {% for word in tag_serving %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            {% if tag_serving.size > 0 %}
-            per cup
-            {% endif %}
-            </p>
-          </div>
+          
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
@@ -186,6 +163,30 @@
                 {% endif %}
               {% endfor %}
             </select>
+            <div class="variant-details">
+            <p>{{ descriptionNoDesc }}</p>
+          {% include 'caffeine' %}
+            <p class="sachet-count">
+              {% for tag in product.tags %}
+              {% if tag contains 'sachets' %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endif %}
+              {% endfor %}
+              servings
+            </p>
+            <p>
+            {% for tag in product.tags %}
+            {% if tag contains 'serving' %}
+            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
+            {% for word in tag_serving %}{{ word }} {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% if tag_serving.size > 0 %}
+            per cup
+            {% endif %}
+            </p>
+          </div>
             <div class="rte small-show" style="width: 100%">
               {% include 'product-accordion-lower' %}
             </div>
@@ -205,6 +206,31 @@
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
         </noscript>
         <div class="product-meta d-none d-sm-block">
+          <div class="variant-details">
+          {% include 'caffeine' %}
+          <div class="">
+            <p class="sachet-count">
+              {% for tag in product.tags %}
+              {% if tag contains 'sachets' %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endif %}
+              {% endfor %}
+              servings
+            </p>
+            <p>
+            {% for tag in product.tags %}
+            {% if tag contains 'serving' %}
+            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
+            {% for word in tag_serving %}{{ word }} {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% if tag_serving.size > 0 %}
+            per cup
+            {% endif %}
+            </p>
+            </div>
+          </div>
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
@@ -233,34 +259,8 @@
           {{ product.id }}
           {% endcapture %}
   {% comment %} Mobile cart form {% endcomment %}
-  
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid: product.id %}
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
-          <div class="variant-details">
-          {% include 'caffeine' %}
-          <div class="">
-            <p class="sachet-count">
-              {% for tag in product.tags %}
-              {% if tag contains 'sachets' %}
-              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-              {% for word in tag_mod %}{{ word }} {% endfor %}
-              {% endif %}
-              {% endfor %}
-              servings
-            </p>
-            <p>
-            {% for tag in product.tags %}
-            {% if tag contains 'serving' %}
-            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
-            {% for word in tag_serving %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            {% if tag_serving.size > 0 %}
-            per cup
-            {% endif %}
-            </p>
-            </div>
-          </div>
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item" style="visibility: hidden; height: 0;">
