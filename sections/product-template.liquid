@@ -163,7 +163,7 @@
                 {% endif %}
               {% endfor %}
             </select>
-            <div class="variant-details">
+            <div class="variant-details" style="margin-top:-1em;">
             <p>{{ descriptionNoDesc }}</p>
           {% include 'caffeine' %}
             <p class="sachet-count">
@@ -175,7 +175,7 @@
               {% endfor %}
               servings
             </p>
-            <p>
+            <p style="margin-bottom: 1.5em">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
