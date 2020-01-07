@@ -79,7 +79,7 @@
           {% include 'product-accordion-upper' %}
         </div>
 
-            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+            <div class="small-show product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
               {% if section.settings.show_quantity_selector %}
                 <div class="product-form__item product-form__item--quantity">
                   <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
