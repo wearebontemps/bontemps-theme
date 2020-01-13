@@ -13,16 +13,13 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div class="dropdown-shop d-flex">
-          {% capture navlist %}
             {% assign navColl = section.settings.customColl %}
-            <p>{{ navColl.handle }}</p>
+            <p>{{ section.settings.customColl.handle }}</p>
             <ul class="dropdown-category-list collection-list">
             {% for item in navColl.products %}
             <li class="dropdown-link"><a class="text-dark" href="{{ item.url }}">{{ item.title }}</a></li>
             {% endfor %}
             </ul>
-            {% endcapture %}
-            {{ navlist }}
           {% for childlink in link.links %}
             {% if forloop.index == 1 or forloop.index > 1 %}
               <div class="dropdown-box">
