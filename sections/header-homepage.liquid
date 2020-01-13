@@ -45,12 +45,12 @@ Theme Store optional settings
             <div class="slideshow__text-content {% if forloop.first %}slick-active{% endif %}">
               <div class="page-width  slideshow-inner-text {% if block.settings.justification == 'left' %}left{% elsif block.settings.justification == 'right' %}right{% endif %}">
                 {% unless block.settings.title_1 == blank %}
-                  <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
+                  <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}" style="{% if block.settings.slide_text_color %}color:{{block.settings.slide_text_color}} !important;{%endif%}">
                     {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 %}{{ block.settings.title_2 | escape }}{% endif %}
                   </h2>
                 {% endunless %}
                 {% unless block.settings.subheading == blank %}
-                  <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                  <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}" style="{% if block.settings.slide_text_color %}color:{{block.settings.slide_text_color}} !important;{%endif%}">
                     {{ block.settings.subheading | escape }}
                   </p>
                 {% endunless %}
@@ -83,12 +83,12 @@ Theme Store optional settings
     <div class="col-12 text-center">
     {% for block in section.blocks limit:1 %}
         {% unless block.settings.title_1 == blank %}
-          <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
+          <h2 class="h1 mega-title slideshow__title{% if settings.link != blank %} slideshow__title--has-link{% endif %}{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}" style="{% if block.settings.slide_text_color %}color:{{block.settings.slide_text_color}} !important;{%endif%}">
             {{ block.settings.title_1 | escape }}<br/>{% if block.settings.title_2 %}{{ block.settings.title_2 | escape }}{% endif %}
           </h2>
         {% endunless %}
         {% unless block.settings.subheading == blank %}
-          <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+          <p class="slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}" style="{% if block.settings.slide_text_color %}color:{{block.settings.slide_text_color}} !important;{%endif%}">
             {{ block.settings.subheading | escape }}
           </p>
         {% endunless %}
@@ -197,11 +197,6 @@ Theme Store optional settings
         "default": "main-menu"
       },
       {
-        "type": "text",
-        "id": "tea_type",
-        "label": "Type of Tea featured in image"
-      },
-      {
         "type": "collection",
         "id": "customColl",
         "label": "Main Nav Collection"
@@ -266,6 +261,12 @@ Theme Store optional settings
                 "type": "color",
                 "id": "color_image_overlay",
                 "label": "Image Overlay",
+                "default": "#fff"
+              },
+              {
+                "type": "color",
+                "id": "slide_text_color",
+                "label": "Slide Text Color",
                 "default": "#fff"
               },
               {
