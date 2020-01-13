@@ -2968,9 +2968,7 @@ padding: 0;
   }
 }
 .nav-item.dropdown.shop {
-  @include media-query($small){
-    display: block !important;
-  }
+  
   .dropdown-shop {
     flex-direction: row;
     justify-content: flex-start;
@@ -2982,6 +2980,9 @@ padding: 0;
     }
   }
   .dropdown-menu {
+    @include media-query($small){
+      display: block !important;
+    }
     .dropdown-box {
       height: 100%;
       display: flex;
