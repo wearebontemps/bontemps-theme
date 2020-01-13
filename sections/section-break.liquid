@@ -1,5 +1,5 @@
 <div class="section-inner no-pad" style="padding-top: 0;">
-  <div class="row-80 " style="height: 3px; background-color:{{ssection.settings.bar_color}}"></div>
+  <div class="row-80 " style="height: 3px; background-color:{{section.settings.bar_color}}; margin: 0 auto; width: {{section.settings.width}}%"></div>
 </div>
 
 {% schema %}
@@ -13,6 +13,16 @@
         "type": "color",
         "id": "bar_color",
         "label": "Bar color"
+      },
+      {
+        "type":      "range",
+        "id":        "width",
+        "min":       1,
+        "max":        100,
+        "step":       1,
+        "unit":       "%",
+        "label":     "Width",
+        "default":   80
       }
     ],
     "presets": [
