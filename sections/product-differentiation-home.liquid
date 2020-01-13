@@ -1,10 +1,10 @@
-<div class="section-inner no-pad differentiation-content bg-yellow" style="padding-top: 0; background-color: {{ section.settings.bg-color }}">
+<div class="section-inner no-pad differentiation-content" style="padding-top: 0; background-color: {{ section.settings.bg-color }}">
   <div class="text-center limitcopywidth wider">
     <div class="row d-flex align-items-center" style='padding: 0em 0;'>
     <div class="col-md-5 about-image-wrap order-2 order-md-1" style='padding: 1.5em;'>
         <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
       </div>
-      <div class="text-left col-md-7 order-1 order-md-2 differentiation-copy">
+      <div class="text-center col-md-7 order-1 order-md-2 differentiation-copy">
         <h3 class="about-subtitle">{{ section.settings.heading}}</h3>
         <p>{{ section.settings.text_content }}</p>
         <style type="text/css">
@@ -15,14 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="small-hide" style="margin-top:1em;">
-    <div class="page-width text-center">
-      <a id="" class="btn flow-button subscription_start" href="{{ section.settings.cta_url }}">
-        <span>{{ section.settings.cta_text }}</span>
-      </a>
-    </div>
-  </div>
-  {% if section.settings.cta_text %}
+  {% if section.settings.cta_text != blank %}
   <div class="small-show" style="margin-top:1em;">
     <div class="d-flex align-items-center row-70 row">
       <div class="col-12 text-center">
