@@ -1,0 +1,25 @@
+<div class="section-inner no-pad" style="padding-top: 0;">
+  <div class="row-80 " style="height: 3px; background-color:{{ssection.settings.bar_color}}"></div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Section Break"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bar_color",
+        "label": "Bar color"
+      }
+    ]
+    "presets": [
+    {
+      "name": "Section Break Bar",
+      "category": "Misc"
+    }
+    ]
+  }
+{% endschema %}
