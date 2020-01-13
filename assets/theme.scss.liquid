@@ -1220,6 +1220,7 @@ h6
   margin: 0 0 ($section-spacing-small / 2);
   font-style: $font-style-header;
   font-weight: $font-weight-header;
+  font-weight: bold;
   line-height: 1.2;
   overflow-wrap: normal;
   word-wrap: normal;
@@ -1264,22 +1265,21 @@ h1 {
 
 h2, .h2 {
   //font-size: em(floor($font-size-header * 1.1));
-  font-size: 2.25em;
+  font-size: 1.8em;
   color: #141462;
   @include media-query($small) {
-    font-size: calc(2em * 0.9);
+    font-size: calc(1.8em * 0.8);
   }
 }
 
 h3 {
-  font-size: em($font-size-header);
+  font-size: 1.75em;
   text-transform: none;
   letter-spacing: 0;
   color: #141462;
 
   @include media-query($small) {
-    font-size: em(floor($font-size-header * 0.78));
-    font-size: 1.85em;
+    font-size: calc(1.71em * 0.8);
   }
 }
 
@@ -1957,16 +1957,17 @@ a[href^="tel"] {
   font-family: $font-stack-header;
   font-style: $font-style-header;
   font-weight: $font-weight-header;
-  //text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.32em;
   white-space: normal;
   font-size: $font-size-base - 2;
+  text-transform: uppercase;
 
   @include media-query($medium-up) {
     padding: $input-padding-top-bottom $input-padding-left-right;
   }
   @include media-query($small) {
     font-size: 13px;
+    font-weight: normal;
   }
   &:not([disabled]):hover,
   &:focus {
@@ -3733,10 +3734,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   .content-copy{
     color: #141462;
     h2{
-      font-size: 34px;
+      //font-size: 34px;
       @media screen and (max-width: 576px){
       text-align: center;
-      font-size: 30px;
+      //font-size: 30px;
       color: #141462;
       }
     }
@@ -3999,10 +4000,10 @@ p.tagline{
 }
 .content-copy{
   h2{
-    font-size: 34px;
+    //font-size: 34px;
     @media screen and (max-width: 576px){
     text-align: center;
-    font-size: 30px;
+    //font-size: 30px;
     }
   }
   p{
