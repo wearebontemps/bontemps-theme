@@ -1,0 +1,103 @@
+<div style="padding: 2em 0; background-color: {{ section.settings.section_bg }}">
+<div style="clear: both;" class="row d-flex contained">
+        {% if section.settings.interval_header %}
+        <div class="col-12">
+            <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_header}}</h1>
+            <p class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_subheader_pre_date}}</p>
+        </div>
+        {% endif %}
+    <div class="col-12">
+      <div class="accordion" id="accordionExample">
+      {% for block in section.blocks %}
+        <div class="card">
+          <div class="card-header"  id="u-{{block.settings.acc_title | replace: ' ', '' }}-tab">
+            <div class="mb-0">
+              <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#u-{{- forloop.index0 -}}" aria-expanded="false" aria-controls="u-{{- forloop.index0 -}}">
+                {{ block.settings.acc_title | upcase }} <span class="expander"></span>
+              </button>
+            </div>
+          </div>
+
+          <div id="u-{{- block.settings.acc_title -}}" class="collapse" aria-labelledby="{{- block.settings.acc_title -}}" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>{{ block.settings.acc_content }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% if section.settings.cta_link %}
+    <div class="col-12 d-flex align-items-center justify-content-center text-center" style="padding-top: 1.5em;">
+        <a class="btn" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }} </span>
+        </a>
+    </div>
+    {% endif %}
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Brand Ethos"
+    },
+    "settings": [
+    {
+        "type": "text",
+        "id": "section_header",
+        "label": "Section header",
+        "default": "Microplastics? Bleaches? Find out what's in your cup."
+        },
+        {
+        "type": "text",
+        "id": "interval_subheader_pre_date",
+        "label": "subheader"
+        },
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background"
+        },
+        {
+        "type": "color",
+        "id": "section_font",
+        "label": "Section Font Color"
+        },
+        {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text",
+        "default": "Shop Safe"
+        },
+        {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Button Link"
+        }
+        ],
+        "blocks": [
+          {
+            "type": "text",
+            "name": "Accordion Category",
+            "settings": [
+              {
+                "type": "text",
+                "id": "acc_title",
+                "label": "Title"
+              },
+              {
+                "type": "text",
+                "id": "acc_content",
+                "label": "Content"
+              }
+            ]
+          }
+        ],
+        "presets": [
+        {
+        "name": "Homepage Accordion",
+        "category": "Homepage"
+        }
+    ]
+}
+{% endschema %}
