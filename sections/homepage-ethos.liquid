@@ -1,26 +1,27 @@
 <div style="background-color: {{ section.settings.section_bg }}" class="section-inner">
 <div style="clear: both;" class="row d-flex contained">
+        {% if section.settings.interval_header %}
+        <div class="col-12">
+            <h2 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_header}}</h2>
+            <p class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_subheader_pre_date}}</p>
+        </div>
+        {% endif %}
         <div class="col-12">
         <div class="row" >
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_1}}</strong></p>{% endif %}
                 {% if section.settings.interval_subcopy_1 %}<p id="" class="value-subcopy"{% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_1}}</p>{% endif %}
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_2 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_2}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_2 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_2}}</p>{% endif %}
+                {% if section.settings.interval_subcopy_1 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_2}}</p>{% endif %}
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.interval_copy_3 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_3}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_3 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
-            </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
-                {% if section.settings.interval_img_4 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_4 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_3}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_4 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
+                {% if section.settings.interval_subcopy_1 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
             </div>
         </div>
     </div>
@@ -39,6 +40,17 @@
         "en": "Brand Ethos"
     },
     "settings": [
+    {
+        "type": "text",
+        "id": "interval_header",
+        "label": "Section header",
+        "default": "Made for good times and good people."
+        },
+        {
+        "type": "text",
+        "id": "interval_subheader_pre_date",
+        "label": "subheader"
+        },
         {
         "type": "image_picker",
         "id": "interval_img_1",
@@ -76,7 +88,7 @@
         {
         "type": "image_picker",
         "id": "interval_img_3",
-        "label": "Icon 3"
+        "label": "Icon 2"
         },
         {
         "type": "text",
@@ -88,23 +100,6 @@
         "type": "textarea",
         "id": "interval_subcopy_3",
         "label": "subcopy 3",
-        "default": "<p>By purchasing our tea, you’re directly investing in female pursuits. We offer $1,000 grants throughout the year, help us choose winners on Instagram.</p>"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_4",
-        "label": "Icon 4"
-        },
-        {
-        "type": "text",
-        "id": "interval_copy_4",
-        "label": "copy 4(under illustration)",
-        "default": "Empowering Women"
-        },
-        {
-        "type": "textarea",
-        "id": "interval_subcopy_4",
-        "label": "subcopy 4",
         "default": "<p>By purchasing our tea, you’re directly investing in female pursuits. We offer $1,000 grants throughout the year, help us choose winners on Instagram.</p>"
         },
         {
@@ -131,7 +126,7 @@
         ],
         "presets": [
         {
-        "name": "Homepage Icons",
+        "name": "Homepage Ethos",
         "category": "Homepage"
         }
     ]
