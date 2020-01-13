@@ -13,6 +13,15 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div class="dropdown-shop d-flex">
+          {% capture navlist %}
+            {% assign navColl = section.settings.collection %}
+            <ul class="dropdown-category-list">
+            {% for item in navColl.products %}
+            <li class="dropdown-link"><a class="text-dark" href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+            </ul>
+            {% endcapture %}
+            {{ navlist }}
           {% for childlink in link.links %}
             {% if forloop.index == 1 or forloop.index > 1 %}
               <div class="dropdown-box">
@@ -30,15 +39,7 @@
               {% endif %}
             </div>
             {% endcapture %}
-            {% capture navlist %}
-            {% assign navColl = section.settings.collection %}
-            <ul class="dropdown-category-list">
-            {% for item in navColl.products %}
-            <li class="dropdown-link"><a class="text-dark" href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}
-            </ul>
-            {% endcapture %}
-            {{ navlist }}
+            
               {% if link.links != blank %}
                 {% comment %} <a class="text-dark collection-category text-center" href="{{ childlink.url }}">{{ image_box }}<p>{{ childlink.title }}</p></a> {% endcomment %}
                 {% if childlink.links != blank %}
