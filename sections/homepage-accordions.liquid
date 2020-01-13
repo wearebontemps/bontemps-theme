@@ -1,10 +1,9 @@
-<div style="padding: 2em 0; background-color: {{ section.settings.section_bg }}">
-<div style="clear: both;" class="row d-flex contained align-items-center">
-        
-        <div class="col-sm-6 order-sm-2 order-1">
-        <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
-        </div>
-    <div class="col-sm-6 order-sm-1 order-2">
+<div style=" background-color: {{ section.settings.section_bg }}">
+<div class="row d-flex contained align-items-center">
+    <div class="col-sm-6 order-sm-2 order-1">
+      <img class="accordion-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
+    </div>
+    <div class="col-sm-6 order-sm-1 order-2 contained">
     {% if section.settings.section_header%}
         <div class="col-12">
             <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
