@@ -55,7 +55,7 @@ Theme Store optional settings
                   </p>
                 {% endunless %}
                 {% unless block.settings.link == blank %}
-                <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span></a>
+                <a type="submit" name="header-cta" class="btn btn-slider" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }} </span></a>
                 {% endunless %}
                 {% if block.type == 'video' %}
                   {% unless block.settings.video_type == 'background' %}
@@ -93,7 +93,7 @@ Theme Store optional settings
           </p>
         {% endunless %}
         {% unless block.settings.link == blank %}
-        <a type="submit" name="header-cta" class="btn btn-slider larger" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }} &nbsp;{% include 'icon-arrow-right' %}</span></a>
+        <a type="submit" name="header-cta" class="btn btn-slider larger" href="{{block.settings.link}}"><span>{{ block.settings.cta_text }}</span></a>
         {% endunless %}
       {% endfor %}
     </div>
