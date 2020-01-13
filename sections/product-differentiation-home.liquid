@@ -1,0 +1,88 @@
+<div class="section-inner no-pad differentiation-content bg-yellow" style="padding-top: 0; background-color: {{ section.settings.bg-color }}">
+  <div class="text-center limitcopywidth wider">
+    <div class="row d-flex align-items-center" style='padding: 0em 0;'>
+    <div class="col-md-5 about-image-wrap order-2 order-md-1" style='padding: 1.5em;'>
+        <img class="about-image text-orange" src="{{ section.settings.image | img_url: '800x' }}"/>
+      </div>
+      <div class="text-left col-md-7 order-1 order-md-2 differentiation-copy">
+        <h3 class="about-subtitle">{{ section.settings.heading}}</h3>
+        <p>{{ section.settings.text_content }}</p>
+        <style type="text/css">
+          strong>a{
+            text-decoration: underline !important;
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+  <div class="small-hide" style="margin-top:1em;">
+    <div class="page-width text-center">
+      <a id="" class="btn flow-button subscription_start" href="{{ section.settings.cta_url }}">
+        <span>{{ section.settings.cta_text }}</span>
+      </a>
+    </div>
+  </div>
+  <div class="small-show" style="margin-top:1em;">
+    <div class="d-flex align-items-center row-70 row">
+      <div class="col-12 text-center">
+        <a class="btn flow-button larger subscription_start" href="{{ section.settings.cta_url }}">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 40px;"></div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Image - Text"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "section heading",
+        "default": {
+          "en": "<p>We're different. When we say <strong>no pesticides</strong>, we meant it.</p>"
+        }
+      },
+      {
+        "type": "richtext",
+        "id": "text_content",
+        "label": "Text Content",
+        "default": "<p>Popular tea brands still use dangerous pesticides on their teas and tea bags. Our sachets are made of corn (yes, corn!), so we can avoid pesticides from leaf to sachet. Learn more about all the pesticides we promise to avoid.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "bg-color",
+        "label": "Background Color",
+        "default": "#ffc551"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA text",
+        "default": "Sign Up"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA link"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Image - Text",
+      "category": "Differentiation"
+    }
+    ]
+  }
+{% endschema %}
