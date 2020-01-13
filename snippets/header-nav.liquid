@@ -6,7 +6,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
-      {{link.handle}}
       {% if link.handle == 'shop' %}
       <li {% if forloop.first %}class="nav-item dropdown shop" {% else %} class="nav-item dropdown"{% endif %}>
         <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
