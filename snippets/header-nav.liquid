@@ -13,7 +13,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div class="dropdown-shop d-flex">
-            {% assign navColl = section.settings.customColl %}
+            {% assign customColl = collections[section.settings.customColl] %}
             <p>{{ section.settings.customColl.handle }}</p>
             <ul class="dropdown-category-list collection-list">
             {% for item in navColl.products %}
