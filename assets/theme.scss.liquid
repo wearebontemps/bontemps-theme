@@ -452,10 +452,10 @@ $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 {{ base_font | font_face }}
 
 {% if settings.type_bold_product_titles %}
-  {%- assign header_font_bold = header_font | font_modify: 'weight', 'normal' -%}
+  {%- assign header_font_bold = header_font | font_modify: 'weight', 'bold' -%}
 {% endif %}
 
-{%- assign base_font_bold = base_font | font_modify: 'weight', 'normal' -%}
+{%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
 {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
 {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
 
@@ -8613,53 +8613,54 @@ $toolbar-height-small: 46px;
     width: 101%;
     z-index: 10;
 }
-.has-bottom-curve{
-  padding: 80px 4em 140px !important;
-  &.large-pad{
-    padding: 10em 4em 15em !important;
-  }
-  position: relative;
-  @media screen only and (min-width: 700px){
-    padding-bottom: 200px !important;
-  }
-  @media screen only and (min-width: 700px){
-    padding-bottom: 60px  !important;
-  }
-  &.flow-header-wrap{
-    padding: 130px 4em 190px !important;
-  }
-}
-.has-top-curve{
-  padding: 40px 4em 80px !important;
-  position: relative;
-  overflow: hidden;
-  // @media screen and (min-width: 700px){
-  //   padding-top: 200px !important;
-  // }
-  @media screen and (min-width: 1250px){
-    padding-top: 65px !important;
-  }
-}
-.has-top-curve{
-  overflow: hidden;
-  #curvy-svg{
-    position: absolute;
-    top: -5px;
-    left: -1px;
-    right: -1px;
-    width: 101%;
-    transform: scale(1, -1);
-    z-index: 10;
-}
-}
-.has-both-curve{
-  overflow: hidden;
-  padding: 60px 4em 120px !important;
-  position: relative;
-  @media screen and (max-width: 576px){
-    padding: 40px 2em 100px !important;
-  }
-}
+// remvoed curve helpers
+// .has-bottom-curve{
+//   padding: 80px 4em 140px !important;
+//   &.large-pad{
+//     padding: 10em 4em 15em !important;
+//   }
+//   position: relative;
+//   @media screen only and (min-width: 700px){
+//     padding-bottom: 200px !important;
+//   }
+//   @media screen only and (min-width: 700px){
+//     padding-bottom: 60px  !important;
+//   }
+//   &.flow-header-wrap{
+//     padding: 130px 4em 190px !important;
+//   }
+// }
+// .has-top-curve{
+//   padding: 40px 4em 80px !important;
+//   position: relative;
+//   overflow: hidden;
+//   // @media screen and (min-width: 700px){
+//   //   padding-top: 200px !important;
+//   // }
+//   @media screen and (min-width: 1250px){
+//     padding-top: 65px !important;
+//   }
+// }
+// .has-top-curve{
+//   overflow: hidden;
+//   #curvy-svg{
+//     position: absolute;
+//     top: -5px;
+//     left: -1px;
+//     right: -1px;
+//     width: 101%;
+//     transform: scale(1, -1);
+//     z-index: 10;
+// }
+// }
+// .has-both-curve{
+//   overflow: hidden;
+//   padding: 60px 4em 120px !important;
+//   position: relative;
+//   @media screen and (max-width: 576px){
+//     padding: 40px 2em 100px !important;
+//   }
+// }
 .info-image {
   max-width: 70px;
   width: 100%;

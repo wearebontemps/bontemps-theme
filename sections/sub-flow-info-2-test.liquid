@@ -11,7 +11,7 @@
   </div>
 </div>
   {% assign bg_color = "bg-yellow" %}
-    {% include "curved-svg" %}
+    {% comment %}{% include "curved-svg" %}{% endcomment %}
 </div>
 <div class="section-inner has-bottom-curve small-show" style="background-image: url('{{ section.settings.image_mobile | img_url: '2000x2000' }}'); background-size: cover; background-repeat: no-repeat;">
 </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
   {% assign bg_color = "bg-yellow small-show" %}
-  {% include "curved-svg" %}
+  {% comment %}{% include "curved-svg" %}{% endcomment %}
 </div>
 {% schema %}
 {

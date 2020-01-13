@@ -72,9 +72,9 @@ Theme Store optional settings
           </div>
           {% include 'header-image-helper' %}
           {% assign bg_color = "bg-white small-hide" %}
-          {% include "curved-svg" %}
+          {% comment %}{% include "curved-svg" %}{% endcomment %}
           {% assign bg_color = "bg-yellow small-show" %}
-          {% include "curved-svg" %}
+          {% comment %}{% include "curved-svg" %}{% endcomment %}
         </div>
       {% endfor %}
     </div>
@@ -99,7 +99,7 @@ Theme Store optional settings
     </div>
     </div>
     {% assign bg_color = "bg-white small-show" %}
-    {% include "curved-svg" %}
+    {% comment %}{% include "curved-svg" %}{% endcomment %}
   </div>
   </div>
 {% endif %}

@@ -299,9 +299,9 @@
           "it": "Dimensione base del titolo",
           "es": "Tamaño base de título"
         },
-        "default": 26,
-        "min": 20,
-        "max": 36,
+        "default": 28,
+        "min": 18,
+        "max": 30,
         "step": 1,
         "unit": {
           "en": "px",
