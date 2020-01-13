@@ -2,7 +2,7 @@
 <div style="clear: both;" class="row d-flex contained">
         {% if section.settings.interval_header %}
         <div class="col-12">
-            <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_header}}</h1>
+            <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
             <p class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_subheader_pre_date}}</p>
         </div>
         {% endif %}
@@ -18,7 +18,7 @@
             </div>
           </div>
 
-          <div id="u-{{- block.settings.acc_title -}}" class="collapse" aria-labelledby="{{- block.settings.acc_title -}}" data-parent="#accordionExample">
+          <div id="u-{{- forloop.index0 -}}" class="collapse" aria-labelledby="{{- block.settings.acc_title -}}" data-parent="#accordionExample">
             <div class="card-body">
               <p>{{ block.settings.acc_content }}</p>
             </div>
@@ -39,7 +39,7 @@
 {% schema %}
 {
     "name": {
-        "en": "Brand Ethos"
+        "en": "Brand Accordions"
     },
     "settings": [
     {
