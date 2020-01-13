@@ -15,7 +15,8 @@
           <div class="dropdown-shop d-flex">
           {% capture navlist %}
             {% assign navColl = section.settings.collection %}
-            <ul class="dropdown-category-list">
+            <p>{{navColl.title}}</p>
+            <ul class="dropdown-category-list collection-list">
             {% for item in navColl.products %}
             <li class="dropdown-link"><a class="text-dark" href="{{ item.url }}">{{ item.title }}</a></li>
             {% endfor %}
