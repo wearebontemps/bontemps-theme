@@ -1957,16 +1957,17 @@ a[href^="tel"] {
   font-family: $font-stack-header;
   font-style: $font-style-header;
   font-weight: $font-weight-header;
-  //text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.32em;
   white-space: normal;
   font-size: $font-size-base - 2;
+  text-transform: uppercase;
 
   @include media-query($medium-up) {
     padding: $input-padding-top-bottom $input-padding-left-right;
   }
   @include media-query($small) {
     font-size: 13px;
+    font-weight: normal;
   }
   &:not([disabled]):hover,
   &:focus {
