@@ -1,0 +1,57 @@
+
+<div style=" background-color: {{ section.settings.section_bg }}" class="section-inner no-pad-top-small">
+<div class="row d-flex contained align-items-center accordion-row">
+    <div class="accordion-image  col-sm-6 order-sm-2 order-1">
+    {% for image in product.images %}
+      {% if forloop.rindex == 2 and product.images.size > 2 %}
+        <div class='d-flex flex-column align-items-center justify-content-center'>
+            <img class="lazyload"  data-src="{{ image | img_url: '500', scale: 1 }}"  style="width: 100%;"/>
+        </div>
+        {% break %}
+      {% else %}
+        <div class='d-flex flex-column align-items-center justify-content-center'>
+          <img class="lazyload"  data-src="{{ product.images.last | img_url: '500', scale: 1 }}"  style="width: 100%;"/>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+    <div class="col-sm-6 order-sm-1 order-2 contained">
+      <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
+      {% include 'product-accordion-upper' %}
+    </div>
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Product Accordions"
+    },
+    "settings": [
+    {
+        "type": "text",
+        "id": "section_header",
+        "label": "Section header",
+        "default": "More about this tea."
+        },
+        {
+        "type": "text",
+        "id": "interval_subheader_pre_date",
+        "label": "subheader"
+        },
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background"
+        },
+        {
+        "type": "color",
+        "id": "section_font",
+        "label": "Section Font Color"
+        }
+        ],
+        "presets": [
+        {
+        "name": "Product Accordion"        }
+    ]
+}
+{% endschema %}
