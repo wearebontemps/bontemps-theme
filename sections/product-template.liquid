@@ -71,7 +71,7 @@
           aria-live="polite"
           role="status"
         ></p>
-        <div class="un-small-hide">
+        <div class="product-description">
           {{ descriptionNoDesc }}
           {% include 'caffeine' %}
           <p class="sachet-count">
@@ -98,7 +98,24 @@
         <div class="rte small-hide" style="margin-top: 10px;">
           {% include 'product-accordion-upper' %}
         </div>
-
+        <div class="row">
+          <div class="col">
+            <img class="image img img-responsive"/>
+            <p>product icon</p>
+          </div>
+          <div class="col">
+            <img class="image img img-responsive"/>
+            <p>product icon</p>
+          </div>
+          <div class="col">
+            <img class="image img img-responsive"/>
+            <p>product icon</p>
+          </div>
+          <div class="col">
+            <img class="image img img-responsive"/>
+            <p>product icon</p>
+          </div>
+        </div>
 
         {% comment %}{% include "sample-helper" %}{% endcomment %}
         <div class="product-meta d-block d-sm-none">
@@ -221,7 +238,7 @@
             {% include 'product-price', variant: current_variant %}
           </div>
         {% comment %} <div class="d-block d-sm-none">{% include 'product-collnav' %}</div> {% endcomment %}
-        {% include 'product-slider' %}
+        {% include 'product-slider-basic' %}
         <noscript>
           {% capture product_image_size %}{{ height }}x{% endcapture %}
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">

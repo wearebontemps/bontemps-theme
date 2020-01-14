@@ -1,0 +1,70 @@
+{% if product.images.size > 1 %}
+  <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
+    <div class="carousel-inner">
+    {% for image in product.images %}
+    {% unless forloop.last %}
+      <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image">
+      {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_class %}product-featured-img{% endcapture %}
+          {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
+          {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
+          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
+          <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js product-page-image" style="height: 100%;">
+        <img id="{{ img_id }}"
+          class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+          data-src="{{ img_url }}"
+          data-aspectratio="{{ image.aspect_ratio }}"
+          data-sizes="auto"
+          tabindex="-1"
+          alt="{{ image.alt | escape }}">
+          </div>
+      </div>
+      {% endunless %}
+    {% endfor %}
+    <div class="product-carousel-control-box">
+      <ol class="product-carousel-indicators carousel-indicators">
+        {% for image in product.images %}
+        {% unless forloop.last %}
+          <li data-target="#product-image-carousel"
+          data-slide-to="{{ forloop.index0 }}"
+          class="{% if forloop.first %}active{% endif %} product-image-indicator" style="background-image: url('{{ image | img_url: '600x600' }}')">
+        </li>
+        {% endunless %}
+        {% endfor %}
+          <a class="carousel-control-prev" href="#product-image-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon product-slide-icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#product-image-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon product-slide-icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      </ol>
+    </div>
+
+   </div>
+  </div>
+  {% else %}
+  {% for image in product.images %}
+      {% unless forloop.last %}
+    {% capture wrapper_class %}
+      {%- unless featured_image == image -%}
+        hide
+      {%- endunless -%}
+    {% endcapture %}
+    {% include 'responsive-image' with
+      image: image,
+      max_width: 700,
+      max_height: 650,
+      image_attributes: "data-product-featured-image",
+      wrapper_class: wrapper_class,
+      wrapper_attributes: "data-product-image-wrapper",
+    %}
+    {% endunless %}
+  {% endfor %}
+  {% endif %}
+  {{ "bcSwipe.min.js" | asset_url | script_tag }}
+<script>
+$('.carousel').bcSwipe({ threshold: 30 });
+</script>
