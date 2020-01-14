@@ -73,7 +73,7 @@
         ></p>
         <div class="product-description">
           {{ descriptionNoDesc }}
-          <div class="inline-meta d-flex align-items-center">
+          <div class="inline-meta">
             <p>
             <span class="sachet-count">
               {% for tag in product.tags %}
@@ -83,7 +83,7 @@
               {% endif %}
               {% endfor %}
               servings
-            </span>
+            </span>&nbsp;/&nbsp;
             <span style="margin-bottom: 1.5em">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
@@ -96,26 +96,26 @@
             {% endif %}
             </span>
           </p>
-            {% include 'caffeine' %}
+          {% include 'caffeine' %}
           </div>
         </div>
 
         <div class="row product-ingredient-icons">
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>{{setting.icon-1-label}}</p>
+            <p>{{section.settings.icon-1-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>{{setting.icon-2-label}}</p>
+            <p>{{section.settings.icon-2-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>{{setting.icon-3-label}}</p>
+            <p>{{section.settings.icon-3-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>{{setting.icon-4-label}}</p>
+            <p>{{section.settings.icon-4-label}}</p>
           </div>
         </div>
 
@@ -240,9 +240,9 @@
 
     <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
-      <div class="product__price product__price-upper d-sm-none d-block">
-            {% include 'product-price', variant: current_variant %}
-          </div>
+        <div class="product__price product__price-upper d-sm-none d-block">
+          {% include 'product-price', variant: current_variant %}
+        </div>
         {% comment %} <div class="d-block d-sm-none">{% include 'product-collnav' %}</div> {% endcomment %}
         {% include 'product-slider-basic' %}
         <noscript>
