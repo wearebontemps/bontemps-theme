@@ -4208,6 +4208,21 @@ p.tagline{
 margin: 2em;
 }
 
+.homepage-icons-section {
+  img.interval-image-small {
+    margin: 0 0 20px;
+    @include media-query($small){
+      margin: 0 0 10px;
+    }
+  }
+  h5 {
+    font-size: 1.15em;
+    @include media-query($small){
+      font-size: 1em;
+    }
+  }
+}
+
 .product-single {
   // prevent scroll anchoring within element
   overflow-anchor: none;

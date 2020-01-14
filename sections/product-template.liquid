@@ -102,19 +102,19 @@
 
         <div class="row product-ingredient-icons">
           <div class="col-6 col-xs-3 text-center">
-            <img class="image img img-responsive" src="{{section.settings.icon1}}"/>
+            <img class="image img img-responsive" src="{{ section.settings.icon1 | img_url: '300x' }}" alt="{{ section.settings.icon-1-label }}" style="max-width: {{ section.settings.icon-1-height }}px;"/>
             <p>{{section.settings.icon-1-label}}</p>
           </div>
           <div class="col-6 col-xs-3 text-center">
-            <img class="image img img-responsive" src="{{section.settings.icon2}}"/>
+            <img class="image img img-responsive" src="{{section.settings.icon2 | img_url: '300x' }}" alt="{{ section.settings.icon-2-label }}" style="max-width: {{ section.settings.icon-2-height }}px;"/>
             <p>{{section.settings.icon-2-label}}</p>
           </div>
           <div class="col-6 col-xs-3 text-center">
-            <img class="image img img-responsive" src="{{section.settings.icon3}}"/>
+            <img class="image img img-responsive" src="{{section.settings.icon3 | img_url: '300x' }}" alt="{{ section.settings.icon-3-label }}" style="max-width: {{ section.settings.icon-3-height }}px;"/>
             <p>{{section.settings.icon-3-label}}</p>
           </div>
           <div class="col-6 col-xs-3 text-center">
-            <img class="image img img-responsive"src="{{section.settings.icon4}}"/>
+            <img class="image img img-responsive"src="{{section.settings.icon4 | img_url: '300x' }}" alt="{{ section.settings.icon-4-label }}" style="max-width: {{ section.settings.icon-4-height }}px;"/>
             <p>{{section.settings.icon-4-label}}</p>
           </div>
         </div>
@@ -390,6 +390,16 @@ $("#review-upper").click(function(e){
         "label": "icon 1"
       },
       {
+        "type": "range",
+        "id": "icon-1-height",
+        "min": 20,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "icon 1 height",
+        "default": 44
+      },
+      {
         "type": "text",
         "id": "icon-1-label",
         "label": "icon 1 label",
@@ -399,6 +409,16 @@ $("#review-upper").click(function(e){
         "type": "image_picker",
         "id": "icon2",
         "label": "icon 2"
+      },
+      {
+        "type": "range",
+        "id": "icon-2-height",
+        "min": 20,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "icon 2 height",
+        "default": 44
       },
       {
         "type": "text",
@@ -412,6 +432,16 @@ $("#review-upper").click(function(e){
         "label": "icon 3"
       },
       {
+        "type": "range",
+        "id": "icon-3-height",
+        "min": 20,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "icon 3 height",
+        "default": 44
+      },
+      {
         "type": "text",
         "id": "icon-3-label",
         "label": "icon 3 label",
@@ -421,6 +451,16 @@ $("#review-upper").click(function(e){
         "type": "image_picker",
         "id": "icon4",
         "label": "icon 4"
+      },
+      {
+        "type": "range",
+        "id": "icon-4-height",
+        "min": 20,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "icon 4 height",
+        "default": 44
       },
       {
         "type": "text",

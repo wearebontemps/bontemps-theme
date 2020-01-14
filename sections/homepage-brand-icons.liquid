@@ -6,7 +6,7 @@
         {% for block in section.blocks %}
         {% if block.type == 'left' %}
             <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
-                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
+                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}" style="max-width: {{ block.settings.image-height }}px;">
             </div>
         {% endif %}
         {% endfor %}
@@ -18,7 +18,7 @@
         {% for block in section.blocks %}
         {% if block.type == 'right' %}
             <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
-                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
+                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}" style="max-width: {{ block.settings.image-height }}px;">
             </div>
         {% endif %}
         {% endfor %}
@@ -63,6 +63,16 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Icon"
+                },
+                {
+                  "type": "range",
+                  "id": "image-height",
+                  "min": 20,
+                  "max": 140,
+                  "step": 2,
+                  "unit": "px",
+                  "label": "icon height",
+                  "default": 50
                 }
             ]
             },
@@ -75,7 +85,17 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Icon"
-                }
+              },
+              {
+                "type": "range",
+                "id": "image-height",
+                "min": 20,
+                "max": 140,
+                "step": 2,
+                "unit": "px",
+                "label": "icon height",
+                "default": 50
+              }
             ]
             }
         ],
