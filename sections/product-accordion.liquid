@@ -4,14 +4,7 @@
     <div class="accordion-image  col-sm-6 order-sm-2 order-1">
     {% for image in product.images %}
       {% if forloop.rindex == 2 and product.images.size > 2 %}
-        <div class='d-flex flex-column align-items-center justify-content-center'>
-            <img class="lazyload"  data-src="{{ image | img_url: '500', scale: 1 }}"  style="width: 100%;"/>
-        </div>
-        {% break %}
-      {% else %}
-        <div class='d-flex flex-column align-items-center justify-content-center'>
-          <img class="lazyload"  data-src="{{ product.images.last | img_url: '500', scale: 1 }}"  style="width: 100%;"/>
-        </div>
+        <img class="lazyload"  data-src="{{ image | img_url: '500', scale: 1 }}"  style="width: 100%;"/>
       {% endif %}
     {% endfor %}
     </div>
