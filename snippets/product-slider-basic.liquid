@@ -25,12 +25,14 @@
     <div class="product-carousel-control-box">
       <ol class="product-carousel-indicators carousel-indicators">
         {% for image in product.images %}
-        <li data-target="#product-image-carousel"
+        {% unless forloop.last %}
+         <li data-target="#product-image-carousel"
           data-slide-to="{{ forloop.index0 }}"
           class="{% if forloop.first %}active{% endif %} product-image-indicator">
         </li>
+        {% endunless %}
         {% endfor %}
-      <a class="carousel-control-prev" href="#product-image-carousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#product-image-carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon product-slide-icon-prev" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
