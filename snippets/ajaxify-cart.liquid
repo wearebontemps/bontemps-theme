@@ -55,7 +55,7 @@ Shopify.AjaxifyCart = (function($) {
                 '<div class="row" style="width:100%;">'+
                 '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
                 '<p>'+ item.title +'</span></p>'+
-                '<input disabled style="width: 100%;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
+                '<input disabled style="width: 100%; background:transparent !important;border: none;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
                 'id="updates_'+ item.key + '"'+
                 'value="' + item.quantity + '" min="0"/></div>'+
                 '<div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
