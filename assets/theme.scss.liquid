@@ -8904,6 +8904,12 @@ select.rc_select{
 .homepage-accordion-section {
   @media screen and (max-width: 576px){
     padding-top: 0 !important;
+    .accordion-image {
+      padding: 0 !important;
+    }
+    .accordion-content {
+      margin: 2em 1em 0;
+    }
   }
 }
 
@@ -8921,7 +8927,7 @@ select.rc_select{
       }
   }
 }
-.accordion-image, .accordion-row{
+.accordion-row{
   @include media-query($small){
     padding: 0 !important;
   }
