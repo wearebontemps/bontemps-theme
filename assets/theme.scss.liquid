@@ -2034,6 +2034,19 @@ a[href^="tel"] {
   }
 }
 
+.btn-outline .btn-transparent {
+  background-color: transparent;
+  color: #0e0e37;
+  border: 1px solid #0e0e37;
+  border-color: #0e0e37;
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    color: $color-btn-primary-focus;
+    border-color: $color-btn-primary-focus;
+  }
+}
+
 .btn--small, .rc_button, .rc_subscriptions__items__cancel, .rc_subscriptions__subscription__item__edit, .rc_subscriptions__subscription__item__cancel {
   padding: 8px 10px;
   font-size: em(12);
@@ -8894,6 +8907,13 @@ select.rc_select{
     border-top: none;
     border-bottom: 1px solid $color-text;
     background: transparent;
+  }
+  .card-header {
+      button.btn-link {
+        text-transform: capitalize !important;
+        font-weight: bold;
+        &:hover {color: inherit;}
+      }
   }
 }
 .accordion-image, .accordion-row{

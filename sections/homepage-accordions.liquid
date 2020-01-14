@@ -7,7 +7,7 @@
     <div class="col-sm-6 order-sm-1 order-2 contained">
     {% if section.settings.section_header%}
         <div class="col-12">
-            <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
+            <h2 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h2>
             <p class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.interval_subheader_pre_date}}</p>
         </div>
         {% endif %}
