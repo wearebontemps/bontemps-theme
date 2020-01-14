@@ -5,15 +5,19 @@
         <div class="row" >
             <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.text_1 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</h4>{% endif %}
             </div>
             <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.text_2 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</h4>{% endif %}
             </div>
             <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.text_3 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</h4>{% endif %}
             </div>
             <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_4 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.text_4 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_4 }}</h4>{% endif %}
             </div>
         </div>
     </div>
@@ -29,7 +33,7 @@
 {% schema %}
 {
     "name": {
-        "en": "Brand Ethos"
+        "en": "Homepage Icons"
     },
     "settings": [
         {
@@ -38,9 +42,19 @@
         "label": "Icon 1"
         },
         {
+        "type": "text",
+        "id": "text_1",
+        "label": "Text 1"
+        },
+        {
         "type": "image_picker",
         "id": "interval_img_2",
         "label": "Icon 2"
+        },
+        {
+        "type": "text",
+        "id": "text_2",
+        "label": "Text 2"
         },
         {
         "type": "image_picker",
@@ -48,9 +62,19 @@
         "label": "Icon 3"
         },
         {
+        "type": "text",
+        "id": "text_3",
+        "label": "Text 3"
+        },
+        {
         "type": "image_picker",
         "id": "interval_img_4",
         "label": "Icon 4"
+        },
+        {
+        "type": "text",
+        "id": "text_4",
+        "label": "Text 4"
         },
         {
         "type": "color",
