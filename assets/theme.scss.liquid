@@ -2074,6 +2074,18 @@ a[href^="tel"] {
   }
 }
 
+.btn-outline, .btn-transparent {
+  background-color: transparent;
+  color: #0e0e37;
+  border: 1px solid #0e0e37;
+  border-color: #0e0e37;
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    color: $color-btn-primary-focus;
+    border-color: $color-btn-primary-focus;
+  }
+}
 .btn--link {
   background-color: transparent;
   border: 0;
@@ -8889,11 +8901,24 @@ select.rc_select{
     padding-top: 0;
   }
 }
+.homepage-accordion-section {
+  @media screen and (max-width: 576px){
+    padding-top: 0 !important;
+  }
+}
+
 .accordion-home{
   .card{
     border-top: none;
     border-bottom: 1px solid $color-text;
     background: transparent;
+  }
+  .card-header {
+      button.btn-link {
+        text-transform: capitalize !important;
+        font-weight: bold;
+        &:hover {color: inherit;}
+      }
   }
 }
 .accordion-image, .accordion-row{
