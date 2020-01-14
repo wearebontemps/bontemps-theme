@@ -102,19 +102,19 @@
 
         <div class="row product-ingredient-icons">
           <div class="col">
-            <img class="image img img-responsive"/>
+            <img class="image img img-responsive" src="{{section.settings.icon1}}"/>
             <p>{{section.settings.icon-1-label}}</p>
           </div>
           <div class="col">
-            <img class="image img img-responsive"/>
+            <img class="image img img-responsive" src="{{section.settings.icon2}}"/>
             <p>{{section.settings.icon-2-label}}</p>
           </div>
           <div class="col">
-            <img class="image img img-responsive"/>
+            <img class="image img img-responsive" src="{{section.settings.icon3}}"/>
             <p>{{section.settings.icon-3-label}}</p>
           </div>
           <div class="col">
-            <img class="image img img-responsive"/>
+            <img class="image img img-responsive"src="{{section.settings.icon4}}"/>
             <p>{{section.settings.icon-4-label}}</p>
           </div>
         </div>
@@ -385,10 +385,20 @@ $("#review-upper").click(function(e){
         "default": "<p><sup>**</sup> Satisfaction Guaranteed</p>"
       },
       {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "icon 1"
+      },
+      {
         "type": "text",
         "id": "icon-1-label",
         "label": "icon 1 label",
         "default": "<p>Icon One</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon2",
+        "label": "icon 2"
       },
       {
         "type": "text",
@@ -397,10 +407,20 @@ $("#review-upper").click(function(e){
         "default": "<p>Icon Two</p>"
       },
       {
+        "type": "image_picker",
+        "id": "icon3",
+        "label": "icon 3"
+      },
+      {
         "type": "text",
         "id": "icon-3-label",
         "label": "icon 3 label",
         "default": "<p>Icon Three</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon4",
+        "label": "icon 4"
       },
       {
         "type": "text",
