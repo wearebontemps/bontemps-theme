@@ -73,27 +73,31 @@
         ></p>
         <div class="product-description">
           {{ descriptionNoDesc }}
-          {% include 'caffeine' %} hello dots
-          <p class="sachet-count">
+          <div class="inline-meta d-flex align-items-center">
+            <span>
+            <p class="sachet-count">
+              {% for tag in product.tags %}
+              {% if tag contains 'sachets' %}
+              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+              {% for word in tag_mod %}{{ word }} {% endfor %}
+              {% endif %}
+              {% endfor %}
+              servings
+            </p>
+            <p style="margin-bottom: 1.5em">
             {% for tag in product.tags %}
-            {% if tag contains 'sachets' %}
-            {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-            {% for word in tag_mod %}{{ word }} {% endfor %}
+            {% if tag contains 'serving' %}
+            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
+            {% for word in tag_serving %}{{ word }} {% endfor %}
             {% endif %}
             {% endfor %}
-            servings
-          </p>
-          <p style="margin-bottom: 1.5em">
-          {% for tag in product.tags %}
-          {% if tag contains 'serving' %}
-          {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
-          {% for word in tag_serving %}{{ word }} {% endfor %}
-          {% endif %}
-          {% endfor %}
-          {% if tag_serving.size > 0 %}
-          per cup
-          {% endif %}
-          </p>
+            {% if tag_serving.size > 0 %}
+            per cup
+            {% endif %}
+            </p>
+            </span>
+            {% include 'caffeine' %}
+          </div>
         </div>
         <div class="rte small-hide" style="margin-top: 10px;">
           {% include 'product-accordion-upper' %}
