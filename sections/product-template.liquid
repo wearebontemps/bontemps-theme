@@ -99,9 +99,7 @@
             {% include 'caffeine' %}
           </div>
         </div>
-        <div class="rte small-hide" style="margin-top: 10px;">
-          {% include 'product-accordion-upper' %}
-        </div>
+
         <div class="row product-ingredient-icons">
           <div class="col">
             <img class="image img img-responsive"/>
@@ -119,6 +117,10 @@
             <img class="image img img-responsive"/>
             <p>product icon</p>
           </div>
+        </div>
+
+        <div class="rte small-hide" style="margin-top: 10px;">
+          {% include 'product-accordion-upper' %}
         </div>
 
         {% comment %}{% include "sample-helper" %}{% endcomment %}
@@ -248,45 +250,6 @@
           <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
         </noscript>
         <div class="product-meta d-none d-sm-block">
-          <div class="variant-details">
-          {% include 'caffeine' %}
-          <div class="">
-            <p class="sachet-count">
-              {% for tag in product.tags %}
-              {% if tag contains 'sachets' %}
-              {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
-              {% for word in tag_mod %}{{ word }} {% endfor %}
-              {% endif %}
-              {% endfor %}
-              servings
-            </p>
-            <p>
-            {% for tag in product.tags %}
-            {% if tag contains 'serving' %}
-            {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
-            {% for word in tag_serving %}{{ word }} {% endfor %}
-            {% endif %}
-            {% endfor %}
-            {% if tag_serving.size > 0 %}
-            per cup
-            {% endif %}
-            </p>
-            </div>
-          </div>
-          <div class="product__price">
-            {% include 'product-price', variant: current_variant %}
-          </div>
-
-          {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-            <div class="product__policies rte">
-              {%- if shop.taxes_included -%}
-                {{ 'products.product.include_taxes' | t }}
-              {%- endif -%}
-              {%- if shop.shipping_policy.body != blank -%}
-                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-              {%- endif -%}
-            </div>
-          {%- endif -%}
 
           {% if section.settings.show_quantity_selector %}
             <div id="error-quantity-{{ section.id }}" class="form-message form-message--error product__quantity-error hide" tabindex="-1">
@@ -300,7 +263,7 @@
           {% capture product_id %}
           {{ product.id }}
           {% endcapture %}
-  {% comment %} Mobile cart form {% endcomment %}
+          {% comment %} Mobile cart form {% endcomment %}
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-productid: product.id %}
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
             {% unless product.has_only_default_variant %}
@@ -351,7 +314,23 @@
                 {{ form | payment_button }}
               {% endif %}
             </div>
-            <div class="text-center small" style="width: 100%; padding: 3px 0 7px">{{ section.settings.subtext }}</div>
+
+          <div class="product__price">
+            remove price {% include 'product-price', variant: current_variant %}
+          </div>
+
+          {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product__policies rte">
+              {%- if shop.taxes_included -%}
+                {{ 'products.product.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="text-center small" style="width: 100%; padding: 3px 0 7px">{{ section.settings.subtext }}</div>
           {% endform %}
         </div>
       </div>
