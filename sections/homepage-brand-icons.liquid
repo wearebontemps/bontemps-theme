@@ -1,23 +1,23 @@
 <div style="background-color: {{ section.settings.section_bg }}" class="section-inner">
 <div style="clear: both;" class="row d-flex contained">
-    <div class="col-6">
+    <div class="col-6 text-center">
+    <h4 style="color: {{section.settings.font-color}}" >{{ section.settings.text-left }}</h4>
         <div class="row" >
-        <h4 style="color: {{section.settings.font-color}}" >{{ section.settings.text-left }}</h4>
         {% for block in section.blocks %}
         {% if block.type == 'left' %}
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
+            <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
             </div>
         {% endif %}
         {% endfor %}
         </div>
     </div>
-    <div class="col-6">
-        <div class="row" >
+    <div class="col-6 text-center">
         <h4 style="color: {{section.settings.font-color}}" >{{ section.settings.text-right }}</h4>
+        <div class="row" >
         {% for block in section.blocks %}
         {% if block.type == 'right' %}
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
+            <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
             </div>
         {% endif %}
