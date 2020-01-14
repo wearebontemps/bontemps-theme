@@ -4,7 +4,9 @@
 {% layout 'theme' %}
 {% section 'header-products' %}
 {% section 'product-template' %}
-<p>pseduo-section accordions here</p>
+{% if product.description contains "<!--collapse-titles-->" %}
+{% section 'product-accordion' %}
+{% endif %}
 {% section 'product-differentiation-home' %}
 {% section 'section-break' %}
 {% section 'related-products' %}

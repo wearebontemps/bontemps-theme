@@ -1,0 +1,68 @@
+
+<div style=" background-color: {{ section.settings.section_bg }}" class="section-inner no-pad-top-small">
+<div class="row d-flex contained align-items-center accordion-row">
+    <div class="accordion-image  col-sm-6 order-sm-2 order-1">
+      <img style="width: 100%;" class="small-hide" src="{{ section.settings.image | img_url: '800x' }}"/>
+      <img style="width: 100%;" class="small-show" src="{{ section.settings.image_mobile | img_url: '800x' }}"/>
+    </div>
+    <div class="col-sm-6 order-sm-1 order-2 contained">
+      <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
+      {% include 'product-accordion-upper' %}
+    </div>
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Product Accordions"
+    },
+    "settings": [
+    {
+        "type": "text",
+        "id": "section_header",
+        "label": "Section header",
+        "default": "More about this tea."
+        },
+        {
+        "type": "text",
+        "id": "interval_subheader_pre_date",
+        "label": "subheader"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background"
+        },
+        {
+        "type": "color",
+        "id": "section_font",
+        "label": "Section Font Color"
+        },
+        {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text",
+        "default": "Shop Safe"
+        },
+        {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Button Link"
+        }
+        ],
+        "presets": [
+        {
+        "name": "Product Accordion"        }
+    ]
+}
+{% endschema %}
