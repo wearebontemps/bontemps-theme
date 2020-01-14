@@ -7326,8 +7326,7 @@ $toolbar-height-small: 46px;
   margin: -30px 0 20px;
   .yotpo-stars {
     .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
-      font-size: 20px !important;
-      // color: #0E0E37 !important;
+      font-size: 15px !important;
     }
   }
   .text-m.write-review-btn-hidden {
@@ -7338,7 +7337,10 @@ $toolbar-height-small: 46px;
   &.pull-left{
     float: unset !important;
     text-align: unset !important;
-    justify-content: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 .productYotpo{
@@ -7388,7 +7390,7 @@ $toolbar-height-small: 46px;
 }
 .yotpo {
   .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
-    font-size: 40px !important;
+    font-size: 36px !important;
     // color: #0E0E37 !important;
   }
   span.yotpo-stars {
@@ -8445,13 +8447,13 @@ $toolbar-height-small: 46px;
     color: white;
   }
   .price-item {
-    position: absolute;
-    top: calc(-9em + 45px);
-    left: 0;
-    background: white;
-    padding: 5px 10px;
-    min-width: 66px;
-    color: #0E0E37;
+    //position: absolute;
+    //top: calc(-9em + 45px);
+    //left: 0;
+    //background: white;
+    //padding: 5px 10px;
+    //min-width: 66px;
+    //color: #0E0E37;
     font-weight: bold;
   }
   .product-single__meta {
