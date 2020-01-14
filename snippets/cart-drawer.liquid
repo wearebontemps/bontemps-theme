@@ -2,7 +2,7 @@
 <div class="cart-drawer-closer"></div>
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
     <div style="position: relative;" class="cart-header text-center d-flex align-items-end">
-      <h1>{{ 'cart.general.title' | t }}</h1>
+      <h1 style="line-height: line-height: 35px;">{{ 'cart.general.title' | t }}</h1>
       <h4 style="margin-left: .75em;">{{ cart.item_count}} items | Free Returns</h4>
       <a style="position: absolute;right:0; bottom: 12px;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     </div>
@@ -13,7 +13,7 @@
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="d-flex justify-content-between">
               <span class="cart__subtotal-title">Have a discount code?</span>
-              <span class="cart__subtotal">Enter it at Checkout</span>
+              <span class="">Enter it at Checkout</span>
             </div>
             <div class="d-flex justify-content-between">
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
