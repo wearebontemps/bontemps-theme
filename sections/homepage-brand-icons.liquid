@@ -1,0 +1,89 @@
+<div style="background-color: {{ section.settings.section_bg }}" class="section-inner">
+<div style="clear: both;" class="row d-flex contained">
+    <div class="col-6 text-center">
+    <h4 style="color: {{section.settings.font-color}}" >{{ section.settings.text-left }}</h4>
+        <div class="row" >
+        {% for block in section.blocks %}
+        {% if block.type == 'left' %}
+            <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
+                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+    <div class="col-6 text-center">
+        <h4 style="color: {{section.settings.font-color}}" >{{ section.settings.text-right }}</h4>
+        <div class="row" >
+        {% for block in section.blocks %}
+        {% if block.type == 'right' %}
+            <div class="col-6 d-flex flex-column align-items-center justify-content-start text-center" style="">
+                <img class="interval-image-small" src="{{ block.settings.image | img_url: '300x300' }}">
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Brand Icons"
+    },
+    "settings": [
+        {
+        "type": "text",
+        "id": "text-left",
+        "label": "Left Header"
+        },
+        {
+        "type": "text",
+        "id": "text-right",
+        "label": "Right Header"
+        },
+        {
+        "type": "color",
+        "id": "font-color",
+        "label": "Font Color"
+        },
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Color"
+        }
+        ],
+        "blocks": [
+            {
+            "type": "left",
+            "name": "Left Icons",
+            "limit": 4,
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Icon"
+                }
+            ]
+            },
+            {
+            "type": "right",
+            "name": "Right Icons",
+            "limit": 4,
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Icon"
+                }
+            ]
+            }
+        ],
+        "presets": [
+        {
+        "name": "Homepage Brand Icons",
+        "category": "Homepage"
+        }
+    ]
+}
+{% endschema %}

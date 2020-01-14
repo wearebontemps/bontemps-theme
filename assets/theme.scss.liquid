@@ -1112,6 +1112,13 @@ html {
       padding: 3em 0;
     }
   }
+  .section-inner-small{
+    padding: 2.5em 3em;
+    min-height: unset;
+    @include media-query($medium-down) {
+      padding: 2em 0;
+    }
+  }
   p.subtitle {
     margin-bottom: 50px;
     &:first-of-type {
@@ -8311,7 +8318,6 @@ $toolbar-height-small: 46px;
   display: none !important;
 }
 .instagram-image{
-  padding: 0 15px !important;
   position: relative;
   align-self: center;
 }
@@ -8868,5 +8874,10 @@ select.rc_select{
   .card{
     border-top: none;
     border-bottom: 1px solid $color-text;
+  }
+}
+.accordion-image, .accordion-row{
+  @include media-query($small){
+    padding: 0 !important;
   }
 }

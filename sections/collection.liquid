@@ -2,6 +2,14 @@
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
+      {% if section.settings.subtitle != blank %}<h5>{{ section.settings.subtitle | escape }}</h5>{% endif %}
+        {% if section.settings.show_view_all %}
+    <hr class="hr--invisible" aria-hidden="true" />
+    <div class="text-center">
+      <a href="{{ section.settings.page_link.url }}" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">{{ section.settings.cta_text }}</a>
+
+    </div>
+  {% endif %}
     </div>
   {% endif %}
 
@@ -49,16 +57,7 @@
     {% endfor %}
   </ul>
 
-  {% if section.settings.show_view_all %}
-    <hr class="hr--invisible" aria-hidden="true" />
-    <div class="text-center">
-      <!-- <a href="{{ collection.url }}" class="btn btn--secondary" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-        {{ 'collections.general.view_all' | t }}
-      </a> -->
-      <a href="/collections/{{ section.settings.page_link }}" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">{{ section.settings.cta_text }}</a>
 
-    </div>
-  {% endif %}
 
 </div>
 
@@ -94,6 +93,19 @@
           "ja": "特集コレクション",
           "es": "Colección destacada",
           "pt-BR": "Coleção em destaque"
+        }
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": {
+          "en": "Sub-Heading",
+          "de": "Titel",
+          "fr": "En-tête",
+          "it": "Heading",
+          "ja": "見出し",
+          "es": "Título",
+          "pt-BR": "Título"
         }
       },
       {
@@ -186,7 +198,7 @@
     "presets": [
       {
         "name": {
-          "en": "Featured collection",
+          "en": "Featured collection Homepage",
           "de": "Featured Kategorie",
           "fr": "Collection vedette",
           "it": "Collezione in evidenza",

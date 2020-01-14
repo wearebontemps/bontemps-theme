@@ -1,26 +1,23 @@
-<div style="background-color: {{ section.settings.section_bg }}" class="section-inner">
+<div style="background-color: {{ section.settings.section_bg }}" class="section-inner-small">
 <div style="clear: both;" class="row d-flex contained">
+
         <div class="col-12">
         <div class="row" >
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_1 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_1}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_1 %}<p id="" class="value-subcopy"{% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_1}}</p>{% endif %}
+                {% if section.settings.text_1 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</h4>{% endif %}
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-small" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_2 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_2}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_2 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_2}}</p>{% endif %}
+                {% if section.settings.text_2 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</h4>{% endif %}
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_3 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_3}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_3 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
+                {% if section.settings.text_3 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</h4>{% endif %}
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="padding-top: 1.5em;">
+            <div class="col-3 d-flex flex-column align-items-center justify-content-start text-center" style="">
                 {% if section.settings.interval_img_4 %}<img class="interval-image-small" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                {% if section.settings.interval_copy_4 %}<p id="" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% else %}style="margin-top: 0; margin-bottom: 0;" {% endif %}><strong>{{section.settings.interval_copy_3}}</strong></p>{% endif %}
-                {% if section.settings.interval_subcopy_4 %}<p id="" class="value-subcopy" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important;margin-top: 0;"{% endif %}>{{section.settings.interval_subcopy_3}}</p>{% endif %}
+                {% if section.settings.text_4 %}<h4 style="color: {{section.settings.section_font}}">{{ section.settings.text_4 }}</h4>{% endif %}
             </div>
         </div>
     </div>
@@ -36,7 +33,7 @@
 {% schema %}
 {
     "name": {
-        "en": "Brand Ethos"
+        "en": "Homepage Icons"
     },
     "settings": [
         {
@@ -46,15 +43,8 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_1",
-        "label": "copy 1(under illustration)",
-        "default": "Safe Ingredients"
-        },
-        {
-        "type": "textarea",
-        "id": "interval_subcopy_1",
-        "label": "subcopy 1",
-        "default": "<p>We use fresh, organic ingredients and corn-fiber tea bags to avoid pesticides, bleaches, artificial flavors and GMOs, while boosting flavor and antioxidants.</p>"
+        "id": "text_1",
+        "label": "Text 1"
         },
         {
         "type": "image_picker",
@@ -63,15 +53,8 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_2",
-        "label": "copy 2(under illustration)",
-        "default": "Sustainable Practices"
-        },
-        {
-        "type": "textarea",
-        "id": "interval_subcopy_2",
-        "label": "subcopy 2",
-        "default": "<p>Ethically-sourced ingredients from pesticide-free family farms and 100% biodegradable corn-fiber tea bags to keep you and the Earth happy.</p>"
+        "id": "text_2",
+        "label": "Text 2"
         },
         {
         "type": "image_picker",
@@ -80,15 +63,8 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_3",
-        "label": "copy 3(under illustration)",
-        "default": "Empowering Women"
-        },
-        {
-        "type": "textarea",
-        "id": "interval_subcopy_3",
-        "label": "subcopy 3",
-        "default": "<p>By purchasing our tea, you’re directly investing in female pursuits. We offer $1,000 grants throughout the year, help us choose winners on Instagram.</p>"
+        "id": "text_3",
+        "label": "Text 3"
         },
         {
         "type": "image_picker",
@@ -97,15 +73,8 @@
         },
         {
         "type": "text",
-        "id": "interval_copy_4",
-        "label": "copy 4(under illustration)",
-        "default": "Empowering Women"
-        },
-        {
-        "type": "textarea",
-        "id": "interval_subcopy_4",
-        "label": "subcopy 4",
-        "default": "<p>By purchasing our tea, you’re directly investing in female pursuits. We offer $1,000 grants throughout the year, help us choose winners on Instagram.</p>"
+        "id": "text_4",
+        "label": "Text 4"
         },
         {
         "type": "color",
