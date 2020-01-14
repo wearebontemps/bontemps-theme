@@ -547,6 +547,11 @@ summary {
   min-height: unset !important;
   padding-bottom: 0 !important;
 }
+.section-inner.no-pad-top-small{
+  @include media-query($small){
+    padding: 0 0 3em;
+  }
+}
 body,
 input,
 textarea,
