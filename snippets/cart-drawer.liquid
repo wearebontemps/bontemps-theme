@@ -1,7 +1,7 @@
 <div class="cart-drawer-wrapper">
 <div class="cart-drawer-closer"></div>
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
-<a style="float:right;" href="#" id="close_drawer"><span>X</span></a>
+<a style="float:right;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     <div class="section-header text-center">
       <h1>{{ 'cart.general.title' | t }}</h1>
     </div>
@@ -87,9 +87,9 @@ $('.cart-drawer-closer').click(function(e){
 	rjQuery = jQuery.noConflict( true );
     var subscription_active='{{shop.metafields.subscriptions.subscription_active}}'
     function get_cookie(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
-    if (get_cookie('recharge')=='true' || subscription_active=='true') { 
+    if (get_cookie('recharge')=='true' || subscription_active=='true') {
         rjQuery('body').on('click','form[action="/checkout"] input[type="submit"], #ajaxifyCart [name="checkout"], #AjaxifyCart [name="checkout"], #shoppingBagInner [name="checkout"]', function(e){
-            e.preventDefault(); 
+            e.preventDefault();
             window.location.href = '/cart';
         })
         rjQuery('.additional-checkout-buttons').hide()
