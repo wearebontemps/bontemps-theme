@@ -74,8 +74,8 @@
         <div class="product-description">
           {{ descriptionNoDesc }}
           <div class="inline-meta d-flex align-items-center">
-            <span>
-            <p class="sachet-count">
+            <p>
+            <span class="sachet-count">
               {% for tag in product.tags %}
               {% if tag contains 'sachets' %}
               {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
@@ -83,8 +83,8 @@
               {% endif %}
               {% endfor %}
               servings
-            </p>
-            <p style="margin-bottom: 1.5em">
+            </span>
+            <span style="margin-bottom: 1.5em">
             {% for tag in product.tags %}
             {% if tag contains 'serving' %}
             {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
@@ -94,8 +94,8 @@
             {% if tag_serving.size > 0 %}
             per cup
             {% endif %}
-            </p>
             </span>
+          </p>
             {% include 'caffeine' %}
           </div>
         </div>
