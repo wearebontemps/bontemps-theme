@@ -95,12 +95,12 @@
           {% endif %}
           </p>
         </div>
-        <div class="rte un-small-hide" style="margin-top: 10px;">
+        <div class="rte small-hide" style="margin-top: 10px;">
           {% include 'product-accordion-upper' %}
         </div>
 
 
-        {% include "sample-helper" %}
+        {% comment %}{% include "sample-helper" %}{% endcomment %}
         <div class="product-meta d-block d-sm-none">
 
           <div class="product__price">
@@ -184,7 +184,7 @@
                 {% endif %}
               {% endfor %}
             </select>
-          <div class="variant-details" style="margin-top:-1em;">
+          <div class="variant-details small-hide lower" style="margin-top:-1em;">
             <p>{{ descriptionNoDesc }}</p>
             {% include 'caffeine' %}
             <p class="sachet-count">
@@ -208,9 +208,9 @@
             {% endif %}
             </p>
           </div>
-            <div class="rte small-show" style="width: 100%">
-              {% include 'product-accordion-lower' %}
-            </div>
+          <div class="rte small-show" style="width: 100%">
+            {% include 'product-accordion-lower' %}
+          </div>
           {% endform %}
         </div>
     </div>
