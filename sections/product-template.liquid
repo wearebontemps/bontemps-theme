@@ -52,7 +52,7 @@
           {% endif %}
           {% endfor %}
         </p> {% endcomment %}
-        <h1 class="product-single__title">{{ product.title }}</h1>
+        <h1 class="product-single__title">{{ product.title }} -{% include 'product-price', variant: current_variant %}</h1>
         {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
       </div>
       {% if product.url contains "sample" %}
@@ -71,18 +71,38 @@
           aria-live="polite"
           role="status"
         ></p>
-         <div class="small-hide">
-            {{ descriptionNoDesc }}
-          </div>
-        <div class="rte small-hide" style="margin-top: 10px;">
-          {% comment %} {{ descriptionNoDesc }} {% endcomment %}
+        <div class="small-show">
+          {{ descriptionNoDesc }}
+          {% include 'caffeine' %}
+          <p class="sachet-count">
+            {% for tag in product.tags %}
+            {% if tag contains 'sachets' %}
+            {% assign tag_mod = tag | handle | remove: 'sachets-' | split: '-' %}
+            {% for word in tag_mod %}{{ word }} {% endfor %}
+            {% endif %}
+            {% endfor %}
+            servings
+          </p>
+          <p style="margin-bottom: 1.5em">
+          {% for tag in product.tags %}
+          {% if tag contains 'serving' %}
+          {% assign tag_serving = tag | handle | remove: 'serving-' | remove: 'cost-' | split: '-' %}
+          {% for word in tag_serving %}{{ word }} {% endfor %}
+          {% endif %}
+          {% endfor %}
+          {% if tag_serving.size > 0 %}
+          per cup
+          {% endif %}
+          </p>
+        </disv>
+        <div class="rte small-show" style="margin-top: 10px;">
           {% include 'product-accordion-upper' %}
         </div>
 
-            
+
         {% include "sample-helper" %}
         <div class="product-meta d-block d-sm-none">
-          
+
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
           </div>
@@ -136,7 +156,7 @@
               {% endif %}
             </div>
           {% if product.available %}{% include 'subscription-product' %}{% endif %}
-          
+
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item "  style="visibility: hidden; height: 0;display:none;">
@@ -164,9 +184,9 @@
                 {% endif %}
               {% endfor %}
             </select>
-            <div class="variant-details" style="margin-top:-1em;">
+          <div class="variant-details" style="margin-top:-1em;">
             <p>{{ descriptionNoDesc }}</p>
-          {% include 'caffeine' %}
+            {% include 'caffeine' %}
             <p class="sachet-count">
               {% for tag in product.tags %}
               {% if tag contains 'sachets' %}
