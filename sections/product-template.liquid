@@ -103,19 +103,19 @@
         <div class="row product-ingredient-icons">
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>product icon</p>
+            <p>{{setting.icon-1-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>product icon</p>
+            <p>{{setting.icon-2-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>product icon</p>
+            <p>{{setting.icon-3-label}}</p>
           </div>
           <div class="col">
             <img class="image img img-responsive"/>
-            <p>product icon</p>
+            <p>{{setting.icon-4-label}}</p>
           </div>
         </div>
 
@@ -316,7 +316,7 @@
             </div>
 
           <div class="product__price">
-            remove price {% include 'product-price', variant: current_variant %}
+            {% include 'product-price', variant: current_variant %}
           </div>
 
           {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -381,8 +381,32 @@ $("#review-upper").click(function(e){
       {
         "type": "html",
         "id": "subtext",
-        "label": "Gaurantee subtext",
+        "label": "Guarantee subtext",
         "default": "<p><sup>**</sup> Satisfaction Guaranteed</p>"
+      },
+      {
+        "type": "text",
+        "id": "icon-1-label",
+        "label": "icon 1 label",
+        "default": "<p>Icon One</p>"
+      },
+      {
+        "type": "text",
+        "id": "icon-2-label",
+        "label": "icon 2 label",
+        "default": "<p>Icon Two</p>"
+      },
+      {
+        "type": "text",
+        "id": "icon-3-label",
+        "label": "icon 3 label",
+        "default": "<p>Icon Three</p>"
+      },
+      {
+        "type": "text",
+        "id": "icon-4-label",
+        "label": "icon 4 label",
+        "default": "<p>Icon Four</p>"
       },
       {
         "type": "select",
