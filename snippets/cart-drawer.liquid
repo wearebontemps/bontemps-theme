@@ -1,10 +1,10 @@
 <div class="cart-drawer-wrapper">
 <div class="cart-drawer-closer"></div>
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
-<a style="float:right;" href="#" id="close_drawer"><span class="close-icon"></span></a>
-    <div class="section-header cart-header text-center d-flex align-items-end">
+    <div class="cart-header text-center d-flex align-items-end">
       <h1>{{ 'cart.general.title' | t }}</h1>
       <h4 style="margin-left: .75em;">{{ cart.item_count}} items | Free Returns</h4>
+      <a style="position: absolute;right:0; bottom: 0;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     </div>
     <form action="/cart" method="post" novalidate class="cart">
       <div id="cart-drawer-inner">
