@@ -977,8 +977,16 @@ $cart-width: 400px;
     right: 0;
     box-shadow: -2px 3px 4px rgba(0,0,0,.2);
     @include media-query($small) {
-      width: 100vw;
+      width: 100%;
     }
+  }
+}
+.cart-header {
+  margin-bottom: 1.5em;
+  padding-bottom: 12px;
+  border-bottom: 2px solid lightgrey;
+  h1,h4{
+    margin-bottom: 0 !important;
   }
 }
 .update-select{
@@ -994,7 +1002,7 @@ $cart-width: 400px;
   z-index: 10000;
   background: transparent;
   &.show{
-    width: 100vw;
+    width: 100%;
   }
 }
 .cart-drawer-closer{
@@ -4992,10 +5000,11 @@ input.cart_updater:hover{
   @include flex-wrap(wrap);
   @include align-items(flex-start);
   @include justify-content(flex-end);
-
+  max-width: 460px;
+  margin: 0 auto;
   & > .cart__submit-control {
-    margin-left: 10px;
     margin-bottom: 10px;
+    width: 100%;
   }
 
   & .cart__submit-control:first-child {
@@ -5009,7 +5018,7 @@ input.cart_updater:hover{
 
 .cart__submit {
   @include media-query($small) {
-    line-height: 1.4;
+    line-height: 26px;
     min-height: 44px;
     margin-left: 0;
     margin-bottom: 0;
@@ -6258,7 +6267,6 @@ $color-slideshow-close-text: #000;
   width: 60px;
   height: 60px;
   position: absolute;
-  bottom: 10%;
 }
 .carousel-control-prev-icon {
   background-image: url('{{ "arrow-left@3x.png" | asset_url }}');
@@ -6289,18 +6297,18 @@ $color-slideshow-close-text: #000;
     }
   }
   .product-carousel-indicators{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0 15px;
-    margin-top: 25px;
-    &.carousel-indicators{
-      margin-left: 0% !important;
-      margin-right: 0% !important;
-    }
+    // position: relative;
+    // width: 100%;
+    // height: 50px;
+    // display: flex;
+    // justify-content: center;
+    // flex-wrap: wrap;
+    // padding: 0 15px;
+    // margin-top: 25px;
+    // &.carousel-indicators{
+    //   margin-left: 0% !important;
+    //   margin-right: 0% !important;
+    // }
     .carousel-control-prev-icon, .carousel-control-next-icon {
       width: 35px;
       height: 35px;
@@ -6312,14 +6320,13 @@ $color-slideshow-close-text: #000;
       background-image: url('{{ "arrow-right@3x.png" | asset_url }}');
     }
     .product-image-indicator{
-      flex: 1;
-      margin: .15em;
-      padding: 10px;
+      // flex: 1;
+      // margin: .15em;
+      border-radius: 50%;
+      padding: 6px;
       height: 100%;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
       opacity: .7;
+      width: unset;
       &:hover{
         cursor: pointer;
       }
