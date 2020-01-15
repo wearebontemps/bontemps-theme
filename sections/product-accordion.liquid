@@ -9,7 +9,7 @@
     {% endfor %}
     </div>
     <div class="col-sm-6 order-sm-1 order-2 contained">
-      <h1 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h1>
+      <h2 class=" text-center" {% if section.settings.section_font != 'blank' %} style="color: {{ section.settings.section_font }} !important" {% endif %}>{{section.settings.section_header}}</h2>
       {% include 'product-accordion-upper' %}
     </div>
 </div>
