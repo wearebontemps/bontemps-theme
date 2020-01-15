@@ -125,9 +125,9 @@
   },
   "cart": {
     "general": {
-      "title": "Your cart",
+      "title": "Cart",
       "note": "Add a note to your order",
-      "remove": "Remove",
+      "remove": "x",
       "subtotal": "Subtotal",
       "savings": "You're saving",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
