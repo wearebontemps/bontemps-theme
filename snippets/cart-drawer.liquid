@@ -36,8 +36,10 @@
                 {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
               {%- endif -%}
             {%- endcapture -%}
-            <div class="cart__shipping rte">Free shipping on orders $35+</div>
-            <div class="cart__shipping rte"><small><em>{{ taxes_shipping_checkout }}</em></small></div>
+            <div class="cart__shipping rte">
+            <p>Free shipping on orders $35+</p>
+            <small><em>{{ taxes_shipping_checkout }}</em></small>
+            </div>
             <div class="cart__submit-controls">
               <input type="submit" name="checkout"
                 class="btn btn--small-wide cart__submit cart__submit-control"
