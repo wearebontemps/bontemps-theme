@@ -47,7 +47,7 @@ Shopify.AjaxifyCart = (function($) {
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
             console.log(item, priceFormatted);
             domSelector.append(
-                '<div class="row" style="margin: .25em auto;">'+
+                '<div class="row" style="margin: .25em auto 2em;">'+
                 '<div style="padding: 0 !important;" class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
                 '<a href="' + item.url + '"><img src="' + item.image + '" alt="' + item.title + '"/></a>'+
                 '</div>'+
