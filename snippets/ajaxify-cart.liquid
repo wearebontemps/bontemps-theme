@@ -51,15 +51,15 @@ Shopify.AjaxifyCart = (function($) {
                 '<div style="padding: 0 !important;" class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
                 '<a href="' + item.url + '"><img src="' + item.image + '" alt="' + item.title + '"/></a>'+
                 '</div>'+
-                '<div class="col-8 d-flex align-items-center" style="padding: 1em">'+
-                '<div class="row" style="width:100%;">'+
+                '<div class="col-8 d-flex align-items-center" style="padding: 1.5em 1em">'+
+                '<div class="row" style="width:100%;height:100%;">'+
                 '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
                 '<p><strong>'+ item.title +'</strong></p>'+
                 '<input disabled style="width: 100%; background:transparent !important;border: none;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
                 'id="updates_'+ item.key + '"'+
                 'value="' + item.quantity + '" min="0"/></div>'+
                 '<div class="col-6 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
-                '<div><a href="/cart/change?line='+ indexPlus + '&amp;quantity=0"><small>{{ "cart.general.remove" | t }}</small></a></div>'+
+                '<div><a href="/cart/change?line='+ indexPlus + '&amp;quantity=0">{{ "cart.general.remove" | t }}</a></div>'+
                 '<div>'+ priceFormatted + '</div>' +
                 '</div>' +
                 '</div>' +
