@@ -1988,8 +1988,8 @@ a[href^="tel"] {
   &:not([disabled]):hover,
   &:focus {
     color: $color-btn-primary-text;
-    // background-color: $color-btn-primary-focus;
-    background-color: #4b4cdc;
+    background-color: $color-btn-primary-focus;
+    
   }
 
   .icon-arrow-right,
@@ -8973,4 +8973,7 @@ select.rc_select{
   @include media-query($small){
     padding: 0 0 3em;
   }
+}
+.hover-light:hover{
+  background-color: #4b4cdc;
 }
