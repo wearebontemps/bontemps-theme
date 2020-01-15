@@ -46,7 +46,7 @@
     <img class="grid-view-item__image" data-src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
   {% capture product_meta %}
-  <div class="product-meta text-center" style="position: relative">
+  <div class="product-meta text-left" style="position: relative">
     <div class="details_{{product.id}} text-center">
       <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
       <div class="text-center flow-info">
@@ -54,8 +54,8 @@
           {% assign words = product.description | split: "<!--info-->" %}{{ words[1] }}
         </em></strong>
       </div>
-        <div class="variant-details row text-center" style="margin-top: .25em;">
-        <div class="col-12 text-center"  style="padding: 0;">
+        <div class="variant-details row text-left" style="margin-top: .25em;">
+        <div class="col-12 text-left"  style="padding: 0;">
           <div class="flow-caffeine">
           {% include 'caffeine' %}
           </div>
@@ -114,7 +114,7 @@
           $('.form_{{ product.id }}').removeClass('fadeIn');
       });
       {% endunless %}
-      
+
     })
     </script>
 </div>
