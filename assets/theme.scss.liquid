@@ -4252,7 +4252,7 @@ margin: 2em;
     @include media-query($small){
       padding: 0;
       h5{
-        font-size: 0.6em;
+        font-size: 0.8em;
       }
     }
   }
@@ -8935,6 +8935,7 @@ select.rc_select{
   .card-header{
     background: unset;
     padding-left: 0;
+    padding-right: 0;
     border-bottom: none;
   }
   .expander{
@@ -8988,4 +8989,9 @@ select.rc_select{
 }
 .hover-light:hover{
   background-color: #4b4cdc !important;
+}
+.icon-row{
+  @include media-query($small){
+    margin-bottom: 3em;
+  }
 }
