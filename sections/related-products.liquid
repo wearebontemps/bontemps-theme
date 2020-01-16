@@ -123,7 +123,7 @@
               <div class="section-header text-center">
                 <h2>{{ section.settings.title | escape }}</h2>
                 {% if section.settings.subtitle != blank %}<h5>{{ section.settings.subtitle | escape }}</h5>{% endif %}
-                  {% if section.settings.page_link.url != blank %}
+            {% if section.settings.page_link != blank %}
               <hr class="hr--invisible" aria-hidden="true" />
               <div class="text-center">
                 <a href="{{ section.settings.page_link.url }}" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">{{ section.settings.cta_text }}</a>
