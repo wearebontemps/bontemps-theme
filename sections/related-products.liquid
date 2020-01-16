@@ -117,12 +117,21 @@
   {% unless related_items == blank %}
 
   <aside class="grid page-width">
+
     <div class="grid__item">
-      {% unless heading == blank %}
-      <header class="section-header">
-        <h2 class="section-header__title text-center">{{ heading }}</h2>
-      </header>
-      {% endunless %}
+          {% if section.settings.title != blank %}
+              <div class="section-header text-center">
+                <h2>{{ section.settings.title | escape }}</h2>
+                {% if section.settings.subtitle != blank %}<h5>{{ section.settings.subtitle | escape }}</h5>{% endif %}
+                  {% if section.settings.show_view_all %}
+              <hr class="hr--invisible" aria-hidden="true" />
+              <div class="text-center">
+                <a href="{{ section.settings.page_link.url }}" class="btn btn--secondary" aria-label="View all products in the Featured Collection collection">{{ section.settings.cta_text }}</a>
+
+              </div>
+            {% endif %}
+              </div>
+          {% endif %}
       <div class="grid-uniform">
         {{ related_items }}
       </div>
@@ -147,10 +156,27 @@
       "default": false
     },
     {
-      "id": "related_title",
+      "id": "title",
       "type": "text",
       "label": "Section title",
       "default": "Other fine products"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "label": "Section subtitle",
+      "default": "Other fine products"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button text",
+      "default": "Meet the Family"
+    },
+    {
+      "type": "collection",
+      "id": "page_link",
+      "label": "CTA Button link"
     },
     {
       "type": "select",
