@@ -4274,7 +4274,7 @@ margin: 2em;
     .product-single__title {
       font-style: normal;
       font-stretch: normal;
-      line-height: normal;
+      // line-height: normal;
       @include media-query($small){
         font-size: 1.85em;
       }
@@ -9008,9 +9008,21 @@ select.rc_select{
   }
 }
 .mobile-price-display{
+  display: flex;
+  align-items: flex-end;
+  @include media-query($small){
+    align-items: center;
+  }
   h1{
     margin-bottom: 12px;
     margin-right: 12px;
+    @media screen and (min-width: 768px){
+      font-size: 1.65em;
+      line-height: 1.4em;
+    }
+  }
+  .product-single__title{
+    line-height: 1.2em;
   }
 }
 div.rc_block__type--active{
