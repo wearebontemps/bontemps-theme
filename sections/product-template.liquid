@@ -124,7 +124,7 @@
         </div> {% endcomment %}
 
         {% comment %}{% include "sample-helper" %}{% endcomment %}
-        <div class="product-meta d-block d-sm-none small-hide">
+        <div class="product-meta d-block d-sm-none">
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
@@ -240,7 +240,7 @@
 
     <div class="col offset-md-1 col-sm-6 col-md-5 product-single__photos product-single__photos--full order-md-2 order-sm-2 order-1">
       <div class="floating-box">
-        <div class="product__price product__price-upper d-sm-none d-block">
+        <div class="product__price product__price-upper d-sm-none d-block  small-hide">
           {% include 'product-price', variant: current_variant %}
         </div>
         {% comment %} <div class="d-block d-sm-none">{% include 'product-collnav' %}</div> {% endcomment %}
