@@ -2734,6 +2734,7 @@ textarea {
     max-width: 60%;
     margin-left: 10%;
     @include media-query($small){
+      text-align: center;
       max-width: 100%;
       margin-right: 0;
       margin-left: 0%;
@@ -6170,9 +6171,9 @@ $color-slideshow-close-text: #000;
   @include media-query($medium-up) {
     height: $slideshow-height-small;
 
-    &.slideshow--medium {
-      height: $slideshow-height-medium;
-    }
+    // &.slideshow--medium {
+    //   height: $slideshow-height-medium;
+    // }
 
     &.slideshow--large {
       height: $slideshow-height-large;
