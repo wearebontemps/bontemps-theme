@@ -52,7 +52,7 @@
           {% endif %}
           {% endfor %}
         </p> {% endcomment %}
-        <h1 class="product-single__title">{{ product.title }} -{% include 'product-price', variant: current_variant %}</h1>
+        <h1 class="product-single__title">{{ product.title }} - {% include 'product-price', variant: current_variant %}</h1>
         {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
       </div>
       {% if product.url contains "sample" %}
@@ -124,7 +124,7 @@
         </div> {% endcomment %}
 
         {% comment %}{% include "sample-helper" %}{% endcomment %}
-        <div class="product-meta d-block d-sm-none">
+        <div class="product-meta d-block d-sm-none small-hide">
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant %}
