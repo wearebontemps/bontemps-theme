@@ -4730,7 +4730,7 @@ h1.section-header{
 }
 
 .product-single__photos--full {
-  margin-bottom: $grid-gutter;
+  margin-bottom: $grid-gutter / 2;
 }
 
 .product-single__photo-wrapper {
@@ -7400,7 +7400,7 @@ $toolbar-height-small: 46px;
   }
 }
 .yotpo.bottomLine {
-  margin: 10px 0 20px;
+  margin: 0 0 10px;
   .yotpo-stars {
     .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
       font-size: 15px !important;
@@ -9009,9 +9009,10 @@ select.rc_select{
 }
 .mobile-price-display{
   h1{
-    @include media-query($small){
-      margin-bottom: 12px;
-      margin-right: 12px;
-    }
+    margin-bottom: 12px;
+    margin-right: 12px;
   }
+}
+div.rc_block__type--active{
+  background-color: #ff9f2d !important;
 }
