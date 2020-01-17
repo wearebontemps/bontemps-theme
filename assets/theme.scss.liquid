@@ -1747,8 +1747,8 @@ $slick-opacity-not-active: 0.25;
 
 .mega-title, .mega-title--large {
   font-size: em($font-size-header + 8);
-  font-size: 2.45em !important;
-  line-height: 1;
+  font-size: 2.65em !important;
+  line-height: 1.25;
   @include media-query($medium-up) {
     font-size: em(floor($font-size-header * 2.5));
   }
@@ -1995,7 +1995,7 @@ a[href^="tel"] {
   &:focus {
     color: $color-btn-primary-text;
     background-color: $color-btn-primary-focus;
-    
+
   }
 
   .icon-arrow-right,
@@ -4244,15 +4244,21 @@ margin: 2em;
 
 .homepage-icons-section {
   img.interval-image-small {
-    margin: 0 0 20px;
+    margin: 10px 0 10px;
     @include media-query($small){
-      margin: 0 0 10px;
+      margin: 5px 0 5px;
+      max-height: 60px;
     }
   }
   h5 {
     font-size: 1.15em;
     @include media-query($small){
       font-size: 1em;
+    }
+    @include media-query($small){
+      .row.d-flex.contained {
+        padding: 0;
+      }
     }
   }
   .homepage-icon-wrap{
@@ -8663,7 +8669,7 @@ $toolbar-height-small: 46px;
 }
 .interval-image-small{
   //  max-width: 100px;
-  max-height: 100px;
+  max-height: 80px;
 }
 #bundle_anchor {
   margin-top: 5em;
