@@ -6720,10 +6720,10 @@ $color-slideshow-close-text: #000;
   //@include flex-wrap(wrap);
   margin-top: 0;
   margin-bottom: 0;
-  font-size: em($font-size-base - 3);
+  font-size: em($font-size-base - 2);
 
   @include media-query($small) {
-    font-size: em($font-size-base - 4);
+    font-size: em($font-size-base - 2);
   }
 
   dl {
@@ -9040,8 +9040,11 @@ select.rc_select{
     padding: 0 0 3em;
   }
 }
-.hover-light:hover{
+.hover-light{
   background-color: #4b4cdc !important;
+}
+.hover-light:hover{
+  background-color: #0e0e37 !important;
 }
 .icon-row{
   @include media-query($small){
