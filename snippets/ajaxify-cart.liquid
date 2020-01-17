@@ -41,7 +41,7 @@ Shopify.AjaxifyCart = (function($) {
         var domSelector = $('#cart-drawer-inner');
         domSelector.html('');
         $('#cartCount').text(cart.items.length);
-        console.log(cart.items.length)
+        console.log('cart:', cart.items_count)
         for (i = 0; i < cart.items.length; i++){
             item = cart.items[i];
             var indexPlus = i + 1;
