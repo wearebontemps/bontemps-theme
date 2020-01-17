@@ -11,12 +11,11 @@
         <div class="grid">
           <div class="grid__item{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="d-flex justify-content-between">
-              <span class="cart__subtotal-title">Have a discount code?</span>
-              <span class="text-light-blue text-right">Enter it at Checkout</span>
+              <span class="cart__subtotal-title"><em>Discount codes applied at checkout.</em></span>
             </div>
             <div class="d-flex justify-content-between">
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="cart__subtotal text-light-blue">{{ cart.total_price | money }}</span>
+              <span class="cart__subtotal text-light-blue"><strong>{{ cart.total_price | money }}</strong></span>
             </div>
             {% if cart.total_discounts > 0 %}
               <div class="cart__savings">
