@@ -4287,6 +4287,9 @@ margin: 2em;
   // prevent scroll anchoring within element
   overflow-anchor: none;
   .product-template-row {
+    padding-right: 80px;
+    padding-top: 30px;
+    max-width: 510px;
     .product-single__meta {
       .product-single__title {
         font-style: normal;
@@ -4296,13 +4299,13 @@ margin: 2em;
         }
       }
     }
+    .product-description p{
+      margin-bottom: 4px !important;
+    }
     @include media-query($small){
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 20px;
-      .product-description p{
-        margin-bottom: 4px !important;
-      }
     }
   }
 }
@@ -9037,11 +9040,11 @@ select.rc_select{
     margin-bottom: 3em;
   }
 }
-.product-description{
-  p{
-    margin-bottom: 12px !important;
-  }
-}
+// .product-description{
+//   p{
+//     margin-bottom: 12px !important;
+//   }
+// }
 .mobile-price-display{
   display: flex;
   align-items: flex-end;
