@@ -21,6 +21,7 @@
           </div>
       </div>
     {% endfor %}
+    {% if arrayLength > 1%}
     <div class="product-carousel-control-box">
       <ol class="product-carousel-indicators carousel-indicators">
         {% for image in product.images limit: arrayLength %}
@@ -40,6 +41,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    {% endif %}
   </div>
   {% else %}
   {% for image in product.images %}
