@@ -4255,11 +4255,6 @@ margin: 2em;
     @include media-query($small){
       font-size: 1em;
     }
-    @include media-query($small){
-      .row.d-flex.contained {
-        padding: 0;
-      }
-    }
   }
   .homepage-icon-wrap{
     @include media-query($small){
@@ -4267,6 +4262,11 @@ margin: 2em;
       h5{
         font-size: 0.8em;
       }
+    }
+  }
+  @include media-query($small){
+    .row.d-flex.contained {
+      padding: 0;
     }
   }
 }
@@ -8153,6 +8153,9 @@ $toolbar-height-small: 46px;
     padding: 0 1em 0 3.5em;
     @include media-query($small) {
       padding: 3em;
+      h2.about-subtitle p {
+        font-size: 1em;
+      }
     }
   }
 }
@@ -8975,6 +8978,7 @@ select.rc_select{
     }
     .accordion-content {
       margin: 2em 1em 0;
+      padding: 3em 1.5em;
     }
 
   }
