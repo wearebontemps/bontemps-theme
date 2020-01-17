@@ -4290,9 +4290,13 @@ margin: 2em;
   // prevent scroll anchoring within element
   overflow-anchor: none;
   .product-template-row {
-    padding-right: 80px;
     padding-top: 30px;
-    max-width: 510px;
+    .max-box {
+      max-width: 300px;
+      @include media-query($small){
+        max-width: unset; 
+      }
+    }
     .product-single__meta {
       .product-single__title {
         font-style: normal;
@@ -7482,7 +7486,7 @@ $toolbar-height-small: 46px;
     // color: #0E0E37 !important;
   }
   span.yotpo-stars {
-    margin-bottom: 5px !important;
+    margin-left: 5px !important;
   }
   .yotpo-regular-box{
     margin-left: 0 !important;
