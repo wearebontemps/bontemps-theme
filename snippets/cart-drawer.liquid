@@ -3,7 +3,7 @@
 <div class="" id="cart-drawer" data-section-id="{{ section.id }}" data-section-type="cart-template">
     <div style="position: relative;" class="cart-header text-center d-flex align-items-end">
       <h1 style="line-height: 20px;">{{ 'cart.general.title' | t }}</h1>
-      <h4 style="margin-left: .75em;">{{ cart.item_count}} items | Free Returns</h4>
+      <h4 style="margin-left: .75em;"><span id="cartCount">{{ cart.item_count}}</span> items | Free Returns</h4>
       <a style="position: absolute;right:0; bottom: 12px;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     </div>
     <form action="/cart" method="post" novalidate class="cart">

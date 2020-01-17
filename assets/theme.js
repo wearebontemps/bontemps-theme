@@ -3407,3 +3407,8 @@ jQuery('#notify-me').click(function() {
   jQuery('#notify-me-wrapper').fadeIn();
   return false;
 } );
+Shopify.onItemAdded = function(cart) {
+	jQuery.getJSON('/cart.js', function(cart) {
+  	$('#cartCount').html(cart.item_count);
+	});
+};
