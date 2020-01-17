@@ -2,7 +2,8 @@
 {% assign arrayLength = product.images.size | minus: 2 %}
   <div id="product-image-carousel" class="carousel slide responsive-image__wrapper" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
-    {% for image in (1..arrayLength) %}
+    {% for image in product.images limit: arrayLength %}
+    {%  forloop.last %}
       <div class="carousel-item lazyload {% if forloop.first %}active{% endif %} product-image">
       {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
           {% capture img_class %}product-featured-img{% endcapture %}
@@ -23,7 +24,7 @@
     {% endfor %}
     <div class="product-carousel-control-box">
       <ol class="product-carousel-indicators carousel-indicators">
-        {% for image in (1..arrayLength) %}
+        {% for image in product.images limit: arrayLength %}
         <li data-target="#product-image-carousel"
           data-slide-to="{{ forloop.index0 }}"
           class="{% if forloop.first %}active{% endif %} product-image-indicator">
