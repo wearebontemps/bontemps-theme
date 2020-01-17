@@ -43,11 +43,11 @@
             </div>
             <div class="cart__submit-controls">
               <input type="submit" name="checkout"
-                class="btn btn--small-wide cart__submit cart__submit-control hover-light"
+                class="btn btn--small-wide cart__submit cart__submit-control hover-dark"
                 value="{{ 'cart.general.checkout' | t }}">
                 <br/>
                 {% for link in linklists.peek-cart-button.links | limit: 1 %}
-                  <a id="continue-shopping" href="{{link.url}}" title="Continue shopping" class="btn flow-button btn btn--small-wide cart__submit cart__submit-control" >Continue Shopping</a>
+                  <a id="continue-shopping" href="{{link.url}}" title="Continue shopping" class="btn btn--small-wide cart__submit cart__submit-control" >Continue Shopping</a>
                 {% endfor %}
             </div>
             </div>
