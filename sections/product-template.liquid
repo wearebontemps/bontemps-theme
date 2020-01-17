@@ -42,27 +42,30 @@
 
   <div class="row product-single">
     <div class="col col-sm-6 col-md-6 order-md-1 order-sm-1 order-2 product-template-row">
-      <div class="product-single__meta">
-        {% comment %} <p class="tasting-notes">
-          <span class="collection-title">{{ collection.title }}</span>
-          {% for tag in product.tags %}
-          {% if tag contains 'effect' %}
-          {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
-          <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
-          {% endif %}
-          {% endfor %}
-        </p> {% endcomment %}
-        <div class=" mobile-price-display"><h1 class="product-single__title">{{ product.title }} </h1><h1>{% include 'product-price', variant: current_variant %}</h1></div>
-        {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
-      </div>
-      {% if product.url contains "sample" %}
-      {% else %}
-      <div class="yotpo-star-box yotpo">
-        <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
-          data-product-id="{{ product.id }}">
+      <div class="max-box">
+
+
+        <div class="product-single__meta">
+          {% comment %} <p class="tasting-notes">
+            <span class="collection-title">{{ collection.title }}</span>
+            {% for tag in product.tags %}
+            {% if tag contains 'effect' %}
+            {% assign tag_mod = tag | handle | remove: 'effect-' | split: '-' %}
+            <span class="effect"> - {% for word in tag_mod %}{{ word | capitalize }} {% endfor %}</span>
+            {% endif %}
+            {% endfor %}
+          </p> {% endcomment %}
+          <div class=" mobile-price-display"><h1 class="product-single__title">{{ product.title }} </h1><h1>{% include 'product-price', variant: current_variant %}</h1></div>
+          {% comment %} <a href="#product-reviews" id="review-upper"><div  class="yotpo upper yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div></a> {% endcomment %}
         </div>
-      </div>
-      {% endif %}
+        {% if product.url contains "sample" %}
+        {% else %}
+        <div class="yotpo-star-box yotpo">
+          <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
+            data-product-id="{{ product.id }}">
+          </div>
+        </div>
+        {% endif %}
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
         {%- endcomment -%}
@@ -98,7 +101,6 @@
           {% include 'caffeine' %}
           </div>
         </div>
-
         <div class="row product-ingredient-icons">
           <div class="col text-center">
             <img class="image img img-responsive" src="{{ section.settings.icon1 | img_url: '300x' }}" alt="{{ section.settings.icon-1-label }}" style="max-width: {{ section.settings.icon-1-height }}px;"/>
@@ -117,7 +119,7 @@
             <p>{{section.settings.icon-4-label}}</p>
           </div>
         </div>
-
+      </div>
         {% comment %} <div class="rte small-hide" style="margin-top: 10px;">
           {% include 'product-accordion-upper' %}
         </div> {% endcomment %}
