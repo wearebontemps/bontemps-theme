@@ -40,6 +40,7 @@ Shopify.AjaxifyCart = (function($) {
     var buildCart = function(cart){
         var domSelector = $('#cart-drawer-inner');
         domSelector.html('');
+        $('#cartCount').text(cart.items.length);
         for (i = 0; i < cart.items.length; i++){
             item = cart.items[i];
             var indexPlus = i + 1;
@@ -97,16 +98,16 @@ Shopify.AjaxifyCart = (function($) {
     popCart();
     };
 var _setText = function($button, label) {
-    if ($button.children().length) {
-        $button.children().each(function() {
-        if ($.trim($(this).text()) !== '') {
-            $(this).text(label);
-        }
-        });
-    }
-    else {
-        $button.val(label).text(label);
-    }
+    //if ($button.children().length) {
+    //    $button.children().each(function() {
+     //   if ($.trim($(this).text()) !== '') {
+    //        $(this).text(label);
+    //    }
+    //    });
+   // }
+   // else {
+     //   $button.val(label).text(label);
+    //}
 };
 
   var _init = function() {
@@ -140,7 +141,6 @@ var _setText = function($button, label) {
                 var value = $(_config.cartCountSelector).html() || '0';
                 $(_config.cartCountSelector).html(value.replace(/[0-9]+/,cart.item_count)).removeClass('hidden-count');
                 $('#cart_target').text({{ cart.item_count }});
-                $('#cartCount').text({{ cart.item_count }});
                 }
                 if (_config.cartTotalSelector && $(_config.cartTotalSelector).size ) {
                 if (typeof Currency !== 'undefined' && typeof Currency.moneyFormats !== 'undefined') {
