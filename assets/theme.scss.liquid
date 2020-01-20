@@ -4292,9 +4292,9 @@ margin: 2em;
   .product-template-row {
     padding-top: 30px;
     .max-box {
-      max-width: 300px;
+      max-width: 330px;
       @include media-query($small){
-        max-width: unset; 
+        max-width: unset;
       }
     }
     .product-single__meta {
@@ -7437,6 +7437,9 @@ $toolbar-height-small: 46px;
 }
 .yotpo.bottomLine {
   margin: 0 0 10px;
+  &.yotpo-card.yotpo-small {
+    justify-content: center;
+  }
   .yotpo-stars {
     .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
       font-size: 15px !important;
@@ -7487,7 +7490,7 @@ $toolbar-height-small: 46px;
     // color: #0E0E37 !important;
   }
   span.yotpo-stars {
-    margin-left: 5px !important;
+    margin-left: 2px !important;
   }
   .yotpo-regular-box{
     margin-left: 0 !important;
