@@ -2757,6 +2757,9 @@ textarea {
     }
     //color: #ff9f2d !important;
 }
+.navbar.contained {
+  padding: .5em 1em 0;
+}
 .navbar-nav {
   align-items: center;
   .nav-item{
@@ -4292,9 +4295,9 @@ margin: 2em;
   .product-template-row {
     padding-top: 30px;
     .max-box {
-      max-width: 300px;
+      max-width: 330px;
       @include media-query($small){
-        max-width: unset; 
+        max-width: unset;
       }
     }
     .product-single__meta {
@@ -4512,7 +4515,10 @@ h1.section-header{
 
 .product__price,
 .featured-product__price {
-  font-size: 1.25em;
+  font-size: 1.1em;
+  @include media-query($small){
+    font-size: 1.6em;
+  }
 }
 
 .product__policies {
@@ -7437,6 +7443,10 @@ $toolbar-height-small: 46px;
 }
 .yotpo.bottomLine {
   margin: 0 0 10px;
+  &.yotpo-card.yotpo-small {
+    justify-content: center;
+    display: flex;
+  }
   .yotpo-stars {
     .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
       font-size: 15px !important;
@@ -7487,7 +7497,7 @@ $toolbar-height-small: 46px;
     // color: #0E0E37 !important;
   }
   span.yotpo-stars {
-    margin-left: 5px !important;
+    margin-left: 2px !important;
   }
   .yotpo-regular-box{
     margin-left: 0 !important;
@@ -8979,8 +8989,8 @@ select.rc_select{
   margin-bottom: 1em;
   .card{
     border: none;
-    border-top: 1px solid $color-text;
-    border-bottom: none;
+    border-top: none;
+    border-bottom: 1px solid $color-text;
     border-radius: 0;
     background: transparent;
   }
