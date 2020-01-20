@@ -4512,7 +4512,10 @@ h1.section-header{
 
 .product__price,
 .featured-product__price {
-  font-size: 1.25em;
+  font-size: 1.1em;
+  @include media-query($small){
+    font-size: 1.6em;
+  }
 }
 
 .product__policies {
@@ -7439,6 +7442,7 @@ $toolbar-height-small: 46px;
   margin: 0 0 10px;
   &.yotpo-card.yotpo-small {
     justify-content: center;
+    display: flex;
   }
   .yotpo-stars {
     .yotpo-icon-star, .yotpo-icon-half-star, .yotpo-icon-empty-star {
