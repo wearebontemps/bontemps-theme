@@ -2970,6 +2970,19 @@ padding: 0;
       padding-left: 8px;
     }
   }
+  .dropdown-story {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1em 9rem;
+    @include media-query($small){
+      padding: unset;
+    }
+    ul{
+      padding-left: 8px;
+    }
+  }
 .dropdown-menu {
   position: fixed !important;
   left: 0;
