@@ -29,7 +29,7 @@
           {{ link.title }}
         </a>
       </li> {% endcomment %}
-      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" {% if link.links != blank %}id="navbarDropdown-{{ link.url }}"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" {% if link.links != blank %}id="navbarDropdown-{{ link.url }}"{% endif %} role="button" data-toggle="dropdown">{{ link.title }}</a>
       {% if link.links != blank %}
       <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{link.url}}">
           <div class="dropdown-shop">
