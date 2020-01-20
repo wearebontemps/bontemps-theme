@@ -29,8 +29,10 @@
           {{ link.title }}
         </a>
       </li> {% endcomment %}
-      <li><a class="dropdown-link" href="{{ link.url }}">{{ link.title }}</a>
+      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" {% if link.links != blank %}id="navbarDropdown-{{ link.url }}"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
       {% if link.links != blank %}
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{link.url}}">
+          <div class="dropdown-shop">
         <ul class="dropdown-category-list collection-list">
           {% for child_link in link.links %}
           <li><a href= "{{ child_link.url }}">{{ child_link.title }}</a>
@@ -40,6 +42,8 @@
               <li><a href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
             {% endfor %}
             </ul>
+            </div>
+            </div>
           {% endif %}
           </li>
           {% endfor %}
