@@ -15,13 +15,16 @@
       </div>
     </div>
   </div>
-  <div class="small-hide" style="margin-top:1em;">
-    <div class="page-width text-center">
-      <a id="" class="btn flow-button subscription_start" href="{{ section.settings.cta_url }}">
-        <span>{{ section.settings.cta_text }}</span>
-      </a>
+  {% if section.settings.cta_url != blank %}
+    <div class="small-hide" style="margin-top:1em;">
+      <div class="page-width text-center">
+        <a id="" class="btn flow-button subscription_start" href="{{ section.settings.cta_url }}">
+          <span>{{ section.settings.cta_text }}</span>
+        </a>
+      </div>
     </div>
-  </div>
+  {% endif %}
+  {% if section.settings.cta_url != blank %}
   <div class="small-show" style="margin-top:1em;">
     <div class="d-flex align-items-center row-70 row">
       <div class="col-12 text-center">
@@ -31,6 +34,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
   <div class="row" style="height: 40px;"></div>
 </div>
 
