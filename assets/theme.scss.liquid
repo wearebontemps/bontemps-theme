@@ -4983,6 +4983,13 @@ input.cart_updater:hover{
   text-decoration: underline;
   //text-decoration-color: #bc451b;
 }
+input.cart_updater{
+  @include media-query($small) {
+    padding: 8px 3px;
+    letter-spacing: 0.26em;
+    font-size: 9px;
+  }
+}
 .cart__meta-text {
   padding: 5px 0;
   font-size: em($font-size-base - 2);
