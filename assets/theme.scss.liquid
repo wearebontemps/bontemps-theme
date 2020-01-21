@@ -4984,9 +4984,15 @@ input.cart_updater:hover{
   //text-decoration-color: #bc451b;
 }
 input.cart_updater{
+  @include media-query($medium-down) {
+    padding: 8px 0px;
+  }
   @include media-query($small) {
     padding: 8px 3px;
     letter-spacing: 0.26em;
+    font-size: 12px;
+  }
+  @media screen and (max-width: 375px){
     font-size: 9px;
   }
 }
@@ -8331,6 +8337,9 @@ $toolbar-height-small: 46px;
     p {margin-bottom: 0;}
     .caffeine-level, p.caffeine-level {
       //font-size: .9em;
+      @include media-query($small){
+        font-size: .9em;
+      }
       .dot {
         height: 8px;
         width: 8px;
@@ -8342,9 +8351,7 @@ $toolbar-height-small: 46px;
           background-color: #0E0E37;
         }
       }
-      @include media-query($medium-down){
-        //font-size: .8em;
-      }
+      
     }
     @include media-query($medium-down){
       font-size: .8em;
