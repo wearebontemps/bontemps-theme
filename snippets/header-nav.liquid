@@ -7,11 +7,11 @@
     <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
       {% if link.handle == 'shop' %}
-      <li {% if forloop.first %}class="nav-item dropdown shop show" id="nav-target" {% else %} class="nav-item dropdown"{% endif %}>
+      <li class="nav-item dropdown shop">
         <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
           {{ link.title }}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div {% if forloop.first %}class="dropdown-menu show" id="nav-target" {% else %}class="dropdown-menu" {% endif %}aria-labelledby="navbarDropdown">
           <div class="dropdown-shop">
             {% assign navColl = collections[section.settings.customColl] %}
             <ul class="dropdown-category-list collection-list">
