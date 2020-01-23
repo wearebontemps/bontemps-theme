@@ -108,6 +108,12 @@
     button.click();
   }  //    add an event listener for the "click" event.
   var switcher = false;
+  $(document).ready({
+    windowsize = $(window).width();
+    if (windowsize < 768 ) {
+      $("#nav-target").addClass('show')
+    }
+  })
   $(window).resize(function() {
     windowsize = $(window).width();
     if (windowsize < 768 && switcher == false ) {
