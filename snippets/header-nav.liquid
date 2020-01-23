@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
       {% if link.handle == 'shop' %}
-      <li {% if forloop.first %}class="nav-item dropdown shop" {% else %} class="nav-item dropdown"{% endif %}>
+      <li {% if forloop.first %}class="nav-item dropdown shop" id="nav-target" {% else %} class="nav-item dropdown"{% endif %}>
         <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
           {{ link.title }}
         </a>
@@ -31,7 +31,7 @@
       </li> {% endcomment %}
       <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" {% if link.links != blank %}id="navbarDropdown-{{ link.url }}"{% endif %} role="button" data-toggle="dropdown">{{ link.title }}</a>
       {% if link.links != blank %}
-      <div {%if forloop.first %} class="dropdown-menu show" id="nav-target"{% else %}class="dropdown-menu" {% endif %} aria-labelledby="navbarDropdown-{{link.url}}">
+      <div {% if forloop.first %} class="dropdown-menu show" id="nav-target"{% else %}class="dropdown-menu" {% endif %} aria-labelledby="navbarDropdown-{{link.url}}">
           <div class="dropdown-story">
         <ul class="dropdown-category-list collection-list">
           {% for child_link in link.links %}
