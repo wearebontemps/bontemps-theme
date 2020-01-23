@@ -31,7 +31,7 @@
       </li> {% endcomment %}
       <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" {% if link.links != blank %}id="navbarDropdown-{{ link.url }}"{% endif %} role="button" data-toggle="dropdown">{{ link.title }}</a>
       {% if link.links != blank %}
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{link.url}}">
+      <div class="dropdown-menu show" id="nav-target" aria-labelledby="navbarDropdown-{{link.url}}">
           <div class="dropdown-story">
         <ul class="dropdown-category-list collection-list">
           {% for child_link in link.links %}
@@ -107,4 +107,14 @@
     var button = document.getElementById("AddToCart-product-template");
     button.click();
   }  //    add an event listener for the "click" event.
+  var switcher = false;
+  $(window).resize(function() {
+    windowsize = $(window).width();
+    if (windowsize < 768 && switcher == false ) {
+        $("#nav-target").addClass('show')
+        switcher == true
+    } else if (windowsize >= 750 && switcher == false ){
+        $("#nav-target").removeClass('show')
+    }
+  });
 </script>
