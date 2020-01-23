@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto d-flex">
       {% for link in linklists[section.settings.menu].links %}
       {% if link.handle == 'shop' %}
-      <li {% if forloop.first %}class="nav-item dropdown shop" id="nav-target" {% else %} class="nav-item dropdown"{% endif %}>
+      <li {% if forloop.first %}class="nav-item dropdown shop show" id="nav-target" {% else %} class="nav-item dropdown"{% endif %}>
         <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
           {{ link.title }}
         </a>
