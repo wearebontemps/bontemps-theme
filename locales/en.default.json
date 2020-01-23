@@ -142,6 +142,7 @@
       "cancel": "Cancel",
       "continue_shopping": "Continue shopping",
       "free_shipping_copy": "Free Shipping on Orders over $20",
+      "cart_discount_copy": "Discount codes applied at checkout.",
       "cart_guarantee": "Satisfaction Guaranteed"
     },
     "label": {
