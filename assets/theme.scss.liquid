@@ -970,7 +970,7 @@ $cart-width: 400px;
   height: 100%;
   overflow: auto;
   background: white;
-  transition: all 0.2s;
+  transition: all 0.42s;
   z-index: 10001;
   padding: 10px 30px;
   &.show{
@@ -1004,7 +1004,7 @@ $cart-width: 400px;
   right: 0;
   height: 100vh;
   width: 0;
-  transition: all 1s;
+  transition: all .4s;
   z-index: 10000;
   background: transparent;
   &.show{
@@ -2667,7 +2667,7 @@ textarea {
   top: 0;
   z-index: 100;
   width: 100%;
-  padding: 1rem 3rem 1rem;
+  padding: .5rem 3rem .5rem;
   //padding: 3rem 3rem 1rem;
   transition: padding 0.7s, background-color 0.5s;
   background-color: rgba(255,255,255, 1);
@@ -2737,14 +2737,16 @@ textarea {
   }
   &.left{
     text-align: left;
-    max-width: 60%;
+    width: 60%;
+    max-width: 500px;
     margin-left: 10%;
     @include media-query($small){
       text-align: center;
-      max-width: 100%;
-      margin-right: 0;
-      margin-left: 0%;
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto;
       font-size: .8em;
+      //text-shadow: 1px 2px 7px rgba(0,0,0,.45);
     }
   }
 }
@@ -4273,8 +4275,8 @@ margin: 2em;
   img.interval-image-small {
     margin: 10px 0 10px;
     @include media-query($small){
-      margin: 5px 0 5px;
-      max-height: 60px;
+      margin: 2px 0 2px;
+      max-height: 50px;
     }
   }
   h5 {
@@ -4993,7 +4995,7 @@ input.cart_updater{
     font-size: 12px;
   }
   @media screen and (max-width: 375px){
-    font-size: 9px;
+    font-size: 11px;
   }
 }
 .cart__meta-text {
@@ -8351,7 +8353,7 @@ $toolbar-height-small: 46px;
           background-color: #0E0E37;
         }
       }
-      
+
     }
     @include media-query($medium-down){
       font-size: .8em;
