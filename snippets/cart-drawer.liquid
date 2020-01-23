@@ -11,7 +11,7 @@
         <div class="grid">
           <div class="grid__item{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="d-flex justify-content-between">
-              <span class="cart__subtotal-title"><em>{{ 'cart.general.cart_discount_copy' }}</em></span>
+              <span class="cart__subtotal-title"><em>{{ 'cart.general.cart_discount_copy'  | t }}</em></span>
               {% comment %} <span class="cart__subtotal-title">Have a discount code?</span>
               <span class="text-light-blue text-right">Enter it at Checkout</span> {% endcomment %}
             </div>
