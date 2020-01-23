@@ -11,7 +11,7 @@
         <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
           {{ link.title }}
         </a>
-        <div {% if forloop.first %}class="dropdown-menu show" id="nav-target" {% else %}class="dropdown-menu" {% endif %}aria-labelledby="navbarDropdown">
+        <div {% if forloop.first %}class="dropdown-menu" id="nav-target" {% else %}class="dropdown-menu" {% endif %}aria-labelledby="navbarDropdown">
           <div class="dropdown-shop">
             {% assign navColl = collections[section.settings.customColl] %}
             <ul class="dropdown-category-list collection-list">
