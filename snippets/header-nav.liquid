@@ -112,7 +112,9 @@
     windowsize = $(window).width()
     if (windowsize < 768 ) {
       $("#navbar-burger").click(function(){
-        $('#navbarDropdown').click()
+        setTimeout(function() {
+          $('#navbarDropdown').click()
+        }, 1000)
         console.log('switch on')
       })
     }
