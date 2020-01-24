@@ -6315,6 +6315,15 @@ $color-slideshow-close-text: #000;
     }
   }
 }
+// mobile overrides for slider
+@include media-query($small){
+  .ratio-container:after{
+    padding-bottom: 100%;
+  }
+  #Slideshow-header-homepage{
+    height: unset;
+  }
+}
 
 #shopify-section-header-homepage .header-slider {
   .slick-track, .slick-slide, .slideshow-wrapper {
