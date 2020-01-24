@@ -55,7 +55,7 @@
       {% endif %}
       {% endfor %}
     </ul>
-    <button class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-burger" class="navbar-toggler justify-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <!-- <span class="icon-close"></span>-->{% include 'icon-close' %}
     </button>
   </div>
@@ -111,16 +111,10 @@
   $(document).ready(function(){
     windowsize = $(window).width()
     if (windowsize < 768 ) {
-      $("#nav-target").dropdown()
+      $("#navbar-burger").click(function(){
+        $("#nav-target").collapse('toggle')
+      })
     }
   })
-  $(window).resize(function() {
-    windowsize = $(window).width()
-    if (windowsize < 768 && switcher == false ) {
-        $("#nav-target").dropdown()
-        switcher == true
-    } else if (windowsize >= 750 && switcher == false ){
-        $("#nav-target").dropdown()
-    }
-  });
+
 </script>
